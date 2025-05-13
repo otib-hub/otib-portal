@@ -6,22 +6,22 @@ const steps = [
 	{
 		step: 1,
 		icon: User,
-		title: 'Sobre você',
+		title: 'Você',
 	},
 	{
 		step: 2,
 		icon: Plane,
-		title: 'Sua viagem',
+		title: 'Viagem',
 	},
 	{
 		step: 3,
 		icon: Activity,
-		title: 'O que você viveu',
+		title: 'Atividades',
 	},
 	{
 		step: 4,
 		icon: Percent,
-		title: 'Sua experiência',
+		title: 'Avaliação',
 	},
 ];
 
