@@ -33,8 +33,12 @@ export default function FormControlledField<T extends z.ZodType>({
 			control={form.control}
 			name={fieldOptions.name}
 			render={({ field }) => (
-				<FormItem className='w-full'>
-					{fieldOptions.label && <FormLabel>{fieldOptions.label}</FormLabel>}
+				<FormItem className='w-full space-y-2'>
+					{fieldOptions.label && (
+						<FormLabel className='font-semibold'>
+							{fieldOptions.label}
+						</FormLabel>
+					)}
 					<FormControl className='w-full'>
 						<Input
 							className={`w-full max-w-3xl ${cn(className)}`}

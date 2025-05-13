@@ -8,7 +8,7 @@ export default function Home() {
 		<main
 			className={`w-full h-[calc(100dvh-109px-24px)] flex flex-col justify-center items-center gap-8 text-4xl lg:text-5xl font-semibold tracking-tight`}
 		>
-			<h1 className={`${ibmPlexSans.className}`}>
+			<h1 className={`${ibmPlexSans.className} text-center`}>
 				Bem vindo ao protótipo do OTIB!
 			</h1>
 			<Link href='/form'>

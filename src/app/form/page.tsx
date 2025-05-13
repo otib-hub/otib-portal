@@ -31,7 +31,7 @@ const steps = [
 
 export default function FormPage() {
 	return (
-		<main className='main-container flex flex-col items-start'>
+		<main className='flex flex-col items-start'>
 			<FormSteps steps={steps} />
 			<ExampleForm />
 		</main>
