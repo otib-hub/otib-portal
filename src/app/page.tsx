@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { ibmPlexSans } from '@/styles/fonts';
 import { ClipboardList } from 'lucide-react';
 import Link from 'next/link';
@@ -11,11 +11,14 @@ export default function Home() {
 			<h1 className={`${ibmPlexSans.className} text-center`}>
 				Bem vindo ao protótipo do OTIB!
 			</h1>
-			<Link href='/form'>
-				<Button className='w-full md:w-fit flex font-bold text-lg md:text-base'>
-					<ClipboardList />
-					Formulário de teste
-				</Button>
+			<Link
+				className={`${buttonVariants({
+					variant: 'default',
+				})}  flex font-bold`}
+				href='/form'
+			>
+				<ClipboardList size={24} />
+				Formulário de teste
 			</Link>
 		</main>
 	);
