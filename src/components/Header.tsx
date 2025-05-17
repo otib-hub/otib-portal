@@ -4,8 +4,8 @@ import { Separator } from './ui/separator';
 
 export default function Header() {
 	return (
-		<header className='mb-6'>
-			<div className='w-full flex justify-between items-center mb-5'>
+		<header className='w-full flex flex-col gap-5'>
+			<div className='w-full flex justify-between items-center'>
 				<h1
 					className={`${ibmPlexSans.className} text-3xl font-semibold lg:text-4xl tracking-tight`}
 				>
