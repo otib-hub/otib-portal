@@ -1,0 +1,43 @@
+import { NextResponse } from 'next/server';
+
+export async function POST(request: Request) {
+	try {
+		const { country } = await request.json();
+		if (!country) {
+			return NextResponse.json(
+				{ error: 'Country é obrigatório' },
+				{ status: 400 }
+			);
+		}
+
+		const response = await fetch(
+			'https://countriesnow.space/api/v0.1/countries/states',
+			{
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ country }),
+			}
+		);
+
+		const data = await response.json();
+		if (!data.data?.states) {
+			return NextResponse.json(
+				{ error: 'Estados não encontrados' },
+				{ status: 404 }
+			);
+		}
+
+		const states: Record<string, string> = {};
+
+		data.data.states.forEach((state) => {
+			states[state.state_code] = state.name;
+		});
+
+		return NextResponse.json(states);
+	} catch {
+		return NextResponse.json(
+			{ error: 'Erro ao obter estados' },
+			{ status: 500 }
+		);
+	}
+}
