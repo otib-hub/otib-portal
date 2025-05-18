@@ -1,4 +1,4 @@
-import ExampleForm from '@/components/forms/ExampleForm/ExampleForm';
+import ExampleForm from '@/forms/ExampleForm/ExampleForm';
 
 export default function FormPage() {
 	return (
