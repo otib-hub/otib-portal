@@ -48,7 +48,7 @@ export const tripStepSchema = z.object({
 		.max(8000, {
 			message: 'Selecione no máximo 8000 reais para mais',
 		}),
-	trip_know_mirantes_ibiapaba: z.boolean({
+	trip_know_ibiapaba_mirantes: z.boolean({
 		required_error: 'Campo obrigatório',
 	}),
 });
