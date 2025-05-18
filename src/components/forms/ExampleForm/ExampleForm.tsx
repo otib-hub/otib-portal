@@ -11,6 +11,8 @@ import { z } from 'zod';
 import { useEffect } from 'react';
 import FormStepper from '@/components/FormStepper';
 
+const IS_STEP_VALIDATION_ACTIVE = false;
+
 export default function ExampleForm() {
 	const {
 		currentStep,
@@ -41,12 +43,13 @@ export default function ExampleForm() {
 	});
 
 	async function onNextStep() {
-		// const isValid = await methods.trigger();
-
-		// if (!isValid) {
-		// 	toast.error('Por favor, preencha todos os campos obrigatórios');
-		// 	return;
-		// }
+		if (IS_STEP_VALIDATION_ACTIVE) {
+			const isValid = await methods.trigger();
+			if (!isValid) {
+				toast.error('Por favor, preencha todos os campos obrigatórios');
+				return;
+			}
+		}
 
 		if (!isLastStep) {
 			nextStep();
@@ -74,7 +77,7 @@ export default function ExampleForm() {
 				>
 					{currentStep}
 
-					<div className='flex gap-4 flex-col md:flex-row md:justify-start'>
+					<div className='flex gap-4 flex-col-reverse md:flex-row md:justify-start'>
 						{!isFirstStep && (
 							<Button
 								className='w-full md:w-fit'
