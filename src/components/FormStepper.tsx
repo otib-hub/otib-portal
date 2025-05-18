@@ -9,12 +9,12 @@ import {
 } from '@/components/ui/stepper';
 import React from 'react';
 
-interface FormStepsProps {
+interface FormStepperProps {
 	steps: FormStep[];
 	activeStep?: number;
 }
 
-export default function FormSteps({ steps, activeStep }: FormStepsProps) {
+export default function FormStepper({ steps, activeStep }: FormStepperProps) {
 	return (
 		<Stepper className='w-full my-8' value={activeStep}>
 			{steps.map((step, idx) => (
