@@ -1,5 +1,5 @@
 import { FormStep } from '@/@types/form-step';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'sonner';
 
 export default function useMultiStepForm(
@@ -28,6 +28,7 @@ export default function useMultiStepForm(
 	};
 
 	return {
+		currentStep: React.createElement(steps[currentStepIndex].step),
 		currentStepIndex,
 		isFirstStep: currentStepIndex === 0,
 		isLastStep: currentStepIndex === steps.length - 1,
