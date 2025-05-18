@@ -4,7 +4,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import {
 	profileStepSelectOptions,
 	ProfileStepType,
-} from '../schemas/profile-schema';
+} from '../schemas/step1-profile-schema';
 import { SelectWithSearch } from '@/components/ui/select-with-search';
 
 export default function ProfileStep() {
@@ -18,71 +18,80 @@ export default function ProfileStep() {
 		<>
 			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
 				<FormItem className='w-full space-y-2'>
-					<FormLabel htmlFor='tourist-country' aria-invalid={!!errors.country}>
+					<FormLabel
+						htmlFor='tourist_country'
+						aria-invalid={!!errors.tourist_country}
+					>
 						País
 					</FormLabel>
 					<Controller
-						name='country'
+						name='tourist_country'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-country'
+								id='tourist_country'
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.country}
-								options={profileStepSelectOptions.localization.country}
+								hasError={!!errors.tourist_country}
+								options={profileStepSelectOptions.localization.tourist_country}
 								placeholder='Selecione seu país'
 							/>
 						)}
 					/>
-					{errors.country && (
-						<FormMessage>{String(errors.country.message)}</FormMessage>
+					{errors.tourist_country && (
+						<FormMessage>{String(errors.tourist_country.message)}</FormMessage>
 					)}
 				</FormItem>
 
 				<FormItem className='w-full space-y-2'>
-					<FormLabel htmlFor='tourist-state' aria-invalid={!!errors.state}>
+					<FormLabel
+						htmlFor='tourist_state'
+						aria-invalid={!!errors.tourist_state}
+					>
 						Estado
 					</FormLabel>
 					<Controller
-						name='state'
+						name='tourist_state'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-state'
+								id='tourist_state'
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.state}
-								options={profileStepSelectOptions.localization.state}
+								hasError={!!errors.tourist_state}
+								options={profileStepSelectOptions.localization.tourist_state}
 								placeholder='Selecione seu estado'
 							/>
 						)}
 					/>
-					{errors.state && (
-						<FormMessage>{String(errors.state.message)}</FormMessage>
+					{errors.tourist_state && (
+						<FormMessage>{String(errors.tourist_state.message)}</FormMessage>
 					)}
 				</FormItem>
 
 				<FormItem className='w-full space-y-2'>
-					<FormLabel htmlFor='tourist-city' aria-invalid={!!errors.city}>
+					<FormLabel
+						htmlFor='tourist_city'
+						aria-invalid={!!errors.tourist_city}
+					>
 						Cidade
 					</FormLabel>
 					<Controller
-						name='city'
+						name='tourist_city'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-city'
+								id='tourist_city'
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.city}
-								options={profileStepSelectOptions.localization.city}
+								hasError={!!errors.tourist_city}
+								options={profileStepSelectOptions.localization.tourist_city}
 								placeholder='Selecione sua cidade'
 							/>
 						)}
 					/>
-					{errors.city && (
-						<FormMessage>{String(errors.city.message)}</FormMessage>
+					{errors.tourist_city && (
+						<FormMessage>{String(errors.tourist_city.message)}</FormMessage>
 					)}
 				</FormItem>
 			</div>
@@ -92,50 +101,55 @@ export default function ProfileStep() {
 			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
-						htmlFor='tourist-age_group'
-						aria-invalid={!!errors.age_group}
+						htmlFor='tourist_age_group'
+						aria-invalid={!!errors.tourist_age_group}
 					>
 						Faixa etária
 					</FormLabel>
 					<Controller
-						name='age_group'
+						name='tourist_age_group'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-age_group'
+								id='tourist_age_group'
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.age_group}
-								options={profileStepSelectOptions.personal.age_group}
+								hasError={!!errors.tourist_age_group}
+								options={profileStepSelectOptions.personal.tourist_age_group}
 								placeholder='Selecione sua faixa etária'
 							/>
 						)}
 					/>
-					{errors.age_group && (
-						<FormMessage>{String(errors.age_group.message)}</FormMessage>
+					{errors.tourist_age_group && (
+						<FormMessage>
+							{String(errors.tourist_age_group.message)}
+						</FormMessage>
 					)}
 				</FormItem>
 
 				<FormItem className='w-full space-y-2'>
-					<FormLabel htmlFor='tourist-gender' aria-invalid={!!errors.gender}>
+					<FormLabel
+						htmlFor='tourist_gender'
+						aria-invalid={!!errors.tourist_gender}
+					>
 						Gênero
 					</FormLabel>
 					<Controller
-						name='gender'
+						name='tourist_gender'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-gender'
+								id='tourist_gender'
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.gender}
-								options={profileStepSelectOptions.personal.gender}
+								hasError={!!errors.tourist_gender}
+								options={profileStepSelectOptions.personal.tourist_gender}
 								placeholder='Selecione seu gênero'
 							/>
 						)}
 					/>
-					{errors.gender && (
-						<FormMessage>{String(errors.gender.message)}</FormMessage>
+					{errors.tourist_gender && (
+						<FormMessage>{String(errors.tourist_gender.message)}</FormMessage>
 					)}
 				</FormItem>
 			</div>
@@ -145,53 +159,59 @@ export default function ProfileStep() {
 			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
-						htmlFor='tourist-education'
-						aria-invalid={!!errors.education}
+						htmlFor='tourist_education'
+						aria-invalid={!!errors.tourist_education}
 					>
 						Escolaridade
 					</FormLabel>
 					<Controller
-						name='education'
+						name='tourist_education'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-education'
+								id='tourist_education'
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.education}
-								options={profileStepSelectOptions.improvement.education}
+								hasError={!!errors.tourist_education}
+								options={profileStepSelectOptions.improvement.tourist_education}
 								placeholder='Selecione sua escolaridade'
 							/>
 						)}
 					/>
-					{errors.education && (
-						<FormMessage>{String(errors.education.message)}</FormMessage>
+					{errors.tourist_education && (
+						<FormMessage>
+							{String(errors.tourist_education.message)}
+						</FormMessage>
 					)}
 				</FormItem>
 
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
-						htmlFor='tourist-estimated_income'
-						aria-invalid={!!errors.estimated_income}
+						htmlFor='tourist_estimated_income'
+						aria-invalid={!!errors.tourist_estimated_income}
 					>
 						Renda estimada
 					</FormLabel>
 					<Controller
-						name='estimated_income'
+						name='tourist_estimated_income'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-estimated_income'
+								id='tourist_estimated_income'
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.estimated_income}
-								options={profileStepSelectOptions.improvement.estimated_income}
+								hasError={!!errors.tourist_estimated_income}
+								options={
+									profileStepSelectOptions.improvement.tourist_estimated_income
+								}
 								placeholder='Selecione sua renda estimada'
 							/>
 						)}
 					/>
-					{errors.estimated_income && (
-						<FormMessage>{String(errors.estimated_income.message)}</FormMessage>
+					{errors.tourist_estimated_income && (
+						<FormMessage>
+							{String(errors.tourist_estimated_income.message)}
+						</FormMessage>
 					)}
 				</FormItem>
 			</div>

@@ -1,6 +1,9 @@
 import { SelectWithSearch } from '@/components/ui/select-with-search';
 import { Controller, useFormContext } from 'react-hook-form';
-import { tripStepSelectOptions, TripStepType } from '../schemas/trip-schema';
+import {
+	tripStepSelectOptions,
+	TripStepType,
+} from '../schemas/step2-trip-schema';
 import { FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Separator } from '@/components/ui/separator';
 
@@ -28,11 +31,8 @@ export default function TripStep() {
 						render={({ field }) => (
 							<SelectWithSearch
 								id='tourist-trip_reasons'
-								value={
-									Array.isArray(field.value)
-										? field.value[0] ?? ''
-										: field.value
-								}
+								multiple
+								value={field.value}
 								onChangeAction={field.onChange}
 								hasError={!!errors.trip_reasons}
 								options={tripStepSelectOptions.trip_reasons}
@@ -59,11 +59,8 @@ export default function TripStep() {
 						render={({ field }) => (
 							<SelectWithSearch
 								id='tourist-trip_vehicles'
-								value={
-									Array.isArray(field.value)
-										? field.value[0] ?? ''
-										: field.value
-								}
+								multiple
+								value={field.value}
 								onChangeAction={field.onChange}
 								hasError={!!errors.trip_vehicles}
 								options={tripStepSelectOptions.trip_vehicles}
@@ -93,16 +90,11 @@ export default function TripStep() {
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-trip_hosting_types'
-								value={
-									Array.isArray(field.value)
-										? field.value[0] ?? ''
-										: field.value
-								}
+								multiple
+								options={tripStepSelectOptions.trip_hosting_types}
+								value={field.value}
 								onChangeAction={field.onChange}
 								hasError={!!errors.trip_hosting_types}
-								options={tripStepSelectOptions.trip_hosting_types}
-								placeholder='Selecione ao menos um'
 							/>
 						)}
 					/>
@@ -113,6 +105,8 @@ export default function TripStep() {
 					)}
 				</FormItem>
 			</div>
+
+			<pre className='text-center animate-pulse'>Continuar campos daqui</pre>
 		</>
 	);
 }
