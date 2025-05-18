@@ -1,30 +1,41 @@
 import { FormStep } from '@/@types/form-step';
 import TouristStep from './steps/step1-profile';
 import { Activity, Percent, Plane, User } from 'lucide-react';
+import { profileStepSchema } from './schemas/step1-profile-schema';
+import { tripStepSchema } from './schemas/step2-trip-schema';
+import ActivitiesStep from './steps/step3-activities';
+import EvaluationStep from './steps/step4-evaluation';
+import { activitiesStepSchema } from './schemas/step3-activities-schema';
+import { evaluationStepSchema } from './schemas/step4-evaluation-schema';
+import TripStep from './steps/step2-trip';
 
 export const exampleFormSteps: Array<FormStep> = [
 	{
-		step: TouristStep,
 		number: 1,
 		title: 'Você',
+		step: TouristStep,
+		schema: profileStepSchema,
 		icon: User,
 	},
 	{
-		step: TouristStep,
 		number: 2,
-		icon: Plane,
 		title: 'Viagem',
+		step: TripStep,
+		schema: tripStepSchema,
+		icon: Plane,
 	},
 	{
-		step: TouristStep,
 		number: 3,
-		icon: Activity,
 		title: 'Atividades',
+		step: ActivitiesStep,
+		schema: activitiesStepSchema,
+		icon: Activity,
 	},
 	{
-		step: TouristStep,
 		number: 4,
-		icon: Percent,
 		title: 'Avaliação',
+		step: EvaluationStep,
+		schema: evaluationStepSchema,
+		icon: Percent,
 	},
 ];
