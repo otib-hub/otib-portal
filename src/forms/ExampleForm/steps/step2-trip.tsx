@@ -22,10 +22,110 @@ export default function TripStep() {
 
 	return (
 		<>
-			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
+			<div className='FormFieldsContainer w-full flex gap-8 md:gap-8 flex-wrap md:flex-nowrap items-start'>
+				<div className='RadioGroupContainer w-fit flex flex-col'>
+					<Controller
+						name='trip_has_reincidence'
+						control={control}
+						render={({ field: { onChange, value, ...field } }) => (
+							<FormItem className='w-full space-y-2'>
+								<FormLabel
+									htmlFor='trip_has_reincidence'
+									aria-invalid={!!errors.trip_has_reincidence}
+								>
+									Já viajou antes para cá?
+								</FormLabel>
+								<FormControl>
+									<RadioGroup
+										onValueChange={(value) => onChange(value === 'true')}
+										value={String(value)}
+										className='flex flex-col md:flex-row gap-4 pt-2 pl-2'
+										{...field}
+									>
+										<FormItem className='flex items-center'>
+											<FormControl>
+												<RadioGroupItem className='size-5' value='true' />
+											</FormControl>
+											<FormLabel className='font-normal text-base'>
+												Sim
+											</FormLabel>
+										</FormItem>
+										<FormItem className='flex items-center'>
+											<FormControl>
+												<RadioGroupItem className='size-5' value='false' />
+											</FormControl>
+											<FormLabel className='font-normal text-base'>
+												Não
+											</FormLabel>
+										</FormItem>
+									</RadioGroup>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					{errors.trip_has_reincidence && (
+						<FormMessage>
+							{String(errors.trip_has_reincidence.message)}
+						</FormMessage>
+					)}
+				</div>
+
+				<div className='RadioGroupContainer w-fit flex flex-col'>
+					<Controller
+						name='trip_know_ibiapaba_mirantes'
+						control={control}
+						render={({ field: { onChange, value, ...field } }) => (
+							<FormItem className='w-full space-y-2'>
+								<FormLabel
+									htmlFor='trip_know_ibiapaba_mirantes'
+									aria-invalid={!!errors.trip_know_ibiapaba_mirantes}
+								>
+									Conhece a Rota Mirantes da Ibiapaba?
+								</FormLabel>
+								<FormControl>
+									<RadioGroup
+										onValueChange={(value) => onChange(value === 'true')}
+										value={String(value)}
+										className='flex flex-col md:flex-row gap-4 pt-2 pl-2'
+										{...field}
+									>
+										<FormItem className='flex items-center'>
+											<FormControl>
+												<RadioGroupItem className='size-5' value='true' />
+											</FormControl>
+											<FormLabel className='font-normal text-base'>
+												Sim
+											</FormLabel>
+										</FormItem>
+										<FormItem className='flex items-center'>
+											<FormControl>
+												<RadioGroupItem className='size-5' value='false' />
+											</FormControl>
+											<FormLabel className='font-normal text-base'>
+												Não
+											</FormLabel>
+										</FormItem>
+									</RadioGroup>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					{errors.trip_know_ibiapaba_mirantes && (
+						<FormMessage>
+							{String(errors.trip_know_ibiapaba_mirantes.message)}
+						</FormMessage>
+					)}
+				</div>
+			</div>
+
+			<Separator className='block md:hidden' />
+
+			<div className='FormFieldsContainer w-full flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
-						htmlFor='tourist-trip_reasons'
+						htmlFor='trip_reasons'
 						aria-invalid={!!errors.trip_reasons}
 					>
 						Motivo(s) da viagem
@@ -36,13 +136,12 @@ export default function TripStep() {
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-trip_reasons'
+								id='trip_reasons'
 								multiple
 								value={field.value}
 								onChangeAction={field.onChange}
 								hasError={!!errors.trip_reasons}
 								options={tripStepSelectOptions.trip_reasons}
-								placeholder='Selecione ao menos um'
 							/>
 						)}
 					/>
@@ -53,7 +152,32 @@ export default function TripStep() {
 
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
-						htmlFor='tourist-trip_vehicles'
+						htmlFor='trip_stay_time'
+						aria-invalid={!!errors.trip_stay_time}
+					>
+						Tempo de permanência
+					</FormLabel>
+
+					<Controller
+						name='trip_stay_time'
+						control={control}
+						render={({ field }) => (
+							<SelectWithSearch
+								options={tripStepSelectOptions.trip_stay_time}
+								value={field.value}
+								onChangeAction={field.onChange}
+								hasError={!!errors.trip_stay_time}
+							/>
+						)}
+					/>
+					{errors.trip_stay_time && (
+						<FormMessage>{String(errors.trip_stay_time.message)}</FormMessage>
+					)}
+				</FormItem>
+
+				<FormItem className='w-full space-y-2'>
+					<FormLabel
+						htmlFor='trip_vehicles'
 						aria-invalid={!!errors.trip_vehicles}
 					>
 						Veículo(s) utilizado(s)
@@ -64,13 +188,12 @@ export default function TripStep() {
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								id='tourist-trip_vehicles'
+								id='trip_vehicles'
 								multiple
 								value={field.value}
 								onChangeAction={field.onChange}
 								hasError={!!errors.trip_vehicles}
 								options={tripStepSelectOptions.trip_vehicles}
-								placeholder='Selecione ao menos um'
 							/>
 						)}
 					/>
@@ -82,10 +205,37 @@ export default function TripStep() {
 
 			<Separator className='block md:hidden' />
 
-			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
+			<div className='FormFieldsContainer w-full flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
-						htmlFor='tourist-trip_hosting_types'
+						htmlFor='trip_average_diary_expense'
+						aria-invalid={!!errors.trip_average_diary_expense}
+					>
+						Quanto gastou ou pretende gastar em média por dia
+					</FormLabel>
+
+					<Controller
+						name='trip_average_diary_expense'
+						control={control}
+						render={({ field }) => (
+							<SelectWithSearch
+								options={tripStepSelectOptions.trip_average_diary_expense}
+								value={field.value}
+								onChangeAction={field.onChange}
+								hasError={!!errors.trip_average_diary_expense}
+							/>
+						)}
+					/>
+					{errors.trip_average_diary_expense && (
+						<FormMessage>
+							{String(errors.trip_average_diary_expense.message)}
+						</FormMessage>
+					)}
+				</FormItem>
+
+				<FormItem className='w-full space-y-2'>
+					<FormLabel
+						htmlFor='trip_hosting_types'
 						aria-invalid={!!errors.trip_hosting_types}
 					>
 						Tipo de hospedagem
@@ -110,57 +260,7 @@ export default function TripStep() {
 						</FormMessage>
 					)}
 				</FormItem>
-
-				<div className='w-full flex flex-col space-y-4.5'>
-					<Controller
-						name='trip_know_ibiapaba_mirantes'
-						control={control}
-						render={({ field: { onChange, value, ...field } }) => (
-							<FormItem className='w-full space-y-2'>
-								<FormLabel
-									htmlFor='trip_know_ibiapaba_mirantes'
-									aria-invalid={!!errors.trip_know_ibiapaba_mirantes}
-								>
-									Conhece a Rota Mirantes da Ibiapaba?
-								</FormLabel>
-								<FormControl>
-									<RadioGroup
-										onValueChange={(value) => onChange(value === 'true')}
-										value={String(value)}
-										className='flex gap-4 py-2'
-										{...field}
-									>
-										<FormItem className='flex items-center'>
-											<FormControl>
-												<RadioGroupItem className='size-5' value='false' />
-											</FormControl>
-											<FormLabel className='font-normal text-base'>
-												Não
-											</FormLabel>
-										</FormItem>
-										<FormItem className='flex items-center'>
-											<FormControl>
-												<RadioGroupItem className='size-5' value='true' />
-											</FormControl>
-											<FormLabel className='font-normal text-base'>
-												Sim
-											</FormLabel>
-										</FormItem>
-									</RadioGroup>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-					{errors.trip_know_ibiapaba_mirantes && (
-						<FormMessage>
-							{String(errors.trip_know_ibiapaba_mirantes.message)}
-						</FormMessage>
-					)}
-				</div>
 			</div>
-
-			<pre className='text-center animate-pulse'>Continuar campos daqui</pre>
 		</>
 	);
 }
