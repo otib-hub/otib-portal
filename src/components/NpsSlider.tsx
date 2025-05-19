@@ -25,10 +25,16 @@ export default function NpsSlider({
 				onValueChange={(values) => onChangeAction(values[0])}
 				min={1}
 				max={10}
+				step={1}
 				showTooltip
 				aria-label='Dê uma nota para sua experiência de 1 a 10'
 				aria-invalid={hasError}
-				className={hasError ? 'border-destructive' : ''}
+				className={
+					hasError
+						? 'border-destructive'
+						: '' +
+						  '[&>:last-child>span]:border-black [&>:last-child>span]:bg-white **:data-[slot=slider-thumb]:shadow-none [&>:last-child>span]:size-6.5 [&>:last-child>span]:border-[3px] [&>:last-child>span]:ring-offset-0'
+				}
 			/>
 			<span className='text-2xl font-extrabold'>{labels[value - 1]}</span>
 		</div>
