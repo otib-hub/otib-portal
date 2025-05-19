@@ -30,9 +30,9 @@ export async function POST(request: Request) {
 
 		const states: Record<string, string> = {};
 
-		data.data.states.forEach((state) => {
-			states[state.state_code] = state.name;
-		});
+		for (const state of data.data.states) {
+			states[state.name] = state.name;
+		}
 
 		return NextResponse.json(states);
 	} catch {

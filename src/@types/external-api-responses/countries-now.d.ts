@@ -14,14 +14,18 @@ export interface CountryPosition {
 	lat: number;
 }
 
+export interface CountryStateData {
+	name: string;
+	states: State[];
+}
+
 export type CountriesPositionReponse = CountriesNowResponse & {
 	data: CountryPosition[];
 };
 
 export type CountryStatesResponse = {
-	states: StateResponse[];
-} & Omit<CountryPosition, ['long', 'lat']> &
-	CountriesNowResponse;
+	data: CountryStateData;
+} & CountriesNowResponse;
 
 export type CitiesInStateResponse = {
 	data: string[];
