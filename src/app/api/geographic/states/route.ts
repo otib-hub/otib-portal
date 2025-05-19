@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { CountryStatesResponse } from '../../../../@types/external-api-responses/countries-now';
 
 export async function POST(request: Request) {
 	try {
@@ -19,7 +20,7 @@ export async function POST(request: Request) {
 			}
 		);
 
-		const data = await response.json();
+		const data: CountryStatesResponse = await response.json();
 		if (!data.data?.states) {
 			return NextResponse.json(
 				{ error: 'Estados não encontrados' },
