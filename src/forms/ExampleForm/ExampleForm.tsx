@@ -10,6 +10,8 @@ import { exampleFormSteps } from './steps';
 import { z } from 'zod';
 import { useEffect } from 'react';
 import FormStepper from '@/components/FormStepper';
+import FormResultsDialog from '@/components/FormResultsDialog';
+import { exampleFormSchema } from './schemas/form-general-schema';
 
 const IS_STEP_VALIDATION_ACTIVE = false;
 
@@ -23,16 +25,11 @@ export default function ExampleForm() {
 		backStep,
 	} = useMultiStepForm(exampleFormSteps);
 
-	const schemas = exampleFormSteps.map(
-		(step) => step.schema
-	) as z.AnyZodObject[];
-	const currentSchema = schemas[currentStepIndex];
-
 	const methods = useForm({
-		resolver: zodResolver(currentSchema),
+		resolver: zodResolver(exampleFormSchema),
 		mode: 'onChange',
 		defaultValues: {
-			...Object.keys(currentSchema.shape).reduce(
+			...Object.keys(exampleFormSchema.shape).reduce(
 				(acc, key) => ({
 					...acc,
 					[key]: undefined,
@@ -58,7 +55,7 @@ export default function ExampleForm() {
 		}
 	}
 
-	function onSubmit(values: z.infer<typeof currentSchema>) {
+	function onSubmit(values: z.infer<typeof exampleFormSchema>) {
 		toast.success('Form enviado!');
 		console.log(values);
 	}
@@ -88,13 +85,18 @@ export default function ExampleForm() {
 								Voltar
 							</Button>
 						)}
-						<Button
-							className='w-full md:w-fit'
-							type={isLastStep ? 'submit' : 'button'}
-							onClick={onNextStep}
-						>
-							{isLastStep ? 'Enviar' : 'Avançar'}
-						</Button>
+						{isLastStep ? (
+							// somente no periodo de desenvolvimento, deve ser substituido pelo button type submit
+							<FormResultsDialog data={methods.getValues()} />
+						) : (
+							<Button
+								className='w-full md:w-fit'
+								type={'button'}
+								onClick={onNextStep}
+							>
+								{'Avançar'}
+							</Button>
+						)}
 					</div>
 				</form>
 			</FormProvider>
