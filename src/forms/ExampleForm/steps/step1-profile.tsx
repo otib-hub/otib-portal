@@ -34,7 +34,6 @@ export default function ProfileStep() {
 								onChangeAction={field.onChange}
 								hasError={!!errors.tourist_country}
 								options={profileStepSelectOptions.localization.tourist_country}
-								placeholder='Selecione seu país'
 							/>
 						)}
 					/>
@@ -60,7 +59,6 @@ export default function ProfileStep() {
 								onChangeAction={field.onChange}
 								hasError={!!errors.tourist_state}
 								options={profileStepSelectOptions.localization.tourist_state}
-								placeholder='Selecione seu estado'
 							/>
 						)}
 					/>
@@ -86,7 +84,6 @@ export default function ProfileStep() {
 								onChangeAction={field.onChange}
 								hasError={!!errors.tourist_city}
 								options={profileStepSelectOptions.localization.tourist_city}
-								placeholder='Selecione sua cidade'
 							/>
 						)}
 					/>
@@ -116,7 +113,6 @@ export default function ProfileStep() {
 								onChangeAction={field.onChange}
 								hasError={!!errors.tourist_age_group}
 								options={profileStepSelectOptions.personal.tourist_age_group}
-								placeholder='Selecione sua faixa etária'
 							/>
 						)}
 					/>
@@ -144,7 +140,6 @@ export default function ProfileStep() {
 								onChangeAction={field.onChange}
 								hasError={!!errors.tourist_gender}
 								options={profileStepSelectOptions.personal.tourist_gender}
-								placeholder='Selecione seu gênero'
 							/>
 						)}
 					/>
@@ -174,7 +169,6 @@ export default function ProfileStep() {
 								onChangeAction={field.onChange}
 								hasError={!!errors.tourist_education}
 								options={profileStepSelectOptions.improvement.tourist_education}
-								placeholder='Selecione sua escolaridade'
 							/>
 						)}
 					/>
@@ -204,7 +198,6 @@ export default function ProfileStep() {
 								options={
 									profileStepSelectOptions.improvement.tourist_estimated_income
 								}
-								placeholder='Selecione sua renda estimada'
 							/>
 						)}
 					/>
