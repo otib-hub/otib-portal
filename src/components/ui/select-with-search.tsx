@@ -41,11 +41,13 @@ export const SelectWithSearch = ({
 	options,
 	value,
 	onChangeAction,
-	placeholder = 'Selecione uma opção',
+	multiple = false,
+	placeholder = multiple
+		? 'Selecione pelo menos uma opção'
+		: 'Selecione uma opção',
 	hasError,
 	id,
 	loading,
-	multiple = false,
 }: SelectWithSearchProps) => {
 	const [open, setOpen] = useState(false);
 
