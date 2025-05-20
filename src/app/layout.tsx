@@ -5,6 +5,7 @@ import { inter } from '../styles/fonts';
 import { Toaster } from '@/components/ui/sonner';
 import Header from '@/components/Header';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
 	title: 'OTIB - Protótipo',
@@ -32,6 +33,7 @@ export default function RootLayout({
 					<Toaster richColors closeButton />
 				</ThemeProvider>
 				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);
