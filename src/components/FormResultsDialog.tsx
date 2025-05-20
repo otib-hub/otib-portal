@@ -9,7 +9,7 @@ import {
 	AlertDialogTrigger,
 } from './ui/alert-dialog';
 import { buttonVariants } from './ui/button';
-import { X } from 'lucide-react';
+import { Bug, X } from 'lucide-react';
 
 interface FormResultsDialogProps {
 	data: ExampleFormType;
@@ -59,8 +59,9 @@ export default function FormResultsDialog({ data }: FormResultsDialogProps) {
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger
-				className={`${buttonVariants({ variant: 'default' })}`}
+				className={`${buttonVariants({ variant: 'link' })} w-full`}
 			>
+				<Bug className='size-5' />
 				Abrir resultados (enviar)
 			</AlertDialogTrigger>
 			<AlertDialogContent>
