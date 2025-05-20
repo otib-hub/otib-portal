@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/providers/ThemeProvider';
 import { inter } from '../styles/fonts';
 import { Toaster } from '@/components/ui/sonner';
 import Header from '@/components/Header';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
 	title: 'OTIB - Protótipo',
@@ -30,6 +31,7 @@ export default function RootLayout({
 					</div>
 					<Toaster richColors closeButton />
 				</ThemeProvider>
+				<Analytics />
 			</body>
 		</html>
 	);
