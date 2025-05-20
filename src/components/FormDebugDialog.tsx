@@ -11,7 +11,7 @@ import {
 import { buttonVariants } from './ui/button';
 import { Bug, X } from 'lucide-react';
 
-interface FormResultsDialogProps {
+interface FormDebugDialogProps {
 	data: ExampleFormType;
 }
 
@@ -55,14 +55,14 @@ function formatDataToBeautifulPre(data: ExampleFormType) {
 	));
 }
 
-export default function FormResultsDialog({ data }: FormResultsDialogProps) {
+export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger
 				className={`${buttonVariants({ variant: 'link' })} w-full`}
 			>
 				<Bug className='size-5' />
-				Abrir resultados (enviar)
+				Debugar conteúdo do formulário
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader className=''>
@@ -87,7 +87,7 @@ export default function FormResultsDialog({ data }: FormResultsDialogProps) {
 					</div>
 
 					<AlertDialogDescription className='text-primary text-start'>
-						Esta janela abre somente em ambiente de desenvolvimento
+						Esta opção está disponível somente em ambiente de desenvolvimento
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 			</AlertDialogContent>

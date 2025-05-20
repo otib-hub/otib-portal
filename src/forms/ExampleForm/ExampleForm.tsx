@@ -10,10 +10,11 @@ import { exampleFormSteps } from './steps';
 import { z } from 'zod';
 import { useEffect } from 'react';
 import FormStepper from '@/components/FormStepper';
-import FormResultsDialog from '@/components/FormResultsDialog';
 import { exampleFormSchema } from './schemas/form-general-schema';
+import FormDebugDialog from '@/components/FormDebugDialog';
 
-const IS_STEP_VALIDATION_ACTIVE = false;
+const STEP_BLOCK_VALIDATION = false;
+const DEV_MODE = true;
 
 export default function ExampleForm() {
 	const {
@@ -40,7 +41,7 @@ export default function ExampleForm() {
 	});
 
 	async function onNextStep() {
-		if (IS_STEP_VALIDATION_ACTIVE) {
+		if (STEP_BLOCK_VALIDATION) {
 			const isValid = await methods.trigger();
 			if (!isValid) {
 				toast.error('Por favor, preencha todos os campos obrigatórios');
@@ -85,21 +86,19 @@ export default function ExampleForm() {
 								Voltar
 							</Button>
 						)}
-						{isLastStep ? (
-							// somente no periodo de desenvolvimento, deve ser substituido pelo button type submit
-							<FormResultsDialog data={methods.getValues()} />
-						) : (
-							<Button
-								className='w-full md:w-fit'
-								type={'button'}
-								onClick={onNextStep}
-							>
-								{'Avançar'}
-							</Button>
-						)}
+
+						<Button
+							className='w-full md:w-fit'
+							type={isLastStep ? 'submit' : 'button'}
+							onClick={onNextStep}
+						>
+							{isLastStep ? 'Enviar' : 'Avançar'}
+						</Button>
 					</div>
 				</form>
 			</FormProvider>
+
+			{DEV_MODE && <FormDebugDialog data={methods.getValues()} />}
 		</>
 	);
 }
