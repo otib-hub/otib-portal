@@ -175,7 +175,7 @@ export const SelectWithSearch = ({
 			</div>
 
 			{multiple && selectedLabels.length > 0 && (
-				<div className='border-2 border-muted-foreground/20 bg-muted/30 dark:bg-muted/40 rounded-lg lg:bg-transparent dark:lg:bg-transparent py-2 px-3 lg:p-0 flex flex-wrap gap-2 items-center max-h-36 lg:max-h-none overflow-y-auto'>
+				<div className='border-2 border-muted-foreground/20 bg-muted/30 dark:bg-muted/40 rounded-lg lg:bg-transparent lg:border-0 dark:lg:border-0 dark:lg:bg-transparent py-2 px-3 lg:p-0 flex flex-wrap gap-2 items-center max-h-36 lg:max-h-none overflow-y-auto'>
 					<span className='text-muted-foreground text-base'>
 						Opç{selectedLabels.length > 1 ? 'ões' : 'ão'} selecionad
 						{selectedLabels.length > 1 ? 'as' : 'a'}:
@@ -186,7 +186,7 @@ export const SelectWithSearch = ({
 							key={item.value}
 							onClick={() => removeValue(item.value)}
 							variant='secondary'
-							className='max-w-full whitespace-pre-wrap bg-chart-5/40 hover:bg-chart-5/60 gap-1 text-base cursor-pointer transition-colors'
+							className='max-w-full whitespace-pre-wrap bg-chart-5/30 hover:bg-chart-5/45 gap-1 text-base cursor-pointer transition-colors'
 						>
 							{item.label}
 							<button
