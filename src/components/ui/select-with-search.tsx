@@ -28,6 +28,7 @@ type Option = {
 type SelectWithSearchProps = {
 	options: Option[];
 	value?: string | string[];
+	optional?: boolean;
 	onChangeAction: (value: string | string[]) => void;
 	placeholder?: string;
 	disabled?: boolean;
@@ -38,19 +39,22 @@ type SelectWithSearchProps = {
 };
 
 export const SelectWithSearch = ({
+	optional = false,
 	options,
 	value,
 	onChangeAction,
 	multiple = false,
-	placeholder = multiple
+	placeholder = optional
+		? 'Selecione zero ou mais opções'
+		: multiple
 		? 'Selecione pelo menos uma opção'
 		: 'Selecione uma opção',
+
 	hasError,
 	id,
 	loading,
 }: SelectWithSearchProps) => {
 	const [open, setOpen] = useState(false);
-
 	const selectedValues = Array.isArray(value) ? value : value ? [value] : [];
 
 	const toggleValue = (val: string) => {
@@ -125,12 +129,13 @@ export const SelectWithSearch = ({
 					</PopoverTrigger>
 
 					<PopoverContent
-						className='border-input w-full min-w-[var(--radix-popper-anchor-width)] p-0'
+						className='border-input w-[var(--radix-popper-anchor-width)] p-0'
 						align='start'
 					>
 						<Command>
-							<CommandInput placeholder='Buscar...' />
-							<CommandList>
+							<CommandInput placeholder='Buscar...' />{' '}
+							{/* TODO: Corrigir busca por value, deve ser por label */}
+							<CommandList className=''>
 								<CommandEmpty>Nenhuma opção encontrada.</CommandEmpty>
 								<CommandGroup>
 									{options.map((option) => {
@@ -170,7 +175,7 @@ export const SelectWithSearch = ({
 			</div>
 
 			{multiple && selectedLabels.length > 0 && (
-				<div className='flex flex-wrap gap-2 items-center'>
+				<div className='border-2 border-muted-foreground/20 bg-muted/30 dark:bg-muted/40 rounded-lg lg:bg-transparent dark:lg:bg-transparent py-2 px-3 lg:p-0 flex flex-wrap gap-2 items-center max-h-36 lg:max-h-none overflow-y-auto'>
 					<span className='text-muted-foreground text-base'>
 						Opç{selectedLabels.length > 1 ? 'ões' : 'ão'} selecionad
 						{selectedLabels.length > 1 ? 'as' : 'a'}:
@@ -181,7 +186,7 @@ export const SelectWithSearch = ({
 							key={item.value}
 							onClick={() => removeValue(item.value)}
 							variant='secondary'
-							className='bg-chart-5/30 hover:bg-chart-5/20 gap-1 text-base cursor-pointer'
+							className='max-w-full whitespace-pre-wrap bg-chart-5/40 hover:bg-chart-5/60 gap-1 text-base cursor-pointer transition-colors'
 						>
 							{item.label}
 							<button
