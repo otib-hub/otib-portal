@@ -21,6 +21,7 @@ export default function ProfileStep() {
 					<FormLabel
 						htmlFor='tourist_country'
 						aria-invalid={!!errors.tourist_country}
+						aria-required
 					>
 						País
 					</FormLabel>
@@ -46,6 +47,7 @@ export default function ProfileStep() {
 					<FormLabel
 						htmlFor='tourist_state'
 						aria-invalid={!!errors.tourist_state}
+						aria-required
 					>
 						Estado
 					</FormLabel>
@@ -71,6 +73,7 @@ export default function ProfileStep() {
 					<FormLabel
 						htmlFor='tourist_city'
 						aria-invalid={!!errors.tourist_city}
+						aria-required
 					>
 						Cidade
 					</FormLabel>
@@ -100,6 +103,7 @@ export default function ProfileStep() {
 					<FormLabel
 						htmlFor='tourist_age_group'
 						aria-invalid={!!errors.tourist_age_group}
+						aria-required
 					>
 						Faixa etária
 					</FormLabel>
@@ -127,6 +131,7 @@ export default function ProfileStep() {
 					<FormLabel
 						htmlFor='tourist_gender'
 						aria-invalid={!!errors.tourist_gender}
+						aria-required
 					>
 						Gênero
 					</FormLabel>
@@ -156,6 +161,7 @@ export default function ProfileStep() {
 					<FormLabel
 						htmlFor='tourist_education'
 						aria-invalid={!!errors.tourist_education}
+						aria-required
 					>
 						Escolaridade
 					</FormLabel>
@@ -183,6 +189,7 @@ export default function ProfileStep() {
 					<FormLabel
 						htmlFor='tourist_estimated_income'
 						aria-invalid={!!errors.tourist_estimated_income}
+						aria-required
 					>
 						Renda estimada
 					</FormLabel>

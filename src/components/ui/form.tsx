@@ -97,10 +97,18 @@ function FormLabel({
 		<Label
 			data-slot='form-label'
 			data-error={!!error}
-			className={cn('data-[error=true]:text-destructive', className)}
+			className={cn(
+				'data-[error=true]:text-destructive leading-6 space-x-2',
+				className
+			)}
 			htmlFor={formItemId}
 			{...props}
-		/>
+		>
+			{props.children}
+			{props['aria-required'] && (
+				<span className='text-destructive text-xl'>*</span>
+			)}
+		</Label>
 	);
 }
 

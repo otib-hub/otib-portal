@@ -32,6 +32,7 @@ export default function TripStep() {
 								<FormLabel
 									htmlFor='trip_has_reincidence'
 									aria-invalid={!!errors.trip_has_reincidence}
+									aria-required
 								>
 									Já viajou antes para cá?
 								</FormLabel>
@@ -80,6 +81,7 @@ export default function TripStep() {
 								<FormLabel
 									htmlFor='trip_know_ibiapaba_mirantes'
 									aria-invalid={!!errors.trip_know_ibiapaba_mirantes}
+									aria-required
 								>
 									Conhece a Rota Mirantes da Ibiapaba?
 								</FormLabel>
@@ -127,6 +129,7 @@ export default function TripStep() {
 					<FormLabel
 						htmlFor='trip_reasons'
 						aria-invalid={!!errors.trip_reasons}
+						aria-required
 					>
 						Motivo(s) da viagem
 					</FormLabel>
@@ -154,6 +157,7 @@ export default function TripStep() {
 					<FormLabel
 						htmlFor='trip_stay_time'
 						aria-invalid={!!errors.trip_stay_time}
+						aria-required
 					>
 						Tempo de permanência
 					</FormLabel>
@@ -179,6 +183,7 @@ export default function TripStep() {
 					<FormLabel
 						htmlFor='trip_vehicles'
 						aria-invalid={!!errors.trip_vehicles}
+						aria-required
 					>
 						Veículo(s) utilizado(s)
 					</FormLabel>
@@ -210,6 +215,7 @@ export default function TripStep() {
 					<FormLabel
 						htmlFor='trip_average_diary_expense'
 						aria-invalid={!!errors.trip_average_diary_expense}
+						aria-required
 					>
 						Quanto gastou ou pretende gastar em média por dia
 					</FormLabel>
@@ -237,6 +243,7 @@ export default function TripStep() {
 					<FormLabel
 						htmlFor='trip_hosting_types'
 						aria-invalid={!!errors.trip_hosting_types}
+						aria-required
 					>
 						Tipo de hospedagem
 					</FormLabel>
