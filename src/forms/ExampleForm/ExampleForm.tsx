@@ -28,7 +28,7 @@ export default function ExampleForm() {
 
 	const methods = useForm({
 		resolver: zodResolver(exampleFormSchema),
-		mode: 'onChange',
+		mode: 'onTouched',
 		defaultValues: {
 			...Object.keys(exampleFormSchema.shape).reduce(
 				(acc, key) => ({
@@ -98,7 +98,7 @@ export default function ExampleForm() {
 				</form>
 			</FormProvider>
 
-			{DEV_MODE && <FormDebugDialog data={methods.getValues()} />}
+			{DEV_MODE && <FormDebugDialog data={methods.watch()} />}
 		</>
 	);
 }

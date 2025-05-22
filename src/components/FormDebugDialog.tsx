@@ -10,6 +10,7 @@ import {
 } from './ui/alert-dialog';
 import { buttonVariants } from './ui/button';
 import { Bug, X } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 interface FormDebugDialogProps {
 	data: ExampleFormType;
@@ -56,10 +57,31 @@ function formatDataToBeautifulPre(data: ExampleFormType) {
 }
 
 export default function FormDebugDialog({ data }: FormDebugDialogProps) {
+	function useAnimateOnDataChange(data: ExampleFormType) {
+		const ref = useRef<HTMLButtonElement | null>(null);
+
+		useEffect(() => {
+			if (ref.current) {
+				ref.current.classList.add('animate-flash');
+				const timeout = setTimeout(() => {
+					ref.current?.classList.remove('animate-flash');
+				}, 501);
+				return () => clearTimeout(timeout);
+			}
+		}, [data]);
+
+		return ref;
+	}
+
+	const animationRef = useAnimateOnDataChange(data);
+
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger
-				className={`${buttonVariants({ variant: 'link' })} w-full`}
+				ref={animationRef}
+				className={`${buttonVariants({
+					variant: 'link',
+				})} w-full transition-colors`}
 			>
 				<Bug className='size-5' />
 				Debugar conteúdo do formulário
