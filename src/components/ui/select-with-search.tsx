@@ -16,7 +16,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { CheckIcon, ChevronDownIcon, XIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Skeleton } from './skeleton';
 import { Badge } from '@/components/ui/badge';
 
@@ -55,7 +55,17 @@ export const SelectWithSearch = ({
 	loading,
 }: SelectWithSearchProps) => {
 	const [open, setOpen] = useState(false);
+	const [search, setSearch] = useState('');
 	const selectedValues = Array.isArray(value) ? value : value ? [value] : [];
+
+	const filteredOptions = useMemo(() => {
+		if (!search) return options;
+
+		const searchLower = search.toLowerCase();
+		return options.filter((option) =>
+			option.label.toLowerCase().startsWith(searchLower)
+		);
+	}, [options, search]);
 
 	const toggleValue = (val: string) => {
 		if (!multiple) {
@@ -132,13 +142,16 @@ export const SelectWithSearch = ({
 						className='border-input w-[var(--radix-popper-anchor-width)] p-0'
 						align='start'
 					>
-						<Command>
-							<CommandInput placeholder='Buscar...' />{' '}
-							{/* TODO: Corrigir busca por value, deve ser por label */}
+						<Command shouldFilter={false}>
+							<CommandInput
+								placeholder='Buscar...'
+								value={search}
+								onValueChange={setSearch}
+							/>
 							<CommandList className=''>
 								<CommandEmpty>Nenhuma opção encontrada.</CommandEmpty>
 								<CommandGroup>
-									{options.map((option) => {
+									{filteredOptions.map((option) => {
 										const isSelected = selectedValues.includes(option.value);
 										return (
 											<CommandItem
@@ -174,6 +187,7 @@ export const SelectWithSearch = ({
 				)}
 			</div>
 
+			{/* Badges de opções selecionadas */}
 			{multiple && selectedLabels.length > 0 && (
 				<div className='border-2 border-muted-foreground/20 bg-muted/30 dark:bg-muted/40 rounded-lg lg:bg-transparent lg:border-0 dark:lg:border-0 dark:lg:bg-transparent py-2 px-3 lg:p-0 flex flex-wrap gap-2 items-center max-h-36 lg:max-h-none overflow-y-auto'>
 					<span className='text-muted-foreground text-base'>
