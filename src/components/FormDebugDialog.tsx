@@ -86,8 +86,8 @@ export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 				<Bug className='size-5' />
 				Debugar conteúdo do formulário
 			</AlertDialogTrigger>
-			<AlertDialogContent>
-				<AlertDialogHeader className=''>
+			<AlertDialogContent className='max-h-[calc(100dvh-32)]'>
+				<AlertDialogHeader>
 					<AlertDialogTitle className='inline-flex text-start justify-between items-center font-extrabold'>
 						Conteúdo enviado do Formulário
 						<AlertDialogAction
@@ -99,7 +99,7 @@ export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 						</AlertDialogAction>
 					</AlertDialogTitle>
 
-					<div className='code mb-2'>
+					<div className='h-full code mb-2 max-h-[calc(100dvh-384px)] overflow-y-auto rounded-md'>
 						<pre className='text-wrap bg-card dark:bg-black/50 p-4 text-sm text-start'>
 							&#123;
 							<br />
