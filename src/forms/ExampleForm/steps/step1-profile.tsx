@@ -96,7 +96,7 @@ export default function ProfileStep() {
 				</FormItem>
 			</div>
 
-			<Separator className='block md:hidden' />
+			<Separator className='opacity-70' />
 
 			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
 				<FormItem className='w-full space-y-2'>
@@ -154,7 +154,7 @@ export default function ProfileStep() {
 				</FormItem>
 			</div>
 
-			<Separator className='block md:hidden' />
+			<Separator className='opacity-70' />
 
 			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
 				<FormItem className='w-full space-y-2'>
