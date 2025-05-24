@@ -24,29 +24,30 @@ const localizationOptions = {
 
 const personalOptions = {
 	tourist_age_group: {
-		'18-24': '18 a 24 anos',
-		'25-34': '25 a 34 anos',
-		'35-44': '35 a 44 anos',
-		'45-54': '45 a 54 anos',
-		'55-64': '55 a 64 anos',
-		'65+': '65 anos ou mais',
+		'0': '18 a 24 anos',
+		'1': '25 a 34 anos',
+		'2': '35 a 44 anos',
+		'3': '45 a 54 anos',
+		'4': '55 a 64 anos',
+		'5': '65 anos ou mais',
 	},
 	tourist_gender: {
 		male: 'Masculino',
 		female: 'Feminino',
 		non_binary: 'Não binário',
-		no_answer: 'Prefiro não opiniar',
+		other: 'Outro',
+		omit: 'Prefiro não informar',
 	},
 } as const;
 
 const improvementOptions = {
 	tourist_education: {
-		ef_inc: 'Ensino fundamental incompleto',
-		ef_comp: 'Ensino fundamental completo',
-		em_inc: 'Ensino médio incompleto',
-		em_comp: 'Ensino médio completo',
-		es_inc: 'Ensino superior incompleto',
-		es_comp: 'Ensino superior completo',
+		'0': 'Ensino fundamental incompleto',
+		'1': 'Ensino fundamental completo',
+		'2': 'Ensino médio incompleto',
+		'3': 'Ensino médio completo',
+		'4': 'Ensino superior incompleto',
+		'5': 'Ensino superior completo',
 	},
 	tourist_estimated_income: {
 		low: 'Menos de R$1.000',
@@ -59,16 +60,16 @@ const improvementOptions = {
 };
 
 export const profileStepSchema = z.object({
-	tourist_country: z.string({ required_error: 'País é obrigatório' }),
-	tourist_state: z.string({ required_error: 'Estado é obrigatório' }),
-	tourist_city: z.string({ required_error: 'Cidade é obrigatória' }),
+	tourist_country: z.string({ required_error: 'Campo obrigatório' }),
+	tourist_state: z.string({ required_error: 'Campo obrigatório' }),
+	tourist_city: z.string({ required_error: 'Campo obrigatório' }),
 
-	tourist_age_group: z.string({ required_error: 'Faixa etária é obrigatória' }),
+	tourist_age_group: z.string({ required_error: 'Campo obrigatório' }),
 	tourist_gender: z.string({ required_error: 'Gênero é obrigatório' }),
 
-	tourist_education: z.string({ required_error: 'Escolaridade é obrigatória' }),
+	tourist_education: z.string({ required_error: 'Campo obrigatório' }),
 	tourist_estimated_income: z.string({
-		required_error: 'Renda estimada é obrigatória',
+		required_error: 'Campo obrigatório',
 	}),
 });
 

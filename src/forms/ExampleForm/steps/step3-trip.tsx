@@ -3,7 +3,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import {
 	tripStepSelectOptions,
 	TripStepType,
-} from '../schemas/step2-trip-schema';
+} from '../schemas/step3-trip-schema';
 import {
 	FormControl,
 	FormItem,
@@ -23,8 +23,8 @@ export default function TripStep() {
 
 	return (
 		<>
-			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start'>
-				<div className='RadioGroupContainer min-w-81 flex flex-col'>
+			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start'>
+				<div className='RadioGroupContainer flex flex-col'>
 					<Controller
 						name='trip_has_reincidence'
 						control={control}
@@ -62,7 +62,6 @@ export default function TripStep() {
 										</FormItem>
 									</RadioGroup>
 								</FormControl>
-								<FormMessage />
 							</FormItem>
 						)}
 					/>
@@ -106,8 +105,8 @@ export default function TripStep() {
 
 			<Separator className='opacity-70' />
 
-			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 gap-8  items-start'>
-				<div className='RadioGroupContainer min-w-81 flex flex-col'>
+			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start'>
+				<div className='RadioGroupContainer flex flex-col'>
 					<Controller
 						name='trip_know_ibiapaba_mirantes'
 						control={control}
@@ -145,7 +144,6 @@ export default function TripStep() {
 										</FormItem>
 									</RadioGroup>
 								</FormControl>
-								<FormMessage />
 							</FormItem>
 						)}
 					/>

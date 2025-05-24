@@ -16,7 +16,7 @@ export default function ProfileStep() {
 
 	return (
 		<>
-			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
+			<div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
 						htmlFor='tourist_country'
@@ -98,7 +98,7 @@ export default function ProfileStep() {
 
 			<Separator className='opacity-70' />
 
-			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
 						htmlFor='tourist_age_group'
@@ -156,7 +156,7 @@ export default function ProfileStep() {
 
 			<Separator className='opacity-70' />
 
-			<div className='flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
 						htmlFor='tourist_education'
