@@ -16,14 +16,15 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 export default function TripStep() {
 	const {
 		control,
+		watch,
 		// register, -> register para inputs, control para selects
 		formState: { errors },
 	} = useFormContext<TripStepType>();
 
 	return (
 		<>
-			<div className='FormFieldsContainer w-full flex gap-8 md:gap-8 flex-wrap md:flex-nowrap items-start'>
-				<div className='RadioGroupContainer w-fit flex flex-col'>
+			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start'>
+				<div className='RadioGroupContainer min-w-81 flex flex-col'>
 					<Controller
 						name='trip_has_reincidence'
 						control={control}
@@ -72,7 +73,41 @@ export default function TripStep() {
 					)}
 				</div>
 
-				<div className='RadioGroupContainer w-fit flex flex-col'>
+				{watch('trip_has_reincidence') && (
+					<FormItem className='space-y-2 w-full'>
+						<FormLabel
+							htmlFor='trip_reincidence'
+							aria-invalid={!!errors.trip_reincidence}
+						>
+							Quantas vezes já visitou a Ibiapaba?
+						</FormLabel>
+
+						<Controller
+							name='trip_reincidence'
+							control={control}
+							render={({ field }) => (
+								<SelectWithSearch
+									id='trip_reincidence'
+									value={field.value}
+									onChangeAction={field.onChange}
+									hasError={!!errors.trip_reincidence}
+									options={tripStepSelectOptions.trip_reincidence}
+								/>
+							)}
+						/>
+						{errors.trip_reincidence && (
+							<FormMessage>
+								{String(errors.trip_reincidence.message)}
+							</FormMessage>
+						)}
+					</FormItem>
+				)}
+			</div>
+
+			<Separator className='opacity-70' />
+
+			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 gap-8  items-start'>
+				<div className='RadioGroupContainer min-w-81 flex flex-col'>
 					<Controller
 						name='trip_know_ibiapaba_mirantes'
 						control={control}
@@ -120,11 +155,45 @@ export default function TripStep() {
 						</FormMessage>
 					)}
 				</div>
+
+				{watch('trip_know_ibiapaba_mirantes') && (
+					<FormItem className='space-y-2 w-full'>
+						<FormLabel
+							htmlFor='trip_how_know_ibiapaba_mirantes'
+							aria-invalid={!!errors.trip_how_know_ibiapaba_mirantes}
+						>
+							Por onde conheceu a rota?
+						</FormLabel>
+
+						<Controller
+							name='trip_how_know_ibiapaba_mirantes'
+							control={control}
+							render={({ field }) => (
+								<SelectWithSearch
+									id='trip_how_know_ibiapaba_mirantes'
+									multiple
+									optional
+									value={field.value}
+									onChangeAction={field.onChange}
+									hasError={!!errors.trip_how_know_ibiapaba_mirantes}
+									options={
+										tripStepSelectOptions.trip_how_know_ibiapaba_mirantes
+									}
+								/>
+							)}
+						/>
+						{errors.trip_how_know_ibiapaba_mirantes && (
+							<FormMessage>
+								{String(errors.trip_how_know_ibiapaba_mirantes.message)}
+							</FormMessage>
+						)}
+					</FormItem>
+				)}
 			</div>
 
-			<Separator className='block md:hidden' />
+			<Separator className='opacity-70' />
 
-			<div className='FormFieldsContainer w-full flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
+			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
 						htmlFor='trip_reasons'
@@ -208,9 +277,9 @@ export default function TripStep() {
 				</FormItem>
 			</div>
 
-			<Separator className='block md:hidden' />
+			<Separator className='opacity-70' />
 
-			<div className='FormFieldsContainer w-full flex gap-8 md:gap-6 flex-wrap md:flex-nowrap items-start'>
+			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
 						htmlFor='trip_average_diary_expense'
