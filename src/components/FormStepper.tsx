@@ -7,6 +7,7 @@ import {
 	StepperTitle,
 	StepperTrigger,
 } from '@/components/ui/stepper';
+import { Check } from 'lucide-react';
 import React from 'react';
 
 interface FormStepperProps {
@@ -25,18 +26,24 @@ export default function FormStepper({ steps, activeStep }: FormStepperProps) {
 				>
 					<StepperTrigger className='rounded max-md:flex-col'>
 						<StepperIndicator asChild>
-							{step.icon
-								? React.createElement(step.icon, {
-										size: 16,
-								  })
-								: step.number}
+							{activeStep && step.number < activeStep ? (
+								<Check />
+							) : step.icon ? (
+								React.createElement(step.icon, {
+									size: 16,
+								})
+							) : (
+								step.number
+							)}
 						</StepperIndicator>
 						<div className='text-center md:text-left'>
-							<StepperTitle>{step.title}</StepperTitle>
+							{step.number === activeStep && (
+								<StepperTitle>{step.title}</StepperTitle>
+							)}
 						</div>
 					</StepperTrigger>
 					{idx < steps.length && (
-						<StepperSeparator className='max-md:mt-3.5 md:mx-4' />
+						<StepperSeparator className='md:flex max-md:mt-3.5 md:mx-4' />
 					)}
 				</StepperItem>
 			))}
