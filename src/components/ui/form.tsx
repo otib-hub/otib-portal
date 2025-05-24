@@ -106,7 +106,7 @@ function FormLabel({
 		>
 			{props.children}
 			{props['aria-required'] && (
-				<span className='text-destructive text-xl'>*</span>
+				<span className='text-destructive text-base'>*</span>
 			)}
 		</Label>
 	);
