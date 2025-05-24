@@ -1,6 +1,7 @@
 'use client';
 
 import { Slider } from '@/components/ui/slider';
+import { cn } from '@/lib/utils';
 
 interface NpsSliderProps {
 	value?: number;
@@ -10,7 +11,7 @@ interface NpsSliderProps {
 }
 
 export default function NpsSlider({
-	value = 8,
+	value,
 	onChangeAction,
 	hasError,
 	id,
@@ -21,22 +22,25 @@ export default function NpsSlider({
 		<div className='w-full flex flex-col items-center gap-3 md:max-w-2xs'>
 			<Slider
 				id={id}
-				value={[value]}
+				value={value ? [value] : undefined}
 				onValueChange={(values) => onChangeAction(values[0])}
 				min={1}
 				max={10}
 				step={1}
 				showTooltip
-				aria-label='Dê uma nota para sua experiência de 1 a 10'
 				aria-invalid={hasError}
-				className={
-					hasError
-						? 'border-destructive'
-						: '' +
-						  '[&>:last-child>span]:border-black [&>:last-child>span]:bg-white **:data-[slot=slider-thumb]:shadow-none [&>:last-child>span]:size-6.5 [&>:last-child>span]:border-[3px] [&>:last-child>span]:ring-offset-0'
-				}
+				className={cn(
+					'[&>:last-child>span]:border-black [&>:last-child>span]:bg-white [&>:last-child>span]:shadow-none [&>:last-child>span]:size-6.5 [&>:last-child>span]:border-[3px] [&>:last-child>span]:ring-offset-0',
+					hasError && 'border-destructive'
+				)}
 			/>
-			<span className='text-2xl font-extrabold'>{labels[value - 1]}</span>
+			<span
+				className={`font-extrabold ${
+					!value ? 'text-muted-foreground text-md animate-pulse' : 'text-xl'
+				}`}
+			>
+				{value ? labels[value - 1] : 'Arraste para definir'}
+			</span>
 		</div>
 	);
 }
