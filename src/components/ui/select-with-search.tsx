@@ -87,10 +87,6 @@ export const SelectWithSearch = ({
 		onChangeAction(updated);
 	};
 
-	const clearAll = () => {
-		onChangeAction([]);
-	};
-
 	const selectedLabels = options.filter((o) =>
 		selectedValues.includes(o.value)
 	);
@@ -119,7 +115,7 @@ export const SelectWithSearch = ({
 								aria-expanded={open}
 								aria-invalid={hasError}
 								className={cn(
-									'flex-grow flex justify-between items-center text-base bg-input/20 hover:bg-input/35 border-input px-3 py-5 font-normal outline-offset-2 outline-none focus-visible:outline-[3px] dark:aria-invalid:border-destructive/70 aria-invalid:border-destructive'
+									'w-full flex-grow flex justify-between items-center text-base bg-input/20 hover:bg-input/35 border-input px-3 py-5 font-normal outline-offset-2 outline-none focus-visible:outline-[3px] dark:aria-invalid:border-destructive/70 aria-invalid:border-destructive'
 								)}
 							>
 								<span
@@ -172,25 +168,12 @@ export const SelectWithSearch = ({
 						</Command>
 					</PopoverContent>
 				</Popover>
-
-				{/* Botão limpar entre o popover e os badges */}
-				{multiple && selectedValues.length > 0 && (
-					<Button
-						variant='ghost'
-						type='button'
-						onClick={clearAll}
-						className='text-muted-foreground hover:text-foreground transition p-1 flex-shrink-0'
-						aria-label='Limpar todos'
-					>
-						<XIcon size={18} />
-					</Button>
-				)}
 			</div>
 
 			{/* Badges de opções selecionadas */}
 			{multiple && selectedLabels.length > 0 && (
-				<div className='border-2 border-muted-foreground/20 bg-muted/30 dark:bg-muted/40 rounded-lg lg:bg-transparent lg:border-0 dark:lg:border-0 dark:lg:bg-transparent py-2 px-3 lg:p-0 flex flex-wrap gap-2 items-center max-h-36 lg:max-h-none overflow-y-auto'>
-					<span className='text-muted-foreground text-base'>
+				<div className='border-2 border-accent dark:border-accent/50 bg-accent/35 dark:bg-accent/20 rounded-lg lg:bg-transparent lg:border-0 dark:lg:border-0 dark:lg:bg-transparent py-2 px-3 lg:p-0 flex flex-wrap gap-2 items-center max-h-36 lg:max-h-none overflow-y-auto'>
+					<span className='text-accent-foreground/80 text-base'>
 						Opç{selectedLabels.length > 1 ? 'ões' : 'ão'} selecionad
 						{selectedLabels.length > 1 ? 'as' : 'a'}:
 					</span>
@@ -200,13 +183,13 @@ export const SelectWithSearch = ({
 							key={item.value}
 							onClick={() => removeValue(item.value)}
 							variant='secondary'
-							className='max-w-full whitespace-pre-wrap bg-chart-5/30 hover:bg-chart-5/45 gap-1 text-base cursor-pointer transition-colors'
+							className='max-w-full whitespace-pre-wrap bg-chart-5/45 rounded-full hover:bg-destructive/25 gap-1 text-base cursor-pointer transition-colors'
 						>
 							{item.label}
 							<button
 								type='button'
 								onClick={() => removeValue(item.value)}
-								className='ml-1 text-muted-foreground hover:text-foreground transition'
+								className='ml-1 text-muted-foreground hover:text-destructive transition'
 								aria-label={`Remover ${item.label}`}
 							>
 								<XIcon size={12} />
