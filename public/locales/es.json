@@ -1,0 +1,16 @@
+{
+    "app": {
+        "Home": {
+            "title": "¡Bienvenido al prototipo OTIB!",
+            "button_cta": "Formulario de prueba"
+        }
+    },
+    "components": {
+        "ModeToggle": {
+            "toggle": "Cambiar tema",
+            "light": "Claro",
+            "dark": "Oscuro",
+            "system": "Sistema"
+        }
+    }
+}

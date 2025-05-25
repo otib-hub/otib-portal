@@ -1,0 +1,16 @@
+{
+    "app": {
+        "Home": {
+            "title": "Welcome to the OTIB prototype!",
+            "button_cta": "Test form"
+        }
+    },
+    "components": {
+        "ModeToggle": {
+            "toggle": "Toggle theme",
+            "light": "Light",
+            "dark": "Dark",
+            "system": "System"
+        }
+    }
+}
