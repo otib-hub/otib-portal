@@ -9,6 +9,7 @@ import otib_logo_light from '../../public/otib/logo/logo-icon-pos.svg';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { LocaleSwitcher } from './LocaleSwitcher';
 
 export default function Header() {
 	const { theme } = useTheme();
@@ -41,7 +42,10 @@ export default function Header() {
 					</div>
 				</Link>
 
-				<ModeToggle />
+				<div className='flex items-center justify-start gap-2'>
+					<LocaleSwitcher />
+					<ModeToggle />
+				</div>
 			</div>
 			<Separator />
 		</header>
