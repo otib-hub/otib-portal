@@ -11,6 +11,155 @@
             "light": "Light",
             "dark": "Dark",
             "system": "System"
+        },
+        "LocaleSwitcher": {
+            "toggle": "Change language"
+        },
+        "FormDebugDialog": {
+            "trigger_text": "Debug form content",
+            "dialog_title": "Content sent from the form",
+            "dialog_description": "This dialog only shows in development environment"
+        },
+        "SelectWithSearch": {
+            "placeholder": {
+                "optional": "Select zero or more options",
+                "multiple": "Select at least one option",
+                "single": "Select an option"
+            },
+            "selection": {
+                "selected": "{count, plural, one {# option selected} other {# options selected}}"
+            }
+        }
+    },
+    "forms": {
+        "common": {
+            "button_back": "Back",
+            "button_next": "Next",
+            "button_submit": "Submit",
+            "toast_submit_success": "Form content send successfully!",
+            "toast_content_invalid": "Please fill all form fields correctly!",
+            "radio_true": "Yes",
+            "radio_false": "No"
+        },
+        "errors": {
+            "field_required": "Required field",
+            "field_require_at_least_one": "Select at least one option"
+        },
+        "ExampleForm": {
+            "steps": {
+                "1": {
+                    "title": "You",
+                    "fields": {
+                        "tourist_country": {
+                            "form_label": "Country"
+                        },
+                        "tourist_state": {
+                            "form_label": "State"
+                        },
+                        "tourist_city": {
+                            "form_label": "City"
+                        },
+                        "tourist_age_group": {
+                            "form_label": "Age group",
+                            "options": {
+                                "0": "Between 18 and 24 years old",
+                                "1": "Between 25 and 34 years old",
+                                "2": "Between 35 and 44 years old",
+                                "3": "Between 45 and 54 years old",
+                                "4": "Between 55 and 64 years old",
+                                "5": "65 years old or greater"
+                            }
+                        },
+                        "tourist_gender": {
+                            "form_label": "Gender",
+                            "options": {
+                                "male": "Male",
+                                "female": "Female",
+                                "non_binary": "Non binary",
+                                "other": "Other",
+                                "omit": "I prefer not to inform"
+                            }
+                        },
+                        "tourist_education": {
+                            "form_label": "Education",
+                            "options": {
+                                "0": "Incomplete elementary school",
+                                "1": "Completed elementary school",
+                                "2": "Incomplete high school",
+                                "3": "Completed high school",
+                                "4": "Incomplete higher education",
+                                "5": "Completed higher education"
+                            }
+                        },
+                        "tourist_estimated_income": {
+                            "form_label": "Estimated income",
+                            "options": {
+                                "low": "Less than R$1,000",
+                                "low_mid": "Between R$1,000 and R$3,000",
+                                "mid": "Between R$3,000 and R$5,000",
+                                "high_mid": "Between R$5,000 and R$10,000",
+                                "high": "More than R$10,000",
+                                "omit": "I prefer not to inform"
+                            }
+                        }
+                    }
+                },
+                "2": {
+                    "title": "Planning",
+                    "fields": {
+                        "planning_was_planned": {
+                            "form_label": "Was your trip planned?"
+                        },
+                        "planning_time": {
+                            "form_label": "How far in advance was your trip planned?"
+                        },
+                        "planning_information_sources": {
+                            "form_label": "What sources of information did you use for planning?"
+                        },
+                        "planning_organization": {
+                            "form_label": "How was your trip organized?"
+                        }
+                    }
+                },
+                "3": {
+                    "title": "Trip",
+                    "fields": {
+                        "trip_has_reincidence": {
+                            "form_label": "Have you traveled here before?"
+                        },
+                        "trip_reincidence": {
+                            "form_label": "How many times have you visited Ibiapaba?"
+                        },
+                        "trip_know_ibiapaba_mirantes": {
+                            "form_label": "Do you know the \"Mirantes da Ibiapaba\" Route?"
+                        },
+                        "trip_how_know_ibiapaba_mirantes": {
+                            "form_label": "How did you heard about the route?"
+                        },
+                        "trip_reasons": {
+                            "form_label": "Trip reason(s)"
+                        },
+                        "trip_stay_time": {
+                            "form_label": "Length of stay"
+                        },
+                        "trip_vehicles": {
+                            "form_label": "Vehicle(s) used"
+                        },
+                        "trip_average_diary_expense": {
+                            "form_label": "How much did you spend or plan to spend on average per day?"
+                        },
+                        "trip_hosting_types": {
+                            "form_label": "Hosting type(s)"
+                        }
+                    }
+                },
+                "4": {
+                    "title": "Activities"
+                },
+                "5": {
+                    "title": "Evaluation"
+                }
+            }
         }
     }
 }

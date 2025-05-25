@@ -1,8 +1,8 @@
 {
     "app": {
         "Home": {
-            "title": "¡Bienvenido al prototipo OTIB!",
-            "button_cta": "Formulario de prueba"
+            "title": "¡Bienvenido al prototipo de OTIB!",
+            "button_cta": "Probar formulario"
         }
     },
     "components": {
@@ -11,6 +11,155 @@
             "light": "Claro",
             "dark": "Oscuro",
             "system": "Sistema"
+        },
+        "LocaleSwitcher": {
+            "toggle": "Cambiar idioma"
+        },
+        "FormDebugDialog": {
+            "trigger_text": "Depurar contenido del formulario",
+            "dialog_title": "Contenido enviado desde el formulario",
+            "dialog_description": "Este diálogo solo se muestra en entorno de desarrollo"
+        },
+        "SelectWithSearch": {
+            "placeholder": {
+                "optional": "Seleccione cero o más opciones",
+                "multiple": "Seleccione al menos una opción",
+                "single": "Seleccione una opción"
+            },
+            "selection": {
+                "selected": "{count, plural, one {# opción seleccionada} other {# opciones seleccionadas}}"
+            }
+        }
+    },
+    "forms": {
+        "common": {
+            "button_back": "Atrás",
+            "button_next": "Siguiente",
+            "button_submit": "Enviar",
+            "toast_submit_success": "¡Contenido del formulario enviado con éxito!",
+            "toast_content_invalid": "¡Por favor, complete todos los campos del formulario correctamente!",
+            "radio_true": "Sí",
+            "radio_false": "No"
+        },
+        "errors": {
+            "field_required": "Campo obligatorio",
+            "field_require_at_least_one": "Seleccione al menos una opción"
+        },
+        "ExampleForm": {
+            "steps": {
+                "1": {
+                    "title": "Tú",
+                    "fields": {
+                        "tourist_country": {
+                            "form_label": "País"
+                        },
+                        "tourist_state": {
+                            "form_label": "Estado"
+                        },
+                        "tourist_city": {
+                            "form_label": "Ciudad"
+                        },
+                        "tourist_age_group": {
+                            "form_label": "Grupo de edad",
+                            "options": {
+                                "0": "Entre 18 y 24 años",
+                                "1": "Entre 25 y 34 años",
+                                "2": "Entre 35 y 44 años",
+                                "3": "Entre 45 y 54 años",
+                                "4": "Entre 55 y 64 años",
+                                "5": "65 años o más"
+                            }
+                        },
+                        "tourist_gender": {
+                            "form_label": "Género",
+                            "options": {
+                                "male": "Masculino",
+                                "female": "Femenino",
+                                "non_binary": "No binario",
+                                "other": "Otro",
+                                "omit": "Prefiero no informar"
+                            }
+                        },
+                        "tourist_education": {
+                            "form_label": "Educación",
+                            "options": {
+                                "0": "Primaria incompleta",
+                                "1": "Primaria completa",
+                                "2": "Secundaria incompleta",
+                                "3": "Secundaria completa",
+                                "4": "Educación superior incompleta",
+                                "5": "Educación superior completa"
+                            }
+                        },
+                        "tourist_estimated_income": {
+                            "form_label": "Ingreso estimado",
+                            "options": {
+                                "low": "Menos de R$1.000",
+                                "low_mid": "Entre R$1.000 y R$3.000",
+                                "mid": "Entre R$3.000 y R$5.000",
+                                "high_mid": "Entre R$5.000 y R$10.000",
+                                "high": "Más de R$10.000",
+                                "omit": "Prefiero no informar"
+                            }
+                        }
+                    }
+                },
+                "2": {
+                    "title": "Planificación",
+                    "fields": {
+                        "planning_was_planned": {
+                            "form_label": "¿Fue planificado su viaje?"
+                        },
+                        "planning_time": {
+                            "form_label": "¿Con cuánta anticipación planificó su viaje?"
+                        },
+                        "planning_information_sources": {
+                            "form_label": "¿Qué fuentes de información utilizó para planificar?"
+                        },
+                        "planning_organization": {
+                            "form_label": "¿Cómo fue organizado su viaje?"
+                        }
+                    }
+                },
+                "3": {
+                    "title": "Viaje",
+                    "fields": {
+                        "trip_has_reincidence": {
+                            "form_label": "¿Ha viajado aquí antes?"
+                        },
+                        "trip_reincidence": {
+                            "form_label": "¿Cuántas veces ha visitado Ibiapaba?"
+                        },
+                        "trip_know_ibiapaba_mirantes": {
+                            "form_label": "¿Conoce la Ruta \"Mirantes da Ibiapaba\"?"
+                        },
+                        "trip_how_know_ibiapaba_mirantes": {
+                            "form_label": "¿Cómo se enteró de la ruta?"
+                        },
+                        "trip_reasons": {
+                            "form_label": "Motivo(s) del viaje"
+                        },
+                        "trip_stay_time": {
+                            "form_label": "Duración de la estadía"
+                        },
+                        "trip_vehicles": {
+                            "form_label": "Vehículo(s) utilizado(s)"
+                        },
+                        "trip_average_diary_expense": {
+                            "form_label": "¿Cuánto gastó o planea gastar en promedio por día?"
+                        },
+                        "trip_hosting_types": {
+                            "form_label": "Tipo(s) de hospedaje"
+                        }
+                    }
+                },
+                "4": {
+                    "title": "Actividades"
+                },
+                "5": {
+                    "title": "Evaluación"
+                }
+            }
         }
     }
 }
