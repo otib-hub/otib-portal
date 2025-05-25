@@ -11,6 +11,7 @@ import {
 import { buttonVariants } from './ui/button';
 import { Bug, X } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface FormDebugDialogProps {
 	data: ExampleFormType;
@@ -57,6 +58,8 @@ function formatDataToBeautifulPre(data: ExampleFormType) {
 }
 
 export default function FormDebugDialog({ data }: FormDebugDialogProps) {
+	const t = useTranslations('components.FormDebugDialog');
+
 	function useAnimateOnDataChange(data: ExampleFormType) {
 		const ref = useRef<HTMLButtonElement | null>(null);
 
@@ -84,12 +87,12 @@ export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 				})} w-full transition-colors`}
 			>
 				<Bug className='size-5' />
-				Debugar conteúdo do formulário
+				{t('trigger_text')}
 			</AlertDialogTrigger>
 			<AlertDialogContent className='max-h-[calc(100dvh-32)]'>
 				<AlertDialogHeader>
 					<AlertDialogTitle className='inline-flex text-start justify-between items-center font-extrabold'>
-						Conteúdo enviado do Formulário
+						{t('dialog_title')}
 						<AlertDialogAction
 							className={`${buttonVariants({
 								variant: 'secondary',
@@ -109,7 +112,7 @@ export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 					</div>
 
 					<AlertDialogDescription className='text-primary text-start'>
-						Esta opção está disponível somente em ambiente de desenvolvimento
+						{t('dialog_description')}
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 			</AlertDialogContent>
