@@ -19,6 +19,7 @@ import { cn } from '@/lib/utils';
 import { useMemo, useState } from 'react';
 import { Skeleton } from './skeleton';
 import { Badge } from '@/components/ui/badge';
+import { useTranslations } from 'next-intl';
 
 type Option = {
 	value: string;
@@ -42,14 +43,9 @@ export const SelectWithSearch = ({
 	optional = false,
 	options,
 	value,
+	placeholder,
 	onChangeAction,
 	multiple = false,
-	placeholder = optional
-		? 'Selecione zero ou mais opções'
-		: multiple
-		? 'Selecione pelo menos uma opção'
-		: 'Selecione uma opção',
-
 	hasError,
 	id,
 	loading,
@@ -57,6 +53,14 @@ export const SelectWithSearch = ({
 	const [open, setOpen] = useState(false);
 	const [search, setSearch] = useState('');
 	const selectedValues = Array.isArray(value) ? value : value ? [value] : [];
+	const t = useTranslations('components.SelectWithSearch');
+
+	if (!placeholder)
+		placeholder = optional
+			? t('placeholder.optional')
+			: multiple
+			? t('placeholder.multiple')
+			: t('placeholder.single');
 
 	const filteredOptions = useMemo(() => {
 		if (!search) return options;
@@ -92,11 +96,15 @@ export const SelectWithSearch = ({
 	);
 
 	const selectedSummary = multiple
-		? selectedLabels.length +
-		  ` opç${selectedLabels.length > 1 ? 'ões' : 'ão'} selecionad${
-				selectedLabels.length > 1 ? 'as' : 'a'
-		  }`
+		? t('selection.selected', { count: selectedLabels.length })
 		: selectedLabels[0]?.label;
+
+	const shortSelectedSummary =
+		(selectedSummary ?? '')
+			.split(' ')
+			.slice(1, 3)
+			.join(' ')
+			.replace(/^./, (c) => c.toUpperCase()) + ':';
 
 	return (
 		<div className='space-y-2 overflow-hidden'>
@@ -174,8 +182,7 @@ export const SelectWithSearch = ({
 			{multiple && selectedLabels.length > 0 && (
 				<div className='border-2 border-accent dark:border-accent/50 bg-accent/35 dark:bg-accent/20 rounded-lg lg:bg-transparent lg:border-0 dark:lg:border-0 dark:lg:bg-transparent py-2 px-3 lg:p-0 flex flex-wrap gap-2 items-center max-h-36 lg:max-h-none overflow-y-auto'>
 					<span className='text-accent-foreground/80 text-base'>
-						Opç{selectedLabels.length > 1 ? 'ões' : 'ão'} selecionad
-						{selectedLabels.length > 1 ? 'as' : 'a'}:
+						{shortSelectedSummary}
 					</span>
 					{selectedLabels.map((item) => (
 						<Badge
