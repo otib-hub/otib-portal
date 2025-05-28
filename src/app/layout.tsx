@@ -3,7 +3,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getMessages } from 'next-intl/server';
 import { inter } from '../styles/fonts';
 import '../styles/globals.css';
 
@@ -18,10 +18,12 @@ export default async function RootLayout({
 	children: React.ReactNode;
 }>) {
 	const locale = await getLocale();
+	const messages = await getMessages();
+
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body className={`${inter.className} antialiased`}>
-				<NextIntlClientProvider>
+				<NextIntlClientProvider locale={locale} messages={messages}>
 					<ThemeProvider
 						attribute='class'
 						defaultTheme='system'
