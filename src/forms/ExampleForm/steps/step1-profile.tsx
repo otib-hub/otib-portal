@@ -1,16 +1,15 @@
 import { Separator } from '@/components/ui/separator';
 import { FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Controller, useFormContext } from 'react-hook-form';
-import {
-	profileStepSelectOptions,
-	ProfileStepType,
-} from '../schemas/step1-profile-schema';
+import { getProfileStepSelectOptions, ProfileStepType } from '../schemas/step1-profile-schema';
 import { SelectWithSearch } from '@/components/ui/select-with-search';
+import { useTranslations } from 'next-intl';
 
 export default function ProfileStep() {
+	const t = useTranslations('forms.ExampleForm.steps.1.fields');
+	const profileStepSelectOptions = getProfileStepSelectOptions(t)
 	const {
 		control,
-		// register, -> register para inputs, control para selects
 		formState: { errors },
 	} = useFormContext<ProfileStepType>();
 
@@ -23,7 +22,7 @@ export default function ProfileStep() {
 						aria-invalid={!!errors.tourist_country}
 						aria-required
 					>
-						País
+						{t('tourist_country.form_label')}
 					</FormLabel>
 					<Controller
 						name='tourist_country'
@@ -49,7 +48,7 @@ export default function ProfileStep() {
 						aria-invalid={!!errors.tourist_state}
 						aria-required
 					>
-						Estado
+						{t('tourist_state.form_label')}
 					</FormLabel>
 					<Controller
 						name='tourist_state'
@@ -75,7 +74,7 @@ export default function ProfileStep() {
 						aria-invalid={!!errors.tourist_city}
 						aria-required
 					>
-						Cidade
+						{t('tourist_city.form_label')}
 					</FormLabel>
 					<Controller
 						name='tourist_city'
@@ -105,7 +104,7 @@ export default function ProfileStep() {
 						aria-invalid={!!errors.tourist_age_group}
 						aria-required
 					>
-						Faixa etária
+						{t('tourist_age_group.form_label')}
 					</FormLabel>
 					<Controller
 						name='tourist_age_group'
@@ -133,7 +132,7 @@ export default function ProfileStep() {
 						aria-invalid={!!errors.tourist_gender}
 						aria-required
 					>
-						Gênero
+						{t('tourist_gender.form_label')}
 					</FormLabel>
 					<Controller
 						name='tourist_gender'
@@ -163,7 +162,7 @@ export default function ProfileStep() {
 						aria-invalid={!!errors.tourist_education}
 						aria-required
 					>
-						Escolaridade
+						{t('tourist_education.form_label')}
 					</FormLabel>
 					<Controller
 						name='tourist_education'
@@ -191,7 +190,7 @@ export default function ProfileStep() {
 						aria-invalid={!!errors.tourist_estimated_income}
 						aria-required
 					>
-						Renda estimada
+						{t('tourist_estimated_income.form_label')}
 					</FormLabel>
 					<Controller
 						name='tourist_estimated_income'

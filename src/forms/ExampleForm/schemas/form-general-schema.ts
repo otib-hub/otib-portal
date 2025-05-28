@@ -1,16 +1,19 @@
 import { z } from 'zod';
-import { profileStepSchema } from './step1-profile-schema';
-import { tripStepSchema } from './step3-trip-schema';
-import { evaluationStepSchema } from './step5-evaluation-schema';
-import { activitiesStepSchema } from './step4-activities-schema';
-import { planningStepSchema } from './step2-planning-schema';
+import { getProfileStepSchema } from './step1-profile-schema';
+import { getTripStepSchema } from './step3-trip-schema';
+import { getActivitiesStepSchema } from './step4-activities-schema';
+import { getEvaluationStepSchema } from './step5-evaluation-schema';
+import { TFunction } from '@/@types/next-intl';
+import { getPlanningStepSchema } from './step2-planning-schema';
 
-export const exampleFormSchema = z.object({
-	...profileStepSchema.shape,
-	...planningStepSchema.shape,
-	...tripStepSchema.shape,
-	...activitiesStepSchema.shape,
-	...evaluationStepSchema.shape,
-});
+export function getExampleFormSchema(t: TFunction<'forms'>) {
+	return z.object({
+		...getProfileStepSchema(t).shape,
+		...getPlanningStepSchema(t).shape,
+		...getTripStepSchema(t).shape, // TODO: ajustar todos os schemas para traduzir em tempo de exec
+		...getActivitiesStepSchema(t).shape,
+		...getEvaluationStepSchema().shape,
+	});
+}
 
-export type ExampleFormType = z.infer<typeof exampleFormSchema>;
+export type ExampleFormType = z.infer<ReturnType<typeof getExampleFormSchema>>;

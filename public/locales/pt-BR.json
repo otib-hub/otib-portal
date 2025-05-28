@@ -13,12 +13,12 @@
             "system": "Sistema"
         },
         "LocaleSwitcher": {
-            "toggle": "Alterar idioma"
+            "toggle": "Mudar idioma"
         },
         "FormDebugDialog": {
             "trigger_text": "Depurar conteúdo do formulário",
             "dialog_title": "Conteúdo enviado pelo formulário",
-            "dialog_description": "Este diálogo aparece apenas no ambiente de desenvolvimento"
+            "dialog_description": "Este diálogo aparece apenas em ambiente de desenvolvimento"
         },
         "SelectWithSearch": {
             "placeholder": {
@@ -29,21 +29,23 @@
             "selection": {
                 "selected": "{count, plural, one {# opção selecionada} other {# opções selecionadas}}"
             }
+        },
+        "NpsSlider": {
+            "input_placeholder": "Arraste para definir"
         }
     },
     "forms": {
         "common": {
             "button_back": "Voltar",
-            "button_next": "Avançar",
+            "button_next": "Próximo",
             "button_submit": "Enviar",
             "toast_submit_success": "Conteúdo do formulário enviado com sucesso!",
-            "toast_content_invalid": "Por favor, preencha todos os campos corretamente!",
-            "radio_true": "Sim",
-            "radio_false": "Não"
+            "toast_content_invalid": "Por favor, preencha todos os campos do formulário corretamente!"
         },
         "errors": {
             "field_required": "Campo obrigatório",
-            "field_require_at_least_one": "Selecione pelo menos uma opção"
+            "field_require_at_least_one": "Selecione pelo menos uma opção",
+            "field_require_custom": "{count, plural, other {Selecione pelo menos # opções}}"
         },
         "ExampleForm": {
             "steps": {
@@ -108,16 +110,42 @@
                     "title": "Planejamento",
                     "fields": {
                         "planning_was_planned": {
-                            "form_label": "Sua viagem foi planejada?"
+                            "form_label": "Sua viagem foi planejada?",
+                            "options": {
+                                "radio_true": "Sim",
+                                "radio_false": "Não"
+                            }
                         },
                         "planning_time": {
-                            "form_label": "Com que antecedência a viagem foi planejada?"
+                            "form_label": "Com que antecedência sua viagem foi planejada?",
+                            "options": {
+                                "0": "Menos de 1 mês",
+                                "1": "Entre 1 e 3 meses",
+                                "2": "Entre 3 e 6 meses",
+                                "3": "Mais de 6 meses"
+                            }
                         },
                         "planning_information_sources": {
-                            "form_label": "Quais fontes de informação você utilizou para planejar?"
+                            "form_label": "Quais fontes de informação você utilizou para o planejamento?",
+                            "options": {
+                                "0": "Sites de viagem",
+                                "1": "Redes sociais",
+                                "2": "Recomendações de amigos",
+                                "3": "Agências de viagem",
+                                "4": "Guias impressos",
+                                "5": "Outro"
+                            }
                         },
                         "planning_organization": {
-                            "form_label": "Como a sua viagem foi organizada?"
+                            "form_label": "Como sua viagem foi organizada?",
+                            "options": {
+                                "0": "Viagem individual",
+                                "1": "Viagem em casal",
+                                "2": "Viagem em família",
+                                "3": "Viagem em grupo",
+                                "4": "Com agência de viagem",
+                                "5": "Outro"
+                            }
                         }
                     }
                 },
@@ -125,39 +153,198 @@
                     "title": "Viagem",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "Você já viajou para cá antes?"
+                            "form_label": "Você já viajou para cá antes?",
+                            "options": {
+                                "radio_true": "Sim",
+                                "radio_false": "Não"
+                            }
                         },
                         "trip_reincidence": {
-                            "form_label": "Quantas vezes você visitou a Ibiapaba?"
+                            "form_label": "Quantas vezes você visitou a Ibiapaba?",
+                            "options": {
+                                "0": "Visitei entre 2 e 5 vezes",
+                                "1": "Visitei entre 5 e 10 vezes",
+                                "2": "Visitei mais de 10 vezes",
+                                "3": "Visito uma vez por mês",
+                                "4": "Visito todo fim de semana"
+                            }
                         },
                         "trip_know_ibiapaba_mirantes": {
-                            "form_label": "Você conhece a Rota \"Mirantes da Ibiapaba\"?"
+                            "form_label": "Você conhece a Rota \"Mirantes da Ibiapaba\"?",
+                            "options": {
+                                "radio_true": "Sim",
+                                "radio_false": "Não"
+                            }
                         },
                         "trip_how_know_ibiapaba_mirantes": {
-                            "form_label": "Como você ficou sabendo da rota?"
+                            "form_label": "Como você soube da rota?",
+                            "options": {
+                                "0": "Rádio",
+                                "1": "TV",
+                                "2": "Revistas e jornais",
+                                "3": "Agências de viagem",
+                                "4": "Google e outros buscadores",
+                                "5": "Redes sociais (Facebook, Instagram, etc.)",
+                                "6": "Site Experiências Ibiapaba",
+                                "7": "Sites das prefeituras",
+                                "8": "Sites de reservas online (OTA, como Booking, Decolar)",
+                                "9": "Sites especializados em turismo",
+                                "10": "Blogs de viagem",
+                                "11": "Outros"
+                            }
                         },
                         "trip_reasons": {
-                            "form_label": "Motivo(s) da viagem"
+                            "form_label": "Motivo(s) da viagem",
+                            "options": {
+                                "0": "Lazer, Passeios/Descanso",
+                                "1": "Negócios/Trabalho",
+                                "2": "Visita a Parentes/Amigos",
+                                "3": "Educação, Cursos, Qualificação",
+                                "4": "Esportes",
+                                "5": "Compras",
+                                "6": "Serviços Médicos",
+                                "7": "Religioso",
+                                "8": "Outro"
+                            }
                         },
                         "trip_stay_time": {
-                            "form_label": "Tempo de permanência"
+                            "form_label": "Duração da estadia",
+                            "options": {
+                                "0": "1 dia",
+                                "1": "2 a 3 dias",
+                                "2": "Apenas fim de semana",
+                                "3": "4 dias",
+                                "4": "5 dias",
+                                "5": "1 semana",
+                                "6": "15 dias",
+                                "7": "Mais de 15 dias"
+                            }
                         },
                         "trip_vehicles": {
-                            "form_label": "Veículo(s) utilizado(s)"
+                            "form_label": "Meio(s) de transporte utilizado(s)",
+                            "options": {
+                                "0": "Carro próprio",
+                                "1": "Ônibus",
+                                "2": "Motocicleta",
+                                "3": "Bicicleta",
+                                "4": "Van",
+                                "5": "Transporte por aplicativo (Uber, Mototáxi Tianguá, etc.)",
+                                "6": "Táxi",
+                                "7": "Motorhome/Trailer",
+                                "8": "Avião",
+                                "9": "Outro"
+                            }
                         },
                         "trip_average_diary_expense": {
-                            "form_label": "Quanto você gastou ou planeja gastar, em média, por dia?"
+                            "form_label": "Quanto você gastou ou planeja gastar em média por dia?",
+                            "options": {
+                                "0": "Até R$ 300,00",
+                                "1": "De R$ 300,00 a R$ 500,00",
+                                "2": "De R$ 500,00 a R$ 1.000,00",
+                                "3": "De R$ 1.000,00 a R$ 1.500,00",
+                                "4": "De R$ 1.500,00 a R$ 2.000,00",
+                                "5": "De R$ 2.000,00 a R$ 3.000,00",
+                                "6": "De R$ 3.000,00 a R$ 5.000,00",
+                                "7": "Acima de R$ 5.000,00"
+                            }
                         },
                         "trip_hosting_types": {
-                            "form_label": "Tipo(s) de hospedagem"
+                            "form_label": "Tipo(s) de hospedagem",
+                            "options": {
+                                "0": "Hotel",
+                                "1": "Pousada",
+                                "2": "Casa de familiares/amigos",
+                                "3": "Aluguel de temporada",
+                                "4": "Camping",
+                                "5": "Hostel",
+                                "6": "Resort",
+                                "7": "Chalé",
+                                "8": "Motorhome/Trailer",
+                                "9": "Outro"
+                            }
                         }
                     }
                 },
                 "4": {
-                    "title": "Atividades"
+                    "title": "Atividades",
+                    "fields": {
+                        "activities_places_visited": {
+                            "form_label": "Locais visitados"
+                        },
+                        "activities_events_visited": {
+                            "form_label": "Tipos de eventos visitados",
+                            "options": {
+                                "0": "Museus",
+                                "1": "Espaços religiosos (igrejas, festas)",
+                                "2": "Atividades de aventura na natureza",
+                                "3": "Parques temáticos"
+                            }
+                        },
+                        "activities_used_apps": {
+                            "form_label": "Aplicativos utilizados no planejamento e durante a viagem",
+                            "options": {
+                                "0": "Mapas ou navegadores: Waze, Google Maps, etc.",
+                                "1": "Guias turísticos digitais",
+                                "2": "Tradutores de idioma",
+                                "3": "Apps de transporte: Uber, 99, etc.",
+                                "4": "Redes sociais para compartilhar experiências",
+                                "5": "Apps de reserva de hospedagem: Booking, Airbnb, etc.",
+                                "6": "Apps de avaliação de restaurantes e atrações: TripAdvisor, Google Reviews, etc."
+                            }
+                        }
+                    }
                 },
                 "5": {
-                    "title": "Avaliação"
+                    "title": "Avaliação",
+                    "fields": {
+                        "evaluation_recommendation_rate": {
+                            "form_label": "De 1 a 10, quanto você recomendaria uma visita à Ibiapaba?"
+                        },
+                        "evaluation_dissatisfactions": {
+                            "form_label": "Do que você menos gostou na sua visita?",
+                            "options": {
+                                "0": "Limpeza",
+                                "1": "Sinalização das ruas",
+                                "2": "Sinalização turística",
+                                "3": "Conservação de ruas e mobiliário urbano",
+                                "4": "Via de acesso",
+                                "5": "Estacionamento",
+                                "6": "Táxi",
+                                "7": "Mobilidade/Transporte",
+                                "8": "Bancos/ Caixas eletrônicos",
+                                "9": "Segurança",
+                                "10": "Iluminação",
+                                "11": "Preços",
+                                "12": "Site institucional",
+                                "13": "Hospitalidade dos moradores",
+                                "14": "Hospitalidade dos prestadores de serviço e comércio",
+                                "15": "Serviços receptivos",
+                                "16": "Hospedagem",
+                                "17": "Restaurantes/gastronomia",
+                                "18": "Guia turístico/ambiental",
+                                "19": "Artesanato",
+                                "20": "Comércio em geral",
+                                "21": "Eventos culturais",
+                                "22": "Atrativos naturais",
+                                "23": "Eventos",
+                                "24": "Opções de lazer",
+                                "25": "Entretenimento noturno"
+                            }
+                        },
+                        "evaluation_expectation_rate": {
+                            "form_label": "Qual era seu nível de expectativa antes da visita? (1 a 10)"
+                        },
+                        "evaluation_satisfaction_rate": {
+                            "form_label": "Quão satisfeito(a) você ficou após a visita? (1 a 10)"
+                        },
+                        "evaluation_return_intent_rate": {
+                            "form_label": "Quanto você pretende voltar à Ibiapaba?"
+                        },
+                        "evaluation_open_opinion": {
+                            "form_label": "Você precisou de algum serviço que não encontrou na Ibiapaba? Ou tem alguma sugestão para melhorar a infraestrutura turística, os equipamentos e serviços?",
+                            "input_placeholder": "Agradeceríamos muito por sua opinião :)"
+                        }
+                    }
                 }
             }
         }

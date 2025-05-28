@@ -2,6 +2,7 @@
 
 import { Slider } from '@/components/ui/slider';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 interface NpsSliderProps {
 	value?: number;
@@ -16,6 +17,7 @@ export default function NpsSlider({
 	hasError,
 	id,
 }: NpsSliderProps) {
+	const t = useTranslations('components.NpsSlider');
 	const labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 	return (
@@ -39,7 +41,7 @@ export default function NpsSlider({
 					!value ? 'text-muted-foreground text-md animate-pulse' : 'text-xl'
 				}`}
 			>
-				{value ? labels[value - 1] : 'Arraste para definir'}
+				{value ? labels[value - 1] : t('input_placeholder')}
 			</span>
 		</div>
 	);

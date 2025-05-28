@@ -1,16 +1,18 @@
 import { FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Controller, useFormContext } from 'react-hook-form';
 import {
-	activitiesStepSelectOptions,
 	ActivitiesStepType,
+	getActivitiesStepSelectOptions,
 } from '../schemas/step4-activities-schema';
 import { SelectWithSearch } from '@/components/ui/select-with-search';
 import { Separator } from '@/components/ui/separator';
+import { useTranslations } from 'next-intl';
 
 export default function ActivitiesStep() {
+	const t = useTranslations('forms.ExampleForm.steps.4.fields');
+	const activitiesStepSelectOptions = getActivitiesStepSelectOptions(t);
 	const {
 		control,
-		// register, -> register para inputs, control para selects
 		formState: { errors },
 	} = useFormContext<ActivitiesStepType>();
 
@@ -24,7 +26,7 @@ export default function ActivitiesStep() {
 						aria-invalid={!!errors.activities_places_visited}
 						aria-required
 					>
-						Lugares que deseja visitar ou visitou
+						{t('activities_places_visited.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -52,7 +54,7 @@ export default function ActivitiesStep() {
 						htmlFor='activities_events_visited'
 						aria-invalid={!!errors.activities_events_visited}
 					>
-						Tipos de eventos que deseja visitar ou visitou
+						{t('activities_events_visited.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -85,7 +87,7 @@ export default function ActivitiesStep() {
 						htmlFor='activities_events_visited'
 						aria-invalid={!!errors.activities_events_visited}
 					>
-						Aplicativos usados no planejamento e durante a viagem
+						{t('activities_used_apps.form_label')}
 					</FormLabel>
 
 					<Controller

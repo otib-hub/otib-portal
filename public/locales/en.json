@@ -29,6 +29,9 @@
             "selection": {
                 "selected": "{count, plural, one {# option selected} other {# options selected}}"
             }
+        },
+        "NpsSlider": {
+            "input_placeholder": "Drag to define"
         }
     },
     "forms": {
@@ -37,13 +40,12 @@
             "button_next": "Next",
             "button_submit": "Submit",
             "toast_submit_success": "Form content send successfully!",
-            "toast_content_invalid": "Please fill all form fields correctly!",
-            "radio_true": "Yes",
-            "radio_false": "No"
+            "toast_content_invalid": "Please fill all form fields correctly!"
         },
         "errors": {
             "field_required": "Required field",
-            "field_require_at_least_one": "Select at least one option"
+            "field_require_at_least_one": "Select at least one option",
+            "field_require_custom": "{count, plural, other {Select at least # options}}"
         },
         "ExampleForm": {
             "steps": {
@@ -108,16 +110,42 @@
                     "title": "Planning",
                     "fields": {
                         "planning_was_planned": {
-                            "form_label": "Was your trip planned?"
+                            "form_label": "Was your trip planned?",
+                            "options": {
+                                "radio_true": "Yes",
+                                "radio_false": "No"
+                            }
                         },
                         "planning_time": {
-                            "form_label": "How far in advance was your trip planned?"
+                            "form_label": "How far in advance was your trip planned?",
+                            "options": {
+                                "0": "Less than 1 month",
+                                "1": "Between 1 and 3 months",
+                                "2": "Between 3 and 6 months",
+                                "3": "More than 6 months"
+                            }
                         },
                         "planning_information_sources": {
-                            "form_label": "What sources of information did you use for planning?"
+                            "form_label": "What sources of information did you use for planning?",
+                            "options": {
+                                "0": "Travel websites",
+                                "1": "Social networks",
+                                "2": "Recommendations from friends",
+                                "3": "Travel agencies",
+                                "4": "Printed guides",
+                                "5": "Other"
+                            }
                         },
                         "planning_organization": {
-                            "form_label": "How was your trip organized?"
+                            "form_label": "How was your trip organized?",
+                            "options": {
+                                "0": "Individual trip",
+                                "1": "Couple trip",
+                                "2": "Family trip",
+                                "3": "Group trip",
+                                "4": "With travel agency",
+                                "5": "Other"
+                            }
                         }
                     }
                 },
@@ -125,39 +153,198 @@
                     "title": "Trip",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "Have you traveled here before?"
+                            "form_label": "Have you traveled here before?",
+                            "options": {
+                                "radio_true": "Yes",
+                                "radio_false": "No"
+                            }
                         },
                         "trip_reincidence": {
-                            "form_label": "How many times have you visited Ibiapaba?"
+                            "form_label": "How many times have you visited Ibiapaba?",
+                            "options": {
+                                "0": "I've visited between 2 and 5 times",
+                                "1": "I've visited between 5 and 10 times",
+                                "2": "I've visited more than 10 times",
+                                "3": "I visit once a month",
+                                "4": "I visit every weekend"
+                            }
                         },
                         "trip_know_ibiapaba_mirantes": {
-                            "form_label": "Do you know the \"Mirantes da Ibiapaba\" Route?"
+                            "form_label": "Do you know the \"Mirantes da Ibiapaba\" Route?",
+                            "options": {
+                                "radio_true": "Yes",
+                                "radio_false": "No"
+                            }
                         },
                         "trip_how_know_ibiapaba_mirantes": {
-                            "form_label": "How did you heard about the route?"
+                            "form_label": "How did you heard about the route?",
+                            "options": {
+                                "0": "Radio",
+                                "1": "TV",
+                                "2": "Magazines and newspapers",
+                                "3": "Travel agencies",
+                                "4": "Google and search engines in general",
+                                "5": "Social networks (Facebook, Instagram, others)",
+                                "6": "Experiências Ibiapaba website",
+                                "7": "Municipalities' websites",
+                                "8": "Online booking sites (OTA, such as Booking, decolar)",
+                                "9": "Specialized tourism websites",
+                                "10": "Travel blogs",
+                                "11": "Others"
+                            }
                         },
                         "trip_reasons": {
-                            "form_label": "Trip reason(s)"
+                            "form_label": "Trip reason(s)",
+                            "options": {
+                                "0": "Leisure, Outings/Rest",
+                                "1": "Business/Work",
+                                "2": "Visit to Relatives/Friends",
+                                "3": "Education, Courses, Qualification",
+                                "4": "Sports",
+                                "5": "Shopping",
+                                "6": "Medical Services",
+                                "7": "Religious",
+                                "8": "Other"
+                            }
                         },
                         "trip_stay_time": {
-                            "form_label": "Length of stay"
+                            "form_label": "Length of stay",
+                            "options": {
+                                "0": "1 day",
+                                "1": "2 to 3 days",
+                                "2": "Weekend only",
+                                "3": "4 days",
+                                "4": "5 days",
+                                "5": "1 week",
+                                "6": "15 days",
+                                "7": "More than 15 days"
+                            }
                         },
                         "trip_vehicles": {
-                            "form_label": "Vehicle(s) used"
+                            "form_label": "Vehicle(s) used",
+                            "options": {
+                                "0": "Own car",
+                                "1": "Bus",
+                                "2": "Motorcycle",
+                                "3": "Bicycle",
+                                "4": "Van",
+                                "5": "Transportation by app (Ubis, Mototáxi Tianguá, etc.)",
+                                "6": "Taxi",
+                                "7": "Motorhome/Trailer",
+                                "8": "Plane",
+                                "9": "Other"
+                            }
                         },
                         "trip_average_diary_expense": {
-                            "form_label": "How much did you spend or plan to spend on average per day?"
+                            "form_label": "How much did you spend or plan to spend on average per day?",
+                            "options": {
+                                "0": "Up to R$ 300.00",
+                                "1": "From R$ 300.00 to R$ 500.00",
+                                "2": "From R$ 500.00 to R$ 1,000.00",
+                                "3": "From R$ 1,000.00 to R$ 1,500.00",
+                                "4": "From R$ 1. 500.00 to R$ 2,000.00",
+                                "5": "From R$ 2,000.00 to R$ 3,000.00",
+                                "6": "From R$ 3,000.00 to R$ 5,000.00",
+                                "7": "Above R$ 5,000.00"
+                            }
                         },
                         "trip_hosting_types": {
-                            "form_label": "Hosting type(s)"
+                            "form_label": "Hosting type(s)",
+                            "options": {
+                                "0": "Hotel",
+                                "1": "Inn",
+                                "2": "Family/friends' house",
+                                "3": "Vacation rental",
+                                "4": "Camping",
+                                "5": "Hostel",
+                                "6": "Resort",
+                                "7": "Chalet",
+                                "8": "Motorhome/Trailer",
+                                "9": "Other"
+                            }
                         }
                     }
                 },
                 "4": {
-                    "title": "Activities"
+                    "title": "Activities",
+                    "fields": {
+                        "activities_places_visited": {
+                            "form_label": "Places visited"
+                        },
+                        "activities_events_visited": {
+                            "form_label": "Types of events visited",
+                            "options": {
+                                "0": "Museums",
+                                "1": "Religious spaces (churches, festivals)",
+                                "2": "Nature adventure activities",
+                                "3": "Theme parks"
+                            }
+                        },
+                        "activities_used_apps": {
+                            "form_label": "Apps using during the planning and trip",
+                            "options": {
+                                "0": "Maps or navigators: Waze, Google Maps, etc.",
+                                "1": "Digital tour guides",
+                                "2": "Language translators",
+                                "3": "Transport apps: Uber, 99, etc.",
+                                "4": "Social networks for sharing experiences",
+                                "5": "Accommodation booking apps: Booking, Airbnb, etc.",
+                                "6": "Restaurant and attraction review apps: TripAdvisor, Google Reviews, etc."
+                            }
+                        }
+                    }
                 },
                 "5": {
-                    "title": "Evaluation"
+                    "title": "Evaluation",
+                    "fields": {
+                        "evaluation_recommendation_rate": {
+                            "form_label": "From 1 to 10, how much would you recommend someone to visit Ibiapaba?"
+                        },
+                        "evaluation_dissatisfactions": {
+                            "form_label": "What did you like least about your visit?",
+                            "options": {
+                                "0": "Cleanliness",
+                                "1": "Street signs",
+                                "2": "Tourist signs",
+                                "3": "Conservation of streets and street furniture",
+                                "4": "Access road",
+                                "5": "Parking",
+                                "6": "Taxi",
+                                "7": "Mobility/Transport",
+                                "8": "Banks/ ATMs",
+                                "9": "Security",
+                                "10": "Lighting",
+                                "11": "Prices",
+                                "12": "Institutional website",
+                                "13": "Hospitality of residents",
+                                "14": "Hospitality of service providers and commerce",
+                                "15": "Receptive services",
+                                "16": "Accommodation",
+                                "17": "Restaurants/gastronomy",
+                                "18": "Tour guide/environmental guide",
+                                "19": "Handicrafts",
+                                "20": "Commerce in general",
+                                "21": "Cultural events",
+                                "22": "Natural attractions",
+                                "23": "Events",
+                                "24": "Leisure options",
+                                "25": " Night-time entertainment"
+                            }
+                        },
+                        "evaluation_expectation_rate": {
+                            "form_label": "What was your level of expectation before the visit? (1 to 10)"
+                        },
+                        "evaluation_satisfaction_rate": {
+                            "form_label": "How satisfied were you after your visit? (1 to 10)"
+                        },
+                        "evaluation_return_intent_rate": {
+                            "form_label": "How much do you intend to return to Ibiapaba?"
+                        },
+                        "evaluation_open_opinion": {
+                            "form_label": "Did you need a service that you couldn't find in Ibiapaba? Or do you have any recommendations for improving tourist infrastructure, equipment and services?",
+                            "input_placeholder": "We'd be very grateful to hear you :)"
+                        }
+                    }
                 }
             }
         }

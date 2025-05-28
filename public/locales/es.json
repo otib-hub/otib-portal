@@ -18,17 +18,20 @@
         "FormDebugDialog": {
             "trigger_text": "Depurar contenido del formulario",
             "dialog_title": "Contenido enviado desde el formulario",
-            "dialog_description": "Este diálogo solo se muestra en entorno de desarrollo"
+            "dialog_description": "Este diálogo solo aparece en el entorno de desarrollo"
         },
         "SelectWithSearch": {
             "placeholder": {
-                "optional": "Seleccione cero o más opciones",
-                "multiple": "Seleccione al menos una opción",
-                "single": "Seleccione una opción"
+                "optional": "Selecciona una o más opciones",
+                "multiple": "Selecciona al menos una opción",
+                "single": "Selecciona una opción"
             },
             "selection": {
                 "selected": "{count, plural, one {# opción seleccionada} other {# opciones seleccionadas}}"
             }
+        },
+        "NpsSlider": {
+            "input_placeholder": "Arrastra para definir"
         }
     },
     "forms": {
@@ -37,13 +40,12 @@
             "button_next": "Siguiente",
             "button_submit": "Enviar",
             "toast_submit_success": "¡Contenido del formulario enviado con éxito!",
-            "toast_content_invalid": "¡Por favor, complete todos los campos del formulario correctamente!",
-            "radio_true": "Sí",
-            "radio_false": "No"
+            "toast_content_invalid": "¡Por favor, rellena correctamente todos los campos del formulario!"
         },
         "errors": {
             "field_required": "Campo obligatorio",
-            "field_require_at_least_one": "Seleccione al menos una opción"
+            "field_require_at_least_one": "Selecciona al menos una opción",
+            "field_require_custom": "{count, plural, other {Selecciona al menos # opciones}}"
         },
         "ExampleForm": {
             "steps": {
@@ -92,7 +94,7 @@
                             }
                         },
                         "tourist_estimated_income": {
-                            "form_label": "Ingreso estimado",
+                            "form_label": "Renta estimada",
                             "options": {
                                 "low": "Menos de R$1.000",
                                 "low_mid": "Entre R$1.000 y R$3.000",
@@ -108,16 +110,42 @@
                     "title": "Planificación",
                     "fields": {
                         "planning_was_planned": {
-                            "form_label": "¿Fue planificado su viaje?"
+                            "form_label": "¿Tu viaje fue planificado?",
+                            "options": {
+                                "radio_true": "Sí",
+                                "radio_false": "No"
+                            }
                         },
                         "planning_time": {
-                            "form_label": "¿Con cuánta anticipación planificó su viaje?"
+                            "form_label": "¿Con cuánta anticipación fue planificado tu viaje?",
+                            "options": {
+                                "0": "Menos de 1 mes",
+                                "1": "Entre 1 y 3 meses",
+                                "2": "Entre 3 y 6 meses",
+                                "3": "Más de 6 meses"
+                            }
                         },
                         "planning_information_sources": {
-                            "form_label": "¿Qué fuentes de información utilizó para planificar?"
+                            "form_label": "¿Qué fuentes de información usaste para planificar?",
+                            "options": {
+                                "0": "Sitios web de viajes",
+                                "1": "Redes sociales",
+                                "2": "Recomendaciones de amigos",
+                                "3": "Agencias de viajes",
+                                "4": "Guías impresas",
+                                "5": "Otro"
+                            }
                         },
                         "planning_organization": {
-                            "form_label": "¿Cómo fue organizado su viaje?"
+                            "form_label": "¿Cómo fue organizado tu viaje?",
+                            "options": {
+                                "0": "Viaje individual",
+                                "1": "Viaje en pareja",
+                                "2": "Viaje familiar",
+                                "3": "Viaje en grupo",
+                                "4": "Con agencia de viajes",
+                                "5": "Otro"
+                            }
                         }
                     }
                 },
@@ -125,39 +153,198 @@
                     "title": "Viaje",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "¿Ha viajado aquí antes?"
+                            "form_label": "¿Has viajado aquí antes?",
+                            "options": {
+                                "radio_true": "Sí",
+                                "radio_false": "No"
+                            }
                         },
                         "trip_reincidence": {
-                            "form_label": "¿Cuántas veces ha visitado Ibiapaba?"
+                            "form_label": "¿Cuántas veces has visitado Ibiapaba?",
+                            "options": {
+                                "0": "He visitado entre 2 y 5 veces",
+                                "1": "He visitado entre 5 y 10 veces",
+                                "2": "He visitado más de 10 veces",
+                                "3": "Visito una vez al mes",
+                                "4": "Visito todos los fines de semana"
+                            }
                         },
                         "trip_know_ibiapaba_mirantes": {
-                            "form_label": "¿Conoce la Ruta \"Mirantes da Ibiapaba\"?"
+                            "form_label": "¿Conoces la Ruta \"Mirantes da Ibiapaba\"?",
+                            "options": {
+                                "radio_true": "Sí",
+                                "radio_false": "No"
+                            }
                         },
                         "trip_how_know_ibiapaba_mirantes": {
-                            "form_label": "¿Cómo se enteró de la ruta?"
+                            "form_label": "¿Cómo supiste de la ruta?",
+                            "options": {
+                                "0": "Radio",
+                                "1": "TV",
+                                "2": "Revistas y periódicos",
+                                "3": "Agencias de viajes",
+                                "4": "Google y otros buscadores",
+                                "5": "Redes sociales (Facebook, Instagram, etc.)",
+                                "6": "Sitio web de Experiências Ibiapaba",
+                                "7": "Sitios web de los municipios",
+                                "8": "Sitios de reserva en línea (Booking, Decolar)",
+                                "9": "Sitios especializados en turismo",
+                                "10": "Blogs de viajes",
+                                "11": "Otros"
+                            }
                         },
                         "trip_reasons": {
-                            "form_label": "Motivo(s) del viaje"
+                            "form_label": "Motivo(s) del viaje",
+                            "options": {
+                                "0": "Ocio, Paseos/Descanso",
+                                "1": "Negocios/Trabajo",
+                                "2": "Visita a Familiares/Amigos",
+                                "3": "Educación, Cursos, Capacitación",
+                                "4": "Deportes",
+                                "5": "Compras",
+                                "6": "Servicios médicos",
+                                "7": "Religioso",
+                                "8": "Otro"
+                            }
                         },
                         "trip_stay_time": {
-                            "form_label": "Duración de la estadía"
+                            "form_label": "Duración de la estadía",
+                            "options": {
+                                "0": "1 día",
+                                "1": "2 a 3 días",
+                                "2": "Solo fin de semana",
+                                "3": "4 días",
+                                "4": "5 días",
+                                "5": "1 semana",
+                                "6": "15 días",
+                                "7": "Más de 15 días"
+                            }
                         },
                         "trip_vehicles": {
-                            "form_label": "Vehículo(s) utilizado(s)"
+                            "form_label": "Vehículo(s) utilizado(s)",
+                            "options": {
+                                "0": "Auto propio",
+                                "1": "Autobús",
+                                "2": "Motocicleta",
+                                "3": "Bicicleta",
+                                "4": "Furgoneta",
+                                "5": "Transporte por app (Ubis, Mototaxi Tianguá, etc.)",
+                                "6": "Taxi",
+                                "7": "Casa rodante/Remolque",
+                                "8": "Avión",
+                                "9": "Otro"
+                            }
                         },
                         "trip_average_diary_expense": {
-                            "form_label": "¿Cuánto gastó o planea gastar en promedio por día?"
+                            "form_label": "¿Cuánto gastaste o planeaste gastar en promedio por día?",
+                            "options": {
+                                "0": "Hasta R$300,00",
+                                "1": "De R$300,00 a R$500,00",
+                                "2": "De R$500,00 a R$1.000,00",
+                                "3": "De R$1.000,00 a R$1.500,00",
+                                "4": "De R$1.500,00 a R$2.000,00",
+                                "5": "De R$2.000,00 a R$3.000,00",
+                                "6": "De R$3.000,00 a R$5.000,00",
+                                "7": "Más de R$5.000,00"
+                            }
                         },
                         "trip_hosting_types": {
-                            "form_label": "Tipo(s) de hospedaje"
+                            "form_label": "Tipo(s) de alojamiento",
+                            "options": {
+                                "0": "Hotel",
+                                "1": "Posada",
+                                "2": "Casa de familiares/amigos",
+                                "3": "Alquiler vacacional",
+                                "4": "Camping",
+                                "5": "Hostal",
+                                "6": "Resort",
+                                "7": "Chalet",
+                                "8": "Casa rodante/Remolque",
+                                "9": "Otro"
+                            }
                         }
                     }
                 },
                 "4": {
-                    "title": "Actividades"
+                    "title": "Actividades",
+                    "fields": {
+                        "activities_places_visited": {
+                            "form_label": "Lugares visitados"
+                        },
+                        "activities_events_visited": {
+                            "form_label": "Tipos de eventos visitados",
+                            "options": {
+                                "0": "Museos",
+                                "1": "Espacios religiosos (iglesias, festivales)",
+                                "2": "Actividades de aventura en la naturaleza",
+                                "3": "Parques temáticos"
+                            }
+                        },
+                        "activities_used_apps": {
+                            "form_label": "Apps utilizadas durante la planificación y el viaje",
+                            "options": {
+                                "0": "Mapas o navegadores: Waze, Google Maps, etc.",
+                                "1": "Guías turísticas digitales",
+                                "2": "Traductores de idiomas",
+                                "3": "Apps de transporte: Uber, 99, etc.",
+                                "4": "Redes sociales para compartir experiencias",
+                                "5": "Apps de reserva de alojamiento: Booking, Airbnb, etc.",
+                                "6": "Apps de reseñas de restaurantes y atracciones: TripAdvisor, Google Reviews, etc."
+                            }
+                        }
+                    }
                 },
                 "5": {
-                    "title": "Evaluación"
+                    "title": "Evaluación",
+                    "fields": {
+                        "evaluation_recommendation_rate": {
+                            "form_label": "Del 1 al 10, ¿cuánto recomendarías visitar Ibiapaba?"
+                        },
+                        "evaluation_dissatisfactions": {
+                            "form_label": "¿Qué fue lo que menos te gustó de tu visita?",
+                            "options": {
+                                "0": "Limpieza",
+                                "1": "Señalización de calles",
+                                "2": "Señalización turística",
+                                "3": "Conservación de calles y mobiliario urbano",
+                                "4": "Vía de acceso",
+                                "5": "Estacionamiento",
+                                "6": "Taxi",
+                                "7": "Movilidad/Transporte",
+                                "8": "Bancos/ Cajeros automáticos",
+                                "9": "Seguridad",
+                                "10": "Iluminación",
+                                "11": "Precios",
+                                "12": "Sitio web institucional",
+                                "13": "Hospitalidad de los residentes",
+                                "14": "Hospitalidad de prestadores de servicios y comercios",
+                                "15": "Servicios receptivos",
+                                "16": "Alojamiento",
+                                "17": "Restaurantes/gastronomía",
+                                "18": "Guía turístico/ambiental",
+                                "19": "Artesanía",
+                                "20": "Comercio en general",
+                                "21": "Eventos culturales",
+                                "22": "Atracciones naturales",
+                                "23": "Eventos",
+                                "24": "Opciones de ocio",
+                                "25": "Entretenimiento nocturno"
+                            }
+                        },
+                        "evaluation_expectation_rate": {
+                            "form_label": "¿Cuál era tu nivel de expectativa antes de la visita? (1 a 10)"
+                        },
+                        "evaluation_satisfaction_rate": {
+                            "form_label": "¿Qué tan satisfecho estuviste después de tu visita? (1 a 10)"
+                        },
+                        "evaluation_return_intent_rate": {
+                            "form_label": "¿Qué tanto deseas volver a Ibiapaba?"
+                        },
+                        "evaluation_open_opinion": {
+                            "form_label": "¿Necesitaste algún servicio que no encontraste en Ibiapaba? ¿Tienes alguna recomendación para mejorar la infraestructura, equipos y servicios turísticos?",
+                            "input_placeholder": "¡Nos encantaría conocer tu opinión! :)"
+                        }
+                    }
                 }
             }
         }
