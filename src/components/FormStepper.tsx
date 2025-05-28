@@ -8,7 +8,7 @@ import {
 	StepperTrigger,
 } from '@/components/ui/stepper';
 import { Check } from 'lucide-react';
-import React from 'react';
+import { createElement } from 'react';
 
 interface FormStepperProps {
 	steps: FormStep[];
@@ -29,7 +29,7 @@ export default function FormStepper({ steps, activeStep }: FormStepperProps) {
 							{activeStep && step.number < activeStep ? (
 								<Check />
 							) : step.icon ? (
-								React.createElement(step.icon, {
+								createElement(step.icon, {
 									size: 16,
 								})
 							) : (
