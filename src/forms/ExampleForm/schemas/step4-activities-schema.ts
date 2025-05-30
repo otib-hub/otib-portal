@@ -1,47 +1,52 @@
+import { TFunction } from '@/@types/next-intl';
 import { objectToSelectOptions } from '@/utils/object-to-select-options';
 import { z } from 'zod';
 
-const placesVisitedOptions = {
-	'0': 'Carnaubal',
-	'1': 'Croatá',
-	'2': 'Guaraciaba do Norte',
-	'3': 'Ibiapina',
-	'4': 'Ipu',
-	'5': 'São Benedito',
-	'6': 'Tianguá',
-	'7': 'Ubajara',
-	'8': 'Viçosa do Ceará',
-} as const;
+export function getActivitiesStepSchema(t: TFunction<'forms'>) {
+	return z.object({
+		activities_places_visited: z
+			.array(z.string(), {
+				required_error: t('errors.field_require_custom', { count: 3 }),
+			})
+			.min(3, { message: t('errors.field_require_custom', { count: 3 }) }),
+		activities_events_visited: z.array(z.string()).optional(),
+		activities_used_apps: z.array(z.string()).optional(),
+	});
+}
 
-const eventsVisitedOption = {
-	'0': 'Museus',
-	'1': 'Espaços religiosos (igrejas, festejos)',
-	'2': 'Atividades de aventura na natureza',
-	'3': 'Parques temáticos',
-} as const;
+export function getActivitiesStepSelectOptions(
+	t: TFunction<'forms.ExampleForm.steps.4.fields'>
+) {
+	return {
+		activities_places_visited: objectToSelectOptions({
+			'0': 'Carnaubal',
+			'1': 'Croatá',
+			'2': 'Guaraciaba do Norte',
+			'3': 'Ibiapina',
+			'4': 'Ipu',
+			'5': 'São Benedito',
+			'6': 'Tianguá',
+			'7': 'Ubajara',
+			'8': 'Viçosa do Ceará',
+		}),
+		activities_events_visited: objectToSelectOptions({
+			'0': t('activities_events_visited.options.0'),
+			'1': t('activities_events_visited.options.1'),
+			'2': t('activities_events_visited.options.2'),
+			'3': t('activities_events_visited.options.3'),
+		}),
+		activities_used_apps: objectToSelectOptions({
+			'0': t('activities_used_apps.options.0'),
+			'1': t('activities_used_apps.options.1'),
+			'2': t('activities_used_apps.options.2'),
+			'3': t('activities_used_apps.options.3'),
+			'4': t('activities_used_apps.options.4'),
+			'5': t('activities_used_apps.options.5'),
+			'6': t('activities_used_apps.options.6'),
+		}),
+	};
+}
 
-const usedAppsOption = {
-	'0': 'Mapas ou navegadores: Waze, Google Maps, etc.',
-	'1': 'Guias turísticos digitais',
-	'2': 'Tradutores de idiomas',
-	'3': 'Aplicativos de transporte: Uber, 99, etc.',
-	'4': 'Redes sociais para compartilhar experiências',
-	'5': 'Aplicativos de reserva de hospedagem: Booking, Airbnb, etc.',
-	'6': 'Aplicativos de avaliação de restaurantes e atrações: TripAdvisor, Google Avaliações, etc.',
-} as const;
-
-export const activitiesStepSchema = z.object({
-	activities_places_visited: z
-		.array(z.string(), { required_error: 'Selecione pelo menos 3 destinos' })
-		.min(3, { message: 'Selecione pelo menos 3 destinos' }),
-	activities_events_visited: z.array(z.string()).optional(),
-	activities_used_apps: z.array(z.string()).optional(),
-});
-
-export type ActivitiesStepType = z.infer<typeof activitiesStepSchema>;
-
-export const activitiesStepSelectOptions = {
-	activities_places_visited: objectToSelectOptions(placesVisitedOptions),
-	activities_events_visited: objectToSelectOptions(eventsVisitedOption),
-	activities_used_apps: objectToSelectOptions(usedAppsOption),
-};
+export type ActivitiesStepType = z.infer<
+	ReturnType<typeof getActivitiesStepSchema>
+>;

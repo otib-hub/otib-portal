@@ -1,44 +1,49 @@
+import { TFunction } from '@/@types/next-intl';
 import { objectToSelectOptions } from '@/utils/object-to-select-options';
 import { z } from 'zod';
 
-const planningTimeOptions = {
-	'0': 'Menos de 1 mês',
-	'1': '1 a 3 meses',
-	'2': '3 a 6 meses',
-	'3': 'Mais de 6 meses',
-} as const;
+export function getPlanningStepSchema(t: TFunction<'forms'>) {
+	return z.object({
+		planning_was_planned: z.boolean({
+			required_error: t('errors.field_required'),
+		}),
+		planning_time: z.string().optional(),
+		planning_information_sources: z.array(z.string()).optional(),
+		planning_organization: z.string({
+			required_error: t('errors.field_required'),
+		}),
+	});
+}
 
-const informationSourcesOptions = {
-	'0': 'Sites de viagem',
-	'1': 'Redes sociais',
-	'2': 'Recomendações de amigos',
-	'3': 'Agências de viagem',
-	'4': 'Guias impressos',
-	'5': 'Outro',
-} as const;
+export function getPlanningStepSelectOptions(
+	t: TFunction<'forms.ExampleForm.steps.2.fields'>
+) {
+	return {
+		planning_time: objectToSelectOptions({
+			'0': t('planning_time.options.0'),
+			'1': t('planning_time.options.1'),
+			'2': t('planning_time.options.2'),
+			'3': t('planning_time.options.3'),
+		}),
+		planning_information_sources: objectToSelectOptions({
+			'0': t('planning_information_sources.options.0'),
+			'1': t('planning_information_sources.options.1'),
+			'2': t('planning_information_sources.options.2'),
+			'3': t('planning_information_sources.options.3'),
+			'4': t('planning_information_sources.options.4'),
+			'5': t('planning_information_sources.options.5'),
+		}),
+		planning_organization: objectToSelectOptions({
+			'0': t('planning_organization.options.0'),
+			'1': t('planning_organization.options.1'),
+			'2': t('planning_organization.options.2'),
+			'3': t('planning_organization.options.3'),
+			'4': t('planning_organization.options.4'),
+			'5': t('planning_organization.options.5'),
+		}),
+	};
+}
 
-const organizationOptions = {
-	'0': 'Viagem individual',
-	'1': 'Viagem em casal',
-	'2': 'Viagem em família',
-	'3': 'Viagem em grupo',
-	'4': 'Com agência de viagens',
-	'5': 'Outro',
-} as const;
-
-export const planningStepSchema = z.object({
-	planning_was_planned: z.boolean({ required_error: 'Campo obrigatório' }),
-	planning_time: z.string().optional(),
-	planning_information_sources: z.array(z.string()).optional(),
-	planning_organization: z.string({ required_error: 'Campo obrigatório' }),
-});
-
-export const planningStepSelectOptions = {
-	planning_time: objectToSelectOptions(planningTimeOptions),
-	planning_information_sources: objectToSelectOptions(
-		informationSourcesOptions
-	),
-	planning_organization: objectToSelectOptions(organizationOptions),
-};
-
-export type PlanningStepType = z.infer<typeof planningStepSchema>;
+export type PlanningStepType = z.infer<
+	ReturnType<typeof getPlanningStepSchema>
+>;

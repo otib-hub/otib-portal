@@ -1,22 +1,26 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import useMultiStepForm from '@/hooks/use-multistepform';
-import { exampleFormSteps } from './steps';
+import { getExampleFormSteps } from './steps';
 import { z } from 'zod';
 import { useEffect } from 'react';
 import FormStepper from '@/components/FormStepper';
-import { exampleFormSchema } from './schemas/form-general-schema';
 import FormDebugDialog from '@/components/FormDebugDialog';
+import { useTranslations } from 'next-intl';
+import { getExampleFormSchema } from './schemas/form-general-schema';
 
 const STEP_BLOCK_VALIDATION = false;
 const DEV_MODE = true;
 
 export default function ExampleForm() {
+	const t = useTranslations('forms');
+	const exampleFormSteps = getExampleFormSteps(t);
+	const exampleFormSchema = getExampleFormSchema(t);
+
 	const {
 		currentStep,
 		currentStepIndex,
@@ -29,6 +33,7 @@ export default function ExampleForm() {
 	const methods = useForm({
 		resolver: zodResolver(exampleFormSchema),
 		mode: 'onTouched',
+		context: { t },
 		defaultValues: {
 			...Object.keys(exampleFormSchema.shape).reduce(
 				(acc, key) => ({
@@ -44,7 +49,7 @@ export default function ExampleForm() {
 		if (STEP_BLOCK_VALIDATION) {
 			const isValid = await methods.trigger();
 			if (!isValid) {
-				toast.error('Por favor, preencha todos os campos obrigatórios');
+				toast.error(t('common.toast_content_invalid'));
 				return;
 			}
 		}
@@ -57,7 +62,7 @@ export default function ExampleForm() {
 	}
 
 	function onSubmit(values: z.infer<typeof exampleFormSchema>) {
-		toast.success('Form enviado!');
+		toast.success(t('common.toast_submit_success'));
 		console.log(values);
 	}
 
@@ -83,7 +88,7 @@ export default function ExampleForm() {
 								type='button'
 								onClick={() => backStep()}
 							>
-								Voltar
+								{t('common.button_back')}
 							</Button>
 						)}
 
@@ -92,7 +97,7 @@ export default function ExampleForm() {
 							type={isLastStep ? 'submit' : 'button'}
 							onClick={onNextStep}
 						>
-							{isLastStep ? 'Enviar' : 'Avançar'}
+							{isLastStep ? t('common.button_submit') : t('common.button_next')}
 						</Button>
 					</div>
 				</form>

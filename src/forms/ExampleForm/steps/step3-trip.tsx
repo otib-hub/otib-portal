@@ -1,7 +1,7 @@
 import { SelectWithSearch } from '@/components/ui/select-with-search';
 import { Controller, useFormContext } from 'react-hook-form';
 import {
-	tripStepSelectOptions,
+	getTripStepSelectOptions,
 	TripStepType,
 } from '../schemas/step3-trip-schema';
 import {
@@ -12,18 +12,20 @@ import {
 } from '@/components/ui/form';
 import { Separator } from '@/components/ui/separator';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { useTranslations } from 'next-intl';
 
 export default function TripStep() {
+	const t = useTranslations('forms.ExampleForm.steps.3.fields');
+	const tripStepSelectOptions = getTripStepSelectOptions(t);
 	const {
 		control,
 		watch,
-		// register, -> register para inputs, control para selects
 		formState: { errors },
 	} = useFormContext<TripStepType>();
 
 	return (
 		<>
-			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start'>
+			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start'>
 				<div className='RadioGroupContainer flex flex-col'>
 					<Controller
 						name='trip_has_reincidence'
@@ -35,7 +37,7 @@ export default function TripStep() {
 									aria-invalid={!!errors.trip_has_reincidence}
 									aria-required
 								>
-									Já viajou antes para cá?
+									{t('trip_has_reincidence.form_label')}
 								</FormLabel>
 								<FormControl>
 									<RadioGroup
@@ -49,7 +51,7 @@ export default function TripStep() {
 												<RadioGroupItem className='size-5' value='true' />
 											</FormControl>
 											<FormLabel className='font-normal text-base'>
-												Sim
+												{t('trip_has_reincidence.options.radio_true')}
 											</FormLabel>
 										</FormItem>
 										<FormItem className='flex items-center'>
@@ -57,7 +59,7 @@ export default function TripStep() {
 												<RadioGroupItem className='size-5' value='false' />
 											</FormControl>
 											<FormLabel className='font-normal text-base'>
-												Não
+												{t('trip_has_reincidence.options.radio_false')}
 											</FormLabel>
 										</FormItem>
 									</RadioGroup>
@@ -78,7 +80,7 @@ export default function TripStep() {
 							htmlFor='trip_reincidence'
 							aria-invalid={!!errors.trip_reincidence}
 						>
-							Quantas vezes já visitou a Ibiapaba?
+							{t('trip_reincidence.form_label')}
 						</FormLabel>
 
 						<Controller
@@ -105,7 +107,7 @@ export default function TripStep() {
 
 			<Separator className='opacity-70' />
 
-			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start'>
+			<div className='FormFieldsContainer w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start'>
 				<div className='RadioGroupContainer flex flex-col'>
 					<Controller
 						name='trip_know_ibiapaba_mirantes'
@@ -117,7 +119,7 @@ export default function TripStep() {
 									aria-invalid={!!errors.trip_know_ibiapaba_mirantes}
 									aria-required
 								>
-									Conhece a Rota Mirantes da Ibiapaba?
+									{t('trip_know_ibiapaba_mirantes.form_label')}
 								</FormLabel>
 								<FormControl>
 									<RadioGroup
@@ -131,7 +133,7 @@ export default function TripStep() {
 												<RadioGroupItem className='size-5' value='true' />
 											</FormControl>
 											<FormLabel className='font-normal text-base'>
-												Sim
+												{t('trip_know_ibiapaba_mirantes.options.radio_true')}
 											</FormLabel>
 										</FormItem>
 										<FormItem className='flex items-center'>
@@ -139,7 +141,7 @@ export default function TripStep() {
 												<RadioGroupItem className='size-5' value='false' />
 											</FormControl>
 											<FormLabel className='font-normal text-base'>
-												Não
+												{t('trip_know_ibiapaba_mirantes.options.radio_false')}
 											</FormLabel>
 										</FormItem>
 									</RadioGroup>
@@ -160,7 +162,7 @@ export default function TripStep() {
 							htmlFor='trip_how_know_ibiapaba_mirantes'
 							aria-invalid={!!errors.trip_how_know_ibiapaba_mirantes}
 						>
-							Por onde conheceu a rota?
+							{t('trip_how_know_ibiapaba_mirantes.form_label')}
 						</FormLabel>
 
 						<Controller
@@ -198,7 +200,7 @@ export default function TripStep() {
 						aria-invalid={!!errors.trip_reasons}
 						aria-required
 					>
-						Motivo(s) da viagem
+						{t('trip_reasons.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -226,7 +228,7 @@ export default function TripStep() {
 						aria-invalid={!!errors.trip_stay_time}
 						aria-required
 					>
-						Tempo de permanência
+						{t('trip_stay_time.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -252,7 +254,7 @@ export default function TripStep() {
 						aria-invalid={!!errors.trip_vehicles}
 						aria-required
 					>
-						Veículo(s) utilizado(s)
+						{t('trip_vehicles.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -284,7 +286,7 @@ export default function TripStep() {
 						aria-invalid={!!errors.trip_average_diary_expense}
 						aria-required
 					>
-						Quanto gastou ou pretende gastar em média por dia
+						{t('trip_average_diary_expense.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -312,7 +314,7 @@ export default function TripStep() {
 						aria-invalid={!!errors.trip_hosting_types}
 						aria-required
 					>
-						Tipo de hospedagem
+						{t('trip_hosting_types.form_label')}
 					</FormLabel>
 
 					<Controller
