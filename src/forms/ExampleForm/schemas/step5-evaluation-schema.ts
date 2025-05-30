@@ -1,3 +1,4 @@
+import { TFunction } from '@/@types/next-intl';
 import { objectToSelectOptions } from '@/utils/object-to-select-options';
 import { z } from 'zod';
 
@@ -21,48 +22,54 @@ import { z } from 'zod';
 // 	'4': 'Decepcionou',
 // } as const;
 
-const dissatisfactionOptions = {
-	'0': 'Limpeza',
-	'1': 'Sinalização das ruas',
-	'2': 'Sinalização turística',
-	'3': 'Conservação das ruas e mobiliário urbano',
-	'4': 'Rodovia de acesso',
-	'5': 'Estacionamento',
-	'6': 'Táxi',
-	'7': 'Mobilidade/Transporte',
-	'8': 'Bancos/caixas eletrônicos',
-	'9': 'Segurança',
-	'10': 'Iluminação',
-	'11': 'Preços',
-	'12': 'Site institucional',
-	'13': 'Hospitalidade dos moradores',
-	'14': 'Hospitalidade dos prestadores de serviços e comércio',
-	'15': 'Receptivo',
-	'16': 'Hospedagem',
-	'17': 'Restaurantes/gastronomia',
-	'18': 'Guia de turismo/Condutor ambiental',
-	'19': 'Artesanato',
-	'20': 'Comércio em geral',
-	'21': 'Manifestações culturais',
-	'22': 'Atrativos naturais',
-	'23': 'Eventos',
-	'24': 'Opções de lazer',
-	'25': 'Diversões noturnas',
-} as const;
+export function getEvaluationStepSchema() {
+	return z.object({
+		evaluation_recommendation_rate: z.number().min(1).max(10).optional(),
+		evaluation_dissatisfactions: z.array(z.string()).optional(),
 
-export const evaluationStepSchema = z.object({
-	evaluation_recommendation_rate: z.number().min(1).max(10).optional(),
-	evaluation_dissatisfactions: z.array(z.string()).optional(),
+		evaluation_expectation_rate: z.number().min(1).max(10).optional(),
+		evaluation_satisfaction_rate: z.number().min(1).max(10).optional(),
 
-	evaluation_expectation_rate: z.number().min(1).max(10).optional(),
-	evaluation_satisfaction_rate: z.number().min(1).max(10).optional(),
+		evaluation_return_intent_rate: z.number().min(1).max(10).optional(),
+		evaluation_open_opinion: z.string().max(1000).optional(),
+	});
+}
 
-	evaluation_return_intent_rate: z.number().min(1).max(10).optional(),
-	evaluation_open_opinion: z.string().max(1000).optional(),
-});
+export function getEvaluationStepSelectOptions(
+	t: TFunction<'forms.ExampleForm.steps.5.fields'>
+) {
+	return {
+		evaluation_dissatisfactions: objectToSelectOptions({
+			'0': t('evaluation_dissatisfactions.options.0'),
+			'1': t('evaluation_dissatisfactions.options.1'),
+			'2': t('evaluation_dissatisfactions.options.2'),
+			'3': t('evaluation_dissatisfactions.options.3'),
+			'4': t('evaluation_dissatisfactions.options.4'),
+			'5': t('evaluation_dissatisfactions.options.5'),
+			'6': t('evaluation_dissatisfactions.options.6'),
+			'7': t('evaluation_dissatisfactions.options.7'),
+			'8': t('evaluation_dissatisfactions.options.8'),
+			'9': t('evaluation_dissatisfactions.options.9'),
+			'10': t('evaluation_dissatisfactions.options.10'),
+			'11': t('evaluation_dissatisfactions.options.11'),
+			'12': t('evaluation_dissatisfactions.options.12'),
+			'13': t('evaluation_dissatisfactions.options.13'),
+			'14': t('evaluation_dissatisfactions.options.14'),
+			'15': t('evaluation_dissatisfactions.options.15'),
+			'16': t('evaluation_dissatisfactions.options.16'),
+			'17': t('evaluation_dissatisfactions.options.17'),
+			'18': t('evaluation_dissatisfactions.options.18'),
+			'19': t('evaluation_dissatisfactions.options.19'),
+			'20': t('evaluation_dissatisfactions.options.20'),
+			'21': t('evaluation_dissatisfactions.options.21'),
+			'22': t('evaluation_dissatisfactions.options.22'),
+			'23': t('evaluation_dissatisfactions.options.23'),
+			'24': t('evaluation_dissatisfactions.options.24'),
+			'25': t('evaluation_dissatisfactions.options.25'),
+		}),
+	};
+}
 
-export const evaluationStepSelectOptions = {
-	evaluation_dissatisfactions: objectToSelectOptions(dissatisfactionOptions),
-};
-
-export type EvaluationStepType = z.infer<typeof evaluationStepSchema>;
+export type EvaluationStepType = z.infer<
+	ReturnType<typeof getEvaluationStepSchema>
+>;

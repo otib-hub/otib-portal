@@ -2,14 +2,17 @@ import { FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { SelectWithSearch } from '@/components/ui/select-with-search';
 import { Controller, useFormContext } from 'react-hook-form';
 import {
-	evaluationStepSelectOptions,
 	EvaluationStepType,
+	getEvaluationStepSelectOptions,
 } from '../schemas/step5-evaluation-schema';
 import NpsSlider from '@/components/NpsSlider';
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
+import { useTranslations } from 'next-intl';
 
 export default function EvaluationStep() {
+	const t = useTranslations('forms.ExampleForm.steps.5.fields');
+	const evaluationStepSelectOptions = getEvaluationStepSelectOptions(t);
 	const {
 		control,
 		register,
@@ -25,7 +28,7 @@ export default function EvaluationStep() {
 						aria-invalid={!!errors.evaluation_expectation_rate}
 						aria-required
 					>
-						De 1 a 10, o quanto você recomendaria alguém visitar a Ibiapaba?
+						{t('evaluation_recommendation_rate.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -52,7 +55,7 @@ export default function EvaluationStep() {
 						htmlFor='evaluation_dissatisfactions'
 						aria-invalid={!!errors.evaluation_dissatisfactions}
 					>
-						Quais aspectos menos gostou na visita?
+						{t('evaluation_dissatisfactions.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -88,7 +91,7 @@ export default function EvaluationStep() {
 						aria-invalid={!!errors.evaluation_expectation_rate}
 						aria-required
 					>
-						Qual era seu nível de expectativa antes da visita?
+						{t('evaluation_expectation_rate.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -116,7 +119,7 @@ export default function EvaluationStep() {
 						aria-invalid={!!errors.evaluation_satisfaction_rate}
 						aria-required
 					>
-						Qual foi o seu nível de satisfação após a visita?
+						{t('evaluation_satisfaction_rate.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -144,7 +147,7 @@ export default function EvaluationStep() {
 						aria-invalid={!!errors.evaluation_return_intent_rate}
 						aria-required
 					>
-						O quanto você pretende retornar à Ibiapaba?
+						{t('evaluation_return_intent_rate.form_label')}
 					</FormLabel>
 
 					<Controller
@@ -175,15 +178,13 @@ export default function EvaluationStep() {
 						htmlFor='evaluation_open_opinion'
 						aria-invalid={!!errors.evaluation_open_opinion}
 					>
-						Você necessitou de algum serviço que não foi encontrado na Ibiapaba
-						ou tem alguma recomendação de melhoria da infraestrutura,
-						equipamentos e serviços turísticos?
+						{t('evaluation_open_opinion.form_label')}
 					</FormLabel>
 
 					<Textarea
 						id='evaluation_open_opinion'
 						{...register('evaluation_open_opinion')}
-						placeholder='Gostaríamos de ouvir sua opinião :)'
+						placeholder={t('evaluation_open_opinion.input_placeholder')}
 						aria-invalid={!!errors.evaluation_open_opinion}
 					/>
 

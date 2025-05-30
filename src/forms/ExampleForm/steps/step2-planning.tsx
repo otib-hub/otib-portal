@@ -9,15 +9,17 @@ import { SelectWithSearch } from '@/components/ui/select-with-search';
 import { Separator } from '@/components/ui/separator';
 import {
 	PlanningStepType,
-	planningStepSelectOptions,
+	getPlanningStepSelectOptions,
 } from '../schemas/step2-planning-schema';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { useTranslations } from 'next-intl';
 
 export default function PlanningStep() {
+	const t = useTranslations('forms.ExampleForm.steps.2.fields');
+	const planningStepSelectOptions = getPlanningStepSelectOptions(t);
 	const {
 		control,
 		watch,
-		// register, -> register para inputs, control para selects
 		formState: { errors },
 	} = useFormContext<PlanningStepType>();
 
@@ -35,7 +37,7 @@ export default function PlanningStep() {
 									aria-invalid={!!errors.planning_was_planned}
 									aria-required
 								>
-									Sua viagem foi planejada?
+									{t('planning_was_planned.form_label')}
 								</FormLabel>
 								<FormControl>
 									<RadioGroup
@@ -49,7 +51,7 @@ export default function PlanningStep() {
 												<RadioGroupItem className='size-5' value='true' />
 											</FormControl>
 											<FormLabel className='font-normal text-base'>
-												Sim
+												{t('planning_was_planned.options.radio_true')}
 											</FormLabel>
 										</FormItem>
 										<FormItem className='flex items-center'>
@@ -57,7 +59,7 @@ export default function PlanningStep() {
 												<RadioGroupItem className='size-5' value='false' />
 											</FormControl>
 											<FormLabel className='font-normal text-base'>
-												Não
+												{t('planning_was_planned.options.radio_false')}
 											</FormLabel>
 										</FormItem>
 									</RadioGroup>
@@ -80,7 +82,7 @@ export default function PlanningStep() {
 								htmlFor='planning_time'
 								aria-invalid={!!errors.planning_time}
 							>
-								Com quanto tempo de antecedência sua viagem foi planejada?
+								{t('planning_time.form_label')}
 							</FormLabel>
 
 							<Controller
@@ -108,7 +110,7 @@ export default function PlanningStep() {
 								htmlFor='planning_information_sources'
 								aria-invalid={!!errors.planning_information_sources}
 							>
-								Quais fontes de informação você utilizou para o planejamento?
+								{t('planning_information_sources.form_label')}
 							</FormLabel>
 
 							<Controller
@@ -146,7 +148,7 @@ export default function PlanningStep() {
 					aria-invalid={!!errors.planning_organization}
 					aria-required
 				>
-					Como sua viagem foi organizada?
+					{t('planning_organization.form_label')}
 				</FormLabel>
 
 				<Controller
