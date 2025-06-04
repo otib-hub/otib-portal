@@ -7,24 +7,13 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Locale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Languages } from 'lucide-react';
 import { LocaleENUM } from '@/i18n/config';
+import { handleLocaleChange } from '@/services/locale/handle-locale-change';
 
 export function LocaleSwitcher() {
 	const t = useTranslations();
-
-	async function handleLocaleChange(locale: Locale) {
-		await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/set-locale`, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ locale }),
-		});
-
-		setTimeout(() => {
-			window.location.reload();
-		}, 100);
-	}
 
 	return (
 		<DropdownMenu>
