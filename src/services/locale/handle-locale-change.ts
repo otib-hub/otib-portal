@@ -2,7 +2,7 @@ import { Locale } from 'next-intl';
 
 export async function handleLocaleChange(locale: Locale) {
 	try {
-		const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '/api';
+		const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '/otib/api';
 		const url = baseUrl.startsWith('/') ? baseUrl : `/${baseUrl}`;
 
 		const response = await fetch(`${url}/set-locale`, {
