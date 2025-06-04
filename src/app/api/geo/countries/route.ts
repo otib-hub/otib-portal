@@ -4,7 +4,7 @@ import { CountriesPositionReponse } from '../../../../@types/external-api-respon
 export async function GET() {
 	try {
 		const response = await fetch(
-			'https://countriesnow.space/api/v0.1/countries/positions'
+			`${process.env.COUNTRIESNOW_API_BASE_URL}/countries/positions`
 		);
 		const data: CountriesPositionReponse = await response.json();
 
