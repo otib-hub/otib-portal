@@ -5,5 +5,6 @@ declare namespace NodeJS {
 		NEXT_APP_ASSET_PREFIX?: string;
 		NEXT_PUBLIC_API_BASE_URL: string;
 		COUNTRIESNOW_API_BASE_URL: string;
+		LOCALE_COOKIE_NAME: string;
 	}
 }
