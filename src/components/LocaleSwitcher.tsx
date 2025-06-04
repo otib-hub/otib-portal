@@ -15,7 +15,7 @@ export function LocaleSwitcher() {
 	const t = useTranslations();
 
 	async function handleLocaleChange(locale: Locale) {
-		await fetch('/api/set-locale', {
+		await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/set-locale`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ locale }),
