@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 		}
 
 		const response = await fetch(
-			'https://countriesnow.space/api/v0.1/countries/states',
+			`${process.env.COUNTRIESNOW_API_BASE_URL}/countries/states`,
 			{
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
