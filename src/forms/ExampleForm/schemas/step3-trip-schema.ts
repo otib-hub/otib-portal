@@ -68,15 +68,15 @@ export function getTripStepSelectOptions(
 			'11': t('trip_how_know_ibiapaba_mirantes.options.11'),
 		}),
 		trip_reasons: objectToSelectOptions({
-			'0': t('trip_how_know_ibiapaba_mirantes.options.0'), // no caso de 'Lazer, Passeios/Descanso' -> (aqui seria interessante abrir para perguntar a principal motivação (aventura, atrativos naturais, cultura, gastronomia, religião, rural, eventos..)
-			'1': t('trip_how_know_ibiapaba_mirantes.options.1'),
-			'2': t('trip_how_know_ibiapaba_mirantes.options.2'),
-			'3': t('trip_how_know_ibiapaba_mirantes.options.3'),
-			'4': t('trip_how_know_ibiapaba_mirantes.options.4'),
-			'5': t('trip_how_know_ibiapaba_mirantes.options.5'),
-			'6': t('trip_how_know_ibiapaba_mirantes.options.6'),
-			'7': t('trip_how_know_ibiapaba_mirantes.options.7'),
-			'8': t('trip_how_know_ibiapaba_mirantes.options.8'),
+			'0': t('trip_reasons.options.0'), // no caso de 'Lazer, Passeios/Descanso' -> (aqui seria interessante abrir para perguntar a principal motivação (aventura, atrativos naturais, cultura, gastronomia, religião, rural, eventos..)
+			'1': t('trip_reasons.options.1'),
+			'2': t('trip_reasons.options.2'),
+			'3': t('trip_reasons.options.3'),
+			'4': t('trip_reasons.options.4'),
+			'5': t('trip_reasons.options.5'),
+			'6': t('trip_reasons.options.6'),
+			'7': t('trip_reasons.options.7'),
+			'8': t('trip_reasons.options.8'),
 		}),
 		trip_stay_time: objectToSelectOptions({
 			'0': t('trip_stay_time.options.0'),
