@@ -7,11 +7,12 @@ import { toast } from 'sonner';
 import useMultiStepForm from '@/hooks/use-multistepform';
 import { getExampleFormSteps } from './steps';
 import { z } from 'zod';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import FormStepper from '@/components/FormStepper';
 import FormDebugDialog from '@/components/FormDebugDialog';
 import { useTranslations } from 'next-intl';
 import { getExampleFormSchema } from './schemas/form-general-schema';
+import { postPesquisaCompleta } from '@/services/api';
 
 const STEP_BLOCK_VALIDATION = false;
 const DEV_MODE = true;
@@ -45,6 +46,8 @@ export default function ExampleForm() {
 		},
 	});
 
+	const [submitting, setSubmitting ] = useState(false);
+
 	async function onNextStep() {
 		if (STEP_BLOCK_VALIDATION) {
 			const isValid = await methods.trigger();
@@ -57,13 +60,35 @@ export default function ExampleForm() {
 		if (!isLastStep) {
 			nextStep();
 		} else {
+			const values = methods.getValues() as z.infer<typeof exampleFormSchema>;
 			onSubmit(methods.getValues());
 		}
 	}
 
-	function onSubmit(values: z.infer<typeof exampleFormSchema>) {
-		toast.success(t('common.toast_submit_success'));
-		console.log(values);
+
+
+
+	async function onSubmit(values: z.infer<typeof exampleFormSchema>) {
+		try{
+			setSubmitting(true);
+
+			
+			const responseJson = await postPesquisaCompleta(values);
+
+			toast.success(t('common.toast_submit_success'), {id: 'form-submit' });
+		
+			console.log('resposta do backend: ', responseJson);
+		}catch(err: any){
+			console.error('Erro ao submeter form:', err);
+			toast.error(
+				t('common.toast_content_invalid') + (err.message ? `: ${err.message}` : ''),
+				{ id: 'form-submit' }
+			);
+
+		}finally{
+			setSubmitting(false);
+		}
+
 	}
 
 	useEffect(() => {

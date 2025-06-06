@@ -20,26 +20,26 @@ export function getPlanningStepSelectOptions(
 ) {
 	return {
 		planning_time: objectToSelectOptions({
-			'0': t('planning_time.options.0'),
-			'1': t('planning_time.options.1'),
-			'2': t('planning_time.options.2'),
-			'3': t('planning_time.options.3'),
+			'1': t('planning_time.options.0'),
+			'2': t('planning_time.options.1'),
+			'3': t('planning_time.options.2'),
+			'4': t('planning_time.options.3'),
 		}),
 		planning_information_sources: objectToSelectOptions({
-			'0': t('planning_information_sources.options.0'),
-			'1': t('planning_information_sources.options.1'),
-			'2': t('planning_information_sources.options.2'),
-			'3': t('planning_information_sources.options.3'),
-			'4': t('planning_information_sources.options.4'),
-			'5': t('planning_information_sources.options.5'),
+			'1': t('planning_information_sources.options.0'),
+			'2': t('planning_information_sources.options.1'),
+			'3': t('planning_information_sources.options.2'),
+			'4': t('planning_information_sources.options.3'),
+			'5': t('planning_information_sources.options.4'),
+			'6': t('planning_information_sources.options.5'),
 		}),
 		planning_organization: objectToSelectOptions({
-			'0': t('planning_organization.options.0'),
-			'1': t('planning_organization.options.1'),
-			'2': t('planning_organization.options.2'),
-			'3': t('planning_organization.options.3'),
-			'4': t('planning_organization.options.4'),
-			'5': t('planning_organization.options.5'),
+			'1': t('planning_organization.options.0'),
+			'2': t('planning_organization.options.1'),
+			'3': t('planning_organization.options.2'),
+			'4': t('planning_organization.options.3'),
+			'5': t('planning_organization.options.4'),
+			'6': t('planning_organization.options.5'),
 		}),
 	};
 }
