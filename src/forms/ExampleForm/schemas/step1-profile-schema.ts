@@ -52,12 +52,12 @@ export function getProfileStepSelectOptions(
 		},
 		personal: {
 			tourist_age_group: objectToSelectOptions({
-				'0': t('tourist_age_group.options.0'),
-				'1': t('tourist_age_group.options.1'),
-				'2': t('tourist_age_group.options.2'),
-				'3': t('tourist_age_group.options.3'),
-				'4': t('tourist_age_group.options.4'),
-				'5': t('tourist_age_group.options.5'),
+				'1': t('tourist_age_group.options.0'),
+				'2': t('tourist_age_group.options.1'),
+				'3': t('tourist_age_group.options.2'),
+				'4': t('tourist_age_group.options.3'),
+				'5': t('tourist_age_group.options.4'),
+				'6': t('tourist_age_group.options.5'),
 			}),
 			tourist_gender: objectToSelectOptions({
 				male: t('tourist_gender.options.male'),
@@ -69,12 +69,12 @@ export function getProfileStepSelectOptions(
 		},
 		improvement: {
 			tourist_education: objectToSelectOptions({
-				'0': t('tourist_education.options.0'),
-				'1': t('tourist_education.options.1'),
-				'2': t('tourist_education.options.2'),
-				'3': t('tourist_education.options.3'),
-				'4': t('tourist_education.options.4'),
-				'5': t('tourist_education.options.5'),
+				'1': t('tourist_education.options.0'),
+				'2': t('tourist_education.options.1'),
+				'3': t('tourist_education.options.2'),
+				'4': t('tourist_education.options.3'),
+				'5': t('tourist_education.options.4'),
+				'6': t('tourist_education.options.5'),
 			}),
 			tourist_estimated_income: objectToSelectOptions({
 				low: t('tourist_estimated_income.options.low'),
