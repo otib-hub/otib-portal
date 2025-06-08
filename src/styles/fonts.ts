@@ -1,4 +1,4 @@
-import { /* IBM_Plex_Mono, */ IBM_Plex_Sans, Inter } from 'next/font/google';
+import { IBM_Plex_Mono, IBM_Plex_Sans, Inter } from 'next/font/google';
 
 export const inter = Inter({
 	weight: '400',
@@ -6,6 +6,7 @@ export const inter = Inter({
 	fallback: ['sans'],
 	subsets: ['latin'],
 	variable: '--font-inter',
+	preload: true,
 });
 
 export const ibmPlexSans = IBM_Plex_Sans({
@@ -13,11 +14,13 @@ export const ibmPlexSans = IBM_Plex_Sans({
 	fallback: ['sans'],
 	subsets: ['latin'],
 	variable: '--font-ibm-plex-sans',
+	preload: false,
 });
 
-// export const ibmPlexMono = IBM_Plex_Mono({
-// 	weight: '500',
-// 	fallback: ['mono'],
-// 	subsets: ['latin'],
-// 	variable: '--font-ibm-plex-mono',
-// });
+export const ibmPlexMono = IBM_Plex_Mono({
+	weight: '500',
+	fallback: ['mono'],
+	subsets: ['latin'],
+	variable: '--font-ibm-plex-mono',
+	preload: false,
+});

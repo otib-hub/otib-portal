@@ -12,6 +12,7 @@ import { buttonVariants } from './ui/button';
 import { Bug, X } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { ibmPlexMono } from '@/styles/fonts';
 
 interface FormDebugDialogProps {
 	data: IndividualResearchFormType;
@@ -19,7 +20,7 @@ interface FormDebugDialogProps {
 
 function formatDataToBeautifulPre(data: IndividualResearchFormType) {
 	return Object.entries(data).map(([key, value]) => (
-		<span key={key}>
+		<span key={key} className={`${ibmPlexMono.className}`}>
 			<span className='text-foreground'>&#9;&#9;{key}</span>
 			{': '}
 			<span>
@@ -84,7 +85,7 @@ export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 				ref={animationRef}
 				className={`${buttonVariants({
 					variant: 'link',
-				})} w-full transition-colors`}
+				})} w-full transition-colors ${ibmPlexMono.className}`}
 			>
 				<Bug className='size-5' />
 				{t('trigger_text')}
