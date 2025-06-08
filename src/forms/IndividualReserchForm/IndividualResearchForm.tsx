@@ -10,7 +10,10 @@ import { useEffect } from 'react';
 import FormStepper from '@/components/FormStepper';
 import FormDebugDialog from '@/components/FormDebugDialog';
 import { useTranslations } from 'next-intl';
-import { getIndividualResearchFormSchema } from './schemas/form-general-schema';
+import {
+	getIndividualResearchFormSchema,
+	IndividualResearchFormType,
+} from './schemas/form-general-schema';
 import { handleSubmitIndividualResearch } from '@/services/handle-submit-individual-research';
 
 const STEP_BLOCK_VALIDATION = false;
@@ -45,7 +48,9 @@ export default function IndividualResearchForm() {
 		},
 	});
 
-	async function onNextStep() {
+	async function onNextStep(e: React.MouseEvent) {
+		e.preventDefault();
+
 		if (STEP_BLOCK_VALIDATION) {
 			const isValid = await methods.trigger();
 			if (!isValid) {
@@ -57,17 +62,9 @@ export default function IndividualResearchForm() {
 		nextStep();
 	}
 
-	async function onSubmit() {
+	async function handleFormSubmit(formData: IndividualResearchFormType) {
 		try {
-			const isDataValid = await methods.trigger();
-			if (!isDataValid) {
-				toast.error(t('common.toast_content_invalid'));
-				return;
-			}
-
-			const values = methods.getValues();
-			const response = await handleSubmitIndividualResearch(values);
-
+			const response = await handleSubmitIndividualResearch(formData);
 			toast.success(t('common.toast_submit_success'), { id: 'form-submit' });
 			console.log('resposta do backend: ', response);
 		} catch (err) {
@@ -81,6 +78,11 @@ export default function IndividualResearchForm() {
 		}
 	}
 
+	function onInvalidFormSubmit() {
+		toast.error(t('common.toast_content_invalid'));
+		return;
+	}
+
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, [currentStepIndex]);
@@ -90,7 +92,7 @@ export default function IndividualResearchForm() {
 			<FormStepper steps={steps} activeStep={currentStepIndex + 1} />
 			<FormProvider {...methods}>
 				<form
-					onSubmit={methods.handleSubmit(onSubmit)}
+					onSubmit={methods.handleSubmit(handleFormSubmit, onInvalidFormSubmit)}
 					className='w-full space-y-12 md:space-y-8 mb-16 md:mb-0'
 				>
 					{currentStep}
@@ -101,18 +103,14 @@ export default function IndividualResearchForm() {
 								className='w-full md:w-fit'
 								variant='outline'
 								type='button'
-								onClick={() => backStep()}
+								onClick={backStep}
 							>
 								{t('common.button_back')}
 							</Button>
 						)}
 
 						{isLastStep ? (
-							<Button
-								className='w-full md:w-fit'
-								type='submit'
-								onClick={onSubmit}
-							>
+							<Button className='w-full md:w-fit' type='submit'>
 								{t('common.button_submit')}
 							</Button>
 						) : (
