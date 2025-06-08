@@ -17,7 +17,7 @@ import {
 import { handleSubmitIndividualResearch } from '@/services/handle-submit-individual-research';
 
 const STEP_BLOCK_VALIDATION = false;
-const DEV_MODE = true;
+const DEV_MODE = process.env.NEXT_PUBLIC_ENV === 'development';
 
 export default function IndividualResearchForm() {
 	const t = useTranslations('forms');
