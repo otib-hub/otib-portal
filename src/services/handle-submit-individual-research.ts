@@ -1,4 +1,4 @@
-import { IndividualResearchFormType } from '@/forms/IndividualReserchForm/schemas/form-general-schema';
+import { IndividualResearchFormType } from '@/forms/IndividualResearchForm/schemas/form-general-schema';
 
 type Payload = Partial<IndividualResearchFormType>;
 
