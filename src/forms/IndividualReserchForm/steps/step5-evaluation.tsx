@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useTranslations } from 'next-intl';
 
 export default function EvaluationStep() {
-	const t = useTranslations('forms.ExampleForm.steps.5.fields');
+	const t = useTranslations('forms.IndividualResearchForm.steps.5.fields');
 	const evaluationStepSelectOptions = getEvaluationStepSelectOptions(t);
 	const {
 		control,

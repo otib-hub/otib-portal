@@ -15,7 +15,7 @@ export function getActivitiesStepSchema(t: TFunction<'forms'>) {
 }
 
 export function getActivitiesStepSelectOptions(
-	t: TFunction<'forms.ExampleForm.steps.4.fields'>
+	t: TFunction<'forms.IndividualResearchForm.steps.4.fields'>
 ) {
 	return {
 		activities_places_visited: objectToSelectOptions({

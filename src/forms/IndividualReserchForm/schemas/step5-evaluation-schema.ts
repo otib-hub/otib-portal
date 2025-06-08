@@ -36,7 +36,7 @@ export function getEvaluationStepSchema() {
 }
 
 export function getEvaluationStepSelectOptions(
-	t: TFunction<'forms.ExampleForm.steps.5.fields'>
+	t: TFunction<'forms.IndividualResearchForm.steps.5.fields'>
 ) {
 	return {
 		evaluation_dissatisfactions: objectToSelectOptions({

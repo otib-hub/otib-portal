@@ -1,13 +1,16 @@
 import { Separator } from '@/components/ui/separator';
 import { FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Controller, useFormContext } from 'react-hook-form';
-import { getProfileStepSelectOptions, ProfileStepType } from '../schemas/step1-profile-schema';
+import {
+	getProfileStepSelectOptions,
+	ProfileStepType,
+} from '../schemas/step1-profile-schema';
 import { SelectWithSearch } from '@/components/ui/select-with-search';
 import { useTranslations } from 'next-intl';
 
 export default function ProfileStep() {
-	const t = useTranslations('forms.ExampleForm.steps.1.fields');
-	const profileStepSelectOptions = getProfileStepSelectOptions(t)
+	const t = useTranslations('forms.IndividualResearchForm.steps.1.fields');
+	const profileStepSelectOptions = getProfileStepSelectOptions(t);
 	const {
 		control,
 		formState: { errors },

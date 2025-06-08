@@ -12,39 +12,41 @@ import PlanningStep from './steps/step2-planning';
 import { TFunction } from '@/@types/next-intl';
 import { getPlanningStepSchema } from './schemas/step2-planning-schema';
 
-export function getExampleFormSteps(t: TFunction<'forms'>): Array<FormStep> {
+export function getIndividualResearchFormSteps(
+	t: TFunction<'forms'>
+): Array<FormStep> {
 	return [
 		{
 			number: 1,
-			title: t('ExampleForm.steps.1.title'),
+			title: t('IndividualResearchForm.steps.1.title'),
 			step: TouristStep,
 			schema: getProfileStepSchema(t),
 			icon: User,
 		},
 		{
 			number: 2,
-			title: t('ExampleForm.steps.2.title'),
+			title: t('IndividualResearchForm.steps.2.title'),
 			step: PlanningStep,
 			schema: getPlanningStepSchema(t),
 			icon: Route,
 		},
 		{
 			number: 3,
-			title: t('ExampleForm.steps.3.title'),
+			title: t('IndividualResearchForm.steps.3.title'),
 			step: TripStep,
 			schema: getTripStepSchema(t),
 			icon: Plane,
 		},
 		{
 			number: 4,
-			title: t('ExampleForm.steps.4.title'),
+			title: t('IndividualResearchForm.steps.4.title'),
 			step: ActivitiesStep,
 			schema: getActivitiesStepSchema(t),
 			icon: Activity,
 		},
 		{
 			number: 5,
-			title: t('ExampleForm.steps.5.title'),
+			title: t('IndividualResearchForm.steps.5.title'),
 			step: EvaluationStep,
 			schema: getEvaluationStepSchema(),
 			icon: Percent,

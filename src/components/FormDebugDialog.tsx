@@ -1,4 +1,4 @@
-import { ExampleFormType } from '@/forms/ExampleForm/schemas/form-general-schema';
+import { IndividualResearchFormType } from '@/forms/IndividualReserchForm/schemas/form-general-schema';
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -14,10 +14,10 @@ import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 
 interface FormDebugDialogProps {
-	data: ExampleFormType;
+	data: IndividualResearchFormType;
 }
 
-function formatDataToBeautifulPre(data: ExampleFormType) {
+function formatDataToBeautifulPre(data: IndividualResearchFormType) {
 	return Object.entries(data).map(([key, value]) => (
 		<span key={key}>
 			<span className='text-foreground'>&#9;&#9;{key}</span>
@@ -60,7 +60,7 @@ function formatDataToBeautifulPre(data: ExampleFormType) {
 export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 	const t = useTranslations('components.FormDebugDialog');
 
-	function useAnimateOnDataChange(data: ExampleFormType) {
+	function useAnimateOnDataChange(data: IndividualResearchFormType) {
 		const ref = useRef<HTMLButtonElement | null>(null);
 
 		useEffect(() => {

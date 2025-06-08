@@ -5,22 +5,21 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import useMultiStepForm from '@/hooks/use-multistepform';
-import { getExampleFormSteps } from './steps';
-import { z } from 'zod';
-import { useEffect, useState } from 'react';
+import { getIndividualResearchFormSteps } from './steps';
+import { useEffect } from 'react';
 import FormStepper from '@/components/FormStepper';
 import FormDebugDialog from '@/components/FormDebugDialog';
 import { useTranslations } from 'next-intl';
-import { getExampleFormSchema } from './schemas/form-general-schema';
-import { postPesquisaCompleta } from '@/services/api';
+import { getIndividualResearchFormSchema } from './schemas/form-general-schema';
+import { handleSubmitIndividualResearch } from '@/services/handle-submit-individual-research';
 
 const STEP_BLOCK_VALIDATION = false;
 const DEV_MODE = true;
 
-export default function ExampleForm() {
+export default function IndividualResearchForm() {
 	const t = useTranslations('forms');
-	const exampleFormSteps = getExampleFormSteps(t);
-	const exampleFormSchema = getExampleFormSchema(t);
+	const steps = getIndividualResearchFormSteps(t);
+	const schema = getIndividualResearchFormSchema(t);
 
 	const {
 		currentStep,
@@ -29,14 +28,14 @@ export default function ExampleForm() {
 		isFirstStep,
 		nextStep,
 		backStep,
-	} = useMultiStepForm(exampleFormSteps);
+	} = useMultiStepForm(steps);
 
 	const methods = useForm({
-		resolver: zodResolver(exampleFormSchema),
-		mode: 'onTouched',
+		resolver: zodResolver(schema),
+		mode: 'onChange',
 		context: { t },
 		defaultValues: {
-			...Object.keys(exampleFormSchema.shape).reduce(
+			...Object.keys(schema.shape).reduce(
 				(acc, key) => ({
 					...acc,
 					[key]: undefined,
@@ -45,8 +44,6 @@ export default function ExampleForm() {
 			),
 		},
 	});
-
-	const [submitting, setSubmitting ] = useState(false);
 
 	async function onNextStep() {
 		if (STEP_BLOCK_VALIDATION) {
@@ -57,38 +54,31 @@ export default function ExampleForm() {
 			}
 		}
 
-		if (!isLastStep) {
-			nextStep();
-		} else {
-			const values = methods.getValues() as z.infer<typeof exampleFormSchema>;
-			onSubmit(methods.getValues());
-		}
+		nextStep();
 	}
 
+	async function onSubmit() {
+		try {
+			const isDataValid = await methods.trigger();
+			if (!isDataValid) {
+				toast.error(t('common.toast_content_invalid'));
+				return;
+			}
 
+			const values = methods.getValues();
+			const response = await handleSubmitIndividualResearch(values);
 
+			toast.success(t('common.toast_submit_success'), { id: 'form-submit' });
+			console.log('resposta do backend: ', response);
+		} catch (err) {
+			const errorText =
+				typeof err === 'object' && err !== null && 'message' in err
+					? `${err.message}`
+					: '';
 
-	async function onSubmit(values: z.infer<typeof exampleFormSchema>) {
-		try{
-			setSubmitting(true);
-
-			
-			const responseJson = await postPesquisaCompleta(values);
-
-			toast.success(t('common.toast_submit_success'), {id: 'form-submit' });
-		
-			console.log('resposta do backend: ', responseJson);
-		}catch(err: any){
-			console.error('Erro ao submeter form:', err);
-			toast.error(
-				t('common.toast_content_invalid') + (err.message ? `: ${err.message}` : ''),
-				{ id: 'form-submit' }
-			);
-
-		}finally{
-			setSubmitting(false);
+			console.error('Internal error: ' + errorText);
+			toast.error('Internal error: ' + errorText, { id: 'form-submit' });
 		}
-
 	}
 
 	useEffect(() => {
@@ -97,7 +87,7 @@ export default function ExampleForm() {
 
 	return (
 		<>
-			<FormStepper steps={exampleFormSteps} activeStep={currentStepIndex + 1} />
+			<FormStepper steps={steps} activeStep={currentStepIndex + 1} />
 			<FormProvider {...methods}>
 				<form
 					onSubmit={methods.handleSubmit(onSubmit)}
@@ -117,13 +107,23 @@ export default function ExampleForm() {
 							</Button>
 						)}
 
-						<Button
-							className='w-full md:w-fit'
-							type={isLastStep ? 'submit' : 'button'}
-							onClick={onNextStep}
-						>
-							{isLastStep ? t('common.button_submit') : t('common.button_next')}
-						</Button>
+						{isLastStep ? (
+							<Button
+								className='w-full md:w-fit'
+								type='submit'
+								onClick={onSubmit}
+							>
+								{t('common.button_submit')}
+							</Button>
+						) : (
+							<Button
+								className='w-full md:w-fit'
+								type='button'
+								onClick={onNextStep}
+							>
+								{t('common.button_next')}
+							</Button>
+						)}
 					</div>
 				</form>
 			</FormProvider>

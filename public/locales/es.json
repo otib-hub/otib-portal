@@ -47,7 +47,7 @@
             "field_require_at_least_one": "Selecciona al menos una opción",
             "field_require_custom": "{count, plural, other {Selecciona al menos # opciones}}"
         },
-        "ExampleForm": {
+        "IndividualResearchForm": {
             "steps": {
                 "1": {
                     "title": "Tú",

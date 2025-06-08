@@ -16,7 +16,7 @@ export function getPlanningStepSchema(t: TFunction<'forms'>) {
 }
 
 export function getPlanningStepSelectOptions(
-	t: TFunction<'forms.ExampleForm.steps.2.fields'>
+	t: TFunction<'forms.IndividualResearchForm.steps.2.fields'>
 ) {
 	return {
 		planning_time: objectToSelectOptions({

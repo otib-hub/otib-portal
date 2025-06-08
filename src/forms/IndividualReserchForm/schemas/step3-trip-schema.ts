@@ -43,7 +43,7 @@ export function getTripStepSchema(t: TFunction<'forms'>) {
 }
 
 export function getTripStepSelectOptions(
-	t: TFunction<'forms.ExampleForm.steps.3.fields'>
+	t: TFunction<'forms.IndividualResearchForm.steps.3.fields'>
 ) {
 	return {
 		trip_reincidence: objectToSelectOptions({
