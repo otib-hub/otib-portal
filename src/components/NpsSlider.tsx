@@ -24,7 +24,7 @@ export default function NpsSlider({
 		<div className='w-full flex flex-col items-center gap-3 md:max-w-2xs'>
 			<Slider
 				id={id}
-				value={value ? [value] : undefined}
+				value={value ? [value] : [8]}
 				onValueChange={(values) => onChangeAction(values[0])}
 				min={1}
 				max={10}
