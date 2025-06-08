@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
-import useMultiStepForm from '@/hooks/use-multistepform';
+import useMultiStepForm from '@/hooks/use-multistep-form';
 import { getIndividualResearchFormSteps } from './steps';
 import { useEffect } from 'react';
 import FormStepper from '@/components/FormStepper';
@@ -13,7 +13,7 @@ import { useTranslations } from 'next-intl';
 import {
 	getIndividualResearchFormSchema,
 	IndividualResearchFormType,
-} from './schemas/form-general-schema';
+} from './schemas/individual-research-form-schema';
 import { handleSubmitIndividualResearch } from '@/services/handle-submit-individual-research';
 
 const STEP_BLOCK_VALIDATION = false;
