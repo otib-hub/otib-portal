@@ -17,7 +17,6 @@ import { Button } from '@/components/ui/button';
 import { CheckIcon, ChevronDownIcon, XIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useMemo, useState } from 'react';
-import { Skeleton } from './skeleton';
 import { Badge } from '@/components/ui/badge';
 import { useTranslations } from 'next-intl';
 
@@ -35,7 +34,6 @@ type SelectWithSearchProps = {
 	disabled?: boolean;
 	hasError: boolean;
 	id?: string;
-	loading?: boolean;
 	multiple?: boolean;
 };
 
@@ -44,11 +42,11 @@ export const SelectWithSearch = ({
 	options,
 	value,
 	placeholder,
+	disabled,
 	onChangeAction,
 	multiple = false,
 	hasError,
 	id,
-	loading,
 }: SelectWithSearchProps) => {
 	const [open, setOpen] = useState(false);
 	const [search, setSearch] = useState('');
@@ -111,33 +109,31 @@ export const SelectWithSearch = ({
 			<div className='flex items-center gap-2 w-full min-w-0 overflow-hidden'>
 				<Popover open={open} onOpenChange={setOpen}>
 					<PopoverTrigger asChild>
-						{loading ? (
-							<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal'></Skeleton>
-						) : (
-							<Button
-								id={id}
-								variant='outline'
-								role='combobox'
-								aria-expanded={open}
-								aria-invalid={hasError}
+						<Button
+							id={id}
+							disabled={disabled}
+							aria-disabled={disabled}
+							variant='outline'
+							role='combobox'
+							aria-expanded={open}
+							aria-invalid={hasError}
+							className={cn(
+								'w-full flex-grow flex justify-between items-center text-base bg-input/20 hover:bg-input/35 border-input px-3 py-5 font-normal outline-offset-2 outline-none focus-visible:outline-[3px] dark:aria-invalid:border-destructive/70 aria-invalid:border-destructive'
+							)}
+						>
+							<span
 								className={cn(
-									'w-full flex-grow flex justify-between items-center text-base bg-input/20 hover:bg-input/35 border-input px-3 py-5 font-normal outline-offset-2 outline-none focus-visible:outline-[3px] dark:aria-invalid:border-destructive/70 aria-invalid:border-destructive'
+									'truncate text-left',
+									!selectedValues.length && 'text-muted-foreground'
 								)}
 							>
-								<span
-									className={cn(
-										'truncate text-left',
-										!selectedValues.length && 'text-muted-foreground'
-									)}
-								>
-									{selectedValues.length > 0 ? selectedSummary : placeholder}
-								</span>
-								<ChevronDownIcon
-									size={16}
-									className='ml-2 text-muted-foreground shrink-0'
-								/>
-							</Button>
-						)}
+								{selectedValues.length > 0 ? selectedSummary : placeholder}
+							</span>
+							<ChevronDownIcon
+								size={16}
+								className='ml-2 text-muted-foreground shrink-0'
+							/>
+						</Button>
 					</PopoverTrigger>
 
 					<PopoverContent
