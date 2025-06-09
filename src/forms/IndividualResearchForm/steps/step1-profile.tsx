@@ -7,6 +7,7 @@ import {
 } from '../schemas/step1-profile-schema';
 import { SelectWithSearch } from '@/components/ui/select-with-search';
 import { useTranslations } from 'next-intl';
+import { useLocations } from '@/hooks/use-locations';
 
 export default function ProfileStep() {
 	const t = useTranslations('forms.IndividualResearchForm.steps.1.fields');
@@ -15,6 +16,7 @@ export default function ProfileStep() {
 		control,
 		formState: { errors },
 	} = useFormContext<ProfileStepType>();
+	const { countries, states, cities } = useLocations();
 
 	return (
 		<>
@@ -33,10 +35,11 @@ export default function ProfileStep() {
 						render={({ field }) => (
 							<SelectWithSearch
 								id='tourist_country'
+								loading={countries.isLoading}
 								value={field.value}
 								onChangeAction={field.onChange}
 								hasError={!!errors.tourist_country}
-								options={profileStepSelectOptions.localization.tourist_country}
+								options={countries.options ?? []}
 							/>
 						)}
 					/>
@@ -59,10 +62,11 @@ export default function ProfileStep() {
 						render={({ field }) => (
 							<SelectWithSearch
 								id='tourist_state'
+								loading={states.isLoading}
 								value={field.value}
 								onChangeAction={field.onChange}
 								hasError={!!errors.tourist_state}
-								options={profileStepSelectOptions.localization.tourist_state}
+								options={states.options}
 							/>
 						)}
 					/>
@@ -85,10 +89,11 @@ export default function ProfileStep() {
 						render={({ field }) => (
 							<SelectWithSearch
 								id='tourist_city'
+								loading={cities.isLoading}
 								value={field.value}
 								onChangeAction={field.onChange}
 								hasError={!!errors.tourist_city}
-								options={profileStepSelectOptions.localization.tourist_city}
+								options={cities.options ?? []}
 							/>
 						)}
 					/>
