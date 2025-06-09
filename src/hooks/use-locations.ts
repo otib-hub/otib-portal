@@ -19,7 +19,7 @@ export function useLocations() {
 
 	const findLabelByValue = useCallback(
 		(value: string, array: Array<Option>) => {
-			const label = array.find((item) => item.value.match(value))?.label;
+			const label = array.find((item) => item.value === value)?.label;
 			return label;
 		},
 		[]
