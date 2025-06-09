@@ -21,7 +21,7 @@ import { Skeleton } from './skeleton';
 import { Badge } from '@/components/ui/badge';
 import { useTranslations } from 'next-intl';
 
-type Option = {
+export type Option = {
 	value: string;
 	label: string;
 };
@@ -67,7 +67,7 @@ export const SelectWithSearch = ({
 
 		const searchLower = search.toLowerCase();
 		return options.filter((option) =>
-			option.label.toLowerCase().startsWith(searchLower)
+			option.label.toLowerCase().includes(searchLower)
 		);
 	}, [options, search]);
 
@@ -112,9 +112,7 @@ export const SelectWithSearch = ({
 				<Popover open={open} onOpenChange={setOpen}>
 					<PopoverTrigger asChild>
 						{loading ? (
-							<Skeleton className='flex-grow min-w-0 flex items-center justify-start'>
-								<p className='px-3 text-muted text-base'>Obtendo dados</p>
-							</Skeleton>
+							<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal'></Skeleton>
 						) : (
 							<Button
 								id={id}
@@ -160,7 +158,7 @@ export const SelectWithSearch = ({
 										return (
 											<CommandItem
 												className='py-2 text-base'
-												key={option.value}
+												key={option.label}
 												value={option.value}
 												onSelect={() => toggleValue(option.value)}
 											>

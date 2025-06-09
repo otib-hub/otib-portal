@@ -4,8 +4,11 @@ import { z } from 'zod';
 
 export function getProfileStepSchema(t: TFunction<'forms'>) {
 	return z.object({
-		tourist_country: z.string({ required_error: t('errors.field_required') }),
+		tourist_country: z
+			.string({ required_error: t('errors.field_required') })
+			.length(3),
 		tourist_state: z.string({ required_error: t('errors.field_required') }),
+
 		tourist_city: z.string({ required_error: t('errors.field_required') }),
 
 		tourist_age_group: z.string({ required_error: t('errors.field_required') }),
@@ -21,35 +24,7 @@ export function getProfileStepSchema(t: TFunction<'forms'>) {
 export function getProfileStepSelectOptions(
 	t: TFunction<'forms.IndividualResearchForm.steps.1.fields'>
 ) {
-	const localizationOptions = {
-		tourist_country: {
-			br: 'Brasil',
-			ar: 'Argentina',
-			de: 'Germany',
-			fr: 'France',
-		},
-		tourist_state: {
-			SP: 'São Paulo',
-			RJ: 'Rio de Janeiro',
-			MG: 'Minas Gerais',
-			RS: 'Rio Grande do Sul',
-		},
-		tourist_city: {
-			sao_paulo: 'São Paulo',
-			rio: 'Rio de Janeiro',
-			bh: 'Belo Horizonte',
-			poa: 'Porto Alegre',
-		},
-	} as const; // TODO: fetch de localizações
-
 	return {
-		localization: {
-			tourist_country: objectToSelectOptions(
-				localizationOptions.tourist_country
-			),
-			tourist_state: objectToSelectOptions(localizationOptions.tourist_state),
-			tourist_city: objectToSelectOptions(localizationOptions.tourist_city),
-		},
 		personal: {
 			tourist_age_group: objectToSelectOptions({
 				'1': t('tourist_age_group.options.0'),
