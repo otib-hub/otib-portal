@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { inter } from '../styles/fonts';
 import '../styles/globals.css';
+import QueryProvider from '@/providers/QueryProvider';
 
 export const metadata: Metadata = {
 	title: 'OTIB - Protótipo',
@@ -30,11 +31,14 @@ export default async function RootLayout({
 						enableSystem
 						disableTransitionOnChange
 					>
-						<div className='min-h-screen min-w-full p-6'>
-							<Header />
-							{children}
-						</div>
-						<Toaster richColors closeButton />
+						<QueryProvider>
+							<div className='min-h-screen min-w-full p-6'>
+								<Header />
+								{children}
+							</div>
+
+							<Toaster richColors closeButton />
+						</QueryProvider>
 					</ThemeProvider>
 				</NextIntlClientProvider>
 			</body>
