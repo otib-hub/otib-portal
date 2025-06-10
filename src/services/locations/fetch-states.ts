@@ -1,5 +1,3 @@
-'use server';
-
 import { State } from '@/@types/external-api-responses/locations';
 import { Option } from '@/components/ui/select-with-search';
 
