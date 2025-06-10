@@ -1,133 +1,95 @@
 import { Option } from '@/components/ui/select-with-search';
-import { IndividualResearchFormType } from '@/forms/IndividualResearchForm/schemas/individual-research-form-schema';
 import { fetchCities } from '@/services/locations/fetch-cities';
 import { fetchCountries } from '@/services/locations/fetch-countries';
 import { fetchStates } from '@/services/locations/fetch-states';
-import { useCallback, useEffect, useState } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { toast } from 'sonner';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
 
-export function useLocations() {
-	const { watch } = useFormContext<IndividualResearchFormType>();
-	const selectedCountry = watch('tourist_country');
-	const selectedState = watch('tourist_state');
+export function useLocations({
+	selectedCountry,
+	selectedState,
+}: {
+	selectedCountry?: string;
+	selectedState?: string;
+}) {
+	const {
+		data: countries = [],
+		isLoading: isLoadingCountries,
+		error: errorCountries,
+	} = useQuery({
+		queryKey: ['countries'],
+		queryFn: fetchCountries,
+		refetchOnWindowFocus: false,
+		refetchOnMount: false,
+		retry: 2,
+	});
 
-	const [countries, setCountries] = useState<Option[] | []>([]);
-	const [states, setStates] = useState<Option[] | []>([]);
-	const [cities, setCities] = useState<Option[] | []>([]);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const countryLabelMap = React.useMemo(() => {
+		const map = new Map<string, string>();
+		countries.forEach(({ value, label }: Option) => map.set(value, label));
+		return map;
+	}, [countries]);
 
-	const findLabelByValue = useCallback(
-		(value: string, array: Array<Option>) => {
-			const label = array.find((item) => item.value === value)?.label;
-			return label;
+	const {
+		data: states = [],
+		isLoading: isLoadingStates,
+		error: errorStates,
+	} = useQuery({
+		queryKey: ['states', selectedCountry],
+		queryFn: () => {
+			if (!selectedCountry) return Promise.resolve([]);
+			const countryLabel = countryLabelMap.get(selectedCountry);
+			return countryLabel ? fetchStates(countryLabel) : Promise.resolve([]);
 		},
-		[]
-	);
+		enabled: !!selectedCountry,
+		refetchOnWindowFocus: false,
+		refetchOnMount: false,
+		retry: 2,
+	});
 
-	// Fetch countries on mount
-	useEffect(() => {
-		const fetchAndSetCountries = async () => {
-			try {
-				setIsLoading(true);
-				const fetchedCountries = await fetchCountries();
-				if (fetchedCountries) {
-					setCountries(fetchedCountries);
-				}
-			} catch (error) {
-				let errorMsg = 'Error fetching countries';
-				if (error instanceof Error) errorMsg += `: ${error.message}`;
-				console.error(errorMsg, error);
-				toast.error(errorMsg);
+	const stateLabelMap = React.useMemo(() => {
+		const map = new Map<string, string>();
+		states.forEach(({ value, label }: Option) => map.set(value, label));
+		return map;
+	}, [states]);
 
-				setCountries([]);
-			} finally {
-				setIsLoading(false);
-			}
-		};
+	const {
+		data: cities = [],
+		isLoading: isLoadingCities,
+		error: errorCities,
+	} = useQuery({
+		queryKey: ['cities', selectedCountry, selectedState],
+		queryFn: () => {
+			if (!selectedCountry || !selectedState) return Promise.resolve([]);
 
-		fetchAndSetCountries();
-	}, []);
+			const countryLabel = countryLabelMap.get(selectedCountry);
+			const stateLabel = stateLabelMap.get(selectedState);
 
-	// Fetch states when country changes
-	useEffect(() => {
-		const fetchAndSetStates = async () => {
-			try {
-				setIsLoading(true);
-				if (!selectedCountry) {
-					setStates([]);
-					return;
-				}
-
-				const countryLabel = findLabelByValue(selectedCountry, countries);
-				if (!countryLabel) {
-					setStates([]);
-					return;
-				}
-
-				const fetchedStates = await fetchStates(countryLabel);
-				setStates(fetchedStates);
-			} catch (error) {
-				let errorMsg = 'Error fetching states';
-				if (error instanceof Error) errorMsg += `: ${error.message}`;
-				console.error(errorMsg, error);
-				toast.error(errorMsg);
-
-				setStates([]);
-			} finally {
-				setIsLoading(false);
-			}
-		};
-
-		fetchAndSetStates();
-	}, [selectedCountry, findLabelByValue, countries]);
-
-	// Fetch cities when state changes
-	useEffect(() => {
-		const fetchAndSetCities = async () => {
-			try {
-				setIsLoading(true);
-				if (!selectedCountry || !selectedState) {
-					setCities([]);
-					return;
-				}
-
-				const countryLabel = findLabelByValue(selectedCountry, countries);
-				const stateLabel = findLabelByValue(selectedState, states);
-				if (!countryLabel || !stateLabel) {
-					setCities([]);
-					return;
-				}
-
-				const fetchedCities = await fetchCities(countryLabel, stateLabel);
-				setCities(fetchedCities);
-			} catch (error) {
-				let errorMsg = 'Error fetching cities';
-				if (error instanceof Error) errorMsg += `: ${error.message}`;
-				console.error(errorMsg, error);
-				toast.error(errorMsg);
-
-				setCities([]);
-			} finally {
-				setIsLoading(false);
-			}
-		};
-
-		fetchAndSetCities();
-	}, [selectedCountry, selectedState, findLabelByValue, countries, states]);
+			return countryLabel && stateLabel
+				? fetchCities(countryLabel, stateLabel)
+				: Promise.resolve([]);
+		},
+		enabled: !!selectedCountry && !!selectedState,
+		refetchOnWindowFocus: false,
+		refetchOnMount: false,
+		retry: 2,
+	});
 
 	return {
 		countries: {
 			options: countries,
-			isLoading,
+			isLoading: isLoadingCountries,
+			error: errorCountries,
 		},
 		states: {
 			options: states,
-			isLoading,
+			isLoading: isLoadingStates,
+			error: errorStates,
 		},
 		cities: {
 			options: cities,
-			isLoading,
+			isLoading: isLoadingCities,
+			error: errorCities,
 		},
 	};
 }

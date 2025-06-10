@@ -1,6 +1,6 @@
 import { Separator } from '@/components/ui/separator';
 import { FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext, useWatch } from 'react-hook-form';
 import {
 	getProfileStepSelectOptions,
 	ProfileStepType,
@@ -8,6 +8,7 @@ import {
 import { SelectWithSearch } from '@/components/ui/select-with-search';
 import { useTranslations } from 'next-intl';
 import { useLocations } from '@/hooks/use-locations';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function ProfileStep() {
 	const t = useTranslations('forms.IndividualResearchForm.steps.1.fields');
@@ -16,7 +17,13 @@ export default function ProfileStep() {
 		control,
 		formState: { errors },
 	} = useFormContext<ProfileStepType>();
-	const { countries, states, cities } = useLocations();
+
+	const selectedCountry = useWatch({ control, name: 'tourist_country' });
+	const selectedState = useWatch({ control, name: 'tourist_state' });
+	const { countries, states, cities } = useLocations({
+		selectedCountry,
+		selectedState,
+	});
 
 	return (
 		<>
@@ -32,16 +39,19 @@ export default function ProfileStep() {
 					<Controller
 						name='tourist_country'
 						control={control}
-						render={({ field }) => (
-							<SelectWithSearch
-								id='tourist_country'
-								loading={countries.isLoading}
-								value={field.value}
-								onChangeAction={field.onChange}
-								hasError={!!errors.tourist_country}
-								options={countries.options ?? []}
-							/>
-						)}
+						render={({ field }) =>
+							countries.isLoading ? (
+								<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal'></Skeleton>
+							) : (
+								<SelectWithSearch
+									id='tourist_country'
+									value={field.value}
+									onChangeAction={field.onChange}
+									hasError={!!errors.tourist_country}
+									options={countries.options ?? []}
+								/>
+							)
+						}
 					/>
 					{errors.tourist_country && (
 						<FormMessage>{String(errors.tourist_country.message)}</FormMessage>
@@ -59,16 +69,20 @@ export default function ProfileStep() {
 					<Controller
 						name='tourist_state'
 						control={control}
-						render={({ field }) => (
-							<SelectWithSearch
-								id='tourist_state'
-								loading={states.isLoading}
-								value={field.value}
-								onChangeAction={field.onChange}
-								hasError={!!errors.tourist_state}
-								options={states.options}
-							/>
-						)}
+						render={({ field }) =>
+							states.isLoading ? (
+								<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal'></Skeleton>
+							) : (
+								<SelectWithSearch
+									id='tourist_state'
+									value={field.value}
+									disabled={!selectedCountry}
+									onChangeAction={field.onChange}
+									hasError={!!errors.tourist_state}
+									options={states.options ?? []}
+								/>
+							)
+						}
 					/>
 					{errors.tourist_state && (
 						<FormMessage>{String(errors.tourist_state.message)}</FormMessage>
@@ -86,16 +100,20 @@ export default function ProfileStep() {
 					<Controller
 						name='tourist_city'
 						control={control}
-						render={({ field }) => (
-							<SelectWithSearch
-								id='tourist_city'
-								loading={cities.isLoading}
-								value={field.value}
-								onChangeAction={field.onChange}
-								hasError={!!errors.tourist_city}
-								options={cities.options ?? []}
-							/>
-						)}
+						render={({ field }) =>
+							cities.isLoading ? (
+								<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal'></Skeleton>
+							) : (
+								<SelectWithSearch
+									id='tourist_city'
+									disabled={!selectedCountry || !selectedState}
+									value={field.value}
+									onChangeAction={field.onChange}
+									hasError={!!errors.tourist_city}
+									options={cities.options ?? []}
+								/>
+							)
+						}
 					/>
 					{errors.tourist_city && (
 						<FormMessage>{String(errors.tourist_city.message)}</FormMessage>
