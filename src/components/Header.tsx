@@ -30,7 +30,7 @@ export default function Header() {
 						{mounted && (
 							<Image
 								src={otib_current_logo}
-								className='h-9 w-fit'
+								className='h-8 w-fit'
 								alt='OTIB logo'
 							/>
 						)}

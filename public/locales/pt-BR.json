@@ -3,6 +3,11 @@
         "Home": {
             "title": "Bem-vindo ao protótipo do OTIB!",
             "button_cta": "Testar formulário"
+        },
+        "not-found": {
+            "title": "Parece que você pegou um caminho que ainda não está no nosso mapa",
+            "description": "A página que você procura pode ter sido removida, renomeada ou nunca existiu. Mas calma, a jornada continua!",
+            "button_back": "Voltar à página anterior"
         }
     },
     "components": {
