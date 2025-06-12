@@ -50,7 +50,8 @@
         "errors": {
             "field_required": "Campo obrigatório",
             "field_require_at_least_one": "Selecione pelo menos uma opção",
-            "field_require_custom": "{count, plural, other {Selecione pelo menos # opções}}"
+            "field_require_custom": "{count, plural, other {Selecione pelo menos # opções}}",
+            "fields_invalid_in_respective_steps": "Preencha os campos obrigatórios faltantes nos passos"
         },
         "IndividualResearchForm": {
             "steps": {
@@ -281,13 +282,20 @@
                         "activities_cities_visited": {
                             "form_label": "Cidades que visitou ou pretende visitar"
                         },
-                        "activities_events_visited": {
-                            "form_label": "Tipos de eventos visitados",
+                        "activities_attractions_visited": {
+                            "form_label": "Atrações e eventos que você visitou",
                             "options": {
-                                "0": "Museus",
-                                "1": "Espaços religiosos (igrejas, festas)",
-                                "2": "Atividades de aventura na natureza",
-                                "3": "Parques temáticos"
+                                "0": "Atrativo natural (parques, mirantes, trilhas, grutas, cachoeiras, rios, serras, paisagens)",
+                                "1": "Atrativo cultural (museus, eventos, fazendas, engenhos, centros históricos, manifestações artísticas)",
+                                "2": "Espaços religiosos (santuários, igrejas, romarias, festejos, patrimônios sacros)",
+                                "3": "Atividades de aventura na natureza (rapel, tirolesa, voo livre, escalada, trilhas radicais)",
+                                "4": "Parques temáticos (ecoparques, parques de aventura)",
+                                "5": "Experiências gastronômicas (feiras, mercados locais, culinária regional, visita a restaurantes típicos)",
+                                "6": "Turismo rural e de vivência (sítios, fazendas, colheita, agroecologia, oficinas artesanais)",
+                                "7": "Turismo científico e ambiental (visitas guiadas, educação ambiental, observação de fauna e flora)",
+                                "8": "Feiras e mercados de artesanato (comércio de produtos locais, arte popular, souvenires)",
+                                "9": "Espaços de convivência e lazer (praças, centros culturais, locais para piqueniques ou descanso)",
+                                "10": "Eventos festivos (festivais de música, teatro, dança, festas típicas, carnaval, festas juninas)"
                             }
                         },
                         "activities_used_apps": {
