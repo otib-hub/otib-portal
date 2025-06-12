@@ -98,6 +98,7 @@ export function getTripStepSelectOptions(
 			'7': t('trip_vehicles.options.6'),
 			'8': t('trip_vehicles.options.7'),
 			'9': t('trip_vehicles.options.8'),
+			'10': t('trip_vehicles.options.9'),
 		}),
 		trip_average_diary_expense: objectToSelectOptions({
 			'1': t('trip_average_diary_expense.options.0'),
