@@ -78,9 +78,43 @@ export default function IndividualResearchForm() {
 		}
 	}
 
-	function onInvalidFormSubmit() {
-		toast.error(t('common.toast_content_invalid'));
-		return;
+	async function onInvalidFormSubmit() {
+		await methods.trigger();
+
+		const errors = methods.formState.errors;
+		const fieldsWithErrors = Object.keys(errors);
+
+		const invalidStepLabels = steps
+			.map((step, index) => {
+				const stepFields = Object.keys(step.schema.shape);
+				const hasError = stepFields.some((field) =>
+					fieldsWithErrors.includes(field)
+				);
+
+				return hasError
+					? `${`${steps[index].number}. ${steps[index].title}`}`
+					: null;
+			})
+			.filter(Boolean);
+
+		// exibe uma mensagem de erro personalizada com os passos em que erros foram encontrados
+		if (invalidStepLabels.length > 0) {
+			toast.error(
+				<p className='w-full'>
+					{`${t(
+						'errors.fields_invalid_in_respective_steps'
+					)}:\n${invalidStepLabels.join('\n')}`}
+				</p>,
+				{
+					className: 'max-w-screen whitespace-pre-wrap',
+					id: 'form-invalid-steps',
+				}
+			);
+		} else {
+			toast.error(t('common.toast_content_invalid'), {
+				id: 'form-generic-invalid',
+			});
+		}
 	}
 
 	useEffect(() => {
