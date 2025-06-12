@@ -24,8 +24,8 @@ export default function EvaluationStep() {
 			<div className='FormFieldsContainer w-full grid gap-8 md:gap-6 grid-cols-1 md:grid-cols-2 items-start'>
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
-						htmlFor='evaluation_expectation_rate'
-						aria-invalid={!!errors.evaluation_expectation_rate}
+						htmlFor='evaluation_recommendation_rate'
+						aria-invalid={!!errors.evaluation_recommendation_rate}
 						aria-required
 					>
 						{t('evaluation_recommendation_rate.form_label')}
