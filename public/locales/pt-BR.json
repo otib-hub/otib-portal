@@ -158,7 +158,7 @@
                     "title": "Viagem",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "Você já viajou para cá antes?",
+                            "form_label": "Você já esteve na ibiapaba antes?",
                             "options": {
                                 "radio_true": "Sim",
                                 "radio_false": "Não"

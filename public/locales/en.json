@@ -158,7 +158,7 @@
                     "title": "Trip",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "Have you traveled here before?",
+                            "form_label": "Have you been at Ibiapaba before?",
                             "options": {
                                 "radio_true": "Yes",
                                 "radio_false": "No"
