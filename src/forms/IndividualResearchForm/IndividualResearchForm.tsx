@@ -103,6 +103,7 @@ export default function IndividualResearchForm() {
 					<p className='mb-2 font-bold text-base'>{`${t(
 						'errors.fields_invalid_in_respective_steps'
 					)}:`}</p>
+
 					<div className='grid grid-cols-2 items-start justify-start'>
 						{invalidStepLabels.map((step, idx) => {
 							return (
