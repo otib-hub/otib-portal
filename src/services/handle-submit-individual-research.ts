@@ -1,4 +1,5 @@
 import { IndividualResearchFormType } from '@/forms/IndividualResearchForm/schemas/individual-research-form-schema';
+import { formatErrors } from '@/utils/format-errors';
 
 type Payload = Partial<IndividualResearchFormType>;
 
@@ -15,15 +16,10 @@ export async function handleSubmitIndividualResearch(values: Payload) {
 		});
 
 		if (!response.ok) {
-			let errorMsg = `[${response.status}]`;
-			try {
-				const errorBody = await response.json();
-				if (errorBody?.message) {
-					errorMsg += `: ${errorBody.message}`;
-				}
-			} catch {
-				// ignora erros de parsing do JSON
-			}
+			const errorMsg = `[${response.status}] ~ ${formatErrors(
+				await response.json()
+			)}`;
+
 			throw new Error(errorMsg);
 		}
 

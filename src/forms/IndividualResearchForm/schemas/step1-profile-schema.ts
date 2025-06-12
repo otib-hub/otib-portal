@@ -4,11 +4,8 @@ import { z } from 'zod';
 
 export function getProfileStepSchema(t: TFunction<'forms'>) {
 	return z.object({
-		tourist_country: z
-			.string({ required_error: t('errors.field_required') })
-			.length(3),
+		tourist_country: z.string({ required_error: t('errors.field_required') }),
 		tourist_state: z.string({ required_error: t('errors.field_required') }),
-
 		tourist_city: z.string({ required_error: t('errors.field_required') }),
 
 		tourist_age_group: z.string({ required_error: t('errors.field_required') }),
