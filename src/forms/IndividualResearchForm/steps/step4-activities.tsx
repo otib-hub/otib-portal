@@ -22,29 +22,29 @@ export default function ActivitiesStep() {
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
 						className='flex items-center justify-between'
-						htmlFor='activities_places_visited'
-						aria-invalid={!!errors.activities_places_visited}
+						htmlFor='activities_cities_visited'
+						aria-invalid={!!errors.activities_cities_visited}
 						aria-required
 					>
-						{t('activities_places_visited.form_label')}
+						{t('activities_cities_visited.form_label')}
 					</FormLabel>
 
 					<Controller
-						name='activities_places_visited'
+						name='activities_cities_visited'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
 								multiple
-								options={activitiesStepSelectOptions.activities_places_visited}
+								options={activitiesStepSelectOptions.activities_cities_visited}
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.activities_places_visited}
+								hasError={!!errors.activities_cities_visited}
 							/>
 						)}
 					/>
-					{errors.activities_places_visited && (
+					{errors.activities_cities_visited && (
 						<FormMessage>
-							{String(errors.activities_places_visited.message)}
+							{String(errors.activities_cities_visited.message)}
 						</FormMessage>
 					)}
 				</FormItem>

@@ -273,8 +273,8 @@
                 "4": {
                     "title": "Activities",
                     "fields": {
-                        "activities_places_visited": {
-                            "form_label": "Places visited"
+                        "activities_cities_visited": {
+                            "form_label": "Cities you've visited or plan to visit"
                         },
                         "activities_events_visited": {
                             "form_label": "Types of events visited",

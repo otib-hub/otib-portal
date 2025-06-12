@@ -4,11 +4,13 @@ import { z } from 'zod';
 
 export function getActivitiesStepSchema(t: TFunction<'forms'>) {
 	return z.object({
-		activities_places_visited: z
+		activities_cities_visited: z
 			.array(z.string(), {
-				required_error: t('errors.field_require_custom', { count: 3 }),
+				required_error: t('errors.field_require_at_least_one'),
 			})
-			.min(3, { message: t('errors.field_require_custom', { count: 3 }) }),
+			.min(1, {
+				message: t('errors.field_require_at_least_one'),
+			}),
 		activities_events_visited: z.array(z.string()).optional(),
 		activities_used_apps: z.array(z.string()).optional(),
 	});
@@ -18,7 +20,7 @@ export function getActivitiesStepSelectOptions(
 	t: TFunction<'forms.IndividualResearchForm.steps.4.fields'>
 ) {
 	return {
-		activities_places_visited: objectToSelectOptions({
+		activities_cities_visited: objectToSelectOptions({
 			'1': 'Carnaubal',
 			'2': 'Croatá',
 			'3': 'Guaraciaba do Norte',
