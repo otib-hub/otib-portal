@@ -29,6 +29,7 @@ export default function IndividualResearchForm() {
 		currentStepIndex,
 		isLastStep,
 		isFirstStep,
+		navigateToStep,
 		nextStep,
 		backStep,
 	} = useMultiStepForm(steps);
@@ -91,22 +92,36 @@ export default function IndividualResearchForm() {
 					fieldsWithErrors.includes(field)
 				);
 
-				return hasError
-					? `${`${steps[index].number}. ${steps[index].title}`}`
-					: null;
+				return hasError ? steps[index] : null;
 			})
 			.filter(Boolean);
 
 		// exibe uma mensagem de erro personalizada com os passos em que erros foram encontrados
 		if (invalidStepLabels.length > 0) {
 			toast.error(
-				<p className='w-full'>
-					{`${t(
+				<div className='w-full'>
+					<p className='mb-2 font-bold text-base'>{`${t(
 						'errors.fields_invalid_in_respective_steps'
-					)}:\n${invalidStepLabels.join('\n')}`}
-				</p>,
+					)}:`}</p>
+					<div className='grid grid-cols-2 items-start justify-start'>
+						{invalidStepLabels.map((step, idx) => {
+							return (
+								step && (
+									<Button
+										className='text-destructive text-start text-base place-self-start'
+										variant={'link'}
+										key={idx}
+										onClick={() => navigateToStep(step.number)}
+									>
+										{`${step.number}. ${step.title}`}
+									</Button>
+								)
+							);
+						})}
+					</div>
+				</div>,
 				{
-					className: 'max-w-screen whitespace-pre-wrap',
+					className: 'max-w-screen max-h-fit whitespace-pre-wrap',
 					id: 'form-invalid-steps',
 				}
 			);

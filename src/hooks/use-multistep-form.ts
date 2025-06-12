@@ -27,11 +27,16 @@ export default function useMultiStepForm(
 		setCurrentStepIndex((i) => (i > 0 ? i - 1 : i));
 	};
 
+	const navigateToStep = (stepIndex: number) => {
+		setCurrentStepIndex(stepIndex - 1);
+	};
+
 	return {
 		currentStep: React.createElement(steps[currentStepIndex].step),
 		currentStepIndex,
 		isFirstStep: currentStepIndex === 0,
 		isLastStep: currentStepIndex === steps.length - 1,
+		navigateToStep,
 		nextStep,
 		backStep,
 	};
