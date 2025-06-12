@@ -208,14 +208,15 @@
                             "form_label": "Trip reason(s)",
                             "options": {
                                 "0": "Leisure, Outings/Rest",
-                                "1": "Business/Work",
-                                "2": "Visit to Relatives/Friends",
-                                "3": "Education, Courses, Qualification",
-                                "4": "Sports",
-                                "5": "Shopping",
-                                "6": "Medical Services",
-                                "7": "Religious",
-                                "8": "Other"
+                                "1": "Events, Festivals and Shows",
+                                "2": "Business/Work",
+                                "3": "Visit to Relatives/Friends",
+                                "4": "Education, Courses, Qualification",
+                                "5": "Sports",
+                                "6": "Shopping",
+                                "7": "Medical Services",
+                                "8": "Religious",
+                                "9": "Other"
                             }
                         },
                         "trip_stay_time": {

@@ -208,14 +208,15 @@
                             "form_label": "Motivo(s) del viaje",
                             "options": {
                                 "0": "Ocio, Paseos/Descanso",
-                                "1": "Negocios/Trabajo",
-                                "2": "Visita a Familiares/Amigos",
-                                "3": "Educación, Cursos, Capacitación",
-                                "4": "Deportes",
-                                "5": "Compras",
-                                "6": "Servicios médicos",
-                                "7": "Religioso",
-                                "8": "Otro"
+                                "1": "Eventos, Festivales, Espectáculos",
+                                "2": "Negocios/Trabajo",
+                                "3": "Visita a Familiares/Amigos",
+                                "4": "Educación, Cursos, Capacitación",
+                                "5": "Deportes",
+                                "6": "Compras",
+                                "7": "Servicios médicos",
+                                "8": "Religioso",
+                                "9": "Otro"
                             }
                         },
                         "trip_stay_time": {

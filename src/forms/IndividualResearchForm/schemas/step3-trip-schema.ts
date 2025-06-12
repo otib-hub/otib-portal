@@ -77,6 +77,7 @@ export function getTripStepSelectOptions(
 			'7': t('trip_reasons.options.6'),
 			'8': t('trip_reasons.options.7'),
 			'9': t('trip_reasons.options.8'),
+			'10': t('trip_reasons.options.9'),
 		}),
 		trip_stay_time: objectToSelectOptions({
 			'1': t('trip_stay_time.options.0'),
