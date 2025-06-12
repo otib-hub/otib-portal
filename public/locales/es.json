@@ -95,7 +95,12 @@
                                 "2": "Secundaria incompleta",
                                 "3": "Secundaria completa",
                                 "4": "Educación superior incompleta",
-                                "5": "Educación superior completa"
+                                "5": "Educación superior completa",
+                                "6": "Especialización",
+                                "7": "MBA",
+                                "8": "Maestría",
+                                "9": "Doctorado",
+                                "10": "Posdoctorado"
                             }
                         },
                         "tourist_estimated_income": {

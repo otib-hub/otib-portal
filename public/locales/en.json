@@ -95,7 +95,12 @@
                                 "2": "Incomplete high school",
                                 "3": "Completed high school",
                                 "4": "Incomplete higher education",
-                                "5": "Completed higher education"
+                                "5": "Completed higher education",
+                                "6": "Specialization",
+                                "7": "MBA",
+                                "8": "Master's degree",
+                                "9": "Doctorate (PhD)",
+                                "10": "Postdoctoral"
                             }
                         },
                         "tourist_estimated_income": {

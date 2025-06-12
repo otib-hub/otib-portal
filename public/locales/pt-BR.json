@@ -95,7 +95,12 @@
                                 "2": "Ensino médio incompleto",
                                 "3": "Ensino médio completo",
                                 "4": "Ensino superior incompleto",
-                                "5": "Ensino superior completo"
+                                "5": "Ensino superior completo",
+                                "6": "Especialização",
+                                "7": "MBA",
+                                "8": "Mestrado",
+                                "9": "Doutorado",
+                                "10": "Pós-doutorado"
                             }
                         },
                         "tourist_estimated_income": {
