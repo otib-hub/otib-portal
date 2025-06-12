@@ -50,7 +50,8 @@
         "errors": {
             "field_required": "Required field",
             "field_require_at_least_one": "Select at least one option",
-            "field_require_custom": "{count, plural, other {Select at least # options}}"
+            "field_require_custom": "{count, plural, other {Select at least # options}}",
+            "fields_invalid_in_respective_steps": "Fill in the missing mandatory fields in the steps"
         },
         "IndividualResearchForm": {
             "steps": {
@@ -95,7 +96,12 @@
                                 "2": "Incomplete high school",
                                 "3": "Completed high school",
                                 "4": "Incomplete higher education",
-                                "5": "Completed higher education"
+                                "5": "Completed higher education",
+                                "6": "Specialization",
+                                "7": "MBA",
+                                "8": "Master's degree",
+                                "9": "Doctorate (PhD)",
+                                "10": "Postdoctoral"
                             }
                         },
                         "tourist_estimated_income": {
@@ -158,7 +164,7 @@
                     "title": "Trip",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "Have you traveled here before?",
+                            "form_label": "Have you been at Ibiapaba before?",
                             "options": {
                                 "radio_true": "Yes",
                                 "radio_false": "No"
@@ -202,14 +208,15 @@
                             "form_label": "Trip reason(s)",
                             "options": {
                                 "0": "Leisure, Outings/Rest",
-                                "1": "Business/Work",
-                                "2": "Visit to Relatives/Friends",
-                                "3": "Education, Courses, Qualification",
-                                "4": "Sports",
-                                "5": "Shopping",
-                                "6": "Medical Services",
-                                "7": "Religious",
-                                "8": "Other"
+                                "1": "Events, Festivals and Shows",
+                                "2": "Business/Work",
+                                "3": "Visit to Relatives/Friends",
+                                "4": "Education, Courses, Qualification",
+                                "5": "Sports",
+                                "6": "Shopping",
+                                "7": "Medical Services",
+                                "8": "Religious",
+                                "9": "Other"
                             }
                         },
                         "trip_stay_time": {
@@ -273,16 +280,23 @@
                 "4": {
                     "title": "Activities",
                     "fields": {
-                        "activities_places_visited": {
-                            "form_label": "Places visited"
+                        "activities_cities_visited": {
+                            "form_label": "Cities you've visited or plan to visit"
                         },
-                        "activities_events_visited": {
-                            "form_label": "Types of events visited",
+                        "activities_attractions_visited": {
+                            "form_label": "Attractions and events you have visited or would like to visit",
                             "options": {
-                                "0": "Museums",
-                                "1": "Religious spaces (churches, festivals)",
-                                "2": "Nature adventure activities",
-                                "3": "Theme parks"
+                                "0": "Natural attraction (parks, viewpoints, trails, caves, waterfalls, rivers, mountains, landscapes)",
+                                "1": "Cultural attraction (museums, events, farms, sugarcane mills, historic centers, artistic expressions)",
+                                "2": "Religious sites (sanctuaries, churches, pilgrimages, festivities, sacred heritage)",
+                                "3": "Nature adventure activities (rappelling, zipline, paragliding, climbing, extreme trails)",
+                                "4": "Theme parks (eco parks, adventure parks)",
+                                "5": "Gastronomic experiences (fairs, local markets, regional cuisine, typical restaurants)",
+                                "6": "Rural and experiential tourism (farms, harvest experiences, agroecology, artisanal workshops)",
+                                "7": "Scientific and environmental tourism (guided tours, environmental education, wildlife and flora observation)",
+                                "8": "Craft fairs and markets (local products, folk art, souvenirs)",
+                                "9": "Leisure and community spaces (squares, cultural centers, picnic or rest areas)",
+                                "10": "Festive events (music, theater, dance festivals, traditional celebrations, carnival, folk festivals)"
                             }
                         },
                         "activities_used_apps": {

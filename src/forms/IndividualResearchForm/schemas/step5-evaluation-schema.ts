@@ -24,13 +24,13 @@ import { z } from 'zod';
 
 export function getEvaluationStepSchema() {
 	return z.object({
-		evaluation_recommendation_rate: z.number().min(1).max(10).optional(),
+		evaluation_recommendation_rate: z.number().min(1).max(10),
 		evaluation_dissatisfactions: z.array(z.string()).optional(),
 
-		evaluation_expectation_rate: z.number().min(1).max(10).optional(),
-		evaluation_satisfaction_rate: z.number().min(1).max(10).optional(),
+		evaluation_expectation_rate: z.number().min(1).max(10),
+		evaluation_satisfaction_rate: z.number().min(1).max(10),
 
-		evaluation_return_intent_rate: z.number().min(1).max(10).optional(),
+		evaluation_return_intent_rate: z.number().min(1).max(10),
 		evaluation_open_opinion: z.string().max(1000).optional(),
 	});
 }

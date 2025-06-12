@@ -50,7 +50,8 @@
         "errors": {
             "field_required": "Campo obligatorio",
             "field_require_at_least_one": "Selecciona al menos una opción",
-            "field_require_custom": "{count, plural, other {Selecciona al menos # opciones}}"
+            "field_require_custom": "{count, plural, other {Selecciona al menos # opciones}}",
+            "fields_invalid_in_respective_steps": "Rellene los campos obligatorios que faltan en los pasos"
         },
         "IndividualResearchForm": {
             "steps": {
@@ -95,7 +96,12 @@
                                 "2": "Secundaria incompleta",
                                 "3": "Secundaria completa",
                                 "4": "Educación superior incompleta",
-                                "5": "Educación superior completa"
+                                "5": "Educación superior completa",
+                                "6": "Especialización",
+                                "7": "MBA",
+                                "8": "Maestría",
+                                "9": "Doctorado",
+                                "10": "Posdoctorado"
                             }
                         },
                         "tourist_estimated_income": {
@@ -158,7 +164,7 @@
                     "title": "Viaje",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "¿Has viajado aquí antes?",
+                            "form_label": "¿Ha estado antes en ibiapaba?",
                             "options": {
                                 "radio_true": "Sí",
                                 "radio_false": "No"
@@ -202,14 +208,15 @@
                             "form_label": "Motivo(s) del viaje",
                             "options": {
                                 "0": "Ocio, Paseos/Descanso",
-                                "1": "Negocios/Trabajo",
-                                "2": "Visita a Familiares/Amigos",
-                                "3": "Educación, Cursos, Capacitación",
-                                "4": "Deportes",
-                                "5": "Compras",
-                                "6": "Servicios médicos",
-                                "7": "Religioso",
-                                "8": "Otro"
+                                "1": "Eventos, Festivales, Espectáculos",
+                                "2": "Negocios/Trabajo",
+                                "3": "Visita a Familiares/Amigos",
+                                "4": "Educación, Cursos, Capacitación",
+                                "5": "Deportes",
+                                "6": "Compras",
+                                "7": "Servicios médicos",
+                                "8": "Religioso",
+                                "9": "Otro"
                             }
                         },
                         "trip_stay_time": {
@@ -273,16 +280,23 @@
                 "4": {
                     "title": "Actividades",
                     "fields": {
-                        "activities_places_visited": {
-                            "form_label": "Lugares visitados"
+                        "activities_cities_visited": {
+                            "form_label": "Ciudades que ha visitado o piensa visitar"
                         },
-                        "activities_events_visited": {
-                            "form_label": "Tipos de eventos visitados",
+                        "activities_attractions_visited": {
+                            "form_label": "Atracciones y eventos que ya visitaste o que te gustaría visitar",
                             "options": {
-                                "0": "Museos",
-                                "1": "Espacios religiosos (iglesias, festivales)",
-                                "2": "Actividades de aventura en la naturaleza",
-                                "3": "Parques temáticos"
+                                "0": "Atracción natural (parques, miradores, senderos, grutas, cascadas, ríos, sierras, paisajes)",
+                                "1": "Atracción cultural (museos, eventos, haciendas, ingenios, centros históricos, manifestaciones artísticas)",
+                                "2": "Espacios religiosos (santuarios, iglesias, peregrinaciones, festividades, patrimonio sacro)",
+                                "3": "Actividades de aventura en la naturaleza (rappel, tirolesa, vuelo libre, escalada, senderos extremos)",
+                                "4": "Parques temáticos (ecoparques, parques de aventura)",
+                                "5": "Experiencias gastronómicas (ferias, mercados locales, gastronomía regional, restaurantes típicos)",
+                                "6": "Turismo rural y vivencial (granjas, cosechas, agroecología, talleres artesanales)",
+                                "7": "Turismo científico y ambiental (visitas guiadas, educación ambiental, observación de fauna y flora)",
+                                "8": "Ferias y mercados de artesanía (productos locales, arte popular, recuerdos)",
+                                "9": "Espacios de convivencia y ocio (plazas, centros culturales, áreas para picnic o descanso)",
+                                "10": "Eventos festivos (festivales de música, teatro, danza, celebraciones tradicionales, carnaval, fiestas típicas)"
                             }
                         },
                         "activities_used_apps": {

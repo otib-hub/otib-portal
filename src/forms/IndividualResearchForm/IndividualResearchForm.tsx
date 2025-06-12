@@ -29,6 +29,7 @@ export default function IndividualResearchForm() {
 		currentStepIndex,
 		isLastStep,
 		isFirstStep,
+		navigateToStep,
 		nextStep,
 		backStep,
 	} = useMultiStepForm(steps);
@@ -78,9 +79,58 @@ export default function IndividualResearchForm() {
 		}
 	}
 
-	function onInvalidFormSubmit() {
-		toast.error(t('common.toast_content_invalid'));
-		return;
+	async function onInvalidFormSubmit() {
+		await methods.trigger();
+
+		const errors = methods.formState.errors;
+		const fieldsWithErrors = Object.keys(errors);
+
+		const invalidStepLabels = steps
+			.map((step, index) => {
+				const stepFields = Object.keys(step.schema.shape);
+				const hasError = stepFields.some((field) =>
+					fieldsWithErrors.includes(field)
+				);
+
+				return hasError ? steps[index] : null;
+			})
+			.filter(Boolean);
+
+		// exibe uma mensagem de erro personalizada com os passos em que erros foram encontrados
+		if (invalidStepLabels.length > 0) {
+			toast.error(
+				<div className='w-full'>
+					<p className='mb-2 font-bold text-base'>{`${t(
+						'errors.fields_invalid_in_respective_steps'
+					)}:`}</p>
+
+					<div className='grid grid-cols-2 items-start justify-start'>
+						{invalidStepLabels.map((step, idx) => {
+							return (
+								step && (
+									<Button
+										className='text-destructive text-start text-base place-self-start'
+										variant={'link'}
+										key={idx}
+										onClick={() => navigateToStep(step.number)}
+									>
+										{`${step.number}. ${step.title}`}
+									</Button>
+								)
+							);
+						})}
+					</div>
+				</div>,
+				{
+					className: 'max-w-screen max-h-fit whitespace-pre-wrap',
+					id: 'form-invalid-steps',
+				}
+			);
+		} else {
+			toast.error(t('common.toast_content_invalid'), {
+				id: 'form-generic-invalid',
+			});
+		}
 	}
 
 	useEffect(() => {

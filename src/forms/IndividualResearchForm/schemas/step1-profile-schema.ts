@@ -47,6 +47,11 @@ export function getProfileStepSelectOptions(
 				'4': t('tourist_education.options.3'),
 				'5': t('tourist_education.options.4'),
 				'6': t('tourist_education.options.5'),
+				'7': t('tourist_education.options.6'),
+				'8': t('tourist_education.options.7'),
+				'9': t('tourist_education.options.8'),
+				'10': t('tourist_education.options.9'),
+				'11': t('tourist_education.options.10'),
 			}),
 			tourist_estimated_income: objectToSelectOptions({
 				low: t('tourist_estimated_income.options.low'),

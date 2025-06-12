@@ -31,7 +31,7 @@ export async function fetchStates(countryName: string) {
 			.map((state: State) => {
 				return {
 					label: state.name,
-					value: state.state_code,
+					value: state.name,
 				};
 			})
 			.sort((a: Option, b: Option) => a.label.localeCompare(b.label));

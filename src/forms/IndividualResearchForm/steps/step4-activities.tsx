@@ -22,58 +22,60 @@ export default function ActivitiesStep() {
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
 						className='flex items-center justify-between'
-						htmlFor='activities_places_visited'
-						aria-invalid={!!errors.activities_places_visited}
+						htmlFor='activities_cities_visited'
+						aria-invalid={!!errors.activities_cities_visited}
 						aria-required
 					>
-						{t('activities_places_visited.form_label')}
+						{t('activities_cities_visited.form_label')}
 					</FormLabel>
 
 					<Controller
-						name='activities_places_visited'
+						name='activities_cities_visited'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
 								multiple
-								options={activitiesStepSelectOptions.activities_places_visited}
+								options={activitiesStepSelectOptions.activities_cities_visited}
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.activities_places_visited}
+								hasError={!!errors.activities_cities_visited}
 							/>
 						)}
 					/>
-					{errors.activities_places_visited && (
+					{errors.activities_cities_visited && (
 						<FormMessage>
-							{String(errors.activities_places_visited.message)}
+							{String(errors.activities_cities_visited.message)}
 						</FormMessage>
 					)}
 				</FormItem>
 
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
-						htmlFor='activities_events_visited'
-						aria-invalid={!!errors.activities_events_visited}
+						htmlFor='activities_attractions_visited'
+						aria-invalid={!!errors.activities_attractions_visited}
+						aria-required
 					>
-						{t('activities_events_visited.form_label')}
+						{t('activities_attractions_visited.form_label')}
 					</FormLabel>
 
 					<Controller
-						name='activities_events_visited'
+						name='activities_attractions_visited'
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								optional
 								multiple
-								options={activitiesStepSelectOptions.activities_events_visited}
+								options={
+									activitiesStepSelectOptions.activities_attractions_visited
+								}
 								value={field.value}
 								onChangeAction={field.onChange}
-								hasError={!!errors.activities_events_visited}
+								hasError={!!errors.activities_attractions_visited}
 							/>
 						)}
 					/>
-					{errors.activities_events_visited && (
+					{errors.activities_attractions_visited && (
 						<FormMessage>
-							{String(errors.activities_events_visited.message)}
+							{String(errors.activities_attractions_visited.message)}
 						</FormMessage>
 					)}
 				</FormItem>
@@ -84,8 +86,8 @@ export default function ActivitiesStep() {
 			<div className='FormFieldsContainer w-full grid grid-cols-1 gap-8 items-start justify-start'>
 				<FormItem className='w-full md:w-[50%] space-y-2'>
 					<FormLabel
-						htmlFor='activities_events_visited'
-						aria-invalid={!!errors.activities_events_visited}
+						htmlFor='activities_attractions_visited'
+						aria-invalid={!!errors.activities_attractions_visited}
 					>
 						{t('activities_used_apps.form_label')}
 					</FormLabel>
@@ -95,8 +97,8 @@ export default function ActivitiesStep() {
 						control={control}
 						render={({ field }) => (
 							<SelectWithSearch
-								optional
 								multiple
+								optional
 								options={activitiesStepSelectOptions.activities_used_apps}
 								value={field.value}
 								onChangeAction={field.onChange}
