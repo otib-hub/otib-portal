@@ -21,13 +21,13 @@ export async function fetchCountries() {
 			.map((country: Country) => {
 				return {
 					label: country.name,
-					value: country.iso3,
+					value: country.name,
 				};
 			})
 			.sort((a: Option, b: Option) => a.label.localeCompare(b.label));
 
 		// coloca a opção "Brasil" como a primeira do array
-		const indexBRA = countries.findIndex((c: Option) => c.value === 'BRA');
+		const indexBRA = countries.findIndex((c: Option) => c.value === 'Brazil');
 		const [braCountry] = countries.splice(indexBRA, 1);
 		countries.unshift(braCountry);
 
