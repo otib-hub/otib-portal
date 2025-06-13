@@ -44,10 +44,12 @@ export default function useMultiStepForm<T extends FieldValues>({
 	return {
 		currentStep: createElement(steps[currentStepIndex].step),
 		currentStepIndex,
+
 		isFirstStep: currentStepIndex === 0,
 		isLastStep: currentStepIndex === steps.length - 1,
-		navigateToStep,
+
 		nextStep,
 		backStep,
+		navigateToStep,
 	};
 }
