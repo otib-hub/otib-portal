@@ -43,6 +43,7 @@
         "common": {
             "button_back": "Voltar",
             "button_next": "Próximo",
+            "button_close": "Fechar",
             "button_submit": "Enviar",
             "toast_submit_success": "Conteúdo do formulário enviado com sucesso!",
             "toast_content_invalid": "Por favor, preencha todos os campos do formulário corretamente!"
@@ -362,6 +363,20 @@
                         "evaluation_open_opinion": {
                             "form_label": "Você precisou de algum serviço que não encontrou na Ibiapaba? Ou tem alguma sugestão para melhorar a infraestrutura turística, os equipamentos e serviços?",
                             "input_placeholder": "Agradeceríamos muito por sua opinião :)"
+                        }
+                    }
+                }
+            },
+            "TutorialDialog": {
+                "steps": {
+                    "1": {
+                        "title": "Olá! Seja bem-vindo(a) à Ibiapaba!",
+                        "description": "Estamos muito felizes com a sua visita à nossa região. Este formulário faz parte de uma iniciativa do Instituto Federal do Ceará (Campus Tianguá), por meio do NUPREDS, em parceria com o SEBRAE, FORTIB, empreendedores e gestores locais. Nosso objetivo é conhecer melhor quem nos visita e tornar sua experiência ainda mais incrível.",
+                        "texts": {
+                            "1": "Ao responder, você estará contribuindo diretamente para o fortalecimento do turismo local e para o desenvolvimento de projetos que valorizam nossos atrativos, serviços e cultura.",
+                            "2": "⏱️ O preenchimento leva menos de 4 minutos, e suas respostas são totalmente confidenciais e anônimas.",
+                            "3": "💚 Obrigado por fazer parte dessa construção coletiva de um turismo mais acolhedor, sustentável e inteligente.",
+                            "4": "👉 Vamos começar?"
                         }
                     }
                 }

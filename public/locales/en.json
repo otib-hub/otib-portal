@@ -43,6 +43,7 @@
         "common": {
             "button_back": "Back",
             "button_next": "Next",
+            "button_close": "Close",
             "button_submit": "Submit",
             "toast_submit_success": "Form content send successfully!",
             "toast_content_invalid": "Please fill all form fields correctly!"
@@ -362,6 +363,20 @@
                         "evaluation_open_opinion": {
                             "form_label": "Did you need a service that you couldn't find in Ibiapaba? Or do you have any recommendations for improving tourist infrastructure, equipment and services?",
                             "input_placeholder": "We'd be very grateful to hear you :)"
+                        }
+                    }
+                }
+            },
+            "TutorialDialog": {
+                "steps": {
+                    "1": {
+                        "title": "Hello! Welcome to Ibiapaba!",
+                        "description": "We are delighted that you are visiting our region. This form is part of an initiative by the Federal Institute of Ceará (Tianguá Campus), through NUPREDS, in partnership with SEBRAE, FORTIB, local entrepreneurs and managers. Our aim is to get to know those who visit us better and make their experience even more incredible.",
+                        "texts": {
+                            "1": "By answering, you will be contributing directly to strengthening local tourism and developing projects that enhance our attractions, services and culture. ",
+                            "2": "⏱️ It takes less than 4 minutes to fill in, and your answers are completely confidential and anonymous.",
+                            "3": "💚 Thank you for being part of this collective construction of a more welcoming, sustainable and intelligent tourism.",
+                            "4": "👉 Shall we get started?"
                         }
                     }
                 }

@@ -14,7 +14,7 @@ import {
 	IndividualResearchFormType,
 } from './schemas/individual-research-form-schema';
 import { handleSubmitIndividualResearch } from '@/services/handle-submit-individual-research';
-import { TutorialDialog } from './TutorialDialog';
+import { TutorialDialog } from './components/TutorialDialog/TutorialDialog';
 
 const BLOCK_STEP_IF_INVALID = false;
 const DEV_MODE = process.env.NEXT_PUBLIC_ENV === 'development';

@@ -12,17 +12,20 @@ import { Languages } from 'lucide-react';
 import { LocaleENUM } from '@/i18n/config';
 import { handleLocaleChange } from '@/services/locale/handle-locale-change';
 
-export function LocaleSwitcher() {
+interface LocaleSwitcherProps {
+	showText?: boolean;
+	className?: string;
+}
+
+export function LocaleSwitcher({ showText = false, className }: LocaleSwitcherProps) {
 	const t = useTranslations();
 
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant='ghost' size='icon'>
+				<Button variant='ghost' size='icon' className={className}>
 					<Languages className='size-5' />
-					<span className='sr-only'>
-						{t('components.LocaleSwitcher.toggle')}
-					</span>
+					{showText  && t('components.LocaleSwitcher.toggle')}
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align='end'>
