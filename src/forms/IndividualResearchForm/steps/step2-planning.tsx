@@ -143,7 +143,6 @@ export default function PlanningStep() {
 
 			<FormItem className='w-full space-y-2'>
 				<FormLabel
-					className='flex items-center justify-between'
 					htmlFor='planning_organization'
 					aria-invalid={!!errors.planning_organization}
 					aria-required

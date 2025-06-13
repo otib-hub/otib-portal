@@ -15,11 +15,13 @@ import {
 } from './schemas/individual-research-form-schema';
 import { handleSubmitIndividualResearch } from '@/services/handle-submit-individual-research';
 import { TutorialDialog } from './components/TutorialDialog/TutorialDialog';
+import { useRouter } from 'next/navigation';
 
 const BLOCK_STEP_IF_INVALID = false;
 const DEV_MODE = process.env.NEXT_PUBLIC_ENV === 'development';
 
 export default function IndividualResearchForm() {
+	const router = useRouter();
 	const t = useTranslations('forms');
 	const steps = getIndividualResearchFormSteps(t);
 	const schema = getIndividualResearchFormSchema(t);
@@ -61,9 +63,9 @@ export default function IndividualResearchForm() {
 
 	async function handleFormSubmit(formData: IndividualResearchFormType) {
 		try {
-			const response = await handleSubmitIndividualResearch(formData);
+			const response = await handleSubmitIndividualResearch(formData, router);
 			toast.success(t('common.toast_submit_success'), { id: 'form-submit' });
-			console.log('resposta do backend: ', response);
+			console.log('backend response: ', response);
 		} catch (err) {
 			const errorText =
 				typeof err === 'object' && err !== null && 'message' in err
