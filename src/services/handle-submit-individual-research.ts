@@ -1,42 +1,29 @@
-'use server';
-
 import { IndividualResearchFormType } from '@/forms/IndividualResearchForm/schemas/individual-research-form-schema';
 import { formatErrors } from '@/utils/format-errors';
-import { cookies } from 'next/headers';
 
 type Payload = Partial<IndividualResearchFormType>;
 
-async function getCookie(name: string): Promise<string | undefined> {
-	const store = await cookies();
-	const match = store.get(name);
-	return match?.value;
-}
-
 export async function handleSubmitIndividualResearch(values: Payload) {
-	const base = process.env.NEXT_PUBLIC_API_BASE_URL;
-	const baseUrl = base || '/api';
-	const endpoint = `${baseUrl}/pesquisa-completa/`;
+	const endpoint = process.env.NEXT_PUBLIC_APP_BASE_PATH + '/api/individual-research';
 
 	try {
-		const csrfToken = await getCookie('csrftoken');
 		const response = await fetch(endpoint, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				'X-CSRFToken': csrfToken ?? '',
 			},
 			body: JSON.stringify(values),
 		});
 
-		if (!response.ok) {
-			const errorMsg = `[${response.status}] ~ ${formatErrors(
-				await response.json()
-			)}`;
+		const json = await response.json();
 
+		if (!response.ok) {
+			const errorMsg = `[${response.status}] ~ ${formatErrors(json)}`;
 			throw new Error(errorMsg);
 		}
 
-		return await response.json();
+		window.location.href = '/form/thank-you';
+		return json;
 	} catch (err: unknown) {
 		if (err instanceof Error) {
 			throw new Error(`Can't submit form data ${err.message}`);
