@@ -1,25 +1,35 @@
 import { FormStep } from '@/@types/form-step';
-import React, { useState } from 'react';
+import { FieldValues, Path, UseFormReturn } from 'react-hook-form';
+import { useTranslations } from 'next-intl';
+import { createElement, useState } from 'react';
 import { toast } from 'sonner';
 
-export default function useMultiStepForm(
-	steps: FormStep[],
-	onStepValidation?: (currentStepIndex: number) => Promise<boolean>,
-	validateStepsBeforePass = false
-) {
+interface UseMultiStepFormProps<T extends FieldValues> {
+	steps: FormStep[];
+	methods: UseFormReturn<T>;
+	blockStepIfInvalid?: boolean;
+}
+
+export default function useMultiStepForm<T extends FieldValues>({
+	steps,
+	methods,
+	blockStepIfInvalid = false,
+}: UseMultiStepFormProps<T>) {
+	const t = useTranslations('forms');
 	const [currentStepIndex, setCurrentStepIndex] = useState<number>(0);
 
-	const nextStep = async () => {
-		if (validateStepsBeforePass && onStepValidation) {
-			const isValid = await onStepValidation(currentStepIndex);
+	const currentStepSchema = steps[currentStepIndex].schema;
+	const currentStepFields = Object.keys(currentStepSchema.shape);
 
+	const nextStep = async () => {
+		if (blockStepIfInvalid) {
+			const isValid = await methods.trigger(currentStepFields as Path<T>[]);
 			if (!isValid) {
-				toast.error(
-					'Por favor, preencha todos os campos obrigatórios corretamente'
-				);
+				toast.error(t('common.toast_content_invalid'));
 				return;
 			}
 		}
+
 		setCurrentStepIndex((i) => (i < steps.length - 1 ? i + 1 : i));
 	};
 
@@ -32,12 +42,14 @@ export default function useMultiStepForm(
 	};
 
 	return {
-		currentStep: React.createElement(steps[currentStepIndex].step),
+		currentStep: createElement(steps[currentStepIndex].step),
 		currentStepIndex,
+
 		isFirstStep: currentStepIndex === 0,
 		isLastStep: currentStepIndex === steps.length - 1,
-		navigateToStep,
+
 		nextStep,
 		backStep,
+		navigateToStep,
 	};
 }

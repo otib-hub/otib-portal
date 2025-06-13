@@ -6,7 +6,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import useMultiStepForm from '@/hooks/use-multistep-form';
 import { getIndividualResearchFormSteps } from './steps';
-import { useEffect } from 'react';
 import FormStepper from '@/components/FormStepper';
 import FormDebugDialog from '@/components/FormDebugDialog';
 import { useTranslations } from 'next-intl';
@@ -15,8 +14,9 @@ import {
 	IndividualResearchFormType,
 } from './schemas/individual-research-form-schema';
 import { handleSubmitIndividualResearch } from '@/services/handle-submit-individual-research';
+import { TutorialDialog } from './TutorialDialog';
 
-const STEP_BLOCK_VALIDATION = false;
+const BLOCK_STEP_IF_INVALID = false;
 const DEV_MODE = process.env.NEXT_PUBLIC_ENV === 'development';
 
 export default function IndividualResearchForm() {
@@ -24,17 +24,7 @@ export default function IndividualResearchForm() {
 	const steps = getIndividualResearchFormSteps(t);
 	const schema = getIndividualResearchFormSchema(t);
 
-	const {
-		currentStep,
-		currentStepIndex,
-		isLastStep,
-		isFirstStep,
-		navigateToStep,
-		nextStep,
-		backStep,
-	} = useMultiStepForm(steps);
-
-	const methods = useForm({
+	const methods = useForm<IndividualResearchFormType>({
 		resolver: zodResolver(schema),
 		mode: 'onChange',
 		context: { t },
@@ -49,17 +39,23 @@ export default function IndividualResearchForm() {
 		},
 	});
 
+	const {
+		currentStep,
+		currentStepIndex,
+		isLastStep,
+		isFirstStep,
+		navigateToStep,
+		nextStep,
+		backStep,
+	} = useMultiStepForm<IndividualResearchFormType>({
+		steps,
+		methods,
+		blockStepIfInvalid: BLOCK_STEP_IF_INVALID,
+	});
+
 	async function onNextStep(e: React.MouseEvent) {
 		e.preventDefault();
-
-		if (STEP_BLOCK_VALIDATION) {
-			const isValid = await methods.trigger();
-			if (!isValid) {
-				toast.error(t('common.toast_content_invalid'));
-				return;
-			}
-		}
-
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 		nextStep();
 	}
 
@@ -133,10 +129,6 @@ export default function IndividualResearchForm() {
 		}
 	}
 
-	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}, [currentStepIndex]);
-
 	return (
 		<>
 			<FormStepper steps={steps} activeStep={currentStepIndex + 1} />
@@ -175,6 +167,8 @@ export default function IndividualResearchForm() {
 					</div>
 				</form>
 			</FormProvider>
+
+			<TutorialDialog />
 
 			{DEV_MODE && <FormDebugDialog data={methods.watch()} />}
 		</>

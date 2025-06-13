@@ -1,7 +1,16 @@
+'use server';
+
 import { IndividualResearchFormType } from '@/forms/IndividualResearchForm/schemas/individual-research-form-schema';
 import { formatErrors } from '@/utils/format-errors';
+import { cookies } from 'next/headers';
 
 type Payload = Partial<IndividualResearchFormType>;
+
+async function getCookie(name: string): Promise<string | undefined> {
+	const store = await cookies();
+	const match = store.get(name);
+	return match?.value;
+}
 
 export async function handleSubmitIndividualResearch(values: Payload) {
 	const base = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -9,9 +18,13 @@ export async function handleSubmitIndividualResearch(values: Payload) {
 	const endpoint = `${baseUrl}/pesquisa-completa/`;
 
 	try {
+		const csrfToken = await getCookie('csrftoken');
 		const response = await fetch(endpoint, {
 			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRFToken': csrfToken ?? '',
+			},
 			body: JSON.stringify(values),
 		});
 
