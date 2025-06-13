@@ -30,19 +30,10 @@ export function TutorialDialog() {
 		isFirstStep,
 	} = useMultiStepModal({ steps });
 
-	// modal de tutorial só é mostrado quando o item no localStorage ainda não foi setado e
-	// há um query param ?referrer=algo
+	// modal de tutorial só é mostrado quando há um query param ?referrer=algo
 	useEffect(() => {
-		const userHasSeen = localStorage.getItem(
-			'user_has_seen_individual_research_form_tutorial_modal'
-		);
-
-		if (!userHasSeen && params.get('referrer')) {
+		if (params.get('referrer')) {
 			setIsOpen(true);
-			localStorage.setItem(
-				'user_has_seen_individual_research_form_tutorial_modal',
-				'true'
-			);
 		}
 	}, [params]);
 
