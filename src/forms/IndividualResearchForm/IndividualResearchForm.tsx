@@ -63,9 +63,11 @@ export default function IndividualResearchForm() {
 
 	async function handleFormSubmit(formData: IndividualResearchFormType) {
 		try {
-			const response = await handleSubmitIndividualResearch(formData, router);
+			await handleSubmitIndividualResearch(formData);
 			toast.success(t('common.toast_submit_success'), { id: 'form-submit' });
-			console.log('backend response: ', response);
+			setTimeout(() => {
+				router.push('/form/thank-you');
+			}, 2000);
 		} catch (err) {
 			const errorText =
 				typeof err === 'object' && err !== null && 'message' in err

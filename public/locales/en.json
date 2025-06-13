@@ -45,7 +45,7 @@
             "button_next": "Next",
             "button_close": "Close",
             "button_submit": "Submit",
-            "toast_submit_success": "Form content send successfully!",
+            "toast_submit_success": "Form content send successfully! You'll be redirected to the next page in no time",
             "toast_content_invalid": "Please fill all form fields correctly!"
         },
         "errors": {

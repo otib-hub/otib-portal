@@ -45,7 +45,7 @@
             "button_next": "Próximo",
             "button_close": "Fechar",
             "button_submit": "Enviar",
-            "toast_submit_success": "Conteúdo do formulário enviado com sucesso!",
+            "toast_submit_success": "Conteúdo do formulário enviado com sucesso! Você será redirecionado para a próxima página em um instante.",
             "toast_content_invalid": "Por favor, preencha todos os campos do formulário corretamente!"
         },
         "errors": {

@@ -1,10 +1,9 @@
 import { IndividualResearchFormType } from '@/forms/IndividualResearchForm/schemas/individual-research-form-schema';
 import { formatErrors } from '@/utils/format-errors';
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 type Payload = Partial<IndividualResearchFormType>;
 
-export async function handleSubmitIndividualResearch(values: Payload, router: AppRouterInstance) {
+export async function handleSubmitIndividualResearch(values: Payload) {
 	const endpoint = process.env.NEXT_PUBLIC_APP_BASE_PATH + '/api/individual-research';
 
 	try {
@@ -23,7 +22,6 @@ export async function handleSubmitIndividualResearch(values: Payload, router: Ap
 			throw new Error(errorMsg);
 		}
 
-		router.push('/form/thank-you');
 		return json;
 	} catch (err: unknown) {
 		if (err instanceof Error) {
