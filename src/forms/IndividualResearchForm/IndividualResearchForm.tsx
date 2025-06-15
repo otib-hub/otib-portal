@@ -6,8 +6,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import useMultiStepForm from '@/hooks/use-multistep-form';
 import { getIndividualResearchFormSteps } from './steps';
-import FormStepper from '@/components/FormStepper';
-import FormDebugDialog from '@/components/FormDebugDialog';
+import FormStepper from '@/components/fragments/FormStepper';
+import FormDebugDialog from '@/components/layout/FormDebugDialog';
 import { useTranslations } from 'next-intl';
 import {
 	getIndividualResearchFormSchema,

@@ -1,6 +1,6 @@
 'use client';
 
-import { LocaleInitializer } from '@/components/LocaleInitializer';
+import { LocaleInitializer } from '@/components/layout/LocaleInitializer';
 import { Button } from '@/components/ui/button';
 import {
 	Card,
