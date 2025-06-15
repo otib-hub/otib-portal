@@ -1,13 +1,51 @@
 {
     "app": {
         "Home": {
-            "title": "Bem-vindo ao protótipo do OTIB!",
-            "button_cta": "Testar formulário"
+            "heading": {
+                "title": "Conheça. Explore.\nTransforme o Turismo da Ibiapaba.",
+                "description": "Bem-vindo ao canal oficial de inteligência turística da região da Ibiapaba. Aqui você encontra dados, mapas, oportunidades e conexões que fortalecem o turismo regional."
+            },
+            "buttons": {
+                "form": "Formulário de pesquisa"
+            },
+            "sections": {
+                "form-card": {
+                    "title": "Ajude a melhorar a experiência turística",
+                    "description": "Você visitou ou está visitando a Ibiapaba? Compartilhe sua experiência!\nResponder ao nosso formulário leva menos de 6 minutos e ajuda a desenvolver um turismo mais sustentável, atrativo e acolhedor.",
+                    "button_action": "Quero contribuir"
+                }
+            }
         },
         "not-found": {
             "title": "Parece que você pegou um caminho que ainda não está no nosso mapa",
             "description": "A página que você procura pode ter sido removida, renomeada ou nunca existiu. Mas calma, a jornada continua!",
             "button_back": "Voltar à página anterior"
+        },
+        "form/thanks": {
+            "heading": {
+                "buttons": {
+                    "start": "Página Inicial"
+                },
+                "title": "Muito obrigado pela sua contribuição!",
+                "description": "Sua resposta foi registrada com sucesso e já está ajudando a fortalecer o turismo da Ibiapaba.\n🔍 Cada dado importa: suas informações vão integrar os relatórios e análises que orientam ações do poder público, iniciativas privadas e o desenvolvimento sustentável da nossa região."
+            },
+            "section/what-happens-now": {
+                "title": "O que acontece agora?",
+                "paragraphs": {
+                    "1": {
+                        "title": "Análise dos dados:",
+                        "description": "Seu formulário será incluído em nossa base e contribuirá para estudos estatísticos e estratégicos."
+                    },
+                    "2": {
+                        "title": "Geração de conhecimento:",
+                        "description": "As informações colhidas alimentarão os boletins trimestrais do OTIB e, em breve, o portal de dados interativo, com dashboards abertos ao público."
+                    },
+                    "3": {
+                        "title": "Melhorias reais na experiência turística:",
+                        "description": "As suas opiniões podem inspirar novas rotas, eventos, políticas públicas, capacitações e investimentos locais."
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -165,7 +203,7 @@
                     "title": "Viagem",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "Você já esteve na ibiapaba antes?",
+                            "form_label": "Você já esteve na Ibiapaba antes?",
                             "options": {
                                 "radio_true": "Sim",
                                 "radio_false": "Não"
