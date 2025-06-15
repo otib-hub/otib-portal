@@ -22,7 +22,7 @@ export default function Header() {
 		theme === 'light' ? otib_logo_light : otib_logo_dark;
 
 	return (
-		<header className='px-6 py-5 md:px-8 md:py-5 w-full flex flex-col gap-5'>
+		<header className='py-5 md:py-5 w-full flex flex-col gap-5'>
 			<div className='w-full flex justify-between items-center'>
 				<Link href='/'>
 					<div className='inline-flex gap-2 justify-start items-center hover:opacity-70 cursor-pointer transition-opacity'>

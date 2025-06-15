@@ -32,7 +32,7 @@ export default async function RootLayout({
 						disableTransitionOnChange
 					>
 						<QueryProvider>
-							<div className='min-h-screen min-w-full'>
+							<div className='min-h-screen max-w-screen px-6 md:px-8 lg:px-14'>
 								<Header />
 								{children}
 							</div>

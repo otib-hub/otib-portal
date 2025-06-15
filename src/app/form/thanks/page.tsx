@@ -13,10 +13,10 @@ export default function ThankYouPage() {
 	const t = useTranslations('app.form/thanks');
 
 	return (
-		<main className='flex flex-col items-start p-6 gap-8 md:px-8 md:py-8 md:gap-12'>
+		<main className='flex flex-col items-start py-6 gap-8 md:py-8 md:gap-12'>
 			<div className='hero flex flex-col-reverse md:grid md:grid-cols-2 items-center justify-start gap-8'>
 				<div className='heading flex flex-col gap-6'>
-					<div className='buttons flex items-center justify-start gap-2.5'>
+					<div className='buttons flex items-center justify-start gap-3'>
 						<Button
 							className='rounded-full'
 							variant='secondary'
