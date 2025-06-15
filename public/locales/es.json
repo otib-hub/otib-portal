@@ -1,8 +1,20 @@
 {
     "app": {
         "Home": {
-            "title": "¡Bienvenido al prototipo de OTIB!",
-            "button_cta": "Probar formulario"
+            "heading": {
+                "title": "Descubrir. Explora.\nTransforme el turismo de Ibiapaba.",
+                "description": "Bienvenido al canal oficial de inteligencia turística de la región de Ibiapaba. Aquí encontrarás datos, mapas, oportunidades y conexiones que fortalecen el turismo regional."
+            },
+            "buttons": {
+                "form": "Formulario de encuesta"
+            },
+            "sections": {
+                "form-card": {
+                    "title": "Ayuda a mejorar la experiencia turística",
+                    "description": "¿Has visitado o estás visitando Ibiapaba? Comparte tu experiencia!\nResponder a nuestro formulario lleva menos de 6 minutos y ayuda a desarrollar un turismo más sostenible, atractivo y acogedor.",
+                    "button_action": "Quiero contribuir"
+                }
+            }
         },
         "not-found": {
             "title": "Parece que tomaste un camino que aún no está en nuestro mapa",
@@ -132,7 +144,7 @@
                             }
                         },
                         "tourist_estimated_income": {
-                            "form_label": "Renta estimada",
+                            "form_label": "Ingresos estimados",
                             "options": {
                                 "low": "Menos de R$1.000",
                                 "low_mid": "Entre R$1.000 y R$3.000",
@@ -208,7 +220,7 @@
                             }
                         },
                         "trip_know_ibiapaba_mirantes": {
-                            "form_label": "¿Conoces la Ruta \"Mirantes da Ibiapaba\"?",
+                            "form_label": "¿Conoces la Ruta \"Mirantes da Ibiapaba\" (Miradores de Ibiapaba)?",
                             "options": {
                                 "radio_true": "Sí",
                                 "radio_false": "No"
@@ -266,7 +278,7 @@
                                 "1": "Autobús",
                                 "2": "Motocicleta",
                                 "3": "Bicicleta",
-                                "4": "Furgoneta",
+                                "4": "Vehículo tipo van",
                                 "5": "Transporte por app (Ubis, Mototaxi Tianguá, etc.)",
                                 "6": "Taxi",
                                 "7": "Casa rodante/Remolque",

@@ -1,8 +1,20 @@
 {
     "app": {
         "Home": {
-            "title": "Bem-vindo ao protótipo do OTIB!",
-            "button_cta": "Testar formulário"
+            "heading": {
+                "title": "Conheça. Explore.\nTransforme o Turismo da Ibiapaba.",
+                "description": "Bem-vindo ao canal oficial de inteligência turística da região da Ibiapaba. Aqui você encontra dados, mapas, oportunidades e conexões que fortalecem o turismo regional."
+            },
+            "buttons": {
+                "form": "Formulário de pesquisa"
+            },
+            "sections": {
+                "form-card": {
+                    "title": "Ajude a melhorar a experiência turística",
+                    "description": "Você visitou ou está visitando a Ibiapaba? Compartilhe sua experiência!\nResponder ao nosso formulário leva menos de 6 minutos e ajuda a desenvolver um turismo mais sustentável, atrativo e acolhedor.",
+                    "button_action": "Quero contribuir"
+                }
+            }
         },
         "not-found": {
             "title": "Parece que você pegou um caminho que ainda não está no nosso mapa",
@@ -191,7 +203,7 @@
                     "title": "Viagem",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "Você já esteve na ibiapaba antes?",
+                            "form_label": "Você já esteve na Ibiapaba antes?",
                             "options": {
                                 "radio_true": "Sim",
                                 "radio_false": "Não"
