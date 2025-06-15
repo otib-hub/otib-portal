@@ -2,10 +2,9 @@
 
 import { ModeToggle } from '@/components/ModeToggle';
 import { ibmPlexSans } from '../styles/fonts';
-import { Separator } from './ui/separator';
 import Image from 'next/image';
-import otib_logo_dark from '../../public/otib/logo/logo-icon-neg.svg';
-import otib_logo_light from '../../public/otib/logo/logo-icon-pos.svg';
+import otib_logo_dark from '../../public/assets/logo/logo-icon-neg.svg';
+import otib_logo_light from '../../public/assets/logo/logo-icon-pos.svg';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -23,7 +22,7 @@ export default function Header() {
 		theme === 'light' ? otib_logo_light : otib_logo_dark;
 
 	return (
-		<header className='w-full flex flex-col gap-5'>
+		<header className='px-6 py-5 md:px-8 md:py-5 w-full flex flex-col gap-5'>
 			<div className='w-full flex justify-between items-center'>
 				<Link href='/'>
 					<div className='inline-flex gap-2 justify-start items-center hover:opacity-70 cursor-pointer transition-opacity'>
@@ -47,7 +46,6 @@ export default function Header() {
 					<ModeToggle />
 				</div>
 			</div>
-			<Separator />
 		</header>
 	);
 }
