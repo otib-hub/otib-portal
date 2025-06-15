@@ -8,6 +8,32 @@
             "title": "Parece que tomaste un camino que aún no está en nuestro mapa",
             "description": "La página que buscas puede haber sido eliminada, renombrada o nunca existió. ¡Pero tranquilo, el viaje continúa!",
             "button_back": "Volver a la página anterior"
+        },
+        "form/thanks": {
+            "heading": {
+                "buttons": {
+                    "start": "Página de inicio"
+                },
+                "title": "¡Muchas gracias por su contribución!",
+                "description": "Su respuesta ha sido registrada con éxito y ya está ayudando a fortalecer el turismo en Ibiapaba.\n🔍 Cada dato importa: su información formará parte de los informes y análisis que guiarán las acciones de las autoridades públicas, las iniciativas privadas y el desarrollo sostenible de nuestra región."
+            },
+            "section/what-happens-now": {
+                "title": "¿Qué pasa ahora?",
+                "paragraphs": {
+                    "1": {
+                        "title": "Analizando los datos:",
+                        "description": "Tu formulario será incluido en nuestra base de datos y contribuirá a estudios estadísticos y estratégicos."
+                    },
+                    "2": {
+                        "title": "Generación de conocimiento:",
+                        "description": "La información recogida alimentará los boletines trimestrales de la OTIB y, próximamente, el portal interactivo de datos, con cuadros de mando abiertos al público."
+                    },
+                    "3": {
+                        "title": "Mejoras reales de la experiencia turística:",
+                        "description": "Tus opiniones pueden inspirar nuevas rutas, eventos, políticas públicas, formación e inversión local."
+                    }
+                }
+            }
         }
     },
     "components": {
