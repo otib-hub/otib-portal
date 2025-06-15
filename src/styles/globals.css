@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+	scroll-behavior: smooth;
+}
+
 :root {
 	--background: oklch(0.98 0 0);
 	--foreground: oklch(0 0 0);
@@ -12,7 +16,7 @@
 	--popover-foreground: oklch(0 0 0);
 	--primary: oklch(0.62 0.18 151);
 	--primary-foreground: oklch(0.99 0 0);
-	--secondary: oklch(0.96 0 0);
+	--secondary: oklch(0.9 0 0);
 	--secondary-foreground: oklch(0 0 0);
 	--muted: oklch(0.9 0 0);
 	--muted-foreground: oklch(0.45 0 0);
@@ -22,7 +26,7 @@
 	--destructive-foreground: oklch(1 0 0);
 	--border: oklch(0.8 0 0);
 	--input: oklch(0.8 0 0);
-	--ring: oklch(0.51 0.7 292.7);
+	--ring: oklch(0.7346 0.148 290.21);
 	--chart-1: oklch(0.62 0.19 259.81);
 	--chart-2: oklch(0.72 0.19 149.58);
 	--chart-3: oklch(0.65 0.22 16.44);
@@ -47,14 +51,14 @@
 	--shadow-md: 0 0 3px 0 hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
 	--shadow-lg: 0 0 3px 0 hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
 	--shadow-xl: 0 0 3px 0 hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-	--shadow-2xl: 0 0 3px 0 hsl(0 0% 0% / 0.25);
+	--shadow-2xl: 0 0 3px 0 hsl(0 0% 0% / 0.35);
 	--tracking-normal: 0;
 }
 
 .dark {
 	--background: oklch(0.2 0 0);
 	--foreground: oklch(1 0 0);
-	--card: oklch(0.2 0 0);
+	--card: oklch(0.25 0 0);
 	--card-foreground: oklch(1 0 0);
 	--popover: oklch(0.1 0 0);
 	--popover-foreground: oklch(1 0 0);
@@ -70,7 +74,7 @@
 	--destructive-foreground: oklch(0 0 0);
 	--border: oklch(0.4 0 0);
 	--input: oklch(0.42 0 0);
-	--ring: oklch(0.41 0.6 292.7);
+	--ring: oklch(0.41 0.22 292.72);
 	--chart-1: oklch(0.62 0.19 259.81);
 	--chart-2: oklch(0.72 0.19 149.58);
 	--chart-3: oklch(0.65 0.22 16.44);
@@ -205,4 +209,15 @@ body {
 .animate-compass-spin {
 	animation: compass-spin 2s ease-in-out infinite;
 	transform-origin: center center;
+}
+
+@layer utilities {
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
 }

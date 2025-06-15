@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import Header from '@/components/layout/Header';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import type { Metadata } from 'next';
@@ -32,7 +32,7 @@ export default async function RootLayout({
 						disableTransitionOnChange
 					>
 						<QueryProvider>
-							<div className='min-h-screen min-w-full p-6'>
+							<div className='min-h-screen max-w-screen px-6 md:px-8 lg:px-14'>
 								<Header />
 								{children}
 							</div>

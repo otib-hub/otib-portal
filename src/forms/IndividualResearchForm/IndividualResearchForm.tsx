@@ -6,8 +6,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import useMultiStepForm from '@/hooks/use-multistep-form';
 import { getIndividualResearchFormSteps } from './steps';
-import FormStepper from '@/components/FormStepper';
-import FormDebugDialog from '@/components/FormDebugDialog';
+import FormStepper from '@/components/fragments/FormStepper';
+import FormDebugDialog from '@/components/layout/FormDebugDialog';
 import { useTranslations } from 'next-intl';
 import {
 	getIndividualResearchFormSchema,
@@ -17,7 +17,7 @@ import { handleSubmitIndividualResearch } from '@/services/handle-submit-individ
 import { TutorialDialog } from './components/TutorialDialog/TutorialDialog';
 import { useRouter } from 'next/navigation';
 
-const BLOCK_STEP_IF_INVALID = false;
+const BLOCK_STEP_IF_INVALID = true;
 const DEV_MODE = process.env.NEXT_PUBLIC_ENV === 'development';
 
 export default function IndividualResearchForm() {
@@ -66,7 +66,7 @@ export default function IndividualResearchForm() {
 			await handleSubmitIndividualResearch(formData);
 			toast.success(t('common.toast_submit_success'), { id: 'form-submit' });
 			setTimeout(() => {
-				router.push('/form/thank-you');
+				router.push('/form/thanks');
 			}, 2000);
 		} catch (err) {
 			const errorText =

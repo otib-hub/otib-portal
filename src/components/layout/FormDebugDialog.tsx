@@ -7,8 +7,8 @@ import {
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
-} from './ui/alert-dialog';
-import { buttonVariants } from './ui/button';
+} from '../ui/alert-dialog';
+import { buttonVariants } from '../ui/button';
 import { Bug, X } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';

@@ -1,13 +1,51 @@
 {
     "app": {
         "Home": {
-            "title": "¡Bienvenido al prototipo de OTIB!",
-            "button_cta": "Probar formulario"
+            "heading": {
+                "title": "Descubrir. Explora.\nTransforme el turismo de Ibiapaba.",
+                "description": "Bienvenido al canal oficial de inteligencia turística de la región de Ibiapaba. Aquí encontrarás datos, mapas, oportunidades y conexiones que fortalecen el turismo regional."
+            },
+            "buttons": {
+                "form": "Formulario de encuesta"
+            },
+            "sections": {
+                "form-card": {
+                    "title": "Ayuda a mejorar la experiencia turística",
+                    "description": "¿Has visitado o estás visitando Ibiapaba? Comparte tu experiencia!\nResponder a nuestro formulario lleva menos de 6 minutos y ayuda a desarrollar un turismo más sostenible, atractivo y acogedor.",
+                    "button_action": "Quiero contribuir"
+                }
+            }
         },
         "not-found": {
             "title": "Parece que tomaste un camino que aún no está en nuestro mapa",
             "description": "La página que buscas puede haber sido eliminada, renombrada o nunca existió. ¡Pero tranquilo, el viaje continúa!",
             "button_back": "Volver a la página anterior"
+        },
+        "form/thanks": {
+            "heading": {
+                "buttons": {
+                    "start": "Página de inicio"
+                },
+                "title": "¡Muchas gracias por su contribución!",
+                "description": "Su respuesta ha sido registrada con éxito y ya está ayudando a fortalecer el turismo en Ibiapaba.\n🔍 Cada dato importa: su información formará parte de los informes y análisis que guiarán las acciones de las autoridades públicas, las iniciativas privadas y el desarrollo sostenible de nuestra región."
+            },
+            "section/what-happens-now": {
+                "title": "¿Qué pasa ahora?",
+                "paragraphs": {
+                    "1": {
+                        "title": "Analizando los datos:",
+                        "description": "Tu formulario será incluido en nuestra base de datos y contribuirá a estudios estadísticos y estratégicos."
+                    },
+                    "2": {
+                        "title": "Generación de conocimiento:",
+                        "description": "La información recogida alimentará los boletines trimestrales de la OTIB y, próximamente, el portal interactivo de datos, con cuadros de mando abiertos al público."
+                    },
+                    "3": {
+                        "title": "Mejoras reales de la experiencia turística:",
+                        "description": "Tus opiniones pueden inspirar nuevas rutas, eventos, políticas públicas, formación e inversión local."
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -106,7 +144,7 @@
                             }
                         },
                         "tourist_estimated_income": {
-                            "form_label": "Renta estimada",
+                            "form_label": "Ingresos estimados",
                             "options": {
                                 "low": "Menos de R$1.000",
                                 "low_mid": "Entre R$1.000 y R$3.000",
@@ -182,7 +220,7 @@
                             }
                         },
                         "trip_know_ibiapaba_mirantes": {
-                            "form_label": "¿Conoces la Ruta \"Mirantes da Ibiapaba\"?",
+                            "form_label": "¿Conoces la Ruta \"Mirantes da Ibiapaba\" (Miradores de Ibiapaba)?",
                             "options": {
                                 "radio_true": "Sí",
                                 "radio_false": "No"
@@ -240,7 +278,7 @@
                                 "1": "Autobús",
                                 "2": "Motocicleta",
                                 "3": "Bicicleta",
-                                "4": "Furgoneta",
+                                "4": "Vehículo tipo van",
                                 "5": "Transporte por app (Ubis, Mototaxi Tianguá, etc.)",
                                 "6": "Taxi",
                                 "7": "Casa rodante/Remolque",

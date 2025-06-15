@@ -1,13 +1,51 @@
 {
     "app": {
         "Home": {
-            "title": "Welcome to the OTIB prototype!",
-            "button_cta": "Test form"
+            "heading": {
+                "title": "Discover. Explore.\nTransform Ibiapaba Tourism.",
+                "description": "Welcome to the Ibiapaba region's official tourism intelligence channel. Here you'll find data, maps, opportunities and connections that strengthen regional tourism."
+            },
+            "buttons": {
+                "form": "Survey"
+            },
+            "sections": {
+                "form-card": {
+                    "title": "Help improve the tourist experience",
+                    "description": "Have you visited or are you visiting Ibiapaba? Share your experience!\nResponding to our form takes less than 6 minutes and helps to develop a more sustainable, attractive and welcoming tourism.",
+                    "button_action": "I want to contribute"
+                }
+            }
         },
         "not-found": {
             "title": "It looks like you took a path that's not on our map yet",
             "description": "The page you're looking for might have been removed, renamed, or never existed. But don't worry, the journey goes on!",
             "button_back": "Go back to the previous page"
+        },
+        "form/thanks": {
+            "heading": {
+                "buttons": {
+                    "start": "Home"
+                },
+                "title": "Thank you very much for your contribution!",
+                "description": "Your response has been successfully registered and is already helping to strengthen tourism in Ibiapaba.\n🔍 Every piece of data matters: your information will be part of the reports and analyses that guide actions by public authorities, private initiatives and the sustainable development of our region."
+            },
+            "section/what-happens-now": {
+                "title": "What happens now?",
+                "paragraphs": {
+                    "1": {
+                        "title": "Data analysis:",
+                        "description": "Your form will be included in our database and will contribute to statistical and strategic studies."
+                    },
+                    "2": {
+                        "title": "Knowledge generation:",
+                        "description": "The information collected will feed the OTIB's quarterly bulletins and, soon, the interactive data portal, with dashboards open to the public."
+                    },
+                    "3": {
+                        "title": "Real improvements in the tourist experience:",
+                        "description": "Your opinions can inspire new routes, events, public policies, training and local investments."
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -45,7 +83,7 @@
             "button_next": "Next",
             "button_close": "Close",
             "button_submit": "Submit",
-            "toast_submit_success": "Form content send successfully! You'll be redirected to the next page in no time",
+            "toast_submit_success": "Form submitted successfully! You'll be redirected to the next page in no time",
             "toast_content_invalid": "Please fill all form fields correctly!"
         },
         "errors": {
@@ -102,7 +140,7 @@
                                 "7": "MBA",
                                 "8": "Master's degree",
                                 "9": "Doctorate (PhD)",
-                                "10": "Postdoctoral"
+                                "10": "Postdoc"
                             }
                         },
                         "tourist_estimated_income": {
@@ -165,7 +203,7 @@
                     "title": "Trip",
                     "fields": {
                         "trip_has_reincidence": {
-                            "form_label": "Have you been at Ibiapaba before?",
+                            "form_label": "Have you been to Ibiapaba before?",
                             "options": {
                                 "radio_true": "Yes",
                                 "radio_false": "No"
@@ -241,7 +279,7 @@
                                 "2": "Motorcycle",
                                 "3": "Bicycle",
                                 "4": "Van",
-                                "5": "Transportation by app (Ubis, Mototáxi Tianguá, etc.)",
+                                "5": "App-based transportation (Ubis, Mototáxi Tianguá, etc.)",
                                 "6": "Taxi",
                                 "7": "Motorhome/Trailer",
                                 "8": "Plane",
@@ -249,7 +287,7 @@
                             }
                         },
                         "trip_average_diary_expense": {
-                            "form_label": "How much did you spend or plan to spend on average per day?",
+                            "form_label": "How much did you spent or plan to spend on average per day?",
                             "options": {
                                 "0": "Up to R$ 300.00",
                                 "1": "From R$ 300.00 to R$ 500.00",
@@ -321,7 +359,7 @@
                             "form_label": "From 1 to 10, how much would you recommend someone to visit Ibiapaba?"
                         },
                         "evaluation_dissatisfactions": {
-                            "form_label": "What did you like least about your visit?",
+                            "form_label": "What did you like least during your visit?",
                             "options": {
                                 "0": "Cleanliness",
                                 "1": "Street signs",
