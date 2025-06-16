@@ -37,7 +37,7 @@ export default function Home() {
 	const t = useTranslations('app.Home');
 
 	return (
-		<main className='w-full flex flex-col items-start py-6 gap-8 md:py-8 md:gap-12'>
+		<main className='w-full flex flex-col items-start py-6 gap-8 md:py-8 md:gap-12 mb-10 md:mb-6'>
 			<LocaleInitializer />
 
 			<div className='hero w-full flex flex-col-reverse md:flex-row items-center justify-start gap-6 md:gap-16'>
