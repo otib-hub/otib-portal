@@ -4,8 +4,8 @@ import { ThemeProvider } from '@/providers/ThemeProvider';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
-import { inter } from '../styles/fonts';
-import '../styles/globals.css';
+import { inter } from '@/styles/fonts';
+import '@/styles/globals.css';
 import QueryProvider from '@/providers/QueryProvider';
 
 export const metadata: Metadata = {

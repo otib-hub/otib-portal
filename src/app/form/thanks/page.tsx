@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { ibmPlexSans } from '@/styles/fonts';
 import { useRouter } from 'next/navigation';
-import shared_goals_drawing from '../../../../public/assets/drawings/undraw_shared-goals.svg';
+import shared_goals_drawing from '#/assets/drawings/undraw_shared-goals.svg';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

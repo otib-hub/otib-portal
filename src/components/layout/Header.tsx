@@ -1,14 +1,14 @@
 'use client';
 
 import { ModeToggle } from '@/components/fragments/ModeToggle';
-import { ibmPlexSans } from '../../styles/fonts';
+import { ibmPlexSans } from '@/styles/fonts';
 import Image from 'next/image';
-import otib_logo_dark from '../../../public/assets/otib/logo/logo-icon-neg.svg';
-import otib_logo_light from '../../../public/assets/otib/logo/logo-icon-pos.svg';
+import otib_logo_dark from '#/assets/otib/logo/logo-icon-neg.svg';
+import otib_logo_light from '#/assets/otib/logo/logo-icon-pos.svg';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { LocaleSwitcher } from '../fragments/LocaleSwitcher';
+import { LocaleSwitcher } from '@/components/fragments/LocaleSwitcher';
 
 export default function Header() {
 	const { theme } = useTheme();

@@ -19,14 +19,14 @@ import {
 	CarouselItem,
 } from '@/components/ui/carousel';
 
-import form_preview_image from '../../public/assets/images/form-preview.png';
-import highlights_1 from '../../public/assets/images/highlights_1.png';
-import highlights_2 from '../../public/assets/images/highlights_2.png';
-import highlights_3 from '../../public/assets/images/highlights_3.png';
-import highlights_4 from '../../public/assets/images/highlights_4.png';
-import highlights_5 from '../../public/assets/images/highlights_5.png';
-import highlights_6 from '../../public/assets/images/highlights_6.png';
-import highlights_7 from '../../public/assets/images/highlights_7.png';
+import form_preview_image from '#/assets/images/form-preview.png';
+import highlights_1 from '#/assets/images/highlights_1.png';
+import highlights_2 from '#/assets/images/highlights_2.png';
+import highlights_3 from '#/assets/images/highlights_3.png';
+import highlights_4 from '#/assets/images/highlights_4.png';
+import highlights_5 from '#/assets/images/highlights_5.png';
+import highlights_6 from '#/assets/images/highlights_6.png';
+import highlights_7 from '#/assets/images/highlights_7.png';
 import { useTranslations } from 'next-intl';
 
 const images_top = [highlights_1, highlights_2, highlights_3, highlights_4];

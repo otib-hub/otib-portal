@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { LocaleSwitcher } from '../../../../../components/fragments/LocaleSwitcher';
+import { LocaleSwitcher } from '@/components/fragments/LocaleSwitcher';
 
 export function StepOne() {
 	const t = useTranslations(
