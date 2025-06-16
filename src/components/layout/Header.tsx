@@ -3,8 +3,8 @@
 import { ModeToggle } from '@/components/fragments/ModeToggle';
 import { ibmPlexSans } from '@/styles/fonts';
 import Image from 'next/image';
-import otib_logo_dark from '#/assets/otib/logo/logo-icon-neg.svg';
-import otib_logo_light from '#/assets/otib/logo/logo-icon-pos.svg';
+import otib_logo_dark from '#/otib/logo/logo-icon-neg.svg';
+import otib_logo_light from '#/otib/logo/logo-icon-pos.svg';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
