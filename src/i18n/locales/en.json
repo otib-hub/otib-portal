@@ -6,7 +6,8 @@
                 "description": "Welcome to the Ibiapaba region's official tourism intelligence channel. Here you'll find data, maps, opportunities and connections that strengthen regional tourism."
             },
             "buttons": {
-                "form": "Survey"
+                "form": "Survey",
+                "first-bulletin": "See our first bulletin"
             },
             "sections": {
                 "form-card": {

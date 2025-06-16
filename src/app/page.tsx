@@ -42,13 +42,24 @@ export default function Home() {
 
 			<div className='hero w-full flex flex-col-reverse md:flex-row items-center justify-start gap-6 md:gap-16'>
 				<div className='w-full heading flex flex-col gap-6'>
-					<div className='buttons flex gap-3'>
+					<div className='buttons w-full flex gap-3 overflow-x-auto scrollbar-hide'>
 						<Button
 							variant='secondary'
 							className='rounded-full'
 							onClick={() => router.push('#form-card')}
 						>
 							{t('buttons.form')}
+						</Button>
+						<Button
+							variant='secondary'
+							className='rounded-full'
+							onClick={() =>
+								router.push(
+									'https://nupreds.ifce.edu.br/otib-boletins/boletim01-2025.pdf'
+								)
+							}
+						>
+							{t('buttons.first-bulletin')}
 						</Button>
 					</div>
 

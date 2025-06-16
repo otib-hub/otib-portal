@@ -6,7 +6,8 @@
                 "description": "Bienvenido al canal oficial de inteligencia turística de la región de Ibiapaba. Aquí encontrarás datos, mapas, oportunidades y conexiones que fortalecen el turismo regional."
             },
             "buttons": {
-                "form": "Formulario de encuesta"
+                "form": "Formulario de encuesta",
+                "first-bulletin": "Vea nuestro primer boletín"
             },
             "sections": {
                 "form-card": {
