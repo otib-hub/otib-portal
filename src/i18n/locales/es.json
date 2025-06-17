@@ -6,6 +6,7 @@
                 "description": "Bienvenido al canal oficial de inteligencia turística de la región de Ibiapaba. Aquí encontrarás datos, mapas, oportunidades y conexiones que fortalecen el turismo regional."
             },
             "buttons": {
+                "about": "Conoce el proyecto",
                 "form": "Formulario de encuesta",
                 "first-bulletin": "Vea nuestro primer boletín"
             },
@@ -44,6 +45,40 @@
                     "3": {
                         "title": "Mejoras reales de la experiencia turística:",
                         "description": "Tus opiniones pueden inspirar nuevas rutas, eventos, políticas públicas, formación e inversión local."
+                    }
+                }
+            }
+        },
+        "About": {
+            "page-title": "OTIB - Sobre",
+            "breadcrumb": {
+                "1": "Página de inicio",
+                "2": "Acerca de"
+            },
+            "content": {
+                "section": {
+                    "heading": {
+                        "h1": "Acerca del OTIB",
+                        "p": "El \n Observatorio de Turismo de Ibiapaba \n nace con el propósito de transformar datos en conocimiento útil para toda la cadena del turismo, desde emprendedores y gestores públicos hasta instituciones educativas y la propia comunidad. \n La iniciativa forma parte de un proyecto de extensión del Instituto Federal de Ceará – Campus Tianguá, coordinado por el profesor Dr. Nécio de Lima Veras. El proyecto es desarrollado por el NUPREDS (Núcleo de Prácticas en Ingeniería y Desarrollo de Software), en asociación con el SEBRAE, el FORTIB (Foro de Turismo de Ibiapaba) y representantes locales vinculados al turismo de la región.\n Este portal reunirá paneles interactivos con datos turísticos de Ibiapaba, materiales informativos y herramientas dirigidas a emprendedores, gestores y demás interesados."
+                    },
+                    "objectives": {
+                        "h2": "Objetivos",
+                        "ul": {
+                            "li-1": "Apoyar la planificación pública y privada, ofreciendo información que ayude en la definición de políticas públicas, inversiones, eventos y mejoras en los servicios ofrecidos.",
+                            "li-2": "Fortalecer el turismo sostenible, ayudando a equilibrar el crecimiento del turismo con la preservación de la naturaleza, la cultura local y la calidad de vida de la población.",
+                            "li-3": "Valorar los atractivos y la experiencia del visitante, identificando lo que encanta y lo que necesita ser mejorado, desde la perspectiva de quienes visitan la región.",
+                            "li-4": "Estimular la innovación y la competitividad, ofreciendo datos estratégicos que permitan a los negocios locales alinearse con las demandas del mercado turístico.",
+                            "li-5": "Fomentar proyectos tecnológicos de innovación, apoyando el desarrollo de soluciones creativas y sostenibles, basadas en datos, que fortalezcan el turismo y la preservación ambiental en Ibiapaba, como aplicaciones, sistemas de monitoreo con visión computacional, mapas digitales y herramientas de gestión inteligente.",
+                            "li-6": "Construir un canal permanente de escucha y participación, uniendo academia, gobierno, sector productivo y sociedad civil en la construcción de un turismo más inteligente, colaborativo y conectado con la realidad regional."
+                        },
+                        "p": "Más que observar, el OTIB propone actuar con base en evidencias. Al acompañar los movimientos del turismo, creamos oportunidades para evolucionar juntos, con mayor eficiencia, inclusión e impacto positivo."
+                    }
+                },
+                "actions": {
+                    "h3": "Sigue navegando",
+                    "buttons": {
+                        "home": "Página de inicio",
+                        "form": "Formulario de encuesta"
                     }
                 }
             }

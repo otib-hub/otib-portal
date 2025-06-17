@@ -6,6 +6,7 @@
                 "description": "Bem-vindo ao canal oficial de inteligência turística da região da Ibiapaba. Aqui você encontra dados, mapas, oportunidades e conexões que fortalecem o turismo regional."
             },
             "buttons": {
+                "about": "Conheça o projeto",
                 "form": "Formulário de pesquisa",
                 "first-bulletin": "Veja nosso primeiro boletim"
             },
@@ -44,6 +45,40 @@
                     "3": {
                         "title": "Melhorias reais na experiência turística:",
                         "description": "As suas opiniões podem inspirar novas rotas, eventos, políticas públicas, capacitações e investimentos locais."
+                    }
+                }
+            }
+        },
+        "About": {
+            "page-title": "OTIB - Sobre",
+            "breadcrumb": {
+                "1": "Página inicial",
+                "2": "Sobre"
+            },
+            "content": {
+                "section": {
+                    "heading": {
+                        "h1": "Sobre o OTIB",
+                        "p": "O \n Observatório do Turismo da Ibiapaba \n nasce com o propósito de transformar dados em conhecimento útil para toda a cadeia do turismo, desde empreendedores e gestores públicos até instituições de ensino e a própria comunidade. \n A iniciativa faz parte de um projeto de extensão do Instituto Federal do Ceará – Campus Tianguá, coordenado pelo professor Dr. Nécio de Lima Veras. O projeto é desenvolvido pelo NUPREDS (Núcleo de Práticas em Engenharia e Desenvolvimento de Software), em parceria com o SEBRAE, o FORTIB (Fórum de Turismo da Ibiapaba) e representantes locais ligados ao turismo da região.\n Este portal irá reunir painéis interativos com dados turísticos da Ibiapaba, materiais informativos e ferramentas voltadas para empreendedores, gestores e demais interessados."
+                    },
+                    "objectives": {
+                        "h2": "Objetivos",
+                        "ul": {
+                            "li-1": "Apoiar o planejamento público e privado, oferecendo informações que ajudem na definição de políticas públicas, investimentos, eventos e melhorias nos serviços oferecidos.",
+                            "li-2": "Fortalecer o turismo sustentável, ajudando a equilibrar o crescimento do turismo com a preservação da natureza, da cultura local e da qualidade de vida da população.",
+                            "li-3": "Valorizar os atrativos e a experiência do visitante, identificando o que encanta e o que precisa ser melhorado, a partir do olhar de quem visita a região.",
+                            "li-4": "Estimular a inovação e a competitividade, oferecendo dados estratégicos que permitam aos negócios locais se alinharem às demandas do mercado turístico.",
+                            "li-5": "Fomentar projetos tecnológicos de inovação, apoiando o desenvolvimento de soluções criativas e sustentáveis, baseadas em dados, que fortaleçam o turismo e a preservação ambiental na Ibiapaba, como aplicativos, sistemas de monitoramento usando visão computacional, mapas digitais e ferramentas de gestão inteligente.",
+                            "li-6": "Construir um canal permanente de escuta e participação, unindo academia, governo, setor produtivo e sociedade civil na construção de um turismo mais inteligente, colaborativo e conectado com a realidade regional."
+                        },
+                        "p": "Mais do que observar, o OTIB propõe agir com base em evidências. Ao acompanhar os movimentos do turismo, criamos oportunidades para evoluir juntos, com mais eficiência, inclusão e impacto positivo."
+                    }
+                },
+                "actions": {
+                    "h3": "Continue navegando",
+                    "buttons": {
+                        "home": "Página inicial",
+                        "form": "Formulário de pesquisa"
                     }
                 }
             }
