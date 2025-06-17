@@ -88,7 +88,7 @@ export default function Home() {
 							className='text-base md:text-lg place-self-start p-0'
 							onClick={() => router.push('/about')}
 						>
-							Conheça o projeto
+							{t('buttons.about')}
 						</Button>
 					</p>
 				</div>
