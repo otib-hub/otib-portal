@@ -1,11 +1,13 @@
 {
     "app": {
         "Home": {
+            "page-title": "OTIB - Homepage",
             "heading": {
-                "title": "Discover. Explore.\nTransform Ibiapaba Tourism.",
+                "title": "Discover. Explore. \n Transform Ibiapaba Tourism.",
                 "description": "Welcome to the Ibiapaba region's official tourism intelligence channel. Here you'll find data, maps, opportunities and connections that strengthen regional tourism."
             },
             "buttons": {
+                "about": "Learn about the project",
                 "form": "Survey",
                 "first-bulletin": "See our first bulletin"
             },
@@ -18,11 +20,13 @@
             }
         },
         "not-found": {
+            "page-title": "OTIB - Not Found",
             "title": "It looks like you took a path that's not on our map yet",
             "description": "The page you're looking for might have been removed, renamed, or never existed. But don't worry, the journey goes on!",
             "button_back": "Go back to the previous page"
         },
         "form/thanks": {
+            "page-title": "OTIB - Thank you",
             "heading": {
                 "buttons": {
                     "start": "Home"
@@ -44,6 +48,40 @@
                     "3": {
                         "title": "Real improvements in the tourist experience:",
                         "description": "Your opinions can inspire new routes, events, public policies, training and local investments."
+                    }
+                }
+            }
+        },
+        "About": {
+            "page-title": "OTIB - About",
+            "breadcrumb": {
+                "1": "Home",
+                "2": "About"
+            },
+            "content": {
+                "section": {
+                    "heading": {
+                        "h1": "About OTIB",
+                        "p": "The \n Ibiapaba Tourism Observatory (🇧🇷 Observatório de Turismo da Ibiapaba - OTIB) \n was born with the purpose of transforming data into useful knowledge for the entire tourism chain, from entrepreneurs and public managers to educational institutions and the community itself. \n The initiative is part of an extension project of the Federal Institute of Ceará - Tianguá Campus, coordinated by Professor Dr. Nécio de Lima Veras. The project is being developed by NUPREDS (Center for Practices in Engineering and Software Development), in partnership with SEBRAE, FORTIB (Ibiapaba Tourism Forum) and local representatives linked to tourism in the region.\n This portal will bring together interactive panels with tourist data from Ibiapaba, information materials and tools aimed at entrepreneurs, managers and other interested parties."
+                    },
+                    "objectives": {
+                        "h2": "Objectives",
+                        "ul": {
+                            "li-1": "Supporting public and private planning, offering information to help define public policies, investments, events and improvements in the services offered.",
+                            "li-2": "Strengthening sustainable tourism, helping to balance tourism growth with the preservation of nature, local culture and the population's quality of life.",
+                            "li-3": "Valuing attractions and the visitor experience, identifying what delights and what needs to be improved, from the point of view of those who visit the region. ",
+                            "li-4": "Stimulate innovation and competitiveness by offering strategic data that allows local businesses to align themselves with the demands of the tourism market.",
+                            "li-5": "Encourage technological innovation projects, supporting the development of creative and sustainable solutions, based on data, that strengthen tourism and environmental preservation in Ibiapaba, such as applications, monitoring systems using computer vision, digital maps and intelligent management tools. ",
+                            "li-6": "To build a permanent channel for listening and participation, uniting academia, government, the productive sector and civil society in the construction of a more intelligent, collaborative tourism that is connected to the regional reality."
+                        },
+                        "p": "More than observing, the OTIB proposes to act based on evidence. By following the movements of tourism, we create opportunities to evolve together, with greater efficiency, inclusion and positive impact."
+                    }
+                },
+                "actions": {
+                    "h3": "Keep navigating",
+                    "buttons": {
+                        "home": "Home",
+                        "form": "Survey"
                     }
                 }
             }
