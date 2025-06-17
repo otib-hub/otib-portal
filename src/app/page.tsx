@@ -41,8 +41,16 @@ export default function Home() {
 			<LocaleInitializer />
 
 			<div className='hero w-full flex flex-col-reverse md:flex-row items-center justify-start gap-6 md:gap-16'>
-				<div className='w-full heading flex flex-col gap-6'>
+				<div className='w-full heading flex flex-col gap-6 md:max-w-120 lg:max-w-144'>
 					<div className='buttons w-full flex gap-3 overflow-x-auto scrollbar-hide'>
+						<Button
+							variant='secondary'
+							className='rounded-full'
+							onClick={() => router.push('/about')}
+						>
+							{t('buttons.about')}
+						</Button>
+
 						<Button
 							variant='secondary'
 							className='rounded-full'
@@ -50,6 +58,7 @@ export default function Home() {
 						>
 							{t('buttons.form')}
 						</Button>
+
 						<Button
 							variant='secondary'
 							className='rounded-full'
@@ -73,7 +82,14 @@ export default function Home() {
 					</h1>
 
 					<p className='text-base md:text-lg text-secondary-foreground'>
-						{t('heading.description')}
+						{t('heading.description')}{' '}
+						<Button
+							variant='link'
+							className='text-base md:text-lg place-self-start p-0'
+							onClick={() => router.push('/about')}
+						>
+							Conheça o projeto
+						</Button>
 					</p>
 				</div>
 
