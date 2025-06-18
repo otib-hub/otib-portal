@@ -1,7 +1,7 @@
 import { Option } from '@/components/ui/select-with-search';
-import { fetchCities } from '@/services/locations/fetch-cities';
-import { fetchCountries } from '@/services/locations/fetch-countries';
-import { fetchStates } from '@/services/locations/fetch-states';
+import { fetchCities } from '@/actions/locations/fetch-cities';
+import { fetchCountries } from '@/actions/locations/fetch-countries';
+import { fetchStates } from '@/actions/locations/fetch-states';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
