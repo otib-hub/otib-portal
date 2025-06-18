@@ -107,7 +107,8 @@
             },
             "selection": {
                 "selected": "{count, plural, one {# opção selecionada} other {# opções selecionadas}}"
-            }
+            },
+            "search": "Buscar"
         },
         "NpsSlider": {
             "input_placeholder": "Arraste para definir"
@@ -119,6 +120,7 @@
             "button_next": "Próximo",
             "button_close": "Fechar",
             "button_submit": "Enviar",
+            "toast_submitting": "Enviando respostas, por favor aguarde",
             "toast_submit_success": "Conteúdo do formulário enviado com sucesso! Você será redirecionado para a próxima página em um instante.",
             "toast_content_invalid": "Por favor, preencha todos os campos do formulário corretamente!"
         },

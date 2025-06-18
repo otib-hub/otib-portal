@@ -142,7 +142,7 @@ export const SelectWithSearch = ({
 					>
 						<Command shouldFilter={false}>
 							<CommandInput
-								placeholder='Buscar...'
+								placeholder={t('search')}
 								value={search}
 								onValueChange={setSearch}
 							/>
@@ -184,7 +184,7 @@ export const SelectWithSearch = ({
 							key={item.value}
 							onClick={() => removeValue(item.value)}
 							variant='secondary'
-							className='max-w-full whitespace-pre-wrap bg-chart-5/45 rounded-full hover:bg-destructive/25 gap-1 text-base cursor-pointer transition-colors'
+							className='max-w-full whitespace-pre-wrap bg-chart-5/45 rounded-xl hover:bg-destructive/25 gap-1 text-base cursor-pointer transition-colors'
 						>
 							{item.label}
 							<button

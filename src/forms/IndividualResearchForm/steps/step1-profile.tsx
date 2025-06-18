@@ -36,23 +36,29 @@ export default function ProfileStep() {
 					>
 						{t('tourist_country.form_label')}
 					</FormLabel>
+
 					<Controller
 						name='tourist_country'
 						control={control}
-						render={({ field }) =>
-							countries.isLoading ? (
-								<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal'></Skeleton>
-							) : (
+						render={({ field }) => {
+							if (countries.isLoading) {
+								return (
+									<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal' />
+								);
+							}
+
+							return (
 								<SelectWithSearch
 									id='tourist_country'
 									value={field.value}
 									onChangeAction={field.onChange}
 									hasError={!!errors.tourist_country}
-									options={countries.options ?? []}
+									options={countries.options}
 								/>
-							)
-						}
+							);
+						}}
 					/>
+
 					{errors.tourist_country && (
 						<FormMessage>{String(errors.tourist_country.message)}</FormMessage>
 					)}
@@ -69,26 +75,31 @@ export default function ProfileStep() {
 					<Controller
 						name='tourist_state'
 						control={control}
-						render={({ field }) =>
-							states.isLoading ? (
-								<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal'></Skeleton>
-							) : (
+						render={({ field }) => {
+							if (states.isLoading) {
+								return (
+									<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal' />
+								);
+							}
+
+							return (
 								<SelectWithSearch
 									id='tourist_state'
 									value={field.value}
-									disabled={!selectedCountry}
+									disabled={!selectedCountry || states.options.length === 0}
 									onChangeAction={field.onChange}
 									hasError={!!errors.tourist_state}
 									options={states.options ?? []}
 								/>
-							)
-						}
+							);
+						}}
 					/>
 					{errors.tourist_state && (
 						<FormMessage>{String(errors.tourist_state.message)}</FormMessage>
 					)}
 				</FormItem>
 
+				{/* Cidade */}
 				<FormItem className='w-full space-y-2'>
 					<FormLabel
 						htmlFor='tourist_city'
@@ -100,20 +111,28 @@ export default function ProfileStep() {
 					<Controller
 						name='tourist_city'
 						control={control}
-						render={({ field }) =>
-							cities.isLoading ? (
-								<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal'></Skeleton>
-							) : (
+						render={({ field }) => {
+							if (cities.isLoading) {
+								return (
+									<Skeleton className='w-full flex-grow flex justify-between items-center text-base bg-input/20 px-3 py-5 font-normal' />
+								);
+							}
+
+							return (
 								<SelectWithSearch
 									id='tourist_city'
-									disabled={!selectedCountry || !selectedState}
 									value={field.value}
+									disabled={
+										!selectedCountry ||
+										!selectedState ||
+										cities.options.length === 0
+									}
 									onChangeAction={field.onChange}
 									hasError={!!errors.tourist_city}
 									options={cities.options ?? []}
 								/>
-							)
-						}
+							);
+						}}
 					/>
 					{errors.tourist_city && (
 						<FormMessage>{String(errors.tourist_city.message)}</FormMessage>

@@ -8,13 +8,11 @@ export async function POST(req: NextRequest) {
 		try {
 			data = await req.json();
 		} catch {
-			return NextResponse.json(
-				{
-					success: false,
-					status: 400,
-					message: 'Invalid JSON data in request body',
-				}
-			);
+			return NextResponse.json({
+				success: false,
+				status: 400,
+				message: 'Invalid JSON data in request body',
+			});
 		}
 
 		const res = await fetch(
@@ -39,30 +37,25 @@ export async function POST(req: NextRequest) {
 		}
 
 		if (!res.ok) {
-			return NextResponse.json(
-				{
-					success: false,
-					status: res.status,
-					message: json?.detail || 'Unexpected error while processing the request.',
-					data: json,
-				}
-			);
+			return NextResponse.json({
+				success: false,
+				status: res.status,
+				message:
+					json?.detail || 'Unexpected error while processing the request.',
+				data: json,
+			});
 		}
 
-		return NextResponse.json(
-			{
-				success: true,
-				status: res.status,
-				data: json,
-			}
-		);
+		return NextResponse.json({
+			success: true,
+			status: res.status,
+			data: json,
+		});
 	} catch (err: unknown) {
-		return NextResponse.json(
-			{
-				success: false,
-				status: 500,
-				message: err instanceof Error ? err.message : 'Internal server error.',
-			}
-		);
+		return NextResponse.json({
+			success: false,
+			status: 500,
+			message: err instanceof Error ? err.message : 'Internal server error.',
+		});
 	}
 }
