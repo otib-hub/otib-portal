@@ -142,7 +142,7 @@ export const SelectWithSearch = ({
 					>
 						<Command shouldFilter={false}>
 							<CommandInput
-								placeholder='Buscar...'
+								placeholder={t('search')}
 								value={search}
 								onValueChange={setSearch}
 							/>

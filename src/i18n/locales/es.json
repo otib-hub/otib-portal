@@ -107,7 +107,8 @@
             },
             "selection": {
                 "selected": "{count, plural, one {# opción seleccionada} other {# opciones seleccionadas}}"
-            }
+            },
+            "search": "Buscar"
         },
         "NpsSlider": {
             "input_placeholder": "Arrastra para definir"

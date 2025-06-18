@@ -107,7 +107,8 @@
             },
             "selection": {
                 "selected": "{count, plural, one {# opção selecionada} other {# opções selecionadas}}"
-            }
+            },
+            "search": "Buscar"
         },
         "NpsSlider": {
             "input_placeholder": "Arraste para definir"
