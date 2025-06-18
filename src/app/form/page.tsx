@@ -1,4 +1,4 @@
-import IndividualResearchForm from '@/forms/IndividualResearchForm/IndividualResearchForm';
+import IndividualResearchForm from '@/components/forms/IndividualResearchForm/IndividualResearchForm';
 
 export default function FormPage() {
 	return (
