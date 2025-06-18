@@ -1,6 +1,6 @@
 'use client';
 
-import { ModeToggle } from '@/components/fragments/ModeToggle';
+import { ThemeSwitcher } from '@/components/fragments/ThemeSwitcher';
 import { ibmPlexSans } from '@/styles/fonts';
 import Image from 'next/image';
 import otib_logo_dark from '#/otib/logo/logo-icon-neg.svg';
@@ -43,7 +43,7 @@ export default function Header() {
 
 				<div className='flex items-center justify-start gap-2'>
 					<LocaleSwitcher />
-					<ModeToggle />
+					<ThemeSwitcher />
 				</div>
 			</div>
 		</header>
