@@ -100,6 +100,7 @@ export default function IndividualResearchForm() {
 	});
 
 	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+	const [isWaitingRedirect, setIsWaitingRedirect] = useState(false);
 
 	async function onNextStep(e: React.MouseEvent) {
 		e.preventDefault();
@@ -115,6 +116,7 @@ export default function IndividualResearchForm() {
 			if (!res.success) throw new Error(res.message);
 
 			let countdown = 3;
+			setIsWaitingRedirect(true);
 
 			toast.success(t('common.toast_submit_success') + ` (${countdown}s)`, {
 				id: 'form-submit',
@@ -220,7 +222,7 @@ export default function IndividualResearchForm() {
 								variant='outline'
 								type='button'
 								onClick={backStep}
-								disabled={isSubmitting}
+								disabled={isSubmitting || isWaitingRedirect}
 							>
 								{t('common.button_back')}
 							</Button>
@@ -230,9 +232,9 @@ export default function IndividualResearchForm() {
 							<Button
 								className='w-full md:w-fit'
 								type='submit'
-								disabled={isSubmitting}
+								disabled={isSubmitting || isWaitingRedirect}
 							>
-								{isSubmitting ? (
+								{isSubmitting || isWaitingRedirect ? (
 									<Spinner
 										size='small'
 										color='text-background'
