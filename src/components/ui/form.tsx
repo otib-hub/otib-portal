@@ -15,6 +15,7 @@ import {
 
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
+import { inter } from '@/styles/fonts';
 
 const Form = FormProvider;
 
@@ -98,7 +99,7 @@ function FormLabel({
 			data-slot='form-label'
 			data-error={!!error}
 			className={cn(
-				'data-[error=true]:text-destructive leading-6 space-x-2',
+				`data-[error=true]:text-destructive leading-6 tracking-tight space-x-2 ${inter.className} font-black`,
 				className
 			)}
 			htmlFor={formItemId}
