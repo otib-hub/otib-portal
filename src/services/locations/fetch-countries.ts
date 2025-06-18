@@ -1,44 +1,60 @@
 import { Country } from '@/@types/external-api-responses/locations';
 import { Option } from '@/components/ui/select-with-search';
+import countries_static from '#/json/countries.json';
 
-export async function fetchCountries() {
+export async function fetchCountries(): Promise<Option[]> {
 	try {
-		const response = await fetch(
-			'https://countriesnow.space/api/v0.1/countries/flag/unicode/'
-		);
+		let countriesData: Country[] | [];
 
-		if (!response.ok) {
-			const responseBody = await response.json();
-			throw new Error(`API Error [${response.status}]: ${responseBody.msg}`);
+		// tenta recuperar paises localmente
+		if (
+			Array.isArray(countries_static?.data) &&
+			countries_static.data.length > 0
+		) {
+			countriesData = countries_static.data;
+		} else {
+			// fallback, chama api externa
+			const response = await fetch(
+				'https://countriesnow.space/api/v0.1/countries/flag/unicode'
+			);
+
+			if (!response.ok) {
+				const responseBody = await response.json();
+				throw new Error(`API Error [${response.status}]: ${responseBody.msg}`);
+			}
+
+			const data = await response.json();
+
+			if (!Array.isArray(data.data)) {
+				throw new Error('Invalid API response format');
+			}
+
+			countriesData = data.data;
 		}
 
-		const data = await response.json();
-		if (!data.data) {
-			throw new Error('Invalid API response format');
-		}
-
-		const countries = data.data
-			.map((country: Country) => {
-				return {
-					label: country.name,
-					value: country.name,
-				};
-			})
+		const countries = countriesData
+			.map((country: Country) => ({
+				label: `${country.unicodeFlag ? country.unicodeFlag + ' ' : ''}${
+					country.name
+				}`,
+				value: country.name,
+			}))
 			.sort((a: Option, b: Option) => a.label.localeCompare(b.label));
 
-		// coloca a opção "Brasil" como a primeira do array
-		const indexBRA = countries.findIndex((c: Option) => c.value === 'Brazil');
-		const [braCountry] = countries.splice(indexBRA, 1);
-		countries.unshift(braCountry);
+		// Coloca o Brasil no topo, se existir
+		const indexBRA = countries.findIndex((c) => c.value === 'Brazil');
+		countries[indexBRA].label = '🇧🇷 Brasil';
+
+		if (indexBRA !== -1) {
+			const [braCountry] = countries.splice(indexBRA, 1);
+			countries.unshift(braCountry);
+		}
 
 		return countries;
 	} catch (err: unknown) {
 		if (err instanceof Error) {
-			const errorMsg = `Failed to fetch countries ${err.message}`;
-			throw new Error(errorMsg);
+			throw new Error(`Failed to fetch countries: ${err.message}`);
 		}
-
-		const errorMsg = 'Unknown error getting country options';
-		throw new Error(errorMsg);
+		throw new Error('Unknown error getting country options');
 	}
 }

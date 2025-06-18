@@ -1,5 +1,6 @@
 import { City } from '@/@types/external-api-responses/locations';
 import { Option } from '@/components/ui/select-with-search';
+import cities_ceara_static from '#/json/cities_ceara.json';
 
 export async function fetchCities(countryName: string, stateName: string) {
 	if (!countryName) {
@@ -8,6 +9,26 @@ export async function fetchCities(countryName: string, stateName: string) {
 
 	if (!stateName) {
 		throw new Error('State name is required');
+	}
+
+	// tenta recuperar cidades do ceara localmente
+	if (countryName === 'Brazil' && stateName === 'Ceará') {
+		try {
+			const cities = cities_ceara_static.data
+				.map((city: string) => {
+					return {
+						label: city,
+						value: city,
+					};
+				})
+				.sort((a: Option, b: Option) => a.label.localeCompare(b.label));
+
+			return cities;
+		} catch {}
+	}
+
+	if (stateName === 'Distrito Federal') {
+		stateName = 'Federal District'; // foi traduzido no json local e deve ser enviado original para API
 	}
 
 	try {
