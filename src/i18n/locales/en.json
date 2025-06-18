@@ -88,14 +88,14 @@
         }
     },
     "components": {
-        "ModeToggle": {
-            "toggle": "Toggle theme",
+        "ThemeSwitcher": {
+            "title": "Toggle theme",
             "light": "Light",
             "dark": "Dark",
             "system": "System"
         },
         "LocaleSwitcher": {
-            "toggle": "Change language"
+            "title": "Change language"
         },
         "FormDebugDialog": {
             "trigger_text": "Debug form content",
