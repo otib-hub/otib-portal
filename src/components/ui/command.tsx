@@ -58,10 +58,14 @@ function CommandInput({
 	...props
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
 	const inputRef = React.useRef<HTMLInputElement>(null);
+	const [isMobile, setIsMobile] = React.useState(false);
+	const [inputActive, setInputActive] = React.useState(false);
 
+	// detecta mobile uma vez no mount
 	React.useEffect(() => {
-		if (inputRef.current) {
-			setTimeout(() => inputRef.current?.blur(), 0);
+		if (typeof window !== 'undefined') {
+			const check = /Mobi|Android/i.test(window.navigator.userAgent);
+			setIsMobile(check);
 		}
 	}, []);
 
@@ -69,10 +73,12 @@ function CommandInput({
 		<div
 			data-slot='command-input-wrapper'
 			className='flex h-9 items-center gap-2 border-b px-3 py-5'
+			onClick={() => setInputActive(true)} // desbloqueia readonly ao tocar
 		>
 			<SearchIcon className='size-4 shrink-0 opacity-50' />
 			<CommandPrimitive.Input
 				ref={inputRef}
+				readOnly={isMobile && !inputActive} // bloqueia teclado no mobile até interação
 				data-slot='command-input'
 				className={cn(
 					'placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 outline-hidden disabled:cursor-not-allowed disabled:opacity-50',
