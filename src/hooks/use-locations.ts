@@ -24,9 +24,9 @@ export function useLocations({
 		retry: 2,
 	});
 
-	const countryLabelMap = React.useMemo(() => {
+	const countryValueMap = React.useMemo(() => {
 		const map = new Map<string, string>();
-		countries.forEach(({ value, label }: Option) => map.set(value, label));
+		countries.forEach(({ value }: Option) => map.set(value, value));
 		return map;
 	}, [countries]);
 
@@ -37,8 +37,11 @@ export function useLocations({
 	} = useQuery({
 		queryKey: ['states', selectedCountry],
 		queryFn: () => {
-			if (!selectedCountry) return Promise.resolve([]);
-			const countryLabel = countryLabelMap.get(selectedCountry);
+			if (!selectedCountry) {
+				return Promise.resolve([]);
+			}
+
+			const countryLabel = countryValueMap.get(selectedCountry);
 			return countryLabel ? fetchStates(countryLabel) : Promise.resolve([]);
 		},
 		enabled: !!selectedCountry,
@@ -47,9 +50,9 @@ export function useLocations({
 		retry: 2,
 	});
 
-	const stateLabelMap = React.useMemo(() => {
+	const stateValueMap = React.useMemo(() => {
 		const map = new Map<string, string>();
-		states.forEach(({ value, label }: Option) => map.set(value, label));
+		states.forEach(({ value }: Option) => map.set(value, value));
 		return map;
 	}, [states]);
 
@@ -60,13 +63,15 @@ export function useLocations({
 	} = useQuery({
 		queryKey: ['cities', selectedCountry, selectedState],
 		queryFn: () => {
-			if (!selectedCountry || !selectedState) return Promise.resolve([]);
+			if (!selectedCountry || !selectedState) {
+				return Promise.resolve([]);
+			}
 
-			const countryLabel = countryLabelMap.get(selectedCountry);
-			const stateLabel = stateLabelMap.get(selectedState);
+			const countryValue = countryValueMap.get(selectedCountry);
+			const stateValue = stateValueMap.get(selectedState);
 
-			return countryLabel && stateLabel
-				? fetchCities(countryLabel, stateLabel)
+			return countryValue && stateValue
+				? fetchCities(countryValue, stateValue)
 				: Promise.resolve([]);
 		},
 		enabled: !!selectedCountry && !!selectedState,
