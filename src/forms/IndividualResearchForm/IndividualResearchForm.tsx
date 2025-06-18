@@ -16,9 +16,51 @@ import {
 import { handleSubmitIndividualResearch } from '@/services/handle-submit-individual-research';
 import { TutorialDialog } from './components/TutorialDialog/TutorialDialog';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Spinner } from '@/components/ui/spinner';
 
 const BLOCK_STEP_IF_INVALID = true;
 const DEV_MODE = process.env.NEXT_PUBLIC_ENV === 'development';
+
+// Mock do formulário para ambiente de desenvolvimento
+// const MOCK_FORM_DATA: Partial<IndividualResearchFormType> = {
+// 	// Profile Step
+// 	tourist_age_group: '2', // 25-34 years
+// 	tourist_gender: 'male',
+// 	tourist_education: '5', // Graduação
+// 	tourist_estimated_income: 'mid',
+
+// 	// Planning Step
+// 	planning_was_planned: true,
+// 	planning_time: '2', // 1-3 meses
+// 	planning_information_sources: ['1', '3', '4'], // Internet, Amigos, Redes Sociais
+// 	planning_organization: '1', // Sozinho
+
+// 	// Trip Step
+// 	trip_has_reincidence: true,
+// 	trip_reincidence: '2', // 2-3 vezes
+// 	trip_know_ibiapaba_mirantes: true,
+// 	trip_how_know_ibiapaba_mirantes: ['1', '2'], // Internet, Amigos
+// 	trip_reasons: ['1', '3'], // Turismo, Natureza
+// 	trip_vehicles: ['1'], // Carro próprio
+// 	trip_stay_time: '2', // 2-3 dias
+// 	trip_average_diary_expense: '2', // R$ 100-200
+// 	trip_hosting_types: ['1', '2'], // Hotel, Pousada
+
+// 	// Activities Step
+// 	activities_cities_visited: ['1', '2'], // São Benedito, Ubajara
+// 	activities_attractions_visited: ['1', '2', '3'], // Mirantes, Cachoeiras, Trilhas
+// 	activities_used_apps: ['1', '2'], // Google Maps, Instagram
+
+// 	// Evaluation Step
+// 	evaluation_recommendation_rate: 9,
+// 	evaluation_dissatisfactions: ['1', '2'],
+// 	evaluation_expectation_rate: 8,
+// 	evaluation_satisfaction_rate: 9,
+// 	evaluation_return_intent_rate: 10,
+// 	evaluation_open_opinion:
+// 		'Excelente experiência! Recomendo fortemente a visita.',
+// };
 
 export default function IndividualResearchForm() {
 	const router = useRouter();
@@ -30,7 +72,9 @@ export default function IndividualResearchForm() {
 		resolver: zodResolver(schema),
 		mode: 'onChange',
 		context: { t },
-		defaultValues: {
+		defaultValues: /* DEV_MODE
+			? MOCK_FORM_DATA
+			: */ {
 			...Object.keys(schema.shape).reduce(
 				(acc, key) => ({
 					...acc,
@@ -55,6 +99,8 @@ export default function IndividualResearchForm() {
 		blockStepIfInvalid: BLOCK_STEP_IF_INVALID,
 	});
 
+	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
 	async function onNextStep(e: React.MouseEvent) {
 		e.preventDefault();
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -62,20 +108,44 @@ export default function IndividualResearchForm() {
 	}
 
 	async function handleFormSubmit(formData: IndividualResearchFormType) {
+		setIsSubmitting(true);
+
 		try {
-			await handleSubmitIndividualResearch(formData);
-			toast.success(t('common.toast_submit_success'), { id: 'form-submit' });
-			setTimeout(() => {
-				router.push('/form/thanks');
-			}, 2000);
+			const res = await handleSubmitIndividualResearch(formData);
+			if (!res.success) throw new Error(res.message);
+
+			let countdown = 3;
+
+			toast.success(t('common.toast_submit_success') + ` (${countdown}s)`, {
+				id: 'form-submit',
+			});
+
+			const interval = setInterval(() => {
+				countdown--;
+
+				if (countdown > 0) {
+					toast.success(
+						<div className='flex gap-2 items-center'>
+							{t('common.toast_submit_success') + ` (${countdown}s)`}
+							<Spinner size='small' color='text-primary' />
+						</div>,
+						{ id: 'form-submit' }
+					);
+				} else {
+					clearInterval(interval);
+					toast.dismiss('form-submit');
+					router.push('/form/thanks');
+				}
+			}, 1000);
 		} catch (err) {
 			const errorText =
 				typeof err === 'object' && err !== null && 'message' in err
 					? `${err.message}`
 					: '';
-
 			console.error('Internal error: ' + errorText);
 			toast.error('Internal error: ' + errorText, { id: 'form-submit' });
+		} finally {
+			setIsSubmitting(false);
 		}
 	}
 
@@ -156,8 +226,22 @@ export default function IndividualResearchForm() {
 						)}
 
 						{isLastStep ? (
-							<Button className='w-full md:w-fit' type='submit'>
-								{t('common.button_submit')}
+							<Button
+								className='w-full md:w-fit'
+								type='submit'
+								disabled={isSubmitting}
+							>
+								{isSubmitting ? (
+									<Spinner
+										size='small'
+										color='text-background'
+										className='flex gap-2 items-center animate-pulse'
+									>
+										Enviando respostas, por favor aguarde...
+									</Spinner>
+								) : (
+									t('common.button_submit')
+								)}
 							</Button>
 						) : (
 							<Button
