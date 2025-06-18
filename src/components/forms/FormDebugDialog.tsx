@@ -1,4 +1,4 @@
-import { IndividualResearchFormType } from '@/forms/IndividualResearchForm/schemas/individual-research-form-schema';
+import { IndividualResearchFormType } from '@/components/forms/IndividualResearchForm/schemas/individual-research-form-schema';
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -82,6 +82,7 @@ export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger
+				title={t('trigger_text')}
 				ref={animationRef}
 				className={`${buttonVariants({
 					variant: 'link',

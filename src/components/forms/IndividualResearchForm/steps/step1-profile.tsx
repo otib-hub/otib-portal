@@ -7,7 +7,7 @@ import {
 } from '../schemas/step1-profile-schema';
 import { SelectWithSearch } from '@/components/ui/select-with-search';
 import { useTranslations } from 'next-intl';
-import { useLocations } from '@/hooks/use-locations';
+import { useLocations } from '@/hooks/fetching/use-locations';
 import { Skeleton } from '@/components/ui/skeleton';
 
 export default function ProfileStep() {

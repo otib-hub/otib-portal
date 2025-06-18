@@ -9,7 +9,7 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from '@/components/ui/dialog';
-import useMultiStepModal from '@/hooks/use-multistep-modal';
+import useMultiStepModal from '@/hooks/layout/use-multistep-modal';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { getTutorialDialogSteps } from './steps';
@@ -54,17 +54,26 @@ export function TutorialDialog() {
 
 				<DialogFooter className='flex-col md:flex-row'>
 					{!isFirstStep && (
-						<Button variant='outline' onClick={backStep}>
+						<Button
+							title={t('common.button_back')}
+							variant='outline'
+							onClick={backStep}
+						>
 							{t('common.button_back')}
 						</Button>
 					)}
 
 					{isLastStep ? (
-						<Button onClick={() => setIsOpen(false)}>
+						<Button
+							title={t('common.button_close')}
+							onClick={() => setIsOpen(false)}
+						>
 							{t('common.button_close')}
 						</Button>
 					) : (
-						<Button onClick={nextStep}>{t('common.button_next')}</Button>
+						<Button title={t('common.button_next')} onClick={nextStep}>
+							{t('common.button_next')}
+						</Button>
 					)}
 				</DialogFooter>
 			</DialogContent>
