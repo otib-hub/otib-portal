@@ -18,6 +18,7 @@ export default function ThankYouPage() {
 				<div className='heading flex flex-col gap-6'>
 					<div className='buttons flex items-center justify-start gap-3'>
 						<Button
+							title={t('heading.buttons.start')}
 							className='rounded-full'
 							variant='secondary'
 							onClick={() => router.push('/')}

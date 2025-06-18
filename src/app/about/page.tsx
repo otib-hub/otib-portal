@@ -34,7 +34,7 @@ export default function About() {
 				</BreadcrumbList>
 			</Breadcrumb>
 
-			<div
+			<article
 				id='about-content'
 				className='flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8'
 			>
@@ -136,6 +136,7 @@ export default function About() {
 						</h3>
 						<div className='w-full flex flex-wrap items-center justify-start gap-3'>
 							<Button
+								title={t('content.actions.buttons.home')}
 								className='w-full md:w-fit border-primary/80 border-1'
 								variant='ghost'
 								onClick={() => router.push('/')}
@@ -144,6 +145,7 @@ export default function About() {
 								{t('content.actions.buttons.home')}
 							</Button>
 							<Button
+								title={t('content.actions.buttons.form')}
 								className='w-full md:w-fit border-primary/80 border-1'
 								variant='ghost'
 								onClick={() => router.push('/form?referrer=portal-about')}
@@ -154,7 +156,7 @@ export default function About() {
 						</div>
 					</CardContent>
 				</Card>
-			</div>
+			</article>
 		</>
 	);
 }

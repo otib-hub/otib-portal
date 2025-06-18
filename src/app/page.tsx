@@ -44,6 +44,7 @@ export default function Home() {
 				<div className='w-full heading flex flex-col gap-6 md:max-w-120 lg:max-w-144'>
 					<div className='buttons w-full flex gap-3 overflow-x-auto scrollbar-hide'>
 						<Button
+							title={t('buttons.about')}
 							variant='secondary'
 							className='rounded-full'
 							onClick={() => router.push('/about')}
@@ -52,6 +53,7 @@ export default function Home() {
 						</Button>
 
 						<Button
+							title={t('buttons.form')}
 							variant='secondary'
 							className='rounded-full'
 							onClick={() => router.push('#form-card')}
@@ -60,6 +62,7 @@ export default function Home() {
 						</Button>
 
 						<Button
+							title={t('buttons.first-bulletin')}
 							variant='secondary'
 							className='rounded-full'
 							onClick={() =>
@@ -84,6 +87,7 @@ export default function Home() {
 					<p className='text-base md:text-lg text-secondary-foreground'>
 						{t('heading.description')}{' '}
 						<Button
+							title={t('buttons.about')}
 							variant='link'
 							className='text-base md:text-lg place-self-start p-0'
 							onClick={() => router.push('/about')}
@@ -158,6 +162,7 @@ export default function Home() {
 							{t('sections.form-card.description')}
 						</p>
 						<Button
+							title={t('sections.form-card.button_action')}
 							className='w-full md:w-fit'
 							onClick={() => router.push('/form?referrer=portal-home')}
 						>
