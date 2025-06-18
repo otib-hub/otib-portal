@@ -120,6 +120,7 @@
             "button_next": "Siguiente",
             "button_close": "Cerrar",
             "button_submit": "Enviar",
+            "toast_submitting": "Enviando respuestas, por favor espere",
             "toast_submit_success": "¡Contenido del formulario enviado con éxito! Serás redirigido a la siguiente página en un abrir y cerrar de ojos.",
             "toast_content_invalid": "¡Por favor, rellena correctamente todos los campos del formulario!"
         },

@@ -23,44 +23,44 @@ const BLOCK_STEP_IF_INVALID = true;
 const DEV_MODE = process.env.NEXT_PUBLIC_ENV === 'development';
 
 // Mock do formulário para ambiente de desenvolvimento
-// const MOCK_FORM_DATA: Partial<IndividualResearchFormType> = {
-// 	// Profile Step
-// 	tourist_age_group: '2', // 25-34 years
-// 	tourist_gender: 'male',
-// 	tourist_education: '5', // Graduação
-// 	tourist_estimated_income: 'mid',
+const MOCK_FORM_DATA: Partial<IndividualResearchFormType> = {
+	// Profile Step
+	tourist_age_group: '2', // 25-34 years
+	tourist_gender: 'male',
+	tourist_education: '5', // Graduação
+	tourist_estimated_income: 'mid',
 
-// 	// Planning Step
-// 	planning_was_planned: true,
-// 	planning_time: '2', // 1-3 meses
-// 	planning_information_sources: ['1', '3', '4'], // Internet, Amigos, Redes Sociais
-// 	planning_organization: '1', // Sozinho
+	// Planning Step
+	planning_was_planned: true,
+	planning_time: '2', // 1-3 meses
+	planning_information_sources: ['1', '3', '4'], // Internet, Amigos, Redes Sociais
+	planning_organization: '1', // Sozinho
 
-// 	// Trip Step
-// 	trip_has_reincidence: true,
-// 	trip_reincidence: '2', // 2-3 vezes
-// 	trip_know_ibiapaba_mirantes: true,
-// 	trip_how_know_ibiapaba_mirantes: ['1', '2'], // Internet, Amigos
-// 	trip_reasons: ['1', '3'], // Turismo, Natureza
-// 	trip_vehicles: ['1'], // Carro próprio
-// 	trip_stay_time: '2', // 2-3 dias
-// 	trip_average_diary_expense: '2', // R$ 100-200
-// 	trip_hosting_types: ['1', '2'], // Hotel, Pousada
+	// Trip Step
+	trip_has_reincidence: true,
+	trip_reincidence: '2', // 2-3 vezes
+	trip_know_ibiapaba_mirantes: true,
+	trip_how_know_ibiapaba_mirantes: ['1', '2'], // Internet, Amigos
+	trip_reasons: ['1', '3'], // Turismo, Natureza
+	trip_vehicles: ['1'], // Carro próprio
+	trip_stay_time: '2', // 2-3 dias
+	trip_average_diary_expense: '2', // R$ 100-200
+	trip_hosting_types: ['1', '2'], // Hotel, Pousada
 
-// 	// Activities Step
-// 	activities_cities_visited: ['1', '2'], // São Benedito, Ubajara
-// 	activities_attractions_visited: ['1', '2', '3'], // Mirantes, Cachoeiras, Trilhas
-// 	activities_used_apps: ['1', '2'], // Google Maps, Instagram
+	// Activities Step
+	activities_cities_visited: ['1', '2'], // São Benedito, Ubajara
+	activities_attractions_visited: ['1', '2', '3'], // Mirantes, Cachoeiras, Trilhas
+	activities_used_apps: ['1', '2'], // Google Maps, Instagram
 
-// 	// Evaluation Step
-// 	evaluation_recommendation_rate: 9,
-// 	evaluation_dissatisfactions: ['1', '2'],
-// 	evaluation_expectation_rate: 8,
-// 	evaluation_satisfaction_rate: 9,
-// 	evaluation_return_intent_rate: 10,
-// 	evaluation_open_opinion:
-// 		'Excelente experiência! Recomendo fortemente a visita.',
-// };
+	// Evaluation Step
+	evaluation_recommendation_rate: 9,
+	evaluation_dissatisfactions: ['1', '2'],
+	evaluation_expectation_rate: 8,
+	evaluation_satisfaction_rate: 9,
+	evaluation_return_intent_rate: 10,
+	evaluation_open_opinion:
+		'Excelente experiência! Recomendo fortemente a visita.',
+};
 
 export default function IndividualResearchForm() {
 	const router = useRouter();
@@ -72,17 +72,17 @@ export default function IndividualResearchForm() {
 		resolver: zodResolver(schema),
 		mode: 'onChange',
 		context: { t },
-		defaultValues: /* DEV_MODE
+		defaultValues: DEV_MODE
 			? MOCK_FORM_DATA
-			: */ {
-			...Object.keys(schema.shape).reduce(
-				(acc, key) => ({
-					...acc,
-					[key]: undefined,
-				}),
-				{}
-			),
-		},
+			: {
+					...Object.keys(schema.shape).reduce(
+						(acc, key) => ({
+							...acc,
+							[key]: undefined,
+						}),
+						{}
+					),
+			  },
 	});
 
 	const {
@@ -220,6 +220,7 @@ export default function IndividualResearchForm() {
 								variant='outline'
 								type='button'
 								onClick={backStep}
+								disabled={isSubmitting}
 							>
 								{t('common.button_back')}
 							</Button>
@@ -237,7 +238,7 @@ export default function IndividualResearchForm() {
 										color='text-background'
 										className='flex gap-2 items-center animate-pulse'
 									>
-										Enviando respostas, por favor aguarde...
+										{t('common.toast_submitting')}
 									</Spinner>
 								) : (
 									t('common.button_submit')
