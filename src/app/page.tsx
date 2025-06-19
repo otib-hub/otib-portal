@@ -66,8 +66,9 @@ export default function Home() {
 							variant='secondary'
 							className='rounded-full'
 							onClick={() =>
-								router.push(
-									'https://nupreds.ifce.edu.br/otib-boletins/boletim01-2025.pdf'
+								window.open(
+									'https://nupreds.ifce.edu.br/otib-boletins/boletim01-2025.pdf',
+									'_blank'
 								)
 							}
 						>
