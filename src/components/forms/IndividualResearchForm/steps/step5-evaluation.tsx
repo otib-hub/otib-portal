@@ -5,7 +5,7 @@ import {
 	EvaluationStepType,
 	getEvaluationStepSelectOptions,
 } from '../schemas/step5-evaluation-schema';
-import NpsSlider from '@/components/fragments/NpsSlider';
+import NpsSlider from '@/components/forms/NpsSlider';
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
 import { useTranslations } from 'next-intl';

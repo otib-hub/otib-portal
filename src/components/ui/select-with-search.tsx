@@ -110,6 +110,7 @@ export const SelectWithSearch = ({
 				<Popover open={open} onOpenChange={setOpen}>
 					<PopoverTrigger asChild>
 						<Button
+							title='Select with search'
 							id={id}
 							disabled={disabled}
 							aria-disabled={disabled}
@@ -188,10 +189,11 @@ export const SelectWithSearch = ({
 						>
 							{item.label}
 							<button
+								title={`Remove ${item.label}`}
 								type='button'
 								onClick={() => removeValue(item.value)}
 								className='ml-1 text-muted-foreground hover:text-destructive transition'
-								aria-label={`Remover ${item.label}`}
+								aria-label={`Remove ${item.label}`}
 							>
 								<XIcon size={12} />
 							</button>

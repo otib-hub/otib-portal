@@ -8,36 +8,60 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useTranslations } from 'next-intl';
-import { Languages } from 'lucide-react';
-import { LocaleENUM } from '@/i18n/config';
-import { handleLocaleChange } from '@/services/locale/handle-locale-change';
+import { Check, Globe } from 'lucide-react';
+import { handleLocaleChange } from '@/actions/locale/handle-locale-change';
+import { getUserLocale } from '@/actions/locale/get-user-locale';
+import { useEffect, useState } from 'react';
+import { languages } from '@/i18n/config';
 
 interface LocaleSwitcherProps {
 	showText?: boolean;
 	className?: string;
 }
 
-export function LocaleSwitcher({ showText = false, className }: LocaleSwitcherProps) {
+export function LocaleSwitcher({
+	showText = false,
+	className,
+}: LocaleSwitcherProps) {
 	const t = useTranslations();
+	const [locale, setLocale] = useState<string>();
+
+	useEffect(() => {
+		async function getLocale() {
+			const userLocale = await getUserLocale();
+			setLocale(userLocale);
+		}
+		getLocale();
+	}, []);
 
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant='ghost' size='icon' className={className}>
-					<Languages className='size-5' />
-					{showText  && t('components.LocaleSwitcher.toggle')}
+				<Button
+					title={t('components.LocaleSwitcher.title')}
+					variant='ghost'
+					size='icon'
+					className={className}
+				>
+					<Globe className='size-5' />
+					{showText && t('components.LocaleSwitcher.title')}
 				</Button>
 			</DropdownMenuTrigger>
+
 			<DropdownMenuContent align='end'>
-				<DropdownMenuItem onClick={() => handleLocaleChange(LocaleENUM.ptBR)}>
-					🇧🇷 Português
-				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => handleLocaleChange(LocaleENUM.en)}>
-					🇺🇸 English
-				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => handleLocaleChange(LocaleENUM.es)}>
-					🇪🇸 Español
-				</DropdownMenuItem>
+				{languages.map((lang) => (
+					<DropdownMenuItem
+						key={lang.locale}
+						title={lang.title}
+						onClick={() => handleLocaleChange(lang.locale)}
+						disabled={locale === lang.locale}
+					>
+						{lang.title}
+						{locale === lang.locale && (
+							<Check className='size-4 text-foreground' />
+						)}
+					</DropdownMenuItem>
+				))}
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);

@@ -85,14 +85,14 @@
         }
     },
     "components": {
-        "ModeToggle": {
-            "toggle": "Cambiar tema",
+        "ThemeSwitcher": {
+            "title": "Cambiar tema",
             "light": "Claro",
             "dark": "Oscuro",
             "system": "Sistema"
         },
         "LocaleSwitcher": {
-            "toggle": "Cambiar idioma"
+            "title": "Cambiar idioma"
         },
         "FormDebugDialog": {
             "trigger_text": "Depurar contenido del formulario",

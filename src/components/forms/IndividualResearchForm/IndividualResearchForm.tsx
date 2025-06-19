@@ -4,17 +4,17 @@ import { Button } from '@/components/ui/button';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
-import useMultiStepForm from '@/hooks/use-multistep-form';
+import useMultiStepForm from '@/hooks/layout/use-multistep-form';
 import { getIndividualResearchFormSteps } from './steps';
-import FormStepper from '@/components/fragments/FormStepper';
-import FormDebugDialog from '@/components/layout/FormDebugDialog';
+import FormStepper from '@/components/forms/FormStepper';
+import FormDebugDialog from '@/components/forms/FormDebugDialog';
 import { useTranslations } from 'next-intl';
 import {
 	getIndividualResearchFormSchema,
 	IndividualResearchFormType,
 } from './schemas/individual-research-form-schema';
-import { handleSubmitIndividualResearch } from '@/services/handle-submit-individual-research';
-import { TutorialDialog } from './components/TutorialDialog/TutorialDialog';
+import { handleSubmitIndividualResearch } from '@/actions/handle-submit-individual-research';
+import { TutorialDialog } from './fragments/TutorialDialog/TutorialDialog';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Spinner } from '@/components/ui/spinner';
@@ -181,6 +181,7 @@ export default function IndividualResearchForm() {
 							return (
 								step && (
 									<Button
+										title={`${step.number}. ${step.title}`}
 										className='text-destructive text-start text-base place-self-start'
 										variant={'link'}
 										key={idx}
@@ -218,6 +219,7 @@ export default function IndividualResearchForm() {
 					<div className='flex gap-4 flex-col-reverse md:flex-row md:justify-start'>
 						{!isFirstStep && (
 							<Button
+								title={t('common.button_back')}
 								className='w-full md:w-fit'
 								variant='outline'
 								type='button'
@@ -230,6 +232,11 @@ export default function IndividualResearchForm() {
 
 						{isLastStep ? (
 							<Button
+								title={
+									isSubmitting || isWaitingRedirect
+										? t('common.toast_submitting')
+										: t('common.button_submit')
+								}
 								className='w-full md:w-fit'
 								type='submit'
 								disabled={isSubmitting || isWaitingRedirect}
@@ -248,6 +255,7 @@ export default function IndividualResearchForm() {
 							</Button>
 						) : (
 							<Button
+								title={t('common.button_next')}
 								className='w-full md:w-fit'
 								type='button'
 								onClick={onNextStep}

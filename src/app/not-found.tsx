@@ -24,6 +24,7 @@ export default function NotFound() {
 					</p>
 
 					<Button
+						title={t('button_back')}
 						variant='default'
 						className='w-full md:w-fit'
 						onClick={() => window.history.back()}
