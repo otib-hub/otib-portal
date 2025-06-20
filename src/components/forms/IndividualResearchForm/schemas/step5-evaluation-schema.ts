@@ -22,15 +22,35 @@ import { z } from 'zod';
 // 	'4': 'Decepcionou',
 // } as const;
 
-export function getEvaluationStepSchema() {
+export function getEvaluationStepSchema(t: TFunction<'forms'>) {
 	return z.object({
-		evaluation_recommendation_rate: z.number().min(1).max(10),
+		evaluation_recommendation_rate: z
+			.number({
+				required_error: t('errors.field_required'),
+			})
+			.min(1)
+			.max(10),
 		evaluation_dissatisfactions: z.array(z.string()).optional(),
 
-		evaluation_expectation_rate: z.number().min(1).max(10),
-		evaluation_satisfaction_rate: z.number().min(1).max(10),
+		evaluation_expectation_rate: z
+			.number({
+				required_error: t('errors.field_required'),
+			})
+			.min(1)
+			.max(10),
+		evaluation_satisfaction_rate: z
+			.number({
+				required_error: t('errors.field_required'),
+			})
+			.min(1)
+			.max(10),
 
-		evaluation_return_intent_rate: z.number().min(1).max(10),
+		evaluation_return_intent_rate: z
+			.number({
+				required_error: t('errors.field_required'),
+			})
+			.min(1)
+			.max(10),
 		evaluation_open_opinion: z.string().max(1000).optional(),
 	});
 }

@@ -48,7 +48,7 @@ export function getIndividualResearchFormSteps(
 			number: 5,
 			title: t('IndividualResearchForm.steps.5.title'),
 			step: EvaluationStep,
-			schema: getEvaluationStepSchema(),
+			schema: getEvaluationStepSchema(t),
 			icon: Percent,
 		},
 	];

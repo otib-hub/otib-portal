@@ -12,7 +12,7 @@ export function getIndividualResearchFormSchema(t: TFunction<'forms'>) {
 		...getPlanningStepSchema(t).shape,
 		...getTripStepSchema(t).shape,
 		...getActivitiesStepSchema(t).shape,
-		...getEvaluationStepSchema().shape,
+		...getEvaluationStepSchema(t).shape,
 	});
 }
 
