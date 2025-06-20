@@ -86,8 +86,8 @@ export default function ActivitiesStep() {
 			<div className='FormFieldsContainer w-full grid grid-cols-1 gap-8 items-start justify-start'>
 				<FormItem className='w-full md:w-[50%] space-y-2'>
 					<FormLabel
-						htmlFor='activities_attractions_visited'
-						aria-invalid={!!errors.activities_attractions_visited}
+						htmlFor='activities_used_apps'
+						aria-invalid={!!errors.activities_used_apps}
 					>
 						{t('activities_used_apps.form_label')}
 					</FormLabel>
