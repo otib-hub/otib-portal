@@ -91,9 +91,9 @@ export default function IndividualResearchForm() {
 		isLastStep,
 		isFirstStep,
 		navigateToStep,
-		nextStep,
-		backStep,
-	} = useMultiStepForm<IndividualResearchFormType>({
+		validateAndNextStep,
+		previousStep,
+	} = useMultiStepForm({
 		steps,
 		methods,
 		blockStepIfInvalid: BLOCK_STEP_IF_INVALID,
@@ -104,8 +104,7 @@ export default function IndividualResearchForm() {
 
 	async function onNextStep(e: React.MouseEvent) {
 		e.preventDefault();
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-		nextStep();
+		validateAndNextStep();
 	}
 
 	async function handleFormSubmit(formData: IndividualResearchFormType) {
@@ -223,7 +222,7 @@ export default function IndividualResearchForm() {
 								className='w-full md:w-fit'
 								variant='outline'
 								type='button'
-								onClick={backStep}
+								onClick={previousStep}
 								disabled={isSubmitting || isWaitingRedirect}
 							>
 								{t('common.button_back')}
