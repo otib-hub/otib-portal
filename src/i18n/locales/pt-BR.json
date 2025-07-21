@@ -82,6 +82,12 @@
                     }
                 }
             }
+        },
+        "soon": {
+            "page-title": "OTIB - Recurso em Desenvolvimento",
+            "h1": "Estamos quase lá!",
+            "p": "Esse recurso está em desenvolvimento e será lançado em breve",
+            "button_home": "Voltar à página inicial"
         }
     },
     "components": {

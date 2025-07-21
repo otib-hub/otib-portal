@@ -85,6 +85,12 @@
                     }
                 }
             }
+        },
+        "soon": {
+            "page-title": "OTIB - Feature in Development",
+            "h1": "We're almost there!",
+            "p": "This feature is under development and will be released soon",
+            "button_home": "Go back to homepage"
         }
     },
     "components": {

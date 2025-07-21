@@ -82,6 +82,12 @@
                     }
                 }
             }
+        },
+        "soon": {
+            "page-title": "OTIB - Característica en desarrollo",
+            "h1": "¡Ya casi lo tenemos!",
+            "p": "Esta característica está en desarrollo y se lanzará pronto",
+            "button_home": "Volver a la página de inicio"
         }
     },
     "components": {

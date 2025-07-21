@@ -25,7 +25,7 @@ export default async function Home() {
 						id='home-hero-heading'
 						className='flex flex-col items-center justify-center gap-6 text-center'
 					>
-						<Heading.h1 className='text-4xl md:text-5xl'>
+						<Heading.h1 className='font-medium! text-4xl md:text-5xl'>
 							{`${t('heading.title').split('\n')[0]} `}
 							<span
 								className={`${ibmPlexSerif.className} text-primary font-semibold italic`}
@@ -164,7 +164,7 @@ export default async function Home() {
 									className={`${buttonVariants({
 										variant: 'default',
 									})} w-full md:w-fit mt-3`}
-									href='/tourism-map'
+									href='/soon'
 								>
 									Acessar
 								</Link>
