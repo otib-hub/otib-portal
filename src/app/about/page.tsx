@@ -13,8 +13,16 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Heading } from '@/components/ui/heading';
 import { ibmPlexSans } from '@/styles/fonts';
 import { ClipboardList, Home } from 'lucide-react';
+import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+
+export async function generateMetadata(): Promise<Metadata> {
+	const t = await getTranslations('app.About');
+	return {
+		title: t('page-title'),
+	};
+}
 
 export default async function About() {
 	const t = await getTranslations('app.About');
@@ -146,7 +154,7 @@ export default async function About() {
 								className={`${buttonVariants({
 									variant: 'ghost',
 								})} w-full md:w-fit border-primary/80 border-1`}
-								href='/'
+								href='/researches/tourist-individual?referrer=about-page'
 							>
 								<ClipboardList className='text-primary size-5' />
 								{t('content.actions.buttons.form')}

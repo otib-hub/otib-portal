@@ -11,7 +11,9 @@ import { useLocations } from '@/hooks/fetching/use-locations';
 import { Skeleton } from '@/components/ui/skeleton';
 
 export default function ProfileStep() {
-	const t = useTranslations('forms.IndividualResearchForm.steps.1.fields');
+	const t = useTranslations(
+		'forms.TouristIndividualResearchForm.steps.1.fields'
+	);
 	const profileStepSelectOptions = getProfileStepSelectOptions(t);
 	const {
 		control,

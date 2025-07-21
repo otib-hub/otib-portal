@@ -39,7 +39,7 @@ export function Footer() {
 						Sobre o OTIB
 					</Link>
 					<Link
-						href='/bulletins'
+						href='/soon' // TODO: página de boletins
 						className={cn(
 							buttonVariants({ variant: 'link' }),
 							'text-secondary-foreground/70'
@@ -48,7 +48,7 @@ export function Footer() {
 						Boletins
 					</Link>
 					<Link
-						href='/tourism-map'
+						href='/soon' // TODO: página de mapa do turismo
 						className={cn(
 							buttonVariants({ variant: 'link' }),
 							'text-secondary-foreground/70'
@@ -57,7 +57,7 @@ export function Footer() {
 						Mapa do Turismo da Ibiapaba
 					</Link>
 					<Link
-						href='/partners'
+						href='/soon' // TODO: página de parceiros
 						className={cn(
 							buttonVariants({ variant: 'link' }),
 							'text-secondary-foreground/70'

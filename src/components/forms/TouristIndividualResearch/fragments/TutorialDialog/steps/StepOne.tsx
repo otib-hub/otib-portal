@@ -5,7 +5,7 @@ import { LocaleSwitcher } from '@/components/fragments/LocaleSwitcher';
 
 export function StepOne() {
 	const t = useTranslations(
-		'forms.IndividualResearchForm.TutorialDialog.steps.1'
+		'forms.TouristIndividualResearchForm.TutorialDialog.steps.1'
 	);
 
 	return (

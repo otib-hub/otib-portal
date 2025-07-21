@@ -19,7 +19,7 @@ export function getProfileStepSchema(t: TFunction<'forms'>) {
 }
 
 export function getProfileStepSelectOptions(
-	t: TFunction<'forms.IndividualResearchForm.steps.1.fields'>
+	t: TFunction<'forms.TouristIndividualResearchForm.steps.1.fields'>
 ) {
 	return {
 		personal: {

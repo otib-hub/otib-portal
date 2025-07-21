@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 		}
 
 		const res = await fetch(
-			`${process.env.NEXT_PUBLIC_API_BASE_URL}/pesquisa-completa/`,
+			`${process.env.NEXT_PUBLIC_API_BASE_URL}/pesquisa-completa/`, // TODO: avisar para seguir padrão "/researches/tourist-individual
 			{
 				method: 'POST',
 				headers: {

@@ -15,7 +15,9 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useTranslations } from 'next-intl';
 
 export default function TripStep() {
-	const t = useTranslations('forms.IndividualResearchForm.steps.3.fields');
+	const t = useTranslations(
+		'forms.TouristIndividualResearchForm.steps.3.fields'
+	);
 	const tripStepSelectOptions = getTripStepSelectOptions(t);
 	const {
 		control,

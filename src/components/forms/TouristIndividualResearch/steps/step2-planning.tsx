@@ -15,7 +15,9 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useTranslations } from 'next-intl';
 
 export default function PlanningStep() {
-	const t = useTranslations('forms.IndividualResearchForm.steps.2.fields');
+	const t = useTranslations(
+		'forms.TouristIndividualResearchForm.steps.2.fields'
+	);
 	const planningStepSelectOptions = getPlanningStepSelectOptions(t);
 	const {
 		control,

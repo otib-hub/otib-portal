@@ -1,6 +1,7 @@
 {
     "app": {
         "Home": {
+            "page-title": "OTIB - Página Inicial",
             "heading": {
                 "title": "Conheça. Explore. Transforme o \n Turismo da Ibiapaba.",
                 "description": "Bem-vindo ao canal oficial de inteligência turística da região da Ibiapaba. Aqui você encontra dados, mapas, oportunidades e conexões que fortalecem o turismo regional."
@@ -19,11 +20,13 @@
             }
         },
         "not-found": {
+            "page-title": "OTIB - Página não encontrada",
             "title": "Parece que você pegou um caminho que ainda não está no nosso mapa",
             "description": "A página que você procura pode ter sido removida, renomeada ou nunca existiu. Mas calma, a jornada continua!",
             "button_back": "Voltar à página anterior"
         },
         "form/thanks": {
+            "page-title": "OTIB - Obrigado pela contribuição!",
             "heading": {
                 "buttons": {
                     "start": "Página Inicial"
@@ -82,6 +85,12 @@
                     }
                 }
             }
+        },
+        "soon": {
+            "page-title": "OTIB - Recurso em Desenvolvimento",
+            "h1": "Estamos quase lá!",
+            "p": "Esse recurso está em desenvolvimento e será lançado em breve",
+            "button_home": "Voltar à página inicial"
         }
     },
     "components": {
@@ -130,7 +139,7 @@
             "field_require_custom": "{count, plural, other {Selecione pelo menos # opções}}",
             "fields_invalid_in_respective_steps": "Preencha os campos obrigatórios faltantes nos passos"
         },
-        "IndividualResearchForm": {
+        "TouristIndividualResearchForm": {
             "steps": {
                 "1": {
                     "title": "Você",

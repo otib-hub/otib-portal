@@ -5,16 +5,16 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import useMultiStepForm from '@/hooks/layout/use-multistep-form';
-import { getIndividualResearchFormSteps } from './steps';
+import { getTouristIndividualResearchFormSteps } from './steps';
 import FormStepper from '@/components/forms/FormStepper';
 import FormDebugDialog from '@/components/forms/FormDebugDialog';
 import { useTranslations } from 'next-intl';
 import {
-	getIndividualResearchFormSchema,
-	IndividualResearchFormType,
-} from './schemas/individual-research-form-schema';
-import { handleSubmitIndividualResearch } from '@/actions/handle-submit-individual-research';
-import { TutorialDialog } from './fragments/TutorialDialog/TutorialDialog';
+	getTouristIndividualResearchFormSchema,
+	TouristIndividualResearchFormType,
+} from './schemas/form-schema';
+import { handleSubmitTouristIndividualResearch } from '@/actions/post/handle-submit-tourist-individual-research';
+import { TutorialDialog } from './fragments/TutorialDialog';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Spinner } from '@/components/ui/spinner';
@@ -23,7 +23,7 @@ const BLOCK_STEP_IF_INVALID = true;
 const DEV_MODE = process.env.NEXT_PUBLIC_ENV === 'development';
 
 // Mock do formulário para ambiente de desenvolvimento
-const MOCK_FORM_DATA: Partial<IndividualResearchFormType> = {
+const MOCK_FORM_DATA: Partial<TouristIndividualResearchFormType> = {
 	// Profile Step
 	tourist_age_group: '2', // 25-34 years
 	tourist_gender: 'male',
@@ -62,13 +62,13 @@ const MOCK_FORM_DATA: Partial<IndividualResearchFormType> = {
 		'Excelente experiência! Recomendo fortemente a visita.',
 };
 
-export default function IndividualResearchForm() {
+export default function TouristTouristIndividualResearchForm() {
 	const router = useRouter();
 	const t = useTranslations('forms');
-	const steps = getIndividualResearchFormSteps(t);
-	const schema = getIndividualResearchFormSchema(t);
+	const steps = getTouristIndividualResearchFormSteps(t);
+	const schema = getTouristIndividualResearchFormSchema(t);
 
-	const methods = useForm<IndividualResearchFormType>({
+	const methods = useForm<TouristIndividualResearchFormType>({
 		resolver: zodResolver(schema),
 		mode: 'onChange',
 		context: { t },
@@ -107,11 +107,11 @@ export default function IndividualResearchForm() {
 		validateAndNextStep();
 	}
 
-	async function handleFormSubmit(formData: IndividualResearchFormType) {
+	async function handleFormSubmit(formData: TouristIndividualResearchFormType) {
 		setIsSubmitting(true);
 
 		try {
-			const res = await handleSubmitIndividualResearch(formData);
+			const res = await handleSubmitTouristIndividualResearch(formData);
 			if (!res.success) throw new Error(res.message);
 
 			let countdown = 3;
@@ -135,7 +135,7 @@ export default function IndividualResearchForm() {
 				} else {
 					clearInterval(interval);
 					toast.dismiss('form-submit');
-					router.push('/form/thanks');
+					router.push('/researches/thanks');
 				}
 			}, 1000);
 		} catch (err) {
