@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 import form_animated_preview from '#/images/form-preview.webp';
 import bulletin_highlight from '#/images/bulletin-highlight.webp';
-import tourism_map_highlight from '#/images/tourism-map-highlight.png';
 
 import { ChevronDown } from 'lucide-react';
 import { Footer } from '@/components/layout/Footer';
@@ -143,9 +142,9 @@ export default async function Home() {
 					>
 						<div className='bento-cards-content flex flex-col md:flex-row-reverse gap-4'>
 							<Image
-								src={tourism_map_highlight}
-								width={tourism_map_highlight.width}
-								height={tourism_map_highlight.height}
+								src={bulletin_highlight}
+								width={bulletin_highlight.width}
+								height={bulletin_highlight.height}
 								sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 								quality={75}
 								placeholder='empty'
