@@ -1,7 +1,6 @@
 'use client';
 
 import { ThemeSwitcher } from '@/components/fragments/ThemeSwitcher';
-import { ibmPlexSans } from '@/styles/fonts';
 import Image from 'next/image';
 import otib_logo_dark from '#/otib/logo/logo-icon-neg.svg';
 import otib_logo_light from '#/otib/logo/logo-icon-pos.svg';
@@ -9,6 +8,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { LocaleSwitcher } from '@/components/fragments/LocaleSwitcher';
+import { ibmPlexSans } from '@/styles/fonts';
 
 export default function Header() {
 	const { theme } = useTheme();
@@ -16,13 +16,14 @@ export default function Header() {
 
 	useEffect(() => {
 		setMounted(true);
+		return () => setMounted(false);
 	}, []);
 
 	const otib_current_logo =
 		theme === 'light' ? otib_logo_light : otib_logo_dark;
 
 	return (
-		<header className='py-5 md:py-5 w-full flex flex-col gap-5'>
+		<header className='px-custom w-full py-5 md:py-6 flex flex-col gap-5'>
 			<div className='w-full flex justify-between items-center'>
 				<Link href='/'>
 					<div className='inline-flex gap-2 justify-start items-center hover:opacity-70 cursor-pointer transition-opacity'>
@@ -33,11 +34,11 @@ export default function Header() {
 								alt='OTIB logo'
 							/>
 						)}
-						<h1
-							className={`${ibmPlexSans.className} text-3xl font-semibold lg:text-4xl tracking-tight`}
+						<span
+							className={`${ibmPlexSans.className} font-semibold text-3xl md:text-3xl lg:text-4xl tracking-tight`}
 						>
 							OTIB
-						</h1>
+						</span>
 					</div>
 				</Link>
 
