@@ -11,6 +11,14 @@ import { buttonVariants } from '@/components/ui/button';
 import { Heading } from '@/components/ui/heading';
 import { ibmPlexSerif } from '@/styles/fonts';
 import { getTranslations } from 'next-intl/server';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+	const t = await getTranslations('app.Home');
+	return {
+		title: t('page-title'),
+	};
+}
 
 export default async function Home() {
 	const t = await getTranslations('app.Home');
@@ -89,7 +97,7 @@ export default async function Home() {
 									className={`${buttonVariants({
 										variant: 'default',
 									})} w-full md:w-fit mt-3`}
-									href={'/form?referrer=portal-home'}
+									href={'/researches/tourist-individual?referrer=portal-home'}
 								>
 									{t('sections.form-card.button_action')}
 								</Link>

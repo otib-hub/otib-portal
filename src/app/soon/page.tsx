@@ -1,8 +1,16 @@
 import { buttonVariants } from '@/components/ui/button';
 import { Heading } from '@/components/ui/heading';
 import { CogIcon, HomeIcon } from 'lucide-react';
+import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+
+export async function generateMetadata(): Promise<Metadata> {
+	const t = await getTranslations('app.soon');
+	return {
+		title: t('page-title'),
+	};
+}
 
 export default async function UnderConstruction() {
 	const t = await getTranslations('app.soon');

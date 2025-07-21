@@ -9,7 +9,9 @@ import { Separator } from '@/components/ui/separator';
 import { useTranslations } from 'next-intl';
 
 export default function ActivitiesStep() {
-	const t = useTranslations('forms.IndividualResearchForm.steps.4.fields');
+	const t = useTranslations(
+		'forms.TouristIndividualResearchForm.steps.4.fields'
+	);
 	const activitiesStepSelectOptions = getActivitiesStepSelectOptions(t);
 	const {
 		control,

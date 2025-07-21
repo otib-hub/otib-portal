@@ -20,13 +20,13 @@
             }
         },
         "not-found": {
-            "page-title": "OTIB - Not Found",
+            "page-title": "OTIB - Page not found",
             "title": "It looks like you took a path that's not on our map yet",
             "description": "The page you're looking for might have been removed, renamed, or never existed. But don't worry, the journey goes on!",
             "button_back": "Go back to the previous page"
         },
         "form/thanks": {
-            "page-title": "OTIB - Thank you",
+            "page-title": "OTIB - Thanks for your contribution",
             "heading": {
                 "buttons": {
                     "start": "Home"
@@ -139,7 +139,7 @@
             "field_require_custom": "{count, plural, other {Select at least # options}}",
             "fields_invalid_in_respective_steps": "Fill in the missing mandatory fields in the steps"
         },
-        "IndividualResearchForm": {
+        "TouristIndividualResearchForm": {
             "steps": {
                 "1": {
                     "title": "You",

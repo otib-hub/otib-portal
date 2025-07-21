@@ -1,11 +1,12 @@
-import { IndividualResearchFormType } from '@/components/forms/IndividualResearchForm/schemas/individual-research-form-schema';
+import { TouristIndividualResearchFormType } from '@/components/forms/TouristIndividualResearch/schemas/form-schema';
 import { formatErrors } from '@/utils/format-errors';
 
-type Payload = Partial<IndividualResearchFormType>;
+type Payload = Partial<TouristIndividualResearchFormType>;
 
-export async function handleSubmitIndividualResearch(values: Payload) {
+export async function handleSubmitTouristIndividualResearch(values: Payload) {
 	const endpoint =
-		process.env.NEXT_PUBLIC_APP_BASE_PATH + '/api/individual-research';
+		process.env.NEXT_PUBLIC_APP_BASE_PATH +
+		'/api/researches/tourist-individual';
 
 	try {
 		const response = await fetch(endpoint, {

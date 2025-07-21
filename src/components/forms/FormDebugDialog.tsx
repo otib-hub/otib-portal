@@ -1,4 +1,4 @@
-import { IndividualResearchFormType } from '@/components/forms/IndividualResearchForm/schemas/individual-research-form-schema';
+import { TouristIndividualResearchFormType } from '@/components/forms/TouristIndividualResearch/schemas/form-schema';
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -15,10 +15,10 @@ import { useTranslations } from 'next-intl';
 import { ibmPlexMono } from '@/styles/fonts';
 
 interface FormDebugDialogProps {
-	data: IndividualResearchFormType;
+	data: TouristIndividualResearchFormType;
 }
 
-function formatDataToBeautifulPre(data: IndividualResearchFormType) {
+function formatDataToBeautifulPre(data: TouristIndividualResearchFormType) {
 	return Object.entries(data).map(([key, value]) => (
 		<span key={key} className={`${ibmPlexMono.className}`}>
 			<span className='text-foreground'>&#9;&#9;{key}</span>
@@ -61,7 +61,7 @@ function formatDataToBeautifulPre(data: IndividualResearchFormType) {
 export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 	const t = useTranslations('components.FormDebugDialog');
 
-	function useAnimateOnDataChange(data: IndividualResearchFormType) {
+	function useAnimateOnDataChange(data: TouristIndividualResearchFormType) {
 		const ref = useRef<HTMLButtonElement | null>(null);
 
 		useEffect(() => {

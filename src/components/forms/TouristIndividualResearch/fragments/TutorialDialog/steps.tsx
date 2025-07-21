@@ -6,9 +6,10 @@ export function getTutorialDialogSteps(
 	t: TFunction<'forms'>
 ): Array<ModalStep> {
 	return [
-	{
-		number: 1,
-		title: t('IndividualResearchForm.TutorialDialog.steps.1.title'),
-		step: <StepOne />
-	},
-]}
+		{
+			number: 1,
+			title: t('TouristIndividualResearchForm.TutorialDialog.steps.1.title'),
+			step: <StepOne />,
+		},
+	];
+}

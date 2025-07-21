@@ -6,7 +6,7 @@ import { getEvaluationStepSchema } from './step5-evaluation-schema';
 import { TFunction } from '@/@types/next-intl';
 import { getPlanningStepSchema } from './step2-planning-schema';
 
-export function getIndividualResearchFormSchema(t: TFunction<'forms'>) {
+export function getTouristIndividualResearchFormSchema(t: TFunction<'forms'>) {
 	return z.object({
 		...getProfileStepSchema(t).shape,
 		...getPlanningStepSchema(t).shape,
@@ -16,6 +16,6 @@ export function getIndividualResearchFormSchema(t: TFunction<'forms'>) {
 	});
 }
 
-export type IndividualResearchFormType = z.infer<
-	ReturnType<typeof getIndividualResearchFormSchema>
+export type TouristIndividualResearchFormType = z.infer<
+	ReturnType<typeof getTouristIndividualResearchFormSchema>
 >;
