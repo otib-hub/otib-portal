@@ -1,5 +1,4 @@
-'use client';
-
+import { Footer } from '@/components/layout/Footer';
 import { Badge } from '@/components/ui/badge';
 import {
 	Breadcrumb,
@@ -9,20 +8,21 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Heading } from '@/components/ui/heading';
 import { ibmPlexSans } from '@/styles/fonts';
 import { ClipboardList, Home } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 
-export default function About() {
-	const t = useTranslations('app.About');
-	const router = useRouter();
+export default async function About() {
+	const t = await getTranslations('app.About');
 
+	// TODO: GenericHtml component para conteúdo informativo estático
 	return (
 		<>
-			<Breadcrumb className='mt-3'>
+			<Breadcrumb className='px-custom py-3 border-y-2 border-muted dark:border-muted/70'>
 				<BreadcrumbList>
 					<BreadcrumbItem>
 						<BreadcrumbLink href='/otib'>{t('breadcrumb.1')}</BreadcrumbLink>
@@ -36,14 +36,10 @@ export default function About() {
 
 			<article
 				id='about-content'
-				className='flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8'
+				className='px-custom flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8'
 			>
 				<section id='about-heading' className='flex flex-col gap-8 md:gap-6'>
-					<h1
-						className={`${ibmPlexSans.className} font-semibold text-3xl md:text-4xl`}
-					>
-						{t('content.section.heading.h1')}
-					</h1>
+					<Heading.h1>{t('content.section.heading.h1')}</Heading.h1>
 
 					<p className='text-secondary-foreground'>
 						{t('content.section.heading.p').split('\n')[0]}
@@ -135,28 +131,32 @@ export default function About() {
 							{t('content.actions.h3')}
 						</h3>
 						<div className='w-full flex flex-wrap items-center justify-start gap-3'>
-							<Button
+							<Link
 								title={t('content.actions.buttons.home')}
-								className='w-full md:w-fit border-primary/80 border-1'
-								variant='ghost'
-								onClick={() => router.push('/')}
+								className={`${buttonVariants({
+									variant: 'ghost',
+								})} w-full md:w-fit border-primary/80 border-1`}
+								href='/'
 							>
 								<Home className='text-primary size-5' />
 								{t('content.actions.buttons.home')}
-							</Button>
-							<Button
+							</Link>
+							<Link
 								title={t('content.actions.buttons.form')}
-								className='w-full md:w-fit border-primary/80 border-1'
-								variant='ghost'
-								onClick={() => router.push('/form?referrer=portal-about')}
+								className={`${buttonVariants({
+									variant: 'ghost',
+								})} w-full md:w-fit border-primary/80 border-1`}
+								href='/'
 							>
 								<ClipboardList className='text-primary size-5' />
 								{t('content.actions.buttons.form')}
-							</Button>
+							</Link>
 						</div>
 					</CardContent>
 				</Card>
 			</article>
+
+			<Footer />
 		</>
 	);
 }

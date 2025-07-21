@@ -2,7 +2,7 @@ import IndividualResearchForm from '@/components/forms/IndividualResearchForm/In
 
 export default function FormPage() {
 	return (
-		<main className='flex flex-col items-start pb-8'>
+		<main className='px-custom flex flex-col items-start pb-8'>
 			<IndividualResearchForm />
 		</main>
 	);

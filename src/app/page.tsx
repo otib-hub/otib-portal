@@ -1,183 +1,181 @@
-'use client';
-
 import { LocaleInitializer } from '@/components/layout/LocaleInitializer';
-import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
-import { ibmPlexSans } from '@/styles/fonts';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-} from '@/components/ui/carousel';
+import form_animated_preview from '#/images/form-preview.webp';
+import bulletin_highlight from '#/images/bulletin-highlight.webp';
+import tourism_map_highlight from '#/images/tourism-map-highlight.png';
 
-import form_preview_image from '#/images/form-preview.png';
-import highlights_1 from '#/images/highlights_1.png';
-import highlights_2 from '#/images/highlights_2.png';
-import highlights_3 from '#/images/highlights_3.png';
-import highlights_4 from '#/images/highlights_4.png';
-import highlights_5 from '#/images/highlights_5.png';
-import highlights_6 from '#/images/highlights_6.png';
-import highlights_7 from '#/images/highlights_7.png';
-import { useTranslations } from 'next-intl';
+import { ChevronDown } from 'lucide-react';
+import { Footer } from '@/components/layout/Footer';
+import Link from 'next/link';
+import { buttonVariants } from '@/components/ui/button';
+import { Heading } from '@/components/ui/heading';
+import { ibmPlexSerif } from '@/styles/fonts';
+import { getTranslations } from 'next-intl/server';
 
-const images_top = [highlights_1, highlights_2, highlights_3, highlights_4];
-const images_bottom = [highlights_5, highlights_6, highlights_7];
-
-export default function Home() {
-	const router = useRouter();
-	const t = useTranslations('app.Home');
+export default async function Home() {
+	const t = await getTranslations('app.Home');
 
 	return (
-		<main className='w-full flex flex-col items-start py-6 gap-8 md:py-8 md:gap-12 mb-10 md:mb-6'>
-			<LocaleInitializer />
+		<>
+			<main className='px-custom w-full flex flex-col items-start py-6 gap-8 md:py-8 md:gap-12 mb-10 md:mb-6'>
+				<LocaleInitializer />
 
-			<div className='hero w-full flex flex-col-reverse md:flex-row items-center justify-start gap-6 md:gap-16'>
-				<div className='w-full heading flex flex-col gap-6 md:max-w-120 lg:max-w-144'>
-					<div className='buttons w-full flex gap-3 overflow-x-auto scrollbar-hide'>
-						<Button
+				<section id='home-hero' className='w-full py-22 md:py-32'>
+					<div
+						id='home-hero-heading'
+						className='flex flex-col items-center justify-center gap-6 text-center'
+					>
+						<Heading.h1 className='text-4xl md:text-5xl'>
+							{`${t('heading.title').split('\n')[0]} `}
+							<span
+								className={`${ibmPlexSerif.className} text-primary font-semibold italic`}
+							>
+								{t('heading.title').split('\n')[1]}
+							</span>
+						</Heading.h1>
+
+						<p className='text-base md:text-lg lg:max-w-[72%] text-secondary-foreground'>
+							{t('heading.description')}
+						</p>
+
+						<Link
 							title={t('buttons.about')}
-							variant='secondary'
-							className='rounded-full'
-							onClick={() => router.push('/about')}
+							className={`${buttonVariants({
+								variant: 'link',
+							})} text-base md:text-lg`}
+							href='/about'
 						>
 							{t('buttons.about')}
-						</Button>
+						</Link>
+					</div>
+				</section>
 
-						<Button
-							title={t('buttons.form')}
-							variant='secondary'
-							className='rounded-full'
-							onClick={() => router.push('#form-card')}
-						>
-							{t('buttons.form')}
-						</Button>
+				<ChevronDown className='text-muted-foreground size-8 lg:size-10 place-self-center animate-bounce' />
 
-						<Button
-							title={t('buttons.first-bulletin')}
-							variant='secondary'
-							className='rounded-full'
-							onClick={() =>
-								window.open(
-									'https://nupreds.ifce.edu.br/otib-boletins/boletim01-2025.pdf',
-									'_blank'
-								)
-							}
-						>
-							{t('buttons.first-bulletin')}
-						</Button>
+				<section
+					id='home-bento-cards'
+					className='w-full grid grid-cols-1 grid-rows-3 md:grid-cols-2 md:grid-rows-2 gap-8 md:gap-8'
+				>
+					<div
+						id='home-bento-cards-1'
+						className='bg-card outline-2 outline-muted rounded-xl shadow-lg p-8 flex flex-row justify-center row-start-1 md:row-span-2'
+					>
+						<div className='bento-cards-content grid grid-cols-1 gap-6 items-start'>
+							<Image
+								loading='lazy'
+								id='home-bento-cards-1-image'
+								className='rounded-xl w-full h-full object-cover'
+								src={form_animated_preview}
+								width={form_animated_preview.width}
+								height={form_animated_preview.height}
+								unoptimized
+								sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+								quality={75}
+								placeholder='empty'
+								alt='Preview of OTIB form'
+							/>
+
+							<div className='bento-cards-heading flex flex-col gap-3'>
+								<h2 className='text-2xl font-semibold mb-2'>
+									{t('sections.form-card.title')}
+								</h2>
+
+								<p className='text-base md:text-lg text-muted-foreground'>
+									{t('sections.form-card.description')}
+								</p>
+
+								<Link
+									title={t('sections.form-card.button_action')}
+									className={`${buttonVariants({
+										variant: 'default',
+									})} w-full md:w-fit mt-3`}
+									href={'/form?referrer=portal-home'}
+								>
+									{t('sections.form-card.button_action')}
+								</Link>
+							</div>
+						</div>
 					</div>
 
-					<h1
-						className={`${ibmPlexSans.className} font-semibold text-3xl md:text-4xl`}
+					<div
+						id='home-bento-cards-2'
+						className='bg-card outline-2 outline-muted rounded-xl shadow-lg p-8 flex flex-row justify-center'
 					>
-						{`${t('heading.title').split('\n')[0]} `}
-						<span className='text-primary'>
-							{t('heading.title').split('\n')[1]}
-						</span>
-					</h1>
+						<div className='bento-cards-content flex flex-col md:flex-row-reverse gap-4'>
+							<Image
+								src={bulletin_highlight}
+								width={bulletin_highlight.width}
+								height={bulletin_highlight.height}
+								sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+								quality={75}
+								placeholder='empty'
+								alt='Bulletin image highlight'
+								className='rounded-xl size-full max-h-64 place-self-center object-cover md:hidden lg:block'
+							></Image>
 
-					<p className='text-base md:text-lg text-secondary-foreground'>
-						{t('heading.description')}{' '}
-						<Button
-							title={t('buttons.about')}
-							variant='link'
-							className='text-base md:text-lg place-self-start p-0'
-							onClick={() => router.push('/about')}
-						>
-							{t('buttons.about')}
-						</Button>
-					</p>
-				</div>
+							<div className='bento-cards-heading flex flex-col gap-4'>
+								<h2 className='text-2xl font-semibold mb-2'>
+									Acesse nossos boletins informativos
+								</h2>
+								<p className='text-base md:text-lg text-muted-foreground'>
+									Confira nosso primeiro boletim, que contém dados preliminares
+									sobre o Turismo da Ibiapaba
+								</p>
 
-				<div className='w-full flex flex-col gap-4'>
-					{/* Top Carousel */}
-					<Carousel
-						opts={{
-							align: 'start',
-							dragFree: true,
-						}}
-						className='w-full'
+								<Link
+									title={t('sections.form-card.button_action')}
+									className={`${buttonVariants({
+										variant: 'default',
+									})} w-full md:w-fit mt-3`}
+									href='https://nupreds.ifce.edu.br/otib-boletins/boletim01-2025.pdf'
+									target='_blank'
+								>
+									Acessar
+								</Link>
+							</div>
+						</div>
+					</div>
+
+					<div
+						id='home-bento-cards-3'
+						className='bg-card outline-2 outline-muted rounded-xl shadow-lg p-8 flex flex-row justify-center'
 					>
-						<CarouselContent>
-							{images_top.map((img, index) => (
-								<CarouselItem key={index} className='basis-auto'>
-									<Image
-										src={img}
-										alt={`Ibiapaba highlight number ${index}`}
-										draggable={false}
-										className='shadow-2xl shadow-black rounded-xl h-auto max-h-40 w-60 object-cover'
-									/>
-								</CarouselItem>
-							))}
-						</CarouselContent>
-					</Carousel>
+						<div className='bento-cards-content flex flex-col md:flex-row-reverse gap-4'>
+							<Image
+								src={tourism_map_highlight}
+								width={tourism_map_highlight.width}
+								height={tourism_map_highlight.height}
+								sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+								quality={75}
+								placeholder='empty'
+								alt='Tourism map image highlight'
+								className='rounded-xl size-full max-h-64 place-self-center object-cover md:hidden lg:block'
+							></Image>
 
-					{/* Bottom Carousel */}
-					<Carousel
-						opts={{
-							align: 'start',
-							dragFree: true,
-						}}
-						className='w-full'
-					>
-						<CarouselContent>
-							{images_bottom.map((img, index) => (
-								<CarouselItem key={index} className='basis-auto'>
-									<Image
-										src={img}
-										alt={`Ibiapaba highlight number ${index + 6}`}
-										draggable={false}
-										className='shadow-2xl shadow-black rounded-xl max-h-40 w-72 object-cover'
-									/>
-								</CarouselItem>
-							))}
-						</CarouselContent>
-					</Carousel>
-				</div>
-			</div>
+							<div className='bento-cards-heading flex flex-col gap-4'>
+								<h2 className='text-2xl font-semibold mb-2'>Mapa do Turismo</h2>
+								<p className='text-base md:text-lg text-muted-foreground'>
+									Explore um pouco do que a Ibiapaba pode oferecer nos 9
+									municípios
+								</p>
 
-			<Card
-				id='form-card'
-				className='w-full flex flex-col-reverse p-6 md:flex-row md:justify-between items-center justify-start'
-			>
-				<CardContent className='space-y-5 px-0 flex flex-col items-start justify-center'>
-					<CardHeader className='w-full flex flex-col md:flex-row px-0'>
-						<CardTitle>
-							<h2 className='text-2xl font-semibold'>
-								{t('sections.form-card.title')}
-							</h2>
-						</CardTitle>
-					</CardHeader>
+								<Link
+									title={t('sections.form-card.button_action')}
+									className={`${buttonVariants({
+										variant: 'default',
+									})} w-full md:w-fit mt-3`}
+									href='/tourism-map'
+								>
+									Acessar
+								</Link>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
 
-					<CardDescription className='space-y-6'>
-						<p className='text-base text-muted-foreground'>
-							{t('sections.form-card.description')}
-						</p>
-						<Button
-							title={t('sections.form-card.button_action')}
-							className='w-full md:w-fit'
-							onClick={() => router.push('/form?referrer=portal-home')}
-						>
-							{t('sections.form-card.button_action')}
-						</Button>
-					</CardDescription>
-				</CardContent>
-
-				<Image
-					className='rounded-xl w-full max-w-xs'
-					src={form_preview_image}
-					alt='Preview of OTIB form'
-				/>
-			</Card>
-		</main>
+			<Footer />
+		</>
 	);
 }
