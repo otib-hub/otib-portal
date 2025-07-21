@@ -11,7 +11,13 @@ export function getActivitiesStepSchema(t: TFunction<'forms'>) {
 			.min(1, {
 				message: t('errors.field_require_at_least_one'),
 			}),
-		activities_attractions_visited: z.array(z.string()).optional(),
+		activities_attractions_visited: z
+			.array(z.string(), {
+				required_error: t('errors.field_require_at_least_one'),
+			})
+			.min(1, {
+				message: t('errors.field_require_at_least_one'),
+			}),
 		activities_used_apps: z.array(z.string()).optional(),
 	});
 }
