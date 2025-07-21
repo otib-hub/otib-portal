@@ -1,36 +1,13 @@
-'use client';
-
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '../ui/button';
-import otib_logo_dark from '#/otib/logo/logo-icon-neg.svg';
-import otib_logo_light from '#/otib/logo/logo-icon-pos.svg';
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { OtibLogo } from './OtibLogo';
 
 export function Footer() {
-	const { theme } = useTheme();
-	const [mounted, setMounted] = useState(false);
-
-	const otib_current_logo =
-		theme === 'light' ? otib_logo_light : otib_logo_dark;
-
-	useEffect(() => {
-		setMounted(true);
-		return () => setMounted(false);
-	}, []);
-
 	return (
-		<footer className='mt-20 bg-card text-sm p-10 flex flex-col justify-center items-center gap-6'>
-			<div className='flex flex-col justify-center items-center gap-4 self-stretch'>
-				{mounted && (
-					<Image
-						src={otib_current_logo}
-						className='h-12 w-fit'
-						alt='OTIB logo'
-					/>
-				)}
+		<footer className='mt-20 bg-card text-base p-10 flex flex-col justify-center items-center gap-8'>
+			<div className='flex flex-col justify-center items-center gap-6 md:max-w-164'>
+				<OtibLogo variant='horizontal' className='h-10' />
 
 				<span>
 					Observatório de Turismo da Ibiapaba (OTIB): um projeto do IFCE Campus
