@@ -1,0 +1,1 @@
+export const fetchSpy = vi.spyOn(global, 'fetch');

@@ -5,38 +5,38 @@ import { z } from 'zod';
 export function getTripStepSchema(t: TFunction<'forms'>) {
 	return z.object({
 		trip_has_reincidence: z.boolean({
-			required_error: t('errors.field_required'),
+			message: t('errors.field_required'),
 		}),
 		trip_reincidence: z.string().optional(),
 		trip_know_ibiapaba_mirantes: z.boolean({
-			required_error: t('errors.field_required'),
+			message: t('errors.field_required'),
 		}),
 		trip_how_know_ibiapaba_mirantes: z
 			.array(z.string(), {
-				required_error: t('errors.field_require_at_least_one'),
+				message: t('errors.field_require_at_least_one'),
 			})
 			.optional(),
 
 		trip_reasons: z
 			.array(z.string(), {
-				required_error: t('errors.field_require_at_least_one'),
+				message: t('errors.field_require_at_least_one'),
 			})
 			.min(1, { message: t('errors.field_require_at_least_one') }),
 		trip_vehicles: z
 			.array(z.string(), {
-				required_error: t('errors.field_require_at_least_one'),
+				message: t('errors.field_require_at_least_one'),
 			})
 			.min(1, { message: t('errors.field_require_at_least_one') }),
 		trip_stay_time: z.string({
-			required_error: t('errors.field_required'),
+			message: t('errors.field_required'),
 		}),
 
 		trip_average_diary_expense: z.string({
-			required_error: t('errors.field_required'),
+			message: t('errors.field_required'),
 		}),
 		trip_hosting_types: z
 			.array(z.string(), {
-				required_error: t('errors.field_require_at_least_one'),
+				message: t('errors.field_require_at_least_one'),
 			})
 			.min(1, { message: t('errors.field_require_at_least_one') }),
 	});

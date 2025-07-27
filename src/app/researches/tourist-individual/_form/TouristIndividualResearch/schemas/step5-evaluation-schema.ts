@@ -26,7 +26,7 @@ export function getEvaluationStepSchema(t: TFunction<'forms'>) {
 	return z.object({
 		evaluation_recommendation_rate: z
 			.number({
-				required_error: t('errors.field_required'),
+				message: t('errors.field_required'),
 			})
 			.min(1)
 			.max(10),
@@ -34,20 +34,20 @@ export function getEvaluationStepSchema(t: TFunction<'forms'>) {
 
 		evaluation_expectation_rate: z
 			.number({
-				required_error: t('errors.field_required'),
+				message: t('errors.field_required'),
 			})
 			.min(1)
 			.max(10),
 		evaluation_satisfaction_rate: z
 			.number({
-				required_error: t('errors.field_required'),
+				message: t('errors.field_required'),
 			})
 			.min(1)
 			.max(10),
 
 		evaluation_return_intent_rate: z
 			.number({
-				required_error: t('errors.field_required'),
+				message: t('errors.field_required'),
 			})
 			.min(1)
 			.max(10),
