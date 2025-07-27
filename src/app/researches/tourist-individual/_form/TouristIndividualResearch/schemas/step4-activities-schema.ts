@@ -6,14 +6,14 @@ export function getActivitiesStepSchema(t: TFunction<'forms'>) {
 	return z.object({
 		activities_cities_visited: z
 			.array(z.string(), {
-				required_error: t('errors.field_require_at_least_one'),
+				message: t('errors.field_require_at_least_one'),
 			})
 			.min(1, {
 				message: t('errors.field_require_at_least_one'),
 			}),
 		activities_attractions_visited: z
 			.array(z.string(), {
-				required_error: t('errors.field_require_at_least_one'),
+				message: t('errors.field_require_at_least_one'),
 			})
 			.min(1, {
 				message: t('errors.field_require_at_least_one'),

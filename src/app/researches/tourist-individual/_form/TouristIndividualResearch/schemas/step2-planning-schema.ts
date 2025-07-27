@@ -5,12 +5,12 @@ import { z } from 'zod';
 export function getPlanningStepSchema(t: TFunction<'forms'>) {
 	return z.object({
 		planning_was_planned: z.boolean({
-			required_error: t('errors.field_required'),
+			message: t('errors.field_required'),
 		}),
 		planning_time: z.string().optional(),
 		planning_information_sources: z.array(z.string()).optional(),
 		planning_organization: z.string({
-			required_error: t('errors.field_required'),
+			message: t('errors.field_required'),
 		}),
 	});
 }
