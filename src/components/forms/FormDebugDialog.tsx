@@ -1,4 +1,4 @@
-import { TouristIndividualResearchFormType } from '@/components/forms/TouristIndividualResearch/schemas/form-schema';
+import { TouristIndividualResearchFormType } from '@/app/researches/tourist-individual/_form/TouristIndividualResearch/schemas/form-schema';
 import {
 	AlertDialog,
 	AlertDialogAction,
