@@ -33,19 +33,21 @@ export async function fetchCountries(): Promise<Option[]> {
 		}
 
 		const countries = countriesData
-			.map((country: Country) => ({
-				label: `${country.unicodeFlag ? country.unicodeFlag + ' ' : ''}${
-					country.name
-				}`,
-				value: country.name,
-			}))
-			.sort((a: Option, b: Option) => a.label.localeCompare(b.label));
+			.map((country: Country) => {
+				const countryFlag = country.unicodeFlag || '🇦🇦';
 
-		// Coloca o Brasil no topo, se existir
+				return {
+					label: `${countryFlag} ${country.name}`,
+					value: country.name,
+				};
+			})
+			.sort((a: Option, b: Option) => a.value.localeCompare(b.value));
+
+		// coloca o Brasil no topo, se existir
 		const indexBRA = countries.findIndex((c) => c.value === 'Brazil');
-		countries[indexBRA].label = '🇧🇷 Brasil';
 
 		if (indexBRA !== -1) {
+			countries[indexBRA].label = '🇧🇷 Brasil';
 			const [braCountry] = countries.splice(indexBRA, 1);
 			countries.unshift(braCountry);
 		}
