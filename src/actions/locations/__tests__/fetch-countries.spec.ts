@@ -1,4 +1,4 @@
-import { fetchSpy } from '@/tests/utils';
+import { fetchSpy } from '@/tests/global.mock';
 import { COUNTRIES_DEFAULT, COUNTRIES_FORMATTED, DATA_EMPTY } from './mocks';
 
 describe('fetchCountries() unit tests', () => {
