@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portal do Observatório de Turismo da Ibiapaba (OTIB)
 
-## Getting Started
+<div>
+  <img src='https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white' alt='TypeScript'>
+  <img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=nextdotjs" alt="Next.js">
+  <img src="https://img.shields.io/badge/React-black?style=for-the-badge&logo=react" alt="React">
+  <img src='https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white' alt='Node.js'>
+  <img src='https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white' alt='Tailwind'>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+  <img src="https://sonarcloud.io/images/project_badges/sonarcloud-dark.svg" height="30px" alt="SonarQube">
+  
+</div>
 
-First, run the development server:
+## 🌟 Sobre o Projeto
 
+O Portal do Observatório de Turismo da Ibiapaba (OTIB) é uma aplicação web moderna desenvolvida para promover e centralizar informações sobre o turismo na região da Ibiapaba, Ceará. O projeto tem como objetivo fornecer dados, notícias, análises e insights sobre o setor turístico local, apoiando o desenvolvimento sustentável do turismo na região.
+
+## 🎯 Objetivos
+
+- **Centralizar informações** turísticas da região da Ibiapaba
+- **Obter** dados com pesquisas e tecnologias diversas
+- **Facilitar o acesso** a dados e estatísticas do setor turístico
+- **Promover o turismo inteligente** na região
+- **Conectar** turistas, empreendedores e gestores públicos
+- **Apoiar a tomada de decisões** baseada em dados
+
+## 📋 Pré-requisitos
+
+Antes de começar, certifique-se de ter instalado:
+
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/) ou [bun](https://bun.sh/)
+
+## 🚀 Instalação e Execução
+
+### 1. Clone o repositório
+```bash
+git clone https://github.com/otib-hub/otib-portal.git
+cd otib-portal
+```
+
+### 2. Instale as dependências
+```bash
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+# ou
+bun install
+```
+
+### 3. Execute o servidor de desenvolvimento
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Acesse a aplicação
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🤝 Contribuindo
 
-## Learn More
+Contribuições são sempre bem-vindas! 
+Usamos o workflow GitFlow e Conventional Commits para organizar nosso repositório. 
+Para contribuir:
 
-To learn more about Next.js, take a look at the following resources:
+1. Faça um Fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request para revisarmos e possivelmente incluirmos no projeto!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Licença
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## Deploy on Vercel
+## 📞 Contato
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Observatório de Turismo da Ibiapaba (OTIB)**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [🌐 Website](https://nupreds.ifce.edu.br/otib)
+- 📱 GitHub: [@otib-hub](https://github.com/otib-hub)
+
+## 🙏 Agradecimentos
+
+- Equipe de desenvolvimento do OTIB
+- Comunidade Next.js
+- Região da Ibiapaba e seus parceiros
+- Todos os contribuidores do projeto
+
+---
+
+<div align="center">
+  <p>Desenvolvido com ❤️ para o turismo da Ibiapaba</p>
+  <p>© 2024 OTIB - Observatório de Turismo da Ibiapaba</p>
+</div>
