@@ -105,6 +105,7 @@ export default async function Home() {
 						</div>
 					</div>
 
+					{/* TODO: adicionar traduções para os bento-cards */}
 					<div
 						id='home-bento-cards-2'
 						className='bg-card outline-2 outline-muted rounded-xl shadow-lg p-8 flex flex-row justify-center'
