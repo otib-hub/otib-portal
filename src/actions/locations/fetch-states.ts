@@ -10,6 +10,18 @@ export async function fetchStates(countryName: string) {
 	// tenta recuperar os estados do Brasil localmente
 	if (countryName === 'Brazil') {
 		try {
+			if (
+				!states_brazil_static?.data.states ||
+				!Array.isArray(states_brazil_static?.data.states)
+			) {
+				throw new Error('Invalid static data format');
+			}
+
+			// verifica se há dados disponíveis
+			if (states_brazil_static?.data.states.length === 0) {
+				throw new Error('Static data is empty');
+			}
+			
 			const states = states_brazil_static.data.states
 				.map((state: State) => {
 					return {
@@ -20,7 +32,12 @@ export async function fetchStates(countryName: string) {
 				.sort((a: Option, b: Option) => a.label.localeCompare(b.label));
 
 			return states;
-		} catch {}
+		} catch(error) {
+			console.warn(
+				'Failed to load static states data, falling back to API:',
+				error
+			);
+		}
 	}
 
 	try {
@@ -55,12 +72,16 @@ export async function fetchStates(countryName: string) {
 
 		return states;
 	} catch (err: unknown) {
+		let errorMsg;
+
 		if (err instanceof Error) {
-			const errorMsg = `Failed to fetch states: ${err.message}`;
+			errorMsg = `Failed to fetch states: ${err.message}`;
+			console.error(errorMsg);
 			throw new Error(errorMsg);
 		}
 
-		const errorMsg = 'Unknown error getting state options';
+		errorMsg = 'Unknown error getting state options';
+		console.error(errorMsg);
 		throw new Error(errorMsg);
 	}
 }
