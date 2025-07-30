@@ -1,10 +1,9 @@
 import { fetchSpy } from '@/tests/global.mock';
-import { COUNTRIES_DEFAULT, COUNTRIES_FORMATTED, DATA_EMPTY } from './mocks';
 
 describe('fetchCountries() unit tests', () => {
 	beforeEach(() => {
-		// overwrites json (module) import
 		vi.resetModules();
+		vi.clearAllMocks();
 	});
 
 	it('recovers sorted static countries as default', async () => {
@@ -33,7 +32,6 @@ describe('fetchCountries() unit tests', () => {
 
 		const end = performance.now();
 		const duration = end - start;
-
 		expect(duration).toBeLessThan(1000);
 	});
 
@@ -53,11 +51,49 @@ describe('fetchCountries() unit tests', () => {
 		});
 	});
 
-	it('fetches and sort countries from API when static data is empty or cant be resolved', async () => {
+	it('fetches and sort countries from API when static data is empty', async () => {
 		// mocks json to return empty countries
 		vi.doMock('#/json/countries.json', () => {
-			return { default: { data: DATA_EMPTY } };
+			return { default: { data: [] } };
 		});
+
+		// mocks fetch function to return default countries
+		fetchSpy.mockResolvedValueOnce(Response.json(COUNTRIES_DEFAULT));
+
+		const { fetchCountries } = await import('../fetch-countries');
+		const result = await fetchCountries();
+
+		expect(fetchSpy).toHaveBeenCalledTimes(1);
+		expect(result).toStrictEqual(COUNTRIES_FORMATTED);
+		expect(result).toStrictEqual(
+			result.sort((a, b) => a.label.localeCompare(b.label))
+		);
+	});
+
+	it('fetches and sort countries from API when static data format is invalid', async () => {
+		// mocks json to return invalid data format
+		vi.doMock('#/json/countries.json', () => {
+			return { default: { data: [] } };
+		});
+
+		// mocks fetch function to return default countries
+		fetchSpy.mockResolvedValueOnce(Response.json(COUNTRIES_DEFAULT));
+
+		const { fetchCountries } = await import('../fetch-countries');
+		const result = await fetchCountries();
+
+		expect(fetchSpy).toHaveBeenCalledTimes(1);
+		expect(result).toStrictEqual(COUNTRIES_FORMATTED);
+		expect(result).toStrictEqual(
+			result.sort((a, b) => a.label.localeCompare(b.label))
+		);
+	});
+
+	it('fetches and sort countries from API when static data throws error', async () => {
+		// Mock the module to return invalid data that will cause an error
+		vi.doMock('#/json/countries.json', () => ({
+			default: { data: [] },
+		}));
 
 		// mocks fetch function to return default countries
 		fetchSpy.mockResolvedValueOnce(Response.json(COUNTRIES_DEFAULT));
@@ -83,3 +119,41 @@ describe('fetchCountries() unit tests', () => {
 		expect(fetchSpy).toHaveBeenCalledTimes(1);
 	});
 });
+
+export const COUNTRIES_DEFAULT = {
+	data: [
+		{
+			name: 'Brazil',
+			iso2: 'BR',
+			iso3: 'BRA',
+			unicodeFlag: '🇧🇷',
+		},
+		{
+			name: 'United Kingdom',
+			iso2: 'GB',
+			iso3: 'GBR',
+			unicodeFlag: '🇬🇧',
+		},
+		{
+			name: 'Portugal',
+			iso2: 'PT',
+			iso3: 'PRT',
+			unicodeFlag: '🇵🇹',
+		},
+	],
+};
+
+export const COUNTRIES_FORMATTED = [
+	{
+		label: '🇧🇷 Brasil',
+		value: 'Brazil',
+	},
+	{
+		label: '🇵🇹 Portugal',
+		value: 'Portugal',
+	},
+	{
+		label: '🇬🇧 United Kingdom',
+		value: 'United Kingdom',
+	},
+];
