@@ -23,7 +23,7 @@ import { TOURIST_INDIVIDUAL_RESPONSE_MOCK } from './response-mock';
 const BLOCK_STEP_IF_INVALID = true;
 const DEV_MODE = process.env.NEXT_PUBLIC_CURRENT_ENV === 'development';
 
-export default function TouristTouristIndividualResearchForm() {
+export function TouristIndividualResearchForm() {
 	const router = useRouter();
 	const t = useTranslations('forms');
 	const steps = getTouristIndividualResearchFormSteps(t);

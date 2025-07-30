@@ -1,4 +1,4 @@
-import TouristIndividualResearchForm from '@/app/researches/tourist-individual/_form/TouristIndividualResearch';
+import { TouristIndividualResearchForm } from '@/app/researches/tourist-individual/_form/TouristIndividualResearch';
 
 export default function FormPage() {
 	return (
