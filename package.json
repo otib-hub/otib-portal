@@ -10,7 +10,7 @@
     "lint": "next lint",
     "deploy-preview": "vercel",
     "deploy-prod": "vercel --prod",
-    "test": "vitest run",
+    "test": "vitest run --silent",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
