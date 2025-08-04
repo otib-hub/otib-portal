@@ -2,12 +2,12 @@
 
 <div>
   <img src='https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white' alt='TypeScript'>
-  <img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=nextdotjs" alt="Next.js">
   <img src="https://img.shields.io/badge/React-black?style=for-the-badge&logo=react" alt="React">
-  <img src='https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white' alt='Node.js'>
+  <img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=nextdotjs" alt="Next.js">
   <img src='https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white' alt='Tailwind'>
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=white&style=for-the-badge" alt="Vitest">
   <img src="https://sonarcloud.io/images/project_badges/sonarcloud-dark.svg" height="30px" alt="SonarQube">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
   
 </div>
 
