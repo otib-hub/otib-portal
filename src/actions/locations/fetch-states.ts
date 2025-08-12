@@ -21,7 +21,7 @@ export async function fetchStates(countryName: string) {
 			if (states_brazil_static?.data.states.length === 0) {
 				throw new Error('Static data is empty');
 			}
-			
+
 			const states = states_brazil_static.data.states
 				.map((state: State) => {
 					return {
@@ -32,11 +32,12 @@ export async function fetchStates(countryName: string) {
 				.sort((a: Option, b: Option) => a.label.localeCompare(b.label));
 
 			return states;
-		} catch(error) {
-			console.warn(
-				'Failed to load static states data, falling back to API:',
-				error
-			);
+		} catch (error) {
+			if (error instanceof Error)
+				console.warn(
+					'Failed to load static states data, falling back to API: ' +
+						error.message
+				);
 		}
 	}
 

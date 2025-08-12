@@ -18,10 +18,11 @@ export async function fetchCountries(): Promise<Option[]> {
 
 			countriesData = countries_static.data;
 		} catch (error) {
-			console.warn(
-				'Failed to load static countries data, falling back to API:',
-				error
-			);
+			if (error instanceof Error)
+				console.warn(
+					'Failed to load static countries data, falling back to API: ' +
+						error.message
+				);
 
 			// fallback, chama api externa
 			const response = await fetch(

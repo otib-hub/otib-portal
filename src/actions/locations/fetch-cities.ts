@@ -38,10 +38,11 @@ export async function fetchCities(countryName: string, stateName: string) {
 
 			return cities;
 		} catch (error) {
-			console.warn(
-				'Failed to load static cities data, falling back to API:',
-				error
-			);
+			if (error instanceof Error)
+				console.warn(
+					'Failed to load static cities data, falling back to API: ' +
+						error.message
+				);
 		}
 	}
 
