@@ -15,7 +15,7 @@ import { useTranslations } from 'next-intl';
 import { ibmPlexMono } from '@/styles/fonts';
 
 interface FormDebugDialogProps {
-	data: IndividualResearchFormType;
+	readonly data: IndividualResearchFormType;
 }
 
 function formatDataToBeautifulPre(data: IndividualResearchFormType) {
@@ -31,7 +31,7 @@ function formatDataToBeautifulPre(data: IndividualResearchFormType) {
 					<span className='text-chart-4'>
 						[
 						{value.map((item, idx) => (
-							<span key={idx} className='text-primary'>
+							<span key={item.toString()} className='text-primary'>
 								&quot;{item}&quot;
 								{idx < value.length - 1 ? (
 									<span className='text-foreground'>, </span>
