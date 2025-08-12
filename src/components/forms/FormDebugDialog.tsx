@@ -15,7 +15,7 @@ import { useTranslations } from 'next-intl';
 import { ibmPlexMono } from '@/styles/fonts';
 
 interface FormDebugDialogProps {
-	readonly data: IndividualResearchFormType;
+	readonly data: TouristIndividualResearchFormType;
 }
 
 function formatDataToBeautifulPre(data: TouristIndividualResearchFormType) {
