@@ -45,7 +45,8 @@ export function TutorialDialog() {
 						{steps[currentStepIndex].title}
 					</DialogTitle>
 					<DialogDescription>
-						{steps[currentStepIndex].description}
+						{steps[currentStepIndex].description &&
+							steps[currentStepIndex].description}
 					</DialogDescription>
 				</DialogHeader>
 
