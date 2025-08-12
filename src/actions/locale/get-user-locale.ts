@@ -8,7 +8,7 @@ export async function getUserLocale(): Promise<Locale> {
 	const cookieLocale = (await cookies()).get('NEXT_LOCALE')?.value;
 
 	if (cookieLocale && isValidLocale(cookieLocale)) {
-		return cookieLocale as Locale;
+		return cookieLocale;
 	}
 
 	const headerLocale = (
