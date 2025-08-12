@@ -19,6 +19,7 @@ import { cn } from '@/lib/utils';
 import { useMemo, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { useTranslations } from 'next-intl';
+import { TFunction } from '@/@types/next-intl';
 
 export type Option = {
 	value: string;
@@ -37,6 +38,28 @@ type SelectWithSearchProps = {
 	multiple?: boolean;
 };
 
+function definePlaceholder(
+	t: TFunction<'components.SelectWithSearch'>,
+	multiple: boolean,
+	optional: boolean
+) {
+	if (multiple) return t('placeholder.multiple');
+	if (optional) return t('placeholder.optional');
+	return t('placeholder.single');
+}
+
+function defineSelectedValues(value: string | string[] | undefined) {
+	if (!value) {
+		return [];
+	}
+
+	if (Array.isArray(value)) {
+		return value;
+	}
+
+	return [value];
+}
+
 export const SelectWithSearch = ({
 	optional = false,
 	options,
@@ -50,15 +73,10 @@ export const SelectWithSearch = ({
 }: SelectWithSearchProps) => {
 	const [open, setOpen] = useState(false);
 	const [search, setSearch] = useState('');
-	const selectedValues = Array.isArray(value) ? value : value ? [value] : [];
+	const selectedValues = defineSelectedValues(value);
 	const t = useTranslations('components.SelectWithSearch');
 
-	if (!placeholder)
-		placeholder = optional
-			? t('placeholder.optional')
-			: multiple
-			? t('placeholder.multiple')
-			: t('placeholder.single');
+	if (!placeholder) placeholder = definePlaceholder(t, multiple, optional);
 
 	const filteredOptions = useMemo(() => {
 		if (!search) return options;
