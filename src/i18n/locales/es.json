@@ -12,10 +12,17 @@
                 "first-bulletin": "Vea nuestro primer boletín"
             },
             "sections": {
-                "form-card": {
-                    "title": "Ayuda a mejorar la experiencia turística",
-                    "description": "¿Has visitado o estás visitando Ibiapaba? Comparte tu experiencia!\nResponder a nuestro formulario lleva menos de 6 minutos y ayuda a desarrollar un turismo más sostenible, atractivo y acogedor.",
-                    "button_action": "Quiero contribuir"
+                "bento-cards": {
+                    "form-card": {
+                        "title": "Ayuda a mejorar la experiencia turística",
+                        "description": "¿Has visitado o estás visitando Ibiapaba? Comparte tu experiencia!\nResponder a nuestro formulario lleva menos de 6 minutos y ayuda a desarrollar un turismo más sostenible, atractivo y acogedor.",
+                        "button_action": "Contribuir"
+                    },
+                    "bulletins-card": {
+                        "title": "Lea nuestros boletines informativos",
+                        "description": "Consulte datos significativos sobre Ibiapaba recopilados por nosotros y otras fuentes, compilados y analizados.",
+                        "button_action": "Descubrir"
+                    }
                 }
             }
         },
