@@ -6,12 +6,15 @@ import { Footer } from '@/components/layout/Footer';
 import { Heading } from '@/components/ui/heading';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+import { ConfettiCannonsEffect } from './_components/ConfettiCannonsEffect';
 
 export default async function ThankYouPage() {
 	const t = await getTranslations('app.form/thanks');
 
 	return (
 		<>
+			<ConfettiCannonsEffect />
+
 			<main className='px-custom flex flex-col items-start py-6 gap-8 md:py-8 md:gap-12'>
 				<div className='hero flex flex-col-reverse md:grid md:grid-cols-2 items-center justify-start gap-8'>
 					<div className='heading flex flex-col gap-6'>
@@ -27,9 +30,9 @@ export default async function ThankYouPage() {
 							</Link>
 						</div>
 
-						<Heading.h1 className='text-primary'>
+						<Heading.H1 className='text-primary'>
 							{t('heading.title')}
-						</Heading.h1>
+						</Heading.H1>
 						<p className='text-base md:text-lg text-secondary-foreground'>
 							{t('heading.description').split('\n')[0]}
 							<br />

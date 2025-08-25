@@ -21,9 +21,9 @@ export default async function UnderConstruction() {
 				<CogIcon className='text-secondary-foreground size-40 lg:size-60 animate-spin animation-duration-[12s]' />
 
 				<div className='flex flex-col gap-8 md:gap-6'>
-					<Heading.h1 className='font-black text-2xl md:text-3xl max-w-3xl'>
+					<Heading.H1 className='font-black text-2xl md:text-3xl max-w-3xl'>
 						{t('h1')}
-					</Heading.h1>
+					</Heading.H1>
 					<p className='text-lg font-normal text-muted-foreground max-w-3xl'>
 						{t('p')}
 					</p>
