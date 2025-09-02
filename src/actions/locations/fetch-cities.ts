@@ -14,6 +14,19 @@ export async function fetchCities(countryName: string, stateName: string) {
 	// tenta recuperar cidades do ceara localmente
 	if (countryName === 'Brazil' && stateName === 'Ceará') {
 		try {
+			// verifica se os dados estáticos existem e são válidos
+			if (
+				!cities_ceara_static?.data ||
+				!Array.isArray(cities_ceara_static.data)
+			) {
+				throw new Error('Invalid static data format');
+			}
+
+			// verifica se há dados disponíveis
+			if (cities_ceara_static.data.length === 0) {
+				throw new Error('Static data is empty');
+			}
+
 			const cities = cities_ceara_static.data
 				.map((city: string) => {
 					return {
@@ -24,7 +37,13 @@ export async function fetchCities(countryName: string, stateName: string) {
 				.sort((a: Option, b: Option) => a.label.localeCompare(b.label));
 
 			return cities;
-		} catch {}
+		} catch (error) {
+			if (error instanceof Error)
+				console.warn(
+					'Failed to load static cities data, falling back to API: ' +
+						error.message
+				);
+		}
 	}
 
 	if (stateName === 'Distrito Federal') {
@@ -63,12 +82,16 @@ export async function fetchCities(countryName: string, stateName: string) {
 
 		return cities;
 	} catch (err: unknown) {
+		let errorMsg;
+
 		if (err instanceof Error) {
-			const errorMsg = `Failed to fetch cities: ${err.message}`;
+			errorMsg = `Failed to fetch cities: ${err.message}`;
+			console.error(errorMsg);
 			throw new Error(errorMsg);
 		}
 
-		const errorMsg = 'Unknown error getting city options';
+		errorMsg = 'Unknown error getting city options';
+		console.error(errorMsg);
 		throw new Error(errorMsg);
 	}
 }

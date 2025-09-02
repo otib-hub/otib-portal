@@ -13,12 +13,13 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from '@/components/ui/popover';
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { CheckIcon, ChevronDownIcon, XIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useMemo, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { useTranslations } from 'next-intl';
+import { TFunction } from '@/@types/next-intl';
 
 export type Option = {
 	value: string;
@@ -37,6 +38,21 @@ type SelectWithSearchProps = {
 	multiple?: boolean;
 };
 
+const getPlaceholder = (
+	t: TFunction<'components.SelectWithSearch'>,
+	multiple: boolean,
+	optional: boolean
+) => {
+	if (multiple) return t('placeholder.multiple');
+	if (optional) return t('placeholder.optional');
+	return t('placeholder.single');
+};
+
+const normalizeValues = (value: string | string[] | undefined): string[] => {
+	if (!value) return [];
+	return Array.isArray(value) ? value : [value];
+};
+
 export const SelectWithSearch = ({
 	optional = false,
 	options,
@@ -50,19 +66,13 @@ export const SelectWithSearch = ({
 }: SelectWithSearchProps) => {
 	const [open, setOpen] = useState(false);
 	const [search, setSearch] = useState('');
-	const selectedValues = Array.isArray(value) ? value : value ? [value] : [];
-	const t = useTranslations('components.SelectWithSearch');
 
-	if (!placeholder)
-		placeholder = optional
-			? t('placeholder.optional')
-			: multiple
-			? t('placeholder.multiple')
-			: t('placeholder.single');
+	const t = useTranslations('components.SelectWithSearch');
+	const selectedValues = normalizeValues(value);
+	const finalPlaceholder = placeholder || getPlaceholder(t, multiple, optional);
 
 	const filteredOptions = useMemo(() => {
 		if (!search) return options;
-
 		const searchLower = search.toLowerCase();
 		return options.filter((option) =>
 			option.label.toLowerCase().includes(searchLower)
@@ -85,8 +95,7 @@ export const SelectWithSearch = ({
 	};
 
 	const removeValue = (val: string) => {
-		const updated = selectedValues.filter((v) => v !== val);
-		onChangeAction(updated);
+		onChangeAction(selectedValues.filter((v) => v !== val));
 	};
 
 	const selectedLabels = options.filter((o) =>
@@ -97,29 +106,29 @@ export const SelectWithSearch = ({
 		? t('selection.selected', { count: selectedLabels.length })
 		: selectedLabels[0]?.label;
 
-	const shortSelectedSummary =
-		(selectedSummary ?? '')
-			.split(' ')
-			.slice(1, 3)
-			.join(' ')
-			.replace(/^./, (c) => c.toUpperCase()) + ':';
+	const shortSelectedSummary = selectedSummary
+		? selectedSummary
+				.split(' ')
+				.slice(1, 3)
+				.join(' ')
+				.replace(/^./, (c) => c.toUpperCase()) + ':'
+		: '';
 
 	return (
 		<div className='space-y-2 overflow-hidden'>
 			<div className='flex items-center gap-2 w-full min-w-0 overflow-hidden'>
 				<Popover open={open} onOpenChange={setOpen}>
-					<PopoverTrigger asChild>
-						<Button
+					<PopoverTrigger aria-invalid={hasError} asChild>
+						<button
 							title='Select with search'
 							id={id}
 							disabled={disabled}
 							aria-disabled={disabled}
-							variant='outline'
-							role='combobox'
 							aria-expanded={open}
-							aria-invalid={hasError}
 							className={cn(
-								'w-full flex-grow flex justify-between items-center text-base bg-input/20 hover:bg-input/35 border-input px-3 py-5 font-normal outline-offset-2 outline-none focus-visible:outline-[3px] dark:aria-invalid:border-destructive/70 aria-invalid:border-destructive'
+								buttonVariants({ variant: 'outline' }),
+								'w-full flex-grow flex justify-between items-center text-base bg-input/20 hover:bg-input/35 border-input px-3 py-5 font-normal outline-offset-2 outline-none focus-visible:outline-[3px]',
+								hasError && 'border-destructive dark:border-destructive/70'
 							)}
 						>
 							<span
@@ -128,13 +137,13 @@ export const SelectWithSearch = ({
 									!selectedValues.length && 'text-muted-foreground'
 								)}
 							>
-								{selectedValues.length > 0 ? selectedSummary : placeholder}
+								{selectedValues.length > 0 ? selectedSummary : finalPlaceholder}
 							</span>
 							<ChevronDownIcon
 								size={16}
 								className='ml-2 text-muted-foreground shrink-0'
 							/>
-						</Button>
+						</button>
 					</PopoverTrigger>
 
 					<PopoverContent
@@ -147,7 +156,7 @@ export const SelectWithSearch = ({
 								value={search}
 								onValueChange={setSearch}
 							/>
-							<CommandList className=''>
+							<CommandList>
 								<CommandEmpty>Nenhuma opção encontrada.</CommandEmpty>
 								<CommandGroup>
 									{filteredOptions.map((option) => {
@@ -155,7 +164,7 @@ export const SelectWithSearch = ({
 										return (
 											<CommandItem
 												className='py-2 text-base'
-												key={option.label}
+												key={option.value}
 												value={option.value}
 												onSelect={() => toggleValue(option.value)}
 											>
@@ -173,7 +182,6 @@ export const SelectWithSearch = ({
 				</Popover>
 			</div>
 
-			{/* Badges de opções selecionadas */}
 			{multiple && selectedLabels.length > 0 && (
 				<div className='border-2 border-accent dark:border-accent/50 bg-accent/35 dark:bg-accent/20 rounded-lg lg:bg-transparent lg:border-0 dark:lg:border-0 dark:lg:bg-transparent py-2 px-3 lg:p-0 flex flex-wrap gap-2 items-center max-h-36 lg:max-h-none overflow-y-auto'>
 					<span className='text-accent-foreground/80 text-base'>
@@ -191,7 +199,10 @@ export const SelectWithSearch = ({
 							<button
 								title={`Remove ${item.label}`}
 								type='button'
-								onClick={() => removeValue(item.value)}
+								onClick={(e) => {
+									e.stopPropagation();
+									removeValue(item.value);
+								}}
 								className='ml-1 text-muted-foreground hover:text-destructive transition'
 								aria-label={`Remove ${item.label}`}
 							>

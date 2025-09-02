@@ -7,12 +7,23 @@ export async function fetchCountries(): Promise<Option[]> {
 		let countriesData: Country[] | [];
 
 		// tenta recuperar paises localmente
-		if (
-			Array.isArray(countries_static?.data) &&
-			countries_static.data.length > 0
-		) {
+		try {
+			if (!countries_static?.data || !Array.isArray(countries_static.data)) {
+				throw new Error('Invalid static data format');
+			}
+
+			if (countries_static.data.length === 0) {
+				throw new Error('Static data is empty');
+			}
+
 			countriesData = countries_static.data;
-		} else {
+		} catch (error) {
+			if (error instanceof Error)
+				console.warn(
+					'Failed to load static countries data, falling back to API: ' +
+						error.message
+				);
+
 			// fallback, chama api externa
 			const response = await fetch(
 				'https://countriesnow.space/api/v0.1/countries/flag/unicode'
@@ -54,9 +65,16 @@ export async function fetchCountries(): Promise<Option[]> {
 
 		return countries;
 	} catch (err: unknown) {
+		let errorMsg;
+
 		if (err instanceof Error) {
-			throw new Error(`Failed to fetch countries: ${err.message}`);
+			errorMsg = `Failed to fetch countries: ${err.message}`;
+			console.error(errorMsg);
+			throw new Error(errorMsg);
 		}
-		throw new Error('Unknown error getting country options');
+
+		errorMsg = 'Unknown error getting country options';
+		console.error(errorMsg);
+		throw new Error(errorMsg);
 	}
 }

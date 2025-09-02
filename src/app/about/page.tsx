@@ -47,7 +47,7 @@ export default async function About() {
 				className='px-custom flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8'
 			>
 				<section id='about-heading' className='flex flex-col gap-8 md:gap-6'>
-					<Heading.h1>{t('content.section.heading.h1')}</Heading.h1>
+					<Heading.H1>{t('content.section.Heading.H1')}</Heading.H1>
 
 					<p className='text-secondary-foreground'>
 						{t('content.section.heading.p').split('\n')[0]}

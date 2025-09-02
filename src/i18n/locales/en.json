@@ -12,10 +12,17 @@
                 "first-bulletin": "See our first bulletin"
             },
             "sections": {
-                "form-card": {
-                    "title": "Help improve the tourist experience",
-                    "description": "Have you visited or are you visiting Ibiapaba? Share your experience!\nResponding to our form takes less than 6 minutes and helps to develop a more sustainable, attractive and welcoming tourism.",
-                    "button_action": "I want to contribute"
+                "bento-cards": {
+                    "form-card": {
+                        "title": "Help improve the tourist experience",
+                        "description": "Have you visited or are you visiting Ibiapaba? Share your experience!\nResponding to our form takes less than 6 minutes and helps to develop a more sustainable, attractive and welcoming tourism.",
+                        "button_action": "Contribute"
+                    },
+                    "bulletins-card": {
+                        "title": "Read our informative bulletins",
+                        "description": "See significant data on Ibiapaba collected by us and other sources, compiled and analyzed.",
+                        "button_action": "Discover"
+                    }
                 }
             }
         },
