@@ -18,10 +18,10 @@ echarts.use([MapChart, TooltipComponent, CanvasRenderer]);
 
 export interface IbiapabaMapProps extends ComponentProps<'div'> {
 	selected?: string;
-	onChangeSelected?: (municipality: string | undefined) => void;
+	onChangeSelected?: (city: string | undefined) => void;
 }
 
-export const MUNICIPALITIES = [
+export const IBIAPABA_CITIES = [
 	'Ibiapina',
 	'Carnaubal',
 	'Croatá',
@@ -105,7 +105,7 @@ export default function IbiapabaMap({
 	// Memoiza os dados do mapa baseado na seleção
 	const mapData = useMemo(
 		() =>
-			MUNICIPALITIES.map((name) => ({
+			IBIAPABA_CITIES.map((name) => ({
 				name,
 				value: 1,
 				selected: selected === name,
@@ -117,9 +117,9 @@ export default function IbiapabaMap({
 	const handleClick = useCallback(
 		(params: any) => {
 			if (params.componentType === 'series' && params.name) {
-				const clickedMunicipality = params.name;
+				const clickedCity = params.name;
 				const newSelected =
-					selected === clickedMunicipality ? undefined : clickedMunicipality;
+					selected === clickedCity ? undefined : clickedCity;
 				onChangeSelected?.(newSelected);
 			}
 		},
