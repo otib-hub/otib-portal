@@ -240,7 +240,7 @@ export default function IbiapabaMap({
 		<div
 			ref={chartRef}
 			style={{ width: '100%', height: '100%' }}
-			className='min-h-[480px] lg:min-h-[564px]'
+			className='min-h-[420px] lg:min-h-[524px]'
 		/>
 	);
 }
