@@ -9,7 +9,7 @@ import { ibmPlexSerif } from '@/styles/fonts';
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { HomeBentoGrid } from './_components/HomeBentoGrid';
-import { HeroMap } from './_components/HeroMap';
+import { VerticalMarquee } from './_components/VerticalMarquee';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const t = await getTranslations('app.Home');
@@ -60,9 +60,9 @@ export default async function Home() {
 
 					<div
 						id="home-hero"
-						className="w-full max-w-2xl order-first md:order-last overflow-x-hidden"
+						className="w-full order-first md:order-last"
 					>
-						<HeroMap />
+						<VerticalMarquee/>
 					</div>
 				</section>
 

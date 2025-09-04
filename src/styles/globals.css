@@ -160,6 +160,61 @@ html {
 	--tracking-wide: calc(var(--tracking-normal) + 0.025em);
 	--tracking-wider: calc(var(--tracking-normal) + 0.05em);
 	--tracking-widest: calc(var(--tracking-normal) + 0.1em);
+
+	--animate-marquee: marquee var(--duration) infinite linear;
+	--animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+	@keyframes marquee {
+		from {
+			transform: translateX(0);
+		}
+
+		to {
+			transform: translateX(calc(-100% - var(--gap)));
+		}
+	}
+
+	@keyframes marquee-vertical {
+		from {
+			transform: translateY(0);
+		}
+
+		to {
+			transform: translateY(calc(-100% - var(--gap)));
+		}
+	}
+
+	@keyframes flash {
+		0% {
+			opacity: 1;
+		}
+
+		50% {
+			opacity: 0.6;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes compass-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		30% {
+			transform: rotate(20deg);
+		}
+
+		60% {
+			transform: rotate(-15deg);
+		}
+
+		100% {
+			transform: rotate(0deg);
+		}
+	}
 }
 
 body {
@@ -176,40 +231,8 @@ body {
 	}
 }
 
-@keyframes flash {
-	0% {
-		opacity: 1;
-	}
-
-	50% {
-		opacity: 0.6;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
 .animate-flash {
 	animation: flash 0.5s ease-in-out;
-}
-
-@keyframes compass-spin {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	30% {
-		transform: rotate(20deg);
-	}
-
-	60% {
-		transform: rotate(-15deg);
-	}
-
-	100% {
-		transform: rotate(0deg);
-	}
 }
 
 .animate-compass-spin {
