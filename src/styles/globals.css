@@ -170,6 +170,7 @@ body {
 	* {
 		@apply border-border outline-ring/50;
 	}
+
 	body {
 		@apply bg-background text-foreground;
 	}
@@ -179,9 +180,11 @@ body {
 	0% {
 		opacity: 1;
 	}
+
 	50% {
 		opacity: 0.6;
 	}
+
 	100% {
 		opacity: 1;
 	}
@@ -195,12 +198,15 @@ body {
 	0% {
 		transform: rotate(0deg);
 	}
+
 	30% {
 		transform: rotate(20deg);
 	}
+
 	60% {
 		transform: rotate(-15deg);
 	}
+
 	100% {
 		transform: rotate(0deg);
 	}

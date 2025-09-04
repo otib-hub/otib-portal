@@ -23,16 +23,16 @@ export default async function Home() {
 
 	return (
 		<>
-			<main className="px-custom w-full flex flex-col items-start py-6 gap-8 md:py-8 md:gap-12 mb-10 md:mb-6">
+			<main className="px-custom w-full flex flex-col items-start py-6 gap-8 md:py-6 md:gap-12 mb-10 md:mb-6">
 				<LocaleInitializer />
 
 				<section
 					id="home-heading"
-					className="w-full flex flex-col md:flex-row gap-8"
+					className="w-full flex flex-col md:flex-row justify-center gap-8 lg:gap-16"
 				>
 					<div
 						id="home-hero-heading"
-						className="flex flex-col items-start justify-center gap-6 text-start"
+						className="flex flex-col items-start justify-center gap-6 text-start lg:max-w-132"
 					>
 						<Heading.H1 className="font-medium! text-4xl md:text-5xl">
 							{`${t('heading.title').split('\n')[0]} `}
@@ -43,7 +43,7 @@ export default async function Home() {
 							</span>
 						</Heading.H1>
 
-						<p className="text-base md:text-lg lg:max-w-[72%] text-secondary-foreground">
+						<p className="text-base md:text-lg text-secondary-foreground">
 							{t('heading.description')}
 						</p>
 
@@ -60,7 +60,7 @@ export default async function Home() {
 
 					<div
 						id="home-hero"
-						className="w-full order-first md:order-last"
+						className="w-full max-w-2xl order-first md:order-last overflow-x-hidden"
 					>
 						<HeroMap />
 					</div>
@@ -70,7 +70,7 @@ export default async function Home() {
 
 				<section
 					id="home-bento-cards"
-					className="w-full grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-8 md:gap-8"
+					className="w-full grid grid-cols-1 md:grid-cols-2 gap-8"
 				>
 					<HomeBentoGrid t={t} />
 				</section>
