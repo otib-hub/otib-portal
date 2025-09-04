@@ -30,10 +30,12 @@ export default async function About() {
 	// TODO: GenericHtml component para conteúdo informativo estático
 	return (
 		<>
-			<Breadcrumb className='px-custom py-3 border-y-2 border-muted dark:border-muted/70'>
+			<Breadcrumb className="px-custom py-3 border-y-2 border-muted dark:border-muted/70">
 				<BreadcrumbList>
 					<BreadcrumbItem>
-						<BreadcrumbLink href='/otib'>{t('breadcrumb.1')}</BreadcrumbLink>
+						<BreadcrumbLink href="/otib">
+							{t('breadcrumb.1')}
+						</BreadcrumbLink>
 					</BreadcrumbItem>
 					<BreadcrumbSeparator />
 					<BreadcrumbItem>
@@ -43,15 +45,18 @@ export default async function About() {
 			</Breadcrumb>
 
 			<article
-				id='about-content'
-				className='px-custom flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8'
+				id="about-content"
+				className="px-custom flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8"
 			>
-				<section id='about-heading' className='flex flex-col gap-8 md:gap-6'>
-					<Heading.H1>{t('content.section.Heading.H1')}</Heading.H1>
+				<section
+					id="about-heading"
+					className="flex flex-col gap-8 md:gap-6"
+				>
+					<Heading.H1>{t('content.section.heading.h1')}</Heading.H1>
 
-					<p className='text-secondary-foreground'>
+					<p className="text-secondary-foreground">
 						{t('content.section.heading.p').split('\n')[0]}
-						<strong className='font-extrabold text-primary'>
+						<strong className="font-extrabold text-primary">
 							{t('content.section.heading.p').split('\n')[1]}
 						</strong>{' '}
 						{t('content.section.heading.p').split('\n')[2]}
@@ -66,15 +71,18 @@ export default async function About() {
 					</p>
 				</section>
 
-				<section id='about-objectives' className='flex flex-col gap-8 md:gap-6'>
+				<section
+					id="about-objectives"
+					className="flex flex-col gap-8 md:gap-6"
+				>
 					<h2
 						className={`${ibmPlexSans.className} font-semibold text-2xl md:text-3xl`}
 					>
 						{t('content.section.objectives.h2')}
 					</h2>
 
-					<ul className='flex flex-col gap-8 md:gap-6'>
-						<li className='flex gap-4 items-start md:items-center justify-start'>
+					<ul className="flex flex-col gap-8 md:gap-6">
+						<li className="flex gap-4 items-start md:items-center justify-start">
 							<Badge
 								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
 							>
@@ -83,7 +91,7 @@ export default async function About() {
 							<p>{t('content.section.objectives.ul.li-1')}</p>
 						</li>
 
-						<li className='flex gap-4 items-start md:items-center justify-start'>
+						<li className="flex gap-4 items-start md:items-center justify-start">
 							<Badge
 								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
 							>
@@ -92,7 +100,7 @@ export default async function About() {
 							<p>{t('content.section.objectives.ul.li-2')}</p>
 						</li>
 
-						<li className='flex gap-4 items-start md:items-center justify-start'>
+						<li className="flex gap-4 items-start md:items-center justify-start">
 							<Badge
 								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
 							>
@@ -101,7 +109,7 @@ export default async function About() {
 							<p>{t('content.section.objectives.ul.li-3')}</p>
 						</li>
 
-						<li className='flex gap-4 items-start md:items-center justify-start'>
+						<li className="flex gap-4 items-start md:items-center justify-start">
 							<Badge
 								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
 							>
@@ -110,7 +118,7 @@ export default async function About() {
 							<p>{t('content.section.objectives.ul.li-4')}</p>
 						</li>
 
-						<li className='flex gap-4 items-start md:items-center justify-start'>
+						<li className="flex gap-4 items-start md:items-center justify-start">
 							<Badge
 								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
 							>
@@ -119,7 +127,7 @@ export default async function About() {
 							<p>{t('content.section.objectives.ul.li-5')}</p>
 						</li>
 
-						<li className='flex gap-4 items-start md:items-center justify-start'>
+						<li className="flex gap-4 items-start md:items-center justify-start">
 							<Badge
 								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
 							>
@@ -132,21 +140,21 @@ export default async function About() {
 					<p>{t('content.section.objectives.p')}</p>
 				</section>
 
-				<Card id='about-actions'>
-					<CardContent className='space-y-5'>
+				<Card id="about-actions">
+					<CardContent className="space-y-5">
 						{' '}
 						<h3 className={`font-semibold text-md`}>
 							{t('content.actions.h3')}
 						</h3>
-						<div className='w-full flex flex-wrap items-center justify-start gap-3'>
+						<div className="w-full flex flex-wrap items-center justify-start gap-3">
 							<Link
 								title={t('content.actions.buttons.home')}
 								className={`${buttonVariants({
 									variant: 'ghost',
 								})} w-full md:w-fit border-primary/80 border-1`}
-								href='/'
+								href="/"
 							>
-								<Home className='text-primary size-5' />
+								<Home className="text-primary size-5" />
 								{t('content.actions.buttons.home')}
 							</Link>
 							<Link
@@ -154,9 +162,9 @@ export default async function About() {
 								className={`${buttonVariants({
 									variant: 'ghost',
 								})} w-full md:w-fit border-primary/80 border-1`}
-								href='/researches/tourist-individual?referrer=about-page'
+								href="/researches/tourist-individual?referrer=about-page"
 							>
-								<ClipboardList className='text-primary size-5' />
+								<ClipboardList className="text-primary size-5" />
 								{t('content.actions.buttons.form')}
 							</Link>
 						</div>
