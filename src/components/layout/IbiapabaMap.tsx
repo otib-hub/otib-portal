@@ -44,7 +44,7 @@ const getPrimaryColor = (): string => {
 
 	primaryColorCache =
 		getComputedStyle(document.documentElement).getPropertyValue(
-			'--color-primary'
+			'--color-primary',
 		) || '#006edd';
 	return primaryColorCache;
 };
@@ -68,9 +68,9 @@ const createBaseOptions = () => ({
 			// Otimizações de renderização
 			silent: false,
 			itemStyle: {
-				areaColor: '#e0ffff',
-				borderColor: '#999',
-				borderWidth: 0.5,
+				areaColor: '#ffffffd8',
+				borderColor: '#000000aa',
+				borderWidth: 1,
 			},
 			emphasis: {
 				itemStyle: {
@@ -110,7 +110,7 @@ export default function IbiapabaMap({
 				value: 1,
 				selected: selected === name,
 			})),
-		[selected]
+		[selected],
 	);
 
 	// Handler de clique memoizado
@@ -123,7 +123,7 @@ export default function IbiapabaMap({
 				onChangeSelected?.(newSelected);
 			}
 		},
-		[selected, onChangeSelected]
+		[selected, onChangeSelected],
 	);
 
 	// Função de redimensionamento memoizada
@@ -150,7 +150,10 @@ export default function IbiapabaMap({
 
 					const topojson = ibiapaba_map_raw as any;
 					const objectKey = Object.keys(ibiapaba_map_raw.objects)[0];
-					const geojson = feature(topojson, topojson.objects[objectKey]);
+					const geojson = feature(
+						topojson,
+						topojson.objects[objectKey],
+					);
 
 					mapDataCache.set('ibiapaba-geojson', geojson);
 				}
@@ -220,7 +223,7 @@ export default function IbiapabaMap({
 		// Atualização otimizada - apenas os dados da série
 		chartInstance.current.setOption(
 			{ series: [{ data: mapData }] },
-			{ silent: true }
+			{ silent: true },
 		);
 	}, [mapData]);
 
@@ -240,7 +243,7 @@ export default function IbiapabaMap({
 		<div
 			ref={chartRef}
 			style={{ width: '100%', height: '100%' }}
-			className='min-h-[420px] lg:min-h-[524px]'
+			className="min-h-[420px] lg:min-h-[524px]"
 		/>
 	);
 }
