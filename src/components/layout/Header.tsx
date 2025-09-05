@@ -1,19 +1,51 @@
+'use client';
+
 import { ThemeSwitcher } from '@/components/fragments/ThemeSwitcher';
 import Link from 'next/link';
 import { LocaleSwitcher } from '@/components/fragments/LocaleSwitcher';
 import { ibmPlexSans } from '@/styles/fonts';
 import { OtibLogo } from './OtibLogo';
 import { MobileMenuSheet } from './MobileMenuSheet';
+import { useTranslations } from 'next-intl';
+import { useIsMobile } from '@/hooks/layout/use-mobile';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+	const isMobile = useIsMobile();
+	const t = useTranslations('components.Header');
+	const currentPage = usePathname();
+
+	let links = [
+		{
+			title: t('nav.quick-links.home'),
+			url: '/',
+		},
+		{
+			title: t('nav.quick-links.productions'),
+			url: '/soon',
+		},
+		{
+			title: t('nav.quick-links.about'),
+			url: '/about',
+		},
+		{
+			title: t('nav.quick-links.tourism-map'),
+			url: '/tourism-map',
+		},
+		{
+			title: t('nav.quick-links.partners'),
+			url: '/partners',
+		},
+	];
+	links = links.filter((item) => item.url !== currentPage);
+
 	return (
 		<header className="px-custom w-full py-5 md:py-6 flex flex-col gap-5">
-			<div className="w-full flex justify-between items-center transition-opacity">
+			<nav className="w-full flex justify-between items-center transition-opacity">
 				<div
 					id="left-content"
 					className="inline-flex items-center justify-start gap-8"
 				>
-					{/* TODO: traduzir links rápidos */}
 					<Link href="/">
 						<div className="inline-flex gap-2 justify-start items-center hover:opacity-70 cursor-pointer">
 							<OtibLogo variant="icon" className="h-8" />
@@ -26,18 +58,17 @@ export default function Header() {
 					</Link>
 
 					<span className="hidden lg:inline-flex items-center justify-start gap-8 text-muted-foreground">
-						<Link href="/soon" className="hover:opacity-70">
-							Produções
-						</Link>
-						<Link href="/soon" className="hover:opacity-70">
-							Sobre
-						</Link>
-						<Link href="/soon" className="hover:opacity-70">
-							Mapa do Turismo
-						</Link>
-						<Link href="/soon" className="hover:opacity-70">
-							Parceiros
-						</Link>
+						{links.map((item) =>
+							item.url === '/' ? undefined : ( // nao mostra homepage no Header (ja tem a logo), somente no MobileMenuSheet
+								<Link
+									key={item.title}
+									href={item.url}
+									className="hover:opacity-70"
+								>
+									{item.title}
+								</Link>
+							),
+						)}
 					</span>
 				</div>
 
@@ -45,16 +76,18 @@ export default function Header() {
 					id="right-content"
 					className="flex items-center justify-start gap-2"
 				>
-					<span className="flex items-center justify-start md:hidden cursor-pointer opacity-70">
-						<MobileMenuSheet />
-					</span>
+					{isMobile && (
+						<span className="flex items-center justify-start md:hidden cursor-pointer opacity-70">
+							<MobileMenuSheet links={links} />
+						</span>
+					)}
 
 					<span className="hidden md:flex items-center justify-start gap-2">
 						<LocaleSwitcher />
 						<ThemeSwitcher />
 					</span>
 				</div>
-			</div>
+			</nav>
 		</header>
 	);
 }
