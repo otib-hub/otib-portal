@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { LocaleSwitcher } from '@/components/fragments/LocaleSwitcher';
 import { ibmPlexSans } from '@/styles/fonts';
 import { OtibLogo } from './OtibLogo';
-import { MenuIcon } from 'lucide-react';
+import { MobileMenuSheet } from './MobileMenuSheet';
 
 export default function Header() {
 	return (
@@ -13,6 +13,7 @@ export default function Header() {
 					id="left-content"
 					className="inline-flex items-center justify-start gap-8"
 				>
+					{/* TODO: traduzir links rápidos */}
 					<Link href="/">
 						<div className="inline-flex gap-2 justify-start items-center hover:opacity-70 cursor-pointer">
 							<OtibLogo variant="icon" className="h-8" />
@@ -45,7 +46,7 @@ export default function Header() {
 					className="flex items-center justify-start gap-2"
 				>
 					<span className="flex items-center justify-start md:hidden cursor-pointer opacity-70">
-						<MenuIcon className="size-6" strokeWidth={2.5} />
+						<MobileMenuSheet />
 					</span>
 
 					<span className="hidden md:flex items-center justify-start gap-2">
