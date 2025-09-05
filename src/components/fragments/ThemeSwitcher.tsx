@@ -27,7 +27,11 @@ const themes = [
 	},
 ];
 
-export function ThemeSwitcher() {
+type ThemeSwitcherProps = {
+	dropdownAlign?: 'start' | 'end' | 'center' | undefined;
+};
+
+export function ThemeSwitcher({ dropdownAlign = 'end' }: ThemeSwitcherProps) {
 	const { theme: actualTheme, setTheme } = useTheme();
 	const t = useTranslations();
 
@@ -36,16 +40,18 @@ export function ThemeSwitcher() {
 			<DropdownMenuTrigger asChild>
 				<Button
 					title={t('components.ThemeSwitcher.title')}
-					variant='ghost'
-					size='icon'
+					variant="ghost"
+					size="icon"
 				>
-					<Sun className='size-5 block dark:hidden' />
-					<Moon className='size-5 hidden dark:block' />
-					<span className='sr-only'>{t('components.ThemeSwitcher.title')}</span>
+					<Sun className="size-5 block dark:hidden" />
+					<Moon className="size-5 hidden dark:block" />
+					<span className="sr-only">
+						{t('components.ThemeSwitcher.title')}
+					</span>
 				</Button>
 			</DropdownMenuTrigger>
 
-			<DropdownMenuContent align='end'>
+			<DropdownMenuContent align={dropdownAlign}>
 				{themes.map((theme) => (
 					<DropdownMenuItem
 						title={theme.name}
@@ -55,7 +61,7 @@ export function ThemeSwitcher() {
 					>
 						{t(theme.translation)}
 						{actualTheme === theme.name && (
-							<Check className='size-4 text-foreground' />
+							<Check className="size-4 text-foreground" />
 						)}
 					</DropdownMenuItem>
 				))}
