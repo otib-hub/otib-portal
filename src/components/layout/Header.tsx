@@ -57,7 +57,7 @@ export default function Header() {
 						</div>
 					</Link>
 
-					<span className="hidden lg:inline-flex items-center justify-start gap-8 text-muted-foreground">
+					<span className="hidden md:inline-flex md:text-sm lg:text-base items-center justify-start gap-8 text-muted-foreground">
 						{links.map((item) =>
 							item.url === '/' ? undefined : ( // nao mostra homepage no Header (ja tem a logo), somente no MobileMenuSheet
 								<Link
@@ -76,16 +76,16 @@ export default function Header() {
 					id="right-content"
 					className="flex items-center justify-start gap-2"
 				>
-					{isMobile && (
+					{isMobile ? (
 						<span className="flex items-center justify-start md:hidden cursor-pointer opacity-70">
 							<MobileMenuSheet links={links} />
 						</span>
+					) : (
+						<span className="hidden md:flex items-center justify-start gap-2">
+							<LocaleSwitcher />
+							<ThemeSwitcher />
+						</span>
 					)}
-
-					<span className="hidden md:flex items-center justify-start gap-2">
-						<LocaleSwitcher />
-						<ThemeSwitcher />
-					</span>
 				</div>
 			</nav>
 		</header>
