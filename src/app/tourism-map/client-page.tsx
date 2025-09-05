@@ -27,7 +27,7 @@ export default function TourismMap() {
 
 	return (
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
-			<main className="mt-6 bg-background relative px-custom shadow-2xl rounded-2xl w-full flex flex-col items-start justify-start gap-10">
+			<main className="mt-6 bg-background relative px-custom rounded-2xl w-full flex flex-col items-start justify-start gap-10">
 				<Heading.H1>{t('app.tourism-map.title')}</Heading.H1>
 				<InteractiveMapCard
 					selectedCity={selectedCity}
