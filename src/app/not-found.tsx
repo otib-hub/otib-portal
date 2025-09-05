@@ -12,7 +12,7 @@ export default function NotFound() {
 	return (
 		<>
 			<Head>
-				<title>{t('page-title')}</title>
+				<title>{t('title')}</title>
 			</Head>
 			<main className='px-custom w-full h-[calc(100dvh-109px-24px)] flex flex-col gap-5 justify-center items-center text-3xl lg:text-4xl font-semibold tracking-tight'>
 				<div className='flex flex-col lg:flex-row gap-8 items-center'>

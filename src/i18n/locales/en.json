@@ -1,478 +1,497 @@
 {
-    "app": {
-        "Home": {
-            "page-title": "OTIB - Homepage",
-            "heading": {
-                "title": "Discover. Explore. Transform \n Ibiapaba Tourism.",
-                "description": "Welcome to the Ibiapaba region's official tourism intelligence channel. Here you'll find data, maps, opportunities and connections that strengthen regional tourism."
-            },
-            "buttons": {
-                "about": "Learn about the project",
-                "form": "Survey",
-                "first-bulletin": "See our first bulletin"
-            },
-            "sections": {
-                "bento-cards": {
-                    "form-card": {
-                        "title": "Help improve the tourist experience",
-                        "description": "Have you visited or are you visiting Ibiapaba? Share your experience!\nResponding to our form takes less than 6 minutes and helps to develop a more sustainable, attractive and welcoming tourism.",
-                        "button_action": "Contribute"
-                    },
-                    "bulletins-card": {
-                        "title": "Read our informative bulletins",
-                        "description": "See significant data on Ibiapaba collected by us and other sources, compiled and analyzed.",
-                        "button_action": "Discover"
-                    }
-                }
-            }
-        },
-        "not-found": {
-            "page-title": "OTIB - Page not found",
-            "title": "It looks like you took a path that's not on our map yet",
-            "description": "The page you're looking for might have been removed, renamed, or never existed. But don't worry, the journey goes on!",
-            "button_back": "Go back to the previous page"
-        },
-        "form/thanks": {
-            "page-title": "OTIB - Thanks for your contribution",
-            "heading": {
-                "buttons": {
-                    "start": "Home"
-                },
-                "title": "Thank you very much for your contribution!",
-                "description": "Your response has been successfully registered and is already helping to strengthen tourism in Ibiapaba.\n🔍 Every piece of data matters: your information will be part of the reports and analyses that guide actions by public authorities, private initiatives and the sustainable development of our region."
-            },
-            "section/what-happens-now": {
-                "title": "What happens now?",
-                "paragraphs": {
-                    "1": {
-                        "title": "Data analysis:",
-                        "description": "Your form will be included in our database and will contribute to statistical and strategic studies."
-                    },
-                    "2": {
-                        "title": "Knowledge generation:",
-                        "description": "The information collected will feed the OTIB's quarterly bulletins and, soon, the interactive data portal, with dashboards open to the public."
-                    },
-                    "3": {
-                        "title": "Real improvements in the tourist experience:",
-                        "description": "Your opinions can inspire new routes, events, public policies, training and local investments."
-                    }
-                }
-            }
-        },
-        "About": {
-            "page-title": "OTIB - About",
-            "breadcrumb": {
-                "1": "Home",
-                "2": "About"
-            },
-            "content": {
-                "section": {
-                    "heading": {
-                        "h1": "About OTIB",
-                        "p": "The \n Ibiapaba Tourism Observatory (🇧🇷 Observatório de Turismo da Ibiapaba - OTIB) \n was born with the purpose of transforming data into useful knowledge for the entire tourism chain, from entrepreneurs and public managers to educational institutions and the community itself. \n The initiative is part of an extension project of the Federal Institute of Ceará - Tianguá Campus, coordinated by Professor Dr. Nécio de Lima Veras. The project is being developed by NUPREDS (Center for Practices in Engineering and Software Development), in partnership with SEBRAE, FORTIB (Ibiapaba Tourism Forum) and local representatives linked to tourism in the region.\n This portal will bring together interactive panels with tourist data from Ibiapaba, information materials and tools aimed at entrepreneurs, managers and other interested parties."
-                    },
-                    "objectives": {
-                        "h2": "Objectives",
-                        "ul": {
-                            "li-1": "Supporting public and private planning, offering information to help define public policies, investments, events and improvements in the services offered.",
-                            "li-2": "Strengthening sustainable tourism, helping to balance tourism growth with the preservation of nature, local culture and the population's quality of life.",
-                            "li-3": "Valuing attractions and the visitor experience, identifying what delights and what needs to be improved, from the point of view of those who visit the region. ",
-                            "li-4": "Stimulate innovation and competitiveness by offering strategic data that allows local businesses to align themselves with the demands of the tourism market.",
-                            "li-5": "Encourage technological innovation projects, supporting the development of creative and sustainable solutions, based on data, that strengthen tourism and environmental preservation in Ibiapaba, such as applications, monitoring systems using computer vision, digital maps and intelligent management tools. ",
-                            "li-6": "To build a permanent channel for listening and participation, uniting academia, government, the productive sector and civil society in the construction of a more intelligent, collaborative tourism that is connected to the regional reality."
-                        },
-                        "p": "More than observing, the OTIB proposes to act based on evidence. By following the movements of tourism, we create opportunities to evolve together, with greater efficiency, inclusion and positive impact."
-                    }
-                },
-                "actions": {
-                    "h3": "Keep navigating",
-                    "buttons": {
-                        "home": "Home",
-                        "form": "Survey"
-                    }
-                }
-            }
-        },
-        "soon": {
-            "page-title": "OTIB - Feature in Development",
-            "h1": "We're almost there!",
-            "p": "This feature is under development and will be released soon",
-            "button_home": "Go back to homepage"
-        }
-    },
-    "components": {
-        "ThemeSwitcher": {
-            "title": "Toggle theme",
-            "light": "Light",
-            "dark": "Dark",
-            "system": "System"
-        },
-        "LocaleSwitcher": {
-            "title": "Change language"
-        },
-        "FormDebugDialog": {
-            "trigger_text": "Debug form content",
-            "dialog_title": "Content sent from the form",
-            "dialog_description": "This dialog only shows in development environment"
-        },
-        "SelectWithSearch": {
-            "placeholder": {
-                "optional": "Select zero or more options",
-                "multiple": "Select at least one option",
-                "single": "Select an option"
-            },
-            "selection": {
-                "selected": "{count, plural, one {# option selected} other {# options selected}}"
-            },
-            "search": "Search"
-        },
-        "NpsSlider": {
-            "input_placeholder": "Drag to define"
-        }
-    },
-    "forms": {
-        "common": {
-            "button_back": "Back",
-            "button_next": "Next",
-            "button_close": "Close",
-            "button_submit": "Submit",
-            "toast_submitting": "Sending responses, please wait",
-            "toast_submit_success": "Form submitted successfully! You'll be redirected to the next page in no time",
-            "toast_content_invalid": "Please fill all form fields correctly!"
-        },
-        "errors": {
-            "field_required": "Required field",
-            "field_require_at_least_one": "Select at least one option",
-            "field_require_custom": "{count, plural, other {Select at least # options}}",
-            "fields_invalid_in_respective_steps": "Fill in the missing mandatory fields in the steps"
-        },
-        "TouristIndividualResearchForm": {
-            "steps": {
-                "1": {
-                    "title": "You",
-                    "fields": {
-                        "tourist_country": {
-                            "form_label": "Country"
-                        },
-                        "tourist_state": {
-                            "form_label": "State"
-                        },
-                        "tourist_city": {
-                            "form_label": "City"
-                        },
-                        "tourist_age_group": {
-                            "form_label": "Age group",
-                            "options": {
-                                "0": "Between 18 and 24 years old",
-                                "1": "Between 25 and 34 years old",
-                                "2": "Between 35 and 44 years old",
-                                "3": "Between 45 and 54 years old",
-                                "4": "Between 55 and 64 years old",
-                                "5": "65 years old or greater"
-                            }
-                        },
-                        "tourist_gender": {
-                            "form_label": "Gender",
-                            "options": {
-                                "male": "Male",
-                                "female": "Female",
-                                "non_binary": "Non binary",
-                                "other": "Other",
-                                "omit": "I prefer not to inform"
-                            }
-                        },
-                        "tourist_education": {
-                            "form_label": "Education",
-                            "options": {
-                                "0": "Incomplete elementary school",
-                                "1": "Completed elementary school",
-                                "2": "Incomplete high school",
-                                "3": "Completed high school",
-                                "4": "Incomplete higher education",
-                                "5": "Completed higher education",
-                                "6": "Specialization",
-                                "7": "MBA",
-                                "8": "Master's degree",
-                                "9": "Doctorate (PhD)",
-                                "10": "Postdoc"
-                            }
-                        },
-                        "tourist_estimated_income": {
-                            "form_label": "Estimated income",
-                            "options": {
-                                "low": "Less than R$1,000",
-                                "low_mid": "Between R$1,000 and R$3,000",
-                                "mid": "Between R$3,000 and R$5,000",
-                                "high_mid": "Between R$5,000 and R$10,000",
-                                "high": "More than R$10,000",
-                                "omit": "I prefer not to inform"
-                            }
-                        }
-                    }
-                },
-                "2": {
-                    "title": "Planning",
-                    "fields": {
-                        "planning_was_planned": {
-                            "form_label": "Was your trip planned?",
-                            "options": {
-                                "radio_true": "Yes",
-                                "radio_false": "No"
-                            }
-                        },
-                        "planning_time": {
-                            "form_label": "How far in advance was your trip planned?",
-                            "options": {
-                                "0": "Less than 1 month",
-                                "1": "Between 1 and 3 months",
-                                "2": "Between 3 and 6 months",
-                                "3": "More than 6 months"
-                            }
-                        },
-                        "planning_information_sources": {
-                            "form_label": "What sources of information did you use for planning?",
-                            "options": {
-                                "0": "Travel websites",
-                                "1": "Social networks",
-                                "2": "Recommendations from friends",
-                                "3": "Travel agencies",
-                                "4": "Printed guides",
-                                "5": "Other"
-                            }
-                        },
-                        "planning_organization": {
-                            "form_label": "How was your trip organized?",
-                            "options": {
-                                "0": "Individual trip",
-                                "1": "Couple trip",
-                                "2": "Family trip",
-                                "3": "Group trip",
-                                "4": "With travel agency",
-                                "5": "Other"
-                            }
-                        }
-                    }
-                },
-                "3": {
-                    "title": "Trip",
-                    "fields": {
-                        "trip_has_reincidence": {
-                            "form_label": "Have you been to Ibiapaba before?",
-                            "options": {
-                                "radio_true": "Yes",
-                                "radio_false": "No"
-                            }
-                        },
-                        "trip_reincidence": {
-                            "form_label": "How many times have you visited Ibiapaba?",
-                            "options": {
-                                "0": "I've visited between 2 and 5 times",
-                                "1": "I've visited between 5 and 10 times",
-                                "2": "I've visited more than 10 times",
-                                "3": "I visit once a month",
-                                "4": "I visit every weekend"
-                            }
-                        },
-                        "trip_know_ibiapaba_mirantes": {
-                            "form_label": "Do you know the \"Mirantes da Ibiapaba\" Route?",
-                            "options": {
-                                "radio_true": "Yes",
-                                "radio_false": "No"
-                            }
-                        },
-                        "trip_how_know_ibiapaba_mirantes": {
-                            "form_label": "How did you heard about the route?",
-                            "options": {
-                                "0": "Radio",
-                                "1": "TV",
-                                "2": "Magazines and newspapers",
-                                "3": "Travel agencies",
-                                "4": "Google and search engines in general",
-                                "5": "Social networks (Facebook, Instagram, others)",
-                                "6": "Experiências Ibiapaba website",
-                                "7": "Municipalities' websites",
-                                "8": "Online booking sites (OTA, such as Booking, decolar)",
-                                "9": "Specialized tourism websites",
-                                "10": "Travel blogs",
-                                "11": "Others"
-                            }
-                        },
-                        "trip_reasons": {
-                            "form_label": "Trip reason(s)",
-                            "options": {
-                                "0": "Leisure, Outings/Rest",
-                                "1": "Events, Festivals and Shows",
-                                "2": "Business/Work",
-                                "3": "Visit to Relatives/Friends",
-                                "4": "Education, Courses, Qualification",
-                                "5": "Sports",
-                                "6": "Shopping",
-                                "7": "Medical Services",
-                                "8": "Religious",
-                                "9": "Other"
-                            }
-                        },
-                        "trip_stay_time": {
-                            "form_label": "Length of stay",
-                            "options": {
-                                "0": "1 day",
-                                "1": "2 to 3 days",
-                                "2": "Weekend only",
-                                "3": "4 days",
-                                "4": "5 days",
-                                "5": "1 week",
-                                "6": "15 days",
-                                "7": "More than 15 days"
-                            }
-                        },
-                        "trip_vehicles": {
-                            "form_label": "Vehicle(s) used",
-                            "options": {
-                                "0": "Own car",
-                                "1": "Bus",
-                                "2": "Motorcycle",
-                                "3": "Bicycle",
-                                "4": "Van",
-                                "5": "App-based transportation (Ubis, Mototáxi Tianguá, etc.)",
-                                "6": "Taxi",
-                                "7": "Motorhome/Trailer",
-                                "8": "Plane",
-                                "9": "Other"
-                            }
-                        },
-                        "trip_average_diary_expense": {
-                            "form_label": "How much did you spent or plan to spend on average per day?",
-                            "options": {
-                                "0": "Up to R$ 300.00",
-                                "1": "From R$ 300.00 to R$ 500.00",
-                                "2": "From R$ 500.00 to R$ 1,000.00",
-                                "3": "From R$ 1,000.00 to R$ 1,500.00",
-                                "4": "From R$ 1. 500.00 to R$ 2,000.00",
-                                "5": "From R$ 2,000.00 to R$ 3,000.00",
-                                "6": "From R$ 3,000.00 to R$ 5,000.00",
-                                "7": "Above R$ 5,000.00"
-                            }
-                        },
-                        "trip_hosting_types": {
-                            "form_label": "Hosting type(s)",
-                            "options": {
-                                "0": "Hotel",
-                                "1": "Inn",
-                                "2": "Family/friends' house",
-                                "3": "Vacation rental",
-                                "4": "Camping",
-                                "5": "Hostel",
-                                "6": "Resort",
-                                "7": "Chalet",
-                                "8": "Motorhome/Trailer",
-                                "9": "Other"
-                            }
-                        }
-                    }
-                },
-                "4": {
-                    "title": "Activities",
-                    "fields": {
-                        "activities_cities_visited": {
-                            "form_label": "Cities you've visited or plan to visit"
-                        },
-                        "activities_attractions_visited": {
-                            "form_label": "Attractions and events you have visited or would like to visit",
-                            "options": {
-                                "0": "Natural attraction (parks, viewpoints, trails, caves, waterfalls, rivers, mountains, landscapes)",
-                                "1": "Cultural attraction (museums, events, farms, sugarcane mills, historic centers, artistic expressions)",
-                                "2": "Religious sites (sanctuaries, churches, pilgrimages, festivities, sacred heritage)",
-                                "3": "Nature adventure activities (rappelling, zipline, paragliding, climbing, extreme trails)",
-                                "4": "Theme parks (eco parks, adventure parks)",
-                                "5": "Gastronomic experiences (fairs, local markets, regional cuisine, typical restaurants)",
-                                "6": "Rural and experiential tourism (farms, harvest experiences, agroecology, artisanal workshops)",
-                                "7": "Scientific and environmental tourism (guided tours, environmental education, wildlife and flora observation)",
-                                "8": "Craft fairs and markets (local products, folk art, souvenirs)",
-                                "9": "Leisure and community spaces (squares, cultural centers, picnic or rest areas)",
-                                "10": "Festive events (music, theater, dance festivals, traditional celebrations, carnival, folk festivals)"
-                            }
-                        },
-                        "activities_used_apps": {
-                            "form_label": "Apps using during the planning and trip",
-                            "options": {
-                                "0": "Maps or navigators: Waze, Google Maps, etc.",
-                                "1": "Digital tour guides",
-                                "2": "Language translators",
-                                "3": "Transport apps: Uber, 99, etc.",
-                                "4": "Social networks for sharing experiences",
-                                "5": "Accommodation booking apps: Booking, Airbnb, etc.",
-                                "6": "Restaurant and attraction review apps: TripAdvisor, Google Reviews, etc."
-                            }
-                        }
-                    }
-                },
-                "5": {
-                    "title": "Evaluation",
-                    "fields": {
-                        "evaluation_recommendation_rate": {
-                            "form_label": "From 1 to 10, how much would you recommend someone to visit Ibiapaba?"
-                        },
-                        "evaluation_dissatisfactions": {
-                            "form_label": "What did you like least during your visit?",
-                            "options": {
-                                "0": "Cleanliness",
-                                "1": "Street signs",
-                                "2": "Tourist signs",
-                                "3": "Conservation of streets and street furniture",
-                                "4": "Access road",
-                                "5": "Parking",
-                                "6": "Taxi",
-                                "7": "Mobility/Transport",
-                                "8": "Banks/ ATMs",
-                                "9": "Security",
-                                "10": "Lighting",
-                                "11": "Prices",
-                                "12": "Institutional website",
-                                "13": "Hospitality of residents",
-                                "14": "Hospitality of service providers and commerce",
-                                "15": "Receptive services",
-                                "16": "Accommodation",
-                                "17": "Restaurants/gastronomy",
-                                "18": "Tour guide/environmental guide",
-                                "19": "Handicrafts",
-                                "20": "Commerce in general",
-                                "21": "Cultural events",
-                                "22": "Natural attractions",
-                                "23": "Events",
-                                "24": "Leisure options",
-                                "25": " Night-time entertainment"
-                            }
-                        },
-                        "evaluation_expectation_rate": {
-                            "form_label": "What was your level of expectation before the visit? (1 to 10)"
-                        },
-                        "evaluation_satisfaction_rate": {
-                            "form_label": "How satisfied were you after your visit? (1 to 10)"
-                        },
-                        "evaluation_return_intent_rate": {
-                            "form_label": "How much do you intend to return to Ibiapaba?"
-                        },
-                        "evaluation_open_opinion": {
-                            "form_label": "Did you need a service that you couldn't find in Ibiapaba? Or do you have any recommendations for improving tourist infrastructure, equipment and services?",
-                            "input_placeholder": "We'd be very grateful to hear you :)"
-                        }
-                    }
-                }
-            },
-            "TutorialDialog": {
-                "steps": {
-                    "1": {
-                        "title": "Hello! Welcome to Ibiapaba!",
-                        "description": "We are delighted that you are visiting our region. This form is part of an initiative by the Federal Institute of Ceará (Tianguá Campus), through NUPREDS, in partnership with SEBRAE, FORTIB, local entrepreneurs and managers. Our aim is to get to know those who visit us better and make their experience even more incredible.",
-                        "texts": {
-                            "1": "By answering, you will be contributing directly to strengthening local tourism and developing projects that enhance our attractions, services and culture. ",
-                            "2": "⏱️ It takes less than 4 minutes to fill in, and your answers are completely confidential and anonymous.",
-                            "3": "💚 Thank you for being part of this collective construction of a more welcoming, sustainable and intelligent tourism.",
-                            "4": "👉 Shall we get started?"
-                        }
-                    }
-                }
-            }
-        }
-    }
+	"meta": {
+		"home": { "title": "Homepage", "description": "" },
+		"about": { "title": "About", "description": "" },
+		"partners": { "title": "Partners", "description": "" },
+		"tourism-map": { "title": "Tourism Map", "description": "" },
+		"productions": { "title": "Productions", "description": "" },
+		"not-found": { "title": "Page not found", "description": "" },
+		"soon": { "title": "Feature in development", "description": "" }
+	},
+	"app": {
+		"home": {
+			"title": "OTIB - Homepage",
+			"heading": {
+				"title": "Discover. Explore. Transform \n Ibiapaba Tourism.",
+				"description": "Welcome to the Ibiapaba region's official tourism intelligence channel. Here you'll find data, maps, opportunities and connections that strengthen regional tourism."
+			},
+			"buttons": {
+				"about": "Learn about the project",
+				"form": "Survey",
+				"first-bulletin": "See our first bulletin"
+			},
+			"sections": {
+				"bento-cards": {
+					"form-card": {
+						"title": "Help improve the tourist experience",
+						"description": "Have you visited or are you visiting Ibiapaba? Share your experience!\nResponding to our form takes less than 6 minutes and helps to develop a more sustainable, attractive and welcoming tourism.",
+						"button_action": "Contribute"
+					},
+					"bulletins-card": {
+						"title": "Read our informative bulletins",
+						"description": "See significant data on Ibiapaba collected by us and other sources, compiled and analyzed.",
+						"button_action": "Discover"
+					}
+				}
+			}
+		},
+		"not-found": {
+			"title": "It looks like you took a path that's not on our map yet",
+			"description": "The page you're looking for might have been removed, renamed, or never existed. But don't worry, the journey goes on!",
+			"button_back": "Go back to the previous page"
+		},
+		"form/thanks": {
+			"title": "OTIB - Thanks for your contribution",
+			"heading": {
+				"buttons": {
+					"start": "Home"
+				},
+				"title": "Thank you very much for your contribution!",
+				"description": "Your response has been successfully registered and is already helping to strengthen tourism in Ibiapaba.\n🔍 Every piece of data matters: your information will be part of the reports and analyses that guide actions by public authorities, private initiatives and the sustainable development of our region."
+			},
+			"section/what-happens-now": {
+				"title": "What happens now?",
+				"paragraphs": {
+					"1": {
+						"title": "Data analysis:",
+						"description": "Your form will be included in our database and will contribute to statistical and strategic studies."
+					},
+					"2": {
+						"title": "Knowledge generation:",
+						"description": "The information collected will feed the OTIB's quarterly bulletins and, soon, the interactive data portal, with dashboards open to the public."
+					},
+					"3": {
+						"title": "Real improvements in the tourist experience:",
+						"description": "Your opinions can inspire new routes, events, public policies, training and local investments."
+					}
+				}
+			}
+		},
+		"about": {
+			"title": "OTIB - About",
+			"content": {
+				"section": {
+					"heading": {
+						"h1": "About OTIB",
+						"p": "The \n Ibiapaba Tourism Observatory (🇧🇷 Observatório de Turismo da Ibiapaba - OTIB) \n was born with the purpose of transforming data into useful knowledge for the entire tourism chain, from entrepreneurs and public managers to educational institutions and the community itself. \n The initiative is part of an extension project of the Federal Institute of Ceará - Tianguá Campus, coordinated by Professor Dr. Nécio de Lima Veras. The project is being developed by NUPREDS (Center for Practices in Engineering and Software Development), in partnership with SEBRAE, FORTIB (Ibiapaba Tourism Forum) and local representatives linked to tourism in the region.\n This portal will bring together interactive panels with tourist data from Ibiapaba, information materials and tools aimed at entrepreneurs, managers and other interested parties."
+					},
+					"objectives": {
+						"h2": "Objectives",
+						"ul": {
+							"li-1": "Supporting public and private planning, offering information to help define public policies, investments, events and improvements in the services offered.",
+							"li-2": "Strengthening sustainable tourism, helping to balance tourism growth with the preservation of nature, local culture and the population's quality of life.",
+							"li-3": "Valuing attractions and the visitor experience, identifying what delights and what needs to be improved, from the point of view of those who visit the region. ",
+							"li-4": "Stimulate innovation and competitiveness by offering strategic data that allows local businesses to align themselves with the demands of the tourism market.",
+							"li-5": "Encourage technological innovation projects, supporting the development of creative and sustainable solutions, based on data, that strengthen tourism and environmental preservation in Ibiapaba, such as applications, monitoring systems using computer vision, digital maps and intelligent management tools. ",
+							"li-6": "To build a permanent channel for listening and participation, uniting academia, government, the productive sector and civil society in the construction of a more intelligent, collaborative tourism that is connected to the regional reality."
+						},
+						"p": "More than observing, the OTIB proposes to act based on evidence. By following the movements of tourism, we create opportunities to evolve together, with greater efficiency, inclusion and positive impact."
+					}
+				},
+				"actions": {
+					"h3": "Keep navigating",
+					"buttons": {
+						"home": "Home",
+						"form": "Survey"
+					}
+				}
+			}
+		},
+		"soon": {
+			"title": "OTIB - Feature in Development",
+			"h1": "We're almost there!",
+			"p": "This feature is under development and will be released soon",
+			"button_home": "Go back to homepage"
+		},
+		"tourism-map": {
+			"title": "Tourism Map"
+		}
+	},
+	"components": {
+		"Header": {
+			"nav": {
+				"quick-links": {
+					"title": "Quick links",
+					"home": "Homepage",
+					"about": "About",
+					"partners": "Partners",
+					"productions": "Productions",
+					"tourism-map": "Tourism Map"
+				}
+			}
+		},
+		"ThemeSwitcher": {
+			"title": "Toggle theme",
+			"light": "Light",
+			"dark": "Dark",
+			"system": "System"
+		},
+		"LocaleSwitcher": {
+			"title": "Change language"
+		},
+		"FormDebugDialog": {
+			"trigger_text": "Debug form content",
+			"dialog_title": "Content sent from the form",
+			"dialog_description": "This dialog only shows in development environment"
+		},
+		"SelectWithSearch": {
+			"placeholder": {
+				"optional": "Select zero or more options",
+				"multiple": "Select at least one option",
+				"single": "Select an option"
+			},
+			"selection": {
+				"selected": "{count, plural, one {# option selected} other {# options selected}}"
+			},
+			"search": "Search"
+		},
+		"NpsSlider": {
+			"input_placeholder": "Drag to define"
+		}
+	},
+	"forms": {
+		"common": {
+			"button_back": "Back",
+			"button_next": "Next",
+			"button_close": "Close",
+			"button_submit": "Submit",
+			"toast_submitting": "Sending responses, please wait",
+			"toast_submit_success": "Form submitted successfully! You'll be redirected to the next page in no time",
+			"toast_content_invalid": "Please fill all form fields correctly!"
+		},
+		"errors": {
+			"field_required": "Required field",
+			"field_require_at_least_one": "Select at least one option",
+			"field_require_custom": "{count, plural, other {Select at least # options}}",
+			"fields_invalid_in_respective_steps": "Fill in the missing mandatory fields in the steps"
+		},
+		"TouristIndividualResearchForm": {
+			"steps": {
+				"1": {
+					"title": "You",
+					"fields": {
+						"tourist_country": {
+							"form_label": "Country"
+						},
+						"tourist_state": {
+							"form_label": "State"
+						},
+						"tourist_city": {
+							"form_label": "City"
+						},
+						"tourist_age_group": {
+							"form_label": "Age group",
+							"options": {
+								"0": "Between 18 and 24 years old",
+								"1": "Between 25 and 34 years old",
+								"2": "Between 35 and 44 years old",
+								"3": "Between 45 and 54 years old",
+								"4": "Between 55 and 64 years old",
+								"5": "65 years old or greater"
+							}
+						},
+						"tourist_gender": {
+							"form_label": "Gender",
+							"options": {
+								"male": "Male",
+								"female": "Female",
+								"non_binary": "Non binary",
+								"other": "Other",
+								"omit": "I prefer not to inform"
+							}
+						},
+						"tourist_education": {
+							"form_label": "Education",
+							"options": {
+								"0": "Incomplete elementary school",
+								"1": "Completed elementary school",
+								"2": "Incomplete high school",
+								"3": "Completed high school",
+								"4": "Incomplete higher education",
+								"5": "Completed higher education",
+								"6": "Specialization",
+								"7": "MBA",
+								"8": "Master's degree",
+								"9": "Doctorate (PhD)",
+								"10": "Postdoc"
+							}
+						},
+						"tourist_estimated_income": {
+							"form_label": "Estimated income",
+							"options": {
+								"low": "Less than R$1,000",
+								"low_mid": "Between R$1,000 and R$3,000",
+								"mid": "Between R$3,000 and R$5,000",
+								"high_mid": "Between R$5,000 and R$10,000",
+								"high": "More than R$10,000",
+								"omit": "I prefer not to inform"
+							}
+						}
+					}
+				},
+				"2": {
+					"title": "Planning",
+					"fields": {
+						"planning_was_planned": {
+							"form_label": "Was your trip planned?",
+							"options": {
+								"radio_true": "Yes",
+								"radio_false": "No"
+							}
+						},
+						"planning_time": {
+							"form_label": "How far in advance was your trip planned?",
+							"options": {
+								"0": "Less than 1 month",
+								"1": "Between 1 and 3 months",
+								"2": "Between 3 and 6 months",
+								"3": "More than 6 months"
+							}
+						},
+						"planning_information_sources": {
+							"form_label": "What sources of information did you use for planning?",
+							"options": {
+								"0": "Travel websites",
+								"1": "Social networks",
+								"2": "Recommendations from friends",
+								"3": "Travel agencies",
+								"4": "Printed guides",
+								"5": "Other"
+							}
+						},
+						"planning_organization": {
+							"form_label": "How was your trip organized?",
+							"options": {
+								"0": "Individual trip",
+								"1": "Couple trip",
+								"2": "Family trip",
+								"3": "Group trip",
+								"4": "With travel agency",
+								"5": "Other"
+							}
+						}
+					}
+				},
+				"3": {
+					"title": "Trip",
+					"fields": {
+						"trip_has_reincidence": {
+							"form_label": "Have you been to Ibiapaba before?",
+							"options": {
+								"radio_true": "Yes",
+								"radio_false": "No"
+							}
+						},
+						"trip_reincidence": {
+							"form_label": "How many times have you visited Ibiapaba?",
+							"options": {
+								"0": "I've visited between 2 and 5 times",
+								"1": "I've visited between 5 and 10 times",
+								"2": "I've visited more than 10 times",
+								"3": "I visit once a month",
+								"4": "I visit every weekend"
+							}
+						},
+						"trip_know_ibiapaba_mirantes": {
+							"form_label": "Do you know the \"Mirantes da Ibiapaba\" Route?",
+							"options": {
+								"radio_true": "Yes",
+								"radio_false": "No"
+							}
+						},
+						"trip_how_know_ibiapaba_mirantes": {
+							"form_label": "How did you heard about the route?",
+							"options": {
+								"0": "Radio",
+								"1": "TV",
+								"2": "Magazines and newspapers",
+								"3": "Travel agencies",
+								"4": "Google and search engines in general",
+								"5": "Social networks (Facebook, Instagram, others)",
+								"6": "Experiências Ibiapaba website",
+								"7": "Municipalities' websites",
+								"8": "Online booking sites (OTA, such as Booking, decolar)",
+								"9": "Specialized tourism websites",
+								"10": "Travel blogs",
+								"11": "Others"
+							}
+						},
+						"trip_reasons": {
+							"form_label": "Trip reason(s)",
+							"options": {
+								"0": "Leisure, Outings/Rest",
+								"1": "Events, Festivals and Shows",
+								"2": "Business/Work",
+								"3": "Visit to Relatives/Friends",
+								"4": "Education, Courses, Qualification",
+								"5": "Sports",
+								"6": "Shopping",
+								"7": "Medical Services",
+								"8": "Religious",
+								"9": "Other"
+							}
+						},
+						"trip_stay_time": {
+							"form_label": "Length of stay",
+							"options": {
+								"0": "1 day",
+								"1": "2 to 3 days",
+								"2": "Weekend only",
+								"3": "4 days",
+								"4": "5 days",
+								"5": "1 week",
+								"6": "15 days",
+								"7": "More than 15 days"
+							}
+						},
+						"trip_vehicles": {
+							"form_label": "Vehicle(s) used",
+							"options": {
+								"0": "Own car",
+								"1": "Bus",
+								"2": "Motorcycle",
+								"3": "Bicycle",
+								"4": "Van",
+								"5": "App-based transportation (Ubis, Mototáxi Tianguá, etc.)",
+								"6": "Taxi",
+								"7": "Motorhome/Trailer",
+								"8": "Plane",
+								"9": "Other"
+							}
+						},
+						"trip_average_diary_expense": {
+							"form_label": "How much did you spent or plan to spend on average per day?",
+							"options": {
+								"0": "Up to R$ 300.00",
+								"1": "From R$ 300.00 to R$ 500.00",
+								"2": "From R$ 500.00 to R$ 1,000.00",
+								"3": "From R$ 1,000.00 to R$ 1,500.00",
+								"4": "From R$ 1. 500.00 to R$ 2,000.00",
+								"5": "From R$ 2,000.00 to R$ 3,000.00",
+								"6": "From R$ 3,000.00 to R$ 5,000.00",
+								"7": "Above R$ 5,000.00"
+							}
+						},
+						"trip_hosting_types": {
+							"form_label": "Hosting type(s)",
+							"options": {
+								"0": "Hotel",
+								"1": "Inn",
+								"2": "Family/friends' house",
+								"3": "Vacation rental",
+								"4": "Camping",
+								"5": "Hostel",
+								"6": "Resort",
+								"7": "Chalet",
+								"8": "Motorhome/Trailer",
+								"9": "Other"
+							}
+						}
+					}
+				},
+				"4": {
+					"title": "Activities",
+					"fields": {
+						"activities_cities_visited": {
+							"form_label": "Cities you've visited or plan to visit"
+						},
+						"activities_attractions_visited": {
+							"form_label": "Attractions and events you have visited or would like to visit",
+							"options": {
+								"0": "Natural attraction (parks, viewpoints, trails, caves, waterfalls, rivers, mountains, landscapes)",
+								"1": "Cultural attraction (museums, events, farms, sugarcane mills, historic centers, artistic expressions)",
+								"2": "Religious sites (sanctuaries, churches, pilgrimages, festivities, sacred heritage)",
+								"3": "Nature adventure activities (rappelling, zipline, paragliding, climbing, extreme trails)",
+								"4": "Theme parks (eco parks, adventure parks)",
+								"5": "Gastronomic experiences (fairs, local markets, regional cuisine, typical restaurants)",
+								"6": "Rural and experiential tourism (farms, harvest experiences, agroecology, artisanal workshops)",
+								"7": "Scientific and environmental tourism (guided tours, environmental education, wildlife and flora observation)",
+								"8": "Craft fairs and markets (local products, folk art, souvenirs)",
+								"9": "Leisure and community spaces (squares, cultural centers, picnic or rest areas)",
+								"10": "Festive events (music, theater, dance festivals, traditional celebrations, carnival, folk festivals)"
+							}
+						},
+						"activities_used_apps": {
+							"form_label": "Apps using during the planning and trip",
+							"options": {
+								"0": "Maps or navigators: Waze, Google Maps, etc.",
+								"1": "Digital tour guides",
+								"2": "Language translators",
+								"3": "Transport apps: Uber, 99, etc.",
+								"4": "Social networks for sharing experiences",
+								"5": "Accommodation booking apps: Booking, Airbnb, etc.",
+								"6": "Restaurant and attraction review apps: TripAdvisor, Google Reviews, etc."
+							}
+						}
+					}
+				},
+				"5": {
+					"title": "Evaluation",
+					"fields": {
+						"evaluation_recommendation_rate": {
+							"form_label": "From 1 to 10, how much would you recommend someone to visit Ibiapaba?"
+						},
+						"evaluation_dissatisfactions": {
+							"form_label": "What did you like least during your visit?",
+							"options": {
+								"0": "Cleanliness",
+								"1": "Street signs",
+								"2": "Tourist signs",
+								"3": "Conservation of streets and street furniture",
+								"4": "Access road",
+								"5": "Parking",
+								"6": "Taxi",
+								"7": "Mobility/Transport",
+								"8": "Banks/ ATMs",
+								"9": "Security",
+								"10": "Lighting",
+								"11": "Prices",
+								"12": "Institutional website",
+								"13": "Hospitality of residents",
+								"14": "Hospitality of service providers and commerce",
+								"15": "Receptive services",
+								"16": "Accommodation",
+								"17": "Restaurants/gastronomy",
+								"18": "Tour guide/environmental guide",
+								"19": "Handicrafts",
+								"20": "Commerce in general",
+								"21": "Cultural events",
+								"22": "Natural attractions",
+								"23": "Events",
+								"24": "Leisure options",
+								"25": " Night-time entertainment"
+							}
+						},
+						"evaluation_expectation_rate": {
+							"form_label": "What was your level of expectation before the visit? (1 to 10)"
+						},
+						"evaluation_satisfaction_rate": {
+							"form_label": "How satisfied were you after your visit? (1 to 10)"
+						},
+						"evaluation_return_intent_rate": {
+							"form_label": "How much do you intend to return to Ibiapaba?"
+						},
+						"evaluation_open_opinion": {
+							"form_label": "Did you need a service that you couldn't find in Ibiapaba? Or do you have any recommendations for improving tourist infrastructure, equipment and services?",
+							"input_placeholder": "We'd be very grateful to hear you :)"
+						}
+					}
+				}
+			},
+			"TutorialDialog": {
+				"steps": {
+					"1": {
+						"title": "Hello! Welcome to Ibiapaba!",
+						"description": "We are delighted that you are visiting our region. This form is part of an initiative by the Federal Institute of Ceará (Tianguá Campus), through NUPREDS, in partnership with SEBRAE, FORTIB, local entrepreneurs and managers. Our aim is to get to know those who visit us better and make their experience even more incredible.",
+						"texts": {
+							"1": "By answering, you will be contributing directly to strengthening local tourism and developing projects that enhance our attractions, services and culture. ",
+							"2": "⏱️ It takes less than 4 minutes to fill in, and your answers are completely confidential and anonymous.",
+							"3": "💚 Thank you for being part of this collective construction of a more welcoming, sustainable and intelligent tourism.",
+							"4": "👉 Shall we get started?"
+						}
+					}
+				}
+			}
+		}
+	}
 }

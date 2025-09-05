@@ -6,9 +6,9 @@ import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 
 export async function generateMetadata(): Promise<Metadata> {
-	const t = await getTranslations('app.soon');
+	const t = await getTranslations('meta.soon');
 	return {
-		title: t('page-title'),
+		title: 'OTIB - ' + t('title'),
 	};
 }
 
@@ -16,15 +16,15 @@ export default async function UnderConstruction() {
 	const t = await getTranslations('app.soon');
 
 	return (
-		<main className='px-custom w-full h-[calc(100dvh-109px-24px)] flex flex-col gap-5 justify-center items-center text-3xl lg:text-4xl font-semibold tracking-tight'>
-			<div className='flex flex-col lg:flex-row gap-8 items-center'>
-				<CogIcon className='text-secondary-foreground size-40 lg:size-60 animate-spin animation-duration-[12s]' />
+		<main className="px-custom w-full h-[calc(100dvh-109px-24px)] flex flex-col gap-5 justify-center items-center text-3xl lg:text-4xl font-semibold tracking-tight">
+			<div className="flex flex-col lg:flex-row gap-8 items-center">
+				<CogIcon className="text-secondary-foreground size-40 lg:size-60 animate-spin animation-duration-[12s]" />
 
-				<div className='flex flex-col gap-8 md:gap-6'>
-					<Heading.H1 className='font-black text-2xl md:text-3xl max-w-3xl'>
+				<div className="flex flex-col gap-8 md:gap-6">
+					<Heading.H1 className="font-black text-2xl md:text-3xl max-w-3xl">
 						{t('h1')}
 					</Heading.H1>
-					<p className='text-lg font-normal text-muted-foreground max-w-3xl'>
+					<p className="text-lg font-normal text-muted-foreground max-w-3xl">
 						{t('p')}
 					</p>
 
@@ -35,7 +35,7 @@ export default async function UnderConstruction() {
 						})}w-full md:w-fit`}
 						href={'/'}
 					>
-						<HomeIcon className='h-full w-fit' />
+						<HomeIcon className="h-full w-fit" />
 						{t('button_home')}
 					</Link>
 				</div>

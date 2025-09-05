@@ -12,14 +12,12 @@ import { HomeBentoGrid } from './_components/HomeBentoGrid';
 import { VerticalMarquee } from './_components/VerticalMarquee';
 
 export async function generateMetadata(): Promise<Metadata> {
-	const t = await getTranslations('app.Home');
-	return {
-		title: t('page-title'),
-	};
+	const t = await getTranslations('meta.home');
+	return { title: 'OTIB - ' + t('title') };
 }
 
 export default async function Home() {
-	const t = await getTranslations('app.Home');
+	const t = await getTranslations('app.home');
 
 	return (
 		<>
@@ -62,7 +60,7 @@ export default async function Home() {
 						id="home-hero"
 						className="w-full order-first md:order-last"
 					>
-						<VerticalMarquee/>
+						<VerticalMarquee />
 					</div>
 				</section>
 

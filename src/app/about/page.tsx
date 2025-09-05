@@ -1,13 +1,7 @@
+import { LinkType } from '@/@types/link';
 import { Footer } from '@/components/layout/Footer';
+import { InformativePageWrapper } from '@/components/layout/InformativePageWrapper';
 import { Badge } from '@/components/ui/badge';
-import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 import { buttonVariants } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heading } from '@/components/ui/heading';
@@ -18,32 +12,28 @@ import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 
 export async function generateMetadata(): Promise<Metadata> {
-	const t = await getTranslations('app.About');
+	const t = await getTranslations('meta.about');
 	return {
-		title: t('page-title'),
+		title: 'OTIB - ' + t('title'),
 	};
 }
 
 export default async function About() {
-	const t = await getTranslations('app.About');
+	const t = await getTranslations('');
+
+	const breadcrumbs: LinkType[] = [
+		{
+			title: t('meta.home.title'),
+			url: '/otib',
+		},
+		{
+			title: t('meta.about.title'),
+		},
+	];
 
 	// TODO: GenericHtml component para conteúdo informativo estático
 	return (
-		<>
-			<Breadcrumb className="px-custom py-3 border-y-2 border-muted dark:border-muted/70">
-				<BreadcrumbList>
-					<BreadcrumbItem>
-						<BreadcrumbLink href="/otib">
-							{t('breadcrumb.1')}
-						</BreadcrumbLink>
-					</BreadcrumbItem>
-					<BreadcrumbSeparator />
-					<BreadcrumbItem>
-						<BreadcrumbPage>{t('breadcrumb.2')}</BreadcrumbPage>
-					</BreadcrumbItem>
-				</BreadcrumbList>
-			</Breadcrumb>
-
+		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
 			<article
 				id="about-content"
 				className="px-custom flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8"
@@ -52,20 +42,42 @@ export default async function About() {
 					id="about-heading"
 					className="flex flex-col gap-8 md:gap-6"
 				>
-					<Heading.H1>{t('content.section.heading.h1')}</Heading.H1>
+					<Heading.H1>
+						{t('app.about.content.section.heading.h1')}
+					</Heading.H1>
 
 					<p className="text-secondary-foreground">
-						{t('content.section.heading.p').split('\n')[0]}
+						{
+							t('app.about.content.section.heading.p').split(
+								'\n',
+							)[0]
+						}
 						<strong className="font-extrabold text-primary">
-							{t('content.section.heading.p').split('\n')[1]}
+							{
+								t('app.about.content.section.heading.p').split(
+									'\n',
+								)[1]
+							}
 						</strong>{' '}
-						{t('content.section.heading.p').split('\n')[2]}
+						{
+							t('app.about.content.section.heading.p').split(
+								'\n',
+							)[2]
+						}
 						<br />
 						<br />
-						{t('content.section.heading.p').split('\n')[3]}
+						{
+							t('app.about.content.section.heading.p').split(
+								'\n',
+							)[3]
+						}
 						<br />
 						<br />
-						{t('content.section.heading.p').split('\n')[4]}
+						{
+							t('app.about.content.section.heading.p').split(
+								'\n',
+							)[4]
+						}
 						<br />
 						<br />
 					</p>
@@ -78,7 +90,7 @@ export default async function About() {
 					<h2
 						className={`${ibmPlexSans.className} font-semibold text-2xl md:text-3xl`}
 					>
-						{t('content.section.objectives.h2')}
+						{t('app.about.content.section.objectives.h2')}
 					</h2>
 
 					<ul className="flex flex-col gap-8 md:gap-6">
@@ -88,7 +100,11 @@ export default async function About() {
 							>
 								1
 							</Badge>
-							<p>{t('content.section.objectives.ul.li-1')}</p>
+							<p>
+								{t(
+									'app.about.content.section.objectives.ul.li-1',
+								)}
+							</p>
 						</li>
 
 						<li className="flex gap-4 items-start md:items-center justify-start">
@@ -97,7 +113,11 @@ export default async function About() {
 							>
 								2
 							</Badge>
-							<p>{t('content.section.objectives.ul.li-2')}</p>
+							<p>
+								{t(
+									'app.about.content.section.objectives.ul.li-2',
+								)}
+							</p>
 						</li>
 
 						<li className="flex gap-4 items-start md:items-center justify-start">
@@ -106,7 +126,11 @@ export default async function About() {
 							>
 								3
 							</Badge>
-							<p>{t('content.section.objectives.ul.li-3')}</p>
+							<p>
+								{t(
+									'app.about.content.section.objectives.ul.li-3',
+								)}
+							</p>
 						</li>
 
 						<li className="flex gap-4 items-start md:items-center justify-start">
@@ -115,7 +139,11 @@ export default async function About() {
 							>
 								4
 							</Badge>
-							<p>{t('content.section.objectives.ul.li-4')}</p>
+							<p>
+								{t(
+									'app.about.content.section.objectives.ul.li-4',
+								)}
+							</p>
 						</li>
 
 						<li className="flex gap-4 items-start md:items-center justify-start">
@@ -124,7 +152,11 @@ export default async function About() {
 							>
 								5
 							</Badge>
-							<p>{t('content.section.objectives.ul.li-5')}</p>
+							<p>
+								{t(
+									'app.about.content.section.objectives.ul.li-5',
+								)}
+							</p>
 						</li>
 
 						<li className="flex gap-4 items-start md:items-center justify-start">
@@ -133,39 +165,47 @@ export default async function About() {
 							>
 								6
 							</Badge>
-							<p>{t('content.section.objectives.ul.li-6')}</p>
+							<p>
+								{t(
+									'app.about.content.section.objectives.ul.li-6',
+								)}
+							</p>
 						</li>
 					</ul>
 
-					<p>{t('content.section.objectives.p')}</p>
+					<p>{t('app.about.content.section.objectives.p')}</p>
 				</section>
 
 				<Card id="about-actions">
 					<CardContent className="space-y-5">
 						{' '}
 						<h3 className={`font-semibold text-md`}>
-							{t('content.actions.h3')}
+							{t('app.about.content.actions.h3')}
 						</h3>
 						<div className="w-full flex flex-wrap items-center justify-start gap-3">
 							<Link
-								title={t('content.actions.buttons.home')}
+								title={t(
+									'app.about.content.actions.buttons.home',
+								)}
 								className={`${buttonVariants({
 									variant: 'ghost',
 								})} w-full md:w-fit border-primary/80 border-1`}
 								href="/"
 							>
 								<Home className="text-primary size-5" />
-								{t('content.actions.buttons.home')}
+								{t('app.about.content.actions.buttons.home')}
 							</Link>
 							<Link
-								title={t('content.actions.buttons.form')}
+								title={t(
+									'app.about.content.actions.buttons.form',
+								)}
 								className={`${buttonVariants({
 									variant: 'ghost',
 								})} w-full md:w-fit border-primary/80 border-1`}
 								href="/researches/tourist-individual?referrer=about-page"
 							>
 								<ClipboardList className="text-primary size-5" />
-								{t('content.actions.buttons.form')}
+								{t('app.about.content.actions.buttons.form')}
 							</Link>
 						</div>
 					</CardContent>
@@ -173,6 +213,6 @@ export default async function About() {
 			</article>
 
 			<Footer />
-		</>
+		</InformativePageWrapper>
 	);
 }
