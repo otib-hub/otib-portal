@@ -9,22 +9,22 @@ export function VerticalMarquee() {
 				<Image
 					src={citiesBackgrounds.carnaubal.full}
 					alt={'Carnaubal'}
-					className="rounded-2xl"
+					className="rounded-xl"
 				/>
 				<Image
 					src={citiesBackgrounds.croata.full}
 					alt={'Croatá'}
-					className="rounded-2xl"
+					className="rounded-xl"
 				/>
 				<Image
 					src={citiesBackgrounds['guaraciaba-do-norte'].full}
 					alt={'Guaraciaba do Norte'}
-					className="rounded-2xl"
+					className="rounded-xl"
 				/>
 				<Image
 					src={citiesBackgrounds.ipu.full}
 					alt={'Ipu'}
-					className="rounded-2xl"
+					className="rounded-xl"
 				/>
 			</Marquee>
 
@@ -32,17 +32,17 @@ export function VerticalMarquee() {
 				<Image
 					src={citiesBackgrounds['sao-benedito'].full}
 					alt="São Benedito"
-					className="rounded-2xl"
+					className="rounded-xl"
 				/>
 				<Image
 					src={citiesBackgrounds.ubajara.full}
 					alt="Ubajara"
-					className="rounded-2xl"
+					className="rounded-xl"
 				/>
 				<Image
 					src={citiesBackgrounds['vicosa-do-ceara'].full}
 					alt="Viçosa do Ceará"
-					className="rounded-2xl"
+					className="rounded-xl"
 				/>
 			</Marquee>
 		</div>
