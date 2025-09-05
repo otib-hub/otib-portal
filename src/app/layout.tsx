@@ -7,6 +7,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { inter } from '@/styles/fonts';
 import '@/styles/globals.css';
 import QueryProvider from '@/providers/QueryProvider';
+import NextTopLoader from 'nextjs-toploader';
 
 export const metadata: Metadata = {
 	title: 'OTIB - Protótipo',
@@ -24,15 +25,16 @@ export default async function RootLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body className={`${inter.className} antialiased`}>
+				<NextTopLoader showSpinner={false} color="#36de95" height={5} />
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<ThemeProvider
-						attribute='class'
-						defaultTheme='system'
+						attribute="class"
+						defaultTheme="system"
 						enableSystem
 						disableTransitionOnChange
 					>
 						<QueryProvider>
-							<div className='min-h-screen max-w-screen'>
+							<div className="min-h-screen max-w-screen">
 								<Header />
 								{children}
 							</div>
