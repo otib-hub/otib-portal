@@ -16,41 +16,26 @@ export default function Header() {
 	const currentPage = usePathname();
 
 	let links = [
-		{
-			title: t('nav.quick-links.home'),
-			url: '/',
-		},
-		{
-			title: t('nav.quick-links.productions'),
-			url: '/soon',
-		},
-		{
-			title: t('nav.quick-links.about'),
-			url: '/about',
-		},
-		{
-			title: t('nav.quick-links.tourism-map'),
-			url: '/tourism-map',
-		},
-		{
-			title: t('nav.quick-links.partners'),
-			url: '/partners',
-		},
+		{ title: t('nav.quick-links.home'), url: '/' },
+		{ title: t('nav.quick-links.resources'), url: '/resources' },
+		{ title: t('nav.quick-links.about'), url: '/about' },
+		{ title: t('nav.quick-links.tourism-map'), url: '/tourism-map' },
+		{ title: t('nav.quick-links.partners'), url: '/partners' },
 	];
 	links = links.filter((item) => item.url !== currentPage);
 
 	return (
-		<header className="px-custom w-full py-5 md:py-6 flex flex-col gap-5">
+		<header className="bg-background/80 backdrop-blur-md z-25 sticky top-0 px-custom w-full py-3 h-16 flex flex-col gap-5">
 			<nav className="w-full flex justify-between items-center transition-opacity">
 				<div
 					id="left-content"
 					className="inline-flex items-center justify-start gap-8"
 				>
-					<Link href="/">
+					<Link href="/" className='md:mr-2'>
 						<div className="inline-flex gap-2 justify-start items-center hover:opacity-70 cursor-pointer">
-							<OtibLogo variant="icon" className="h-8" />
+							<OtibLogo variant="icon" className="h-6" />
 							<span
-								className={`${ibmPlexSans.className} font-semibold text-3xl md:text-3xl lg:text-4xl tracking-tight`}
+								className={`${ibmPlexSans.className} font-semibold text-3xl tracking-tight`}
 							>
 								OTIB
 							</span>
