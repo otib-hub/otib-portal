@@ -1,6 +1,7 @@
 import { LinkType } from '@/@types/link';
 import { Footer } from '@/components/layout/Footer';
 import { InformativePageWrapper } from '@/components/layout/InformativePageWrapper';
+import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { Badge } from '@/components/ui/badge';
 import { buttonVariants } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -22,18 +23,14 @@ export default async function About() {
 	const t = await getTranslations('');
 
 	const breadcrumbs: LinkType[] = [
-		{
-			title: t('meta.home.title'),
-			url: '/otib',
-		},
-		{
-			title: t('meta.about.title'),
-		},
+		{ title: t('meta.home.title'), url: '/otib' },
+		{ title: t('meta.about.title') },
 	];
 
 	// TODO: GenericHtml component para conteúdo informativo estático
 	return (
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
+			<ScrollProgress />
 			<article
 				id="about-content"
 				className="px-custom flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8"
