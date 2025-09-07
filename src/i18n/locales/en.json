@@ -4,7 +4,8 @@
 		"about": { "title": "About", "description": "" },
 		"partners": { "title": "Partners", "description": "" },
 		"tourism-map": { "title": "Tourism Map", "description": "" },
-		"productions": { "title": "Productions", "description": "" },
+		"resources": { "title": "Resources", "description": "" },
+		"researches": { "title": "Researches", "description": "" },
 		"not-found": { "title": "Page not found", "description": "" },
 		"soon": { "title": "Feature in development", "description": "" }
 	},
@@ -115,7 +116,7 @@
 					"home": "Homepage",
 					"about": "About",
 					"partners": "Partners",
-					"productions": "Productions",
+					"resources": "Resources",
 					"tourism-map": "Tourism Map"
 				}
 			}

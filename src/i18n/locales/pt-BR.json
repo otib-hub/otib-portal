@@ -4,7 +4,8 @@
 		"about": { "title": "Sobre", "description": "" },
 		"partners": { "title": "Parceiros", "description": "" },
 		"tourism-map": { "title": "Mapa do Turismo", "description": "" },
-		"productions": { "title": "Produções", "description": "" },
+		"resources": { "title": "Recursos", "description": "" },
+		"researches": { "title": "Pesquisas", "description": "" },
 		"not-found": { "title": "Página não encontrada", "description": "" },
 		"soon": { "title": "Recurso em desenvolvimento", "description": "" }
 	},
@@ -115,7 +116,7 @@
 					"home": "Página inicial",
 					"about": "Sobre",
 					"partners": "Parceiros",
-					"productions": "Produções",
+					"resources": "Recursos",
 					"tourism-map": "Mapa do Turismo"
 				}
 			}

@@ -4,7 +4,8 @@
 		"about": { "title": "Sobre", "description": "" },
 		"partners": { "title": "Socios", "description": "" },
 		"tourism-map": { "title": "Mapa turístico", "description": "" },
-		"productions": { "title": "Producciones", "description": "" },
+		"resources": { "title": "Recursos", "description": "" },
+		"researches": { "title": "Investigaciones", "description": "" },
 		"not-found": { "title": "Página no encontrada", "description": "" },
 		"soon": { "title": "Característica en desarrollo", "description": "" }
 	},
@@ -115,7 +116,7 @@
 					"home": "Página de inicio",
 					"about": "Sobre",
 					"partners": "Socios",
-					"productions": "Producciones",
+					"resources": "Recursos",
 					"tourism-map": "Mapa Turístico"
 				}
 			}
