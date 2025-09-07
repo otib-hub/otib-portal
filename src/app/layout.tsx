@@ -25,7 +25,7 @@ export default async function RootLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body className={`${inter.className} antialiased`}>
-				<NextTopLoader showSpinner={false} color="#36de95" height={5} />
+				<NextTopLoader showSpinner={false} color="#36de95" height={3} />
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<ThemeProvider
 						attribute="class"
