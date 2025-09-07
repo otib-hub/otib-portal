@@ -15,14 +15,8 @@ export default function TourismMap() {
 	const t = useTranslations();
 
 	const breadcrumbs: LinkType[] = [
-		{
-			title: t('meta.home.title'),
-			url: '/otib',
-		},
-		{
-			title: t('meta.tourism-map.title'),
-			url: '/tourism-map',
-		},
+		{ title: t('meta.home.title'), url: '/otib' },
+		{ title: t('meta.tourism-map.title'), url: '/tourism-map' },
 	];
 
 	return (
