@@ -26,7 +26,7 @@ export default async function Home() {
 
 				<section
 					id="home-heading"
-					className="w-full flex flex-col md:flex-row justify-center gap-8 lg:gap-16"
+					className="w-full md:py-16 lg:py-2 flex flex-col md:flex-row justify-center gap-8 lg:gap-16"
 				>
 					<div
 						id="home-hero-heading"
