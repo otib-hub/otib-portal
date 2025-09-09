@@ -9,6 +9,7 @@ import { MobileMenuSheet } from './MobileMenuSheet';
 import { useTranslations } from 'next-intl';
 import { useIsMobile } from '@/hooks/layout/use-mobile';
 import { usePathname } from 'next/navigation';
+import { buttonVariants } from '../ui/button';
 
 export default function Header() {
 	const isMobile = useIsMobile();
@@ -35,7 +36,7 @@ export default function Header() {
 						href="/"
 						className="md:mr-2 hover:opacity-70 transition-opacity"
 					>
-						<div className="inline-flex gap-2 justify-start items-center cursor-pointer ">
+						<div className="inline-flex gap-2 justify-start items-center cursor-pointer">
 							<OtibLogo variant="icon" className="h-6" />
 							<span
 								className={`${ibmPlexSans.className} font-semibold text-3xl tracking-tight`}
@@ -45,13 +46,15 @@ export default function Header() {
 						</div>
 					</Link>
 
-					<span className="hidden md:inline-flex md:text-sm lg:text-base items-center justify-start gap-8 text-muted-foreground">
+					<span className="hidden md:inline-flex md:text-sm lg:text-base items-center justify-center gap-4 text-muted-foreground">
 						{links.map((item) =>
 							item.url === '/' ? undefined : ( // nao mostra homepage no Header (ja tem a logo), somente no MobileMenuSheet
 								<Link
 									key={item.title}
 									href={item.url}
-									className="hover:opacity-70 transition-opacity"
+									className={buttonVariants({
+										variant: 'ghost',
+									})}
 								>
 									{item.title}
 								</Link>
