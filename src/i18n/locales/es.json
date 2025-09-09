@@ -39,7 +39,8 @@
 		"not-found": {
 			"title": "Parece que tomaste un camino que aún no está en nuestro mapa",
 			"description": "La página que buscas puede haber sido eliminada, renombrada o nunca existió. ¡Pero tranquilo, el viaje continúa!",
-			"button_back": "Volver a la página anterior"
+			"button_back": "Volver a la página anterior",
+			"button_home": "Volver a la página de inicio"
 		},
 		"form/thanks": {
 			"title": "OTIB - ¡Gracias por su contribución!",
