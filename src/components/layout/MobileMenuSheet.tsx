@@ -47,7 +47,7 @@ export function MobileMenuSheet({ links }: MobileMenuSheetProps) {
 								<Link
 									key={item.title}
 									href={item.url ?? ''}
-									className="underline hover:opacity-70 hover:no-underline"
+									className="underline hover:opacity-70 hover:no-underline transition-all"
 								>
 									{item.title}
 								</Link>

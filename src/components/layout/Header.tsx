@@ -26,13 +26,16 @@ export default function Header() {
 
 	return (
 		<header className="bg-background/80 backdrop-blur-md z-25 sticky top-0 px-custom w-full py-3 h-16 flex flex-col gap-5">
-			<nav className="w-full flex justify-between items-center transition-opacity">
+			<nav className="w-full flex justify-between items-center">
 				<div
 					id="left-content"
 					className="inline-flex items-center justify-start gap-8"
 				>
-					<Link href="/" className='md:mr-2'>
-						<div className="inline-flex gap-2 justify-start items-center hover:opacity-70 cursor-pointer">
+					<Link
+						href="/"
+						className="md:mr-2 hover:opacity-70 transition-opacity"
+					>
+						<div className="inline-flex gap-2 justify-start items-center cursor-pointer ">
 							<OtibLogo variant="icon" className="h-6" />
 							<span
 								className={`${ibmPlexSans.className} font-semibold text-3xl tracking-tight`}
@@ -48,7 +51,7 @@ export default function Header() {
 								<Link
 									key={item.title}
 									href={item.url}
-									className="hover:opacity-70"
+									className="hover:opacity-70 transition-opacity"
 								>
 									{item.title}
 								</Link>
