@@ -7,14 +7,9 @@ import { buttonVariants } from '@/components/ui/button';
 import { Heading } from '@/components/ui/heading';
 import { ibmPlexSerif } from '@/styles/fonts';
 import { getTranslations } from 'next-intl/server';
-import { Metadata } from 'next';
 import { HomeBentoGrid } from './_components/HomeBentoGrid';
 import { VerticalMarquee } from './_components/VerticalMarquee';
-
-export async function generateMetadata(): Promise<Metadata> {
-	const t = await getTranslations('meta.home');
-	return { title: 'OTIB - ' + t('title') };
-}
+import { RevealOnScroll } from '../components/layout/RevealOnScroll';
 
 export default async function Home() {
 	const t = await getTranslations('app.home');
@@ -66,12 +61,14 @@ export default async function Home() {
 
 				<ChevronDown className="text-muted-foreground size-8 lg:size-10 place-self-center animate-bounce" />
 
-				<section
-					id="home-bento-cards"
-					className="w-full grid grid-cols-1 md:grid-cols-2 gap-8"
-				>
-					<HomeBentoGrid t={t} />
-				</section>
+				<RevealOnScroll>
+					<section
+						id="home-bento-cards"
+						className="w-full grid grid-cols-1 md:grid-cols-2 gap-8"
+					>
+						<HomeBentoGrid t={t} />
+					</section>
+				</RevealOnScroll>
 			</main>
 
 			<Footer />
