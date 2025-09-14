@@ -18,7 +18,7 @@ export default function Header() {
 
 	let links = [
 		{ title: t('nav.quick-links.home'), url: '/' },
-		{ title: t('nav.quick-links.resources'), url: '/resources' },
+		{ title: t('nav.quick-links.productions'), url: '/productions' },
 		{ title: t('nav.quick-links.about'), url: '/about' },
 		{ title: t('nav.quick-links.tourism-map'), url: '/tourism-map' },
 		{ title: t('nav.quick-links.partners'), url: '/partners' },
@@ -54,6 +54,7 @@ export default function Header() {
 									href={item.url}
 									className={buttonVariants({
 										variant: 'ghost',
+										size: 'sm',
 									})}
 								>
 									{item.title}
