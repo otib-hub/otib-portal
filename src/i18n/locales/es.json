@@ -2,9 +2,10 @@
 	"meta": {
 		"home": { "title": "Página de Inicio", "description": "" },
 		"about": { "title": "Sobre", "description": "" },
+		"about/team": { "title": "Equipo", "description": "" },
 		"partners": { "title": "Socios", "description": "" },
 		"tourism-map": { "title": "Mapa turístico", "description": "" },
-		"resources": { "title": "Recursos", "description": "" },
+		"productions": { "title": "Producciones", "description": "" },
 		"researches": { "title": "Investigaciones", "description": "" },
 		"not-found": { "title": "Página no encontrada", "description": "" },
 		"soon": { "title": "Característica en desarrollo", "description": "" }
@@ -28,9 +29,9 @@
 						"description": "¿Has visitado o estás visitando Ibiapaba? Comparte tu experiencia!\nResponder a nuestro formulario lleva menos de 6 minutos y ayuda a desarrollar un turismo más sostenible, atractivo y acogedor.",
 						"button_action": "Contribuir"
 					},
-					"bulletins-card": {
-						"title": "Lea nuestros boletines informativos",
-						"description": "Consulte datos significativos sobre Ibiapaba recopilados por nosotros y otras fuentes, compilados y analizados.",
+					"productions-card": {
+						"title": "Accede a nuestras producciones",
+						"description": "Datos significativos sobre Ibiapaba: recopilados, compilados y analizados.",
 						"button_action": "Descubrir"
 					}
 				}
@@ -75,8 +76,17 @@
 				"section": {
 					"heading": {
 						"h1": "Acerca del OTIB",
-						"p": "El \n Observatorio de Turismo de Ibiapaba \n nace con el propósito de transformar datos en conocimiento útil para toda la cadena del turismo, desde emprendedores y gestores públicos hasta instituciones educativas y la propia comunidad. \n La iniciativa forma parte de un proyecto de extensión del Instituto Federal de Ceará – Campus Tianguá, coordinado por el profesor Dr. Nécio de Lima Veras. El proyecto es desarrollado por el NUPREDS (Núcleo de Prácticas en Ingeniería y Desarrollo de Software), en asociación con el SEBRAE, el FORTIB (Foro de Turismo de Ibiapaba) y representantes locales vinculados al turismo de la región.\n Este portal reunirá paneles interactivos con datos turísticos de Ibiapaba, materiales informativos y herramientas dirigidas a emprendedores, gestores y demás interesados."
+						"p": {
+							"0": "El ",
+							"1": "Observatorio de Turismo de Ibiapaba",
+							"2": "nace con el propósito de transformar datos en conocimiento útil para toda la cadena del turismo, desde emprendedores y gestores públicos hasta instituciones educativas y la propia comunidad.",
+							"3": "La iniciativa forma parte de un proyecto de extensión del Instituto Federal de Ceará – Campus Tianguá, coordinado por el profesor Dr. Nécio de Lima Veras y",
+							"4": "desarrollado por nuestro equipo",
+							"5": ". El proyecto es desarrollado por el NUPREDS (Núcleo de Prácticas en Ingeniería y Desarrollo de Software), en asociación con el SEBRAE, el FORTIB (Foro de Turismo de Ibiapaba) y representantes locales vinculados al turismo de la región.",
+							"6": "Este portal reunirá paneles interactivos con datos turísticos de Ibiapaba, materiales informativos y herramientas dirigidas a emprendedores, gestores y demás interesados."
+						}
 					},
+
 					"objectives": {
 						"h2": "Objetivos",
 						"ul": {
@@ -99,6 +109,48 @@
 				}
 			}
 		},
+		"about/team": {
+			"h1": "Nuestro equipo",
+			"p": {
+				"0": "Nuestro equipo combina diversas especialidades, desde tecnologías frontend (TypeScript, Next.js) hasta backend robusto (Python, Django), además de prácticas de calidad continua con SonarQube Cloud. Ya sea en desarrollo, pruebas, análisis o documentación, cada contribución refuerza el impacto de OTIB en el turismo regional.",
+				"1": "Nuestra organización en GitHub",
+				"2": " centraliza todos los proyectos, herramientas y recursos desarrollados por el equipo, lo que pone de manifiesto nuestro compromiso con la transparencia, la colaboración y la innovación.",
+				"3": "Estamos comprometidos con la promoción del turismo regional a través de la innovación y la colaboración. ¡La cultura del proyecto se basa en la colaboración abierta! Lea las instrucciones en el README de la organización para obtener más información."
+			}
+		},
+		"productions": {
+			"section#heading": {
+				"h1": "Producciones",
+				"p": {
+					"0": "En esta página encontrarás nuestras producciones académicas y técnicas, fruto del trabajo colectivo de investigadores, estudiantes y socios institucionales. Nuestro objetivo es garantizar transparencia, accesibilidad y relevancia a los datos y análisis que apoyan la formulación de políticas públicas, la gestión de destinos y el fortalecimiento del turismo sostenible.",
+					"1": "Explora, comparte y utiliza nuestras producciones para fortalecer el turismo en Ibiapaba e inspirar nuevas investigaciones y acciones en el sector."
+				}
+			},
+			"section#last-published": {
+				"h2": "Últimas producciones añadidas"
+			},
+			"section#categories": {
+				"h2": "Recursos por categoría",
+				"categories": {
+					"0": {
+						"title": "Boletines",
+						"description": "Nuestros compilados \"directo al punto\""
+					},
+					"1": {
+						"title": "Informes",
+						"description": "Compilados detallados de información estratégica de Ibiapaba"
+					},
+					"2": {
+						"title": "Conjuntos de datos",
+						"description": "Datos en bruto para un análisis minucioso"
+					},
+					"3": {
+						"title": "Estudios",
+						"description": "Producciones académicas basadas en nuestros datos"
+					}
+				}
+			}
+		},
 		"soon": {
 			"title": "OTIB - Característica en Desarrollo",
 			"h1": "¡Ya casi lo tenemos!",
@@ -117,7 +169,7 @@
 					"home": "Página de inicio",
 					"about": "Sobre",
 					"partners": "Socios",
-					"resources": "Recursos",
+					"productions": "Producciones",
 					"tourism-map": "Mapa Turístico"
 				}
 			}

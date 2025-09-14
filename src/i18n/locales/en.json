@@ -2,9 +2,10 @@
 	"meta": {
 		"home": { "title": "Homepage", "description": "" },
 		"about": { "title": "About", "description": "" },
+		"about/team": { "title": "Team", "description": "" },
 		"partners": { "title": "Partners", "description": "" },
 		"tourism-map": { "title": "Tourism Map", "description": "" },
-		"resources": { "title": "Resources", "description": "" },
+		"productions": { "title": "Productions", "description": "" },
 		"researches": { "title": "Researches", "description": "" },
 		"not-found": { "title": "Page not found", "description": "" },
 		"soon": { "title": "Feature in development", "description": "" }
@@ -28,9 +29,9 @@
 						"description": "Have you visited or are you visiting Ibiapaba? Share your experience!\nResponding to our form takes less than 6 minutes and helps to develop a more sustainable, attractive and welcoming tourism.",
 						"button_action": "Contribute"
 					},
-					"bulletins-card": {
-						"title": "Read our informative bulletins",
-						"description": "See significant data on Ibiapaba collected by us and other sources, compiled and analyzed.",
+					"productions-card": {
+						"title": "Access our productions",
+						"description": "Meaningful data about Ibiapaba: collected, compiled, and analyzed.",
 						"button_action": "Discover"
 					}
 				}
@@ -75,7 +76,15 @@
 				"section": {
 					"heading": {
 						"h1": "About OTIB",
-						"p": "The \n Ibiapaba Tourism Observatory (🇧🇷 Observatório de Turismo da Ibiapaba - OTIB) \n was born with the purpose of transforming data into useful knowledge for the entire tourism chain, from entrepreneurs and public managers to educational institutions and the community itself. \n The initiative is part of an extension project of the Federal Institute of Ceará - Tianguá Campus, coordinated by Professor Dr. Nécio de Lima Veras. The project is being developed by NUPREDS (Center for Practices in Engineering and Software Development), in partnership with SEBRAE, FORTIB (Ibiapaba Tourism Forum) and local representatives linked to tourism in the region.\n This portal will bring together interactive panels with tourist data from Ibiapaba, information materials and tools aimed at entrepreneurs, managers and other interested parties."
+						"p": {
+							"0": "The ",
+							"1": "Ibiapaba Tourism Observatory (🇧🇷 Observatório de Turismo da Ibiapaba - OTIB)",
+							"2": "was born with the purpose of transforming data into useful knowledge for the entire tourism chain, from entrepreneurs and public managers to educational institutions and the community itself.",
+							"3": "The initiative is part of an extension project of the Federal Institute of Ceará - Tianguá Campus, coordinated by Professor Dr. Nécio de Lima Veras and ",
+							"4": "developed by our team",
+							"5": ". The project is being developed by NUPREDS (Center for Practices in Engineering and Software Development), in partnership with SEBRAE, FORTIB (Ibiapaba Tourism Forum) and local representatives linked to tourism in the region.",
+							"6": "This portal will bring together interactive panels with tourist data from Ibiapaba, information materials and tools aimed at entrepreneurs, managers and other interested parties."
+						}
 					},
 					"objectives": {
 						"h2": "Objectives",
@@ -99,6 +108,48 @@
 				}
 			}
 		},
+		"about/team": {
+			"h1": "Our team",
+			"p": {
+				"0": "Our team combines diverse expertise — from frontend technologies (TypeScript, Next.js) to robust backend (Python, Django), as well as continuous quality practices with SonarQube Cloud. Whether in development, testing, analysis, or documentation, each contribution strengthens OTIB's impact on regional tourism.",
+				"1": "Our organization on GitHub",
+				"2": " centralizes all projects, tools, and resources developed by the team, highlighting our commitment to transparency, collaboration, and innovation.",
+				"3": "We are committed to promoting regional tourism through innovation and partnership, and the project's culture is based on open collaboration! Read the instructions in the organization's README for more information."
+			}
+		},
+		"productions": {
+			"section#heading": {
+				"h1": "Productions",
+				"p": {
+					"0": "On this page, you will find our academic and technical productions, the result of the collective work of researchers, students, and institutional partners. Our goal is to ensure transparency, accessibility, and relevance to the data and analyses that support public policy-making, destination management, and the strengthening of sustainable tourism.",
+					"1": "Explore, share, and use our productions to strengthen tourism in Ibiapaba and inspire new research and actions in the sector."
+				}
+			},
+			"section#last-published": {
+				"h2": "Latest productions added"
+			},
+			"section#categories": {
+				"h2": "Resources by category",
+				"categories": {
+					"0": {
+						"title": "Bulletins",
+						"description": "Our concise \"straight to the point\" compilations"
+					},
+					"1": {
+						"title": "Reports",
+						"description": "Detailed compilations of Ibiapaba’s strategic information"
+					},
+					"2": {
+						"title": "Datasets",
+						"description": "Raw data for in-depth analysis"
+					},
+					"3": {
+						"title": "Studies",
+						"description": "Academic productions based on our data"
+					}
+				}
+			}
+		},
 		"soon": {
 			"title": "OTIB - Feature in Development",
 			"h1": "We're almost there!",
@@ -117,7 +168,7 @@
 					"home": "Homepage",
 					"about": "About",
 					"partners": "Partners",
-					"resources": "Resources",
+					"productions": "Productions",
 					"tourism-map": "Tourism Map"
 				}
 			}
