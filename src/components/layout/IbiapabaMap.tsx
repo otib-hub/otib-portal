@@ -242,8 +242,8 @@ export default function IbiapabaMap({
 	return (
 		<div
 			ref={chartRef}
-			style={{ width: '100%', height: '100%' }}
-			className="min-h-[420px] lg:min-h-[524px]"
+			style={{ height: '100%' }}
+			className="w-full md:w-[30%] min-h-[400px] md:min-h-[436px] lg:min-h-[512px]"
 		/>
 	);
 }
