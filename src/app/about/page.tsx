@@ -1,5 +1,4 @@
 import { LinkType } from '@/@types/link';
-import { Footer } from '@/components/layout/Footer';
 import { InformativePageWrapper } from '@/components/layout/InformativePageWrapper';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { Badge } from '@/components/ui/badge';
@@ -33,51 +32,35 @@ export default async function About() {
 			<ScrollProgress />
 			<article
 				id="about-content"
-				className="px-custom flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8"
+				className="flex flex-col mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8"
 			>
-				<section
-					id="about-heading"
-					className="flex flex-col gap-8 md:gap-6"
-				>
+				<section id="about-heading" className="flex flex-col gap-8">
 					<Heading.H1>
 						{t('app.about.content.section.heading.h1')}
 					</Heading.H1>
 
-					<p className="text-secondary-foreground">
-						{
-							t('app.about.content.section.heading.p').split(
-								'\n',
-							)[0]
-						}
+					<p>
+						{t('app.about.content.section.heading.p.0')}
 						<strong className="font-extrabold text-primary">
-							{
-								t('app.about.content.section.heading.p').split(
-									'\n',
-								)[1]
-							}
+							{t('app.about.content.section.heading.p.1')}
 						</strong>{' '}
-						{
-							t('app.about.content.section.heading.p').split(
-								'\n',
-							)[2]
-						}
-						<br />
-						<br />
-						{
-							t('app.about.content.section.heading.p').split(
-								'\n',
-							)[3]
-						}
-						<br />
-						<br />
-						{
-							t('app.about.content.section.heading.p').split(
-								'\n',
-							)[4]
-						}
-						<br />
-						<br />
+						{t('app.about.content.section.heading.p.2')}
 					</p>
+
+					<p>
+						{t('app.about.content.section.heading.p.3')}
+						<a
+							className={buttonVariants({
+								variant: 'inline-link',
+							})}
+							href="/otib/about/team"
+						>
+							{t('app.about.content.section.heading.p.4')}
+						</a>
+						{t('app.about.content.section.heading.p.5')}
+					</p>
+
+					<p>{t('app.about.content.section.heading.p.6')}</p>
 				</section>
 
 				<section
@@ -185,8 +168,8 @@ export default async function About() {
 									'app.about.content.actions.buttons.home',
 								)}
 								className={`${buttonVariants({
-									variant: 'ghost',
-								})} w-full md:w-fit border-primary/80 border-1`}
+									variant: 'outline',
+								})} w-full md:w-fit`}
 								href="/"
 							>
 								<Home className="text-primary size-5" />
@@ -197,8 +180,8 @@ export default async function About() {
 									'app.about.content.actions.buttons.form',
 								)}
 								className={`${buttonVariants({
-									variant: 'ghost',
-								})} w-full md:w-fit border-primary/80 border-1`}
+									variant: 'outline',
+								})} w-full md:w-fit`}
 								href="/researches/tourist-individual?referrer=about-page"
 							>
 								<ClipboardList className="text-primary size-5" />
@@ -208,8 +191,6 @@ export default async function About() {
 					</CardContent>
 				</Card>
 			</article>
-
-			<Footer />
 		</InformativePageWrapper>
 	);
 }
