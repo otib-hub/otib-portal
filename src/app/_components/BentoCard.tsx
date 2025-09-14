@@ -24,7 +24,7 @@ export function BentoCard({
 	return (
 		<div
 			className={clsx(
-				'bg-card outline-2 outline-muted rounded-xl shadow-lg p-8 flex flex-row justify-center',
+				'bg-card outline-2 outline-muted rounded-xl shadow-lg p-6 flex flex-row justify-start',
 				className,
 			)}
 		>
