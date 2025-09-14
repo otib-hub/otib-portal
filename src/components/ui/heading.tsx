@@ -23,6 +23,6 @@ export const Heading = {
 		'h1',
 		`${ibmPlexSans.className} font-semibold text-3xl md:text-4xl`,
 	),
-	H2: createHeading('h2', 'text-2xl md:text-3xl font-semibold'),
-	H3: createHeading('h3', 'text-xl md:text-2xl font-semibold'),
+	H2: createHeading('h2', 'text-2xl font-semibold'),
+	H3: createHeading('h3', 'text-xl font-semibold'),
 };
