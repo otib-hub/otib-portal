@@ -7,6 +7,20 @@ html {
 	scroll-behavior: smooth;
 }
 
+body {
+	letter-spacing: var(--tracking-normal);
+}
+
+p {
+	font-size: 16px;
+}
+
+@media screen and (width >=768px) {
+	p {
+		font-size: 18px;
+	}
+}
+
 :root {
 	--background: oklch(0.98 0 0);
 	--foreground: oklch(0 0 0);
@@ -215,10 +229,6 @@ html {
 			transform: rotate(0deg);
 		}
 	}
-}
-
-body {
-	letter-spacing: var(--tracking-normal);
 }
 
 @layer base {

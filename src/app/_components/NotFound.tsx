@@ -22,7 +22,7 @@ export function NotFound() {
 
 				<div className="flex flex-col gap-8 md:gap-6">
 					<Heading.H1 className="max-w-3xl">{t('title')}</Heading.H1>
-					<p className="text-base md:text-lg font-normal text-muted-foreground max-w-3xl">
+					<p className="font-normal text-muted-foreground max-w-3xl">
 						{t('description')}
 					</p>
 

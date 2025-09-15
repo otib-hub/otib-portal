@@ -32,7 +32,7 @@ export default async function About() {
 			<ScrollProgress />
 			<article
 				id="about-content"
-				className="flex flex-col mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8"
+				className="flex flex-col mb-10 md:mb-6 text-base space-y-6 lg:space-y-8"
 			>
 				<section id="about-heading" className="flex flex-col gap-8">
 					<Heading.H1>
