@@ -1,6 +1,5 @@
 import { LocaleInitializer } from '@/components/layout/LocaleInitializer';
 
-import { ChevronDown } from 'lucide-react';
 import { Footer } from '@/components/layout/Footer';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
@@ -8,7 +7,7 @@ import { Heading } from '@/components/ui/heading';
 import { ibmPlexSerif } from '@/styles/fonts';
 import { getTranslations } from 'next-intl/server';
 import { HomeBentoGrid } from './_components/HomeBentoGrid';
-import { VerticalMarquee } from './_components/VerticalMarquee';
+import { HomeMarquee } from './_components/HomeMarquee';
 import { RevealOnScroll } from '../components/layout/RevealOnScroll';
 
 export default async function Home() {
@@ -16,18 +15,18 @@ export default async function Home() {
 
 	return (
 		<>
-			<main className="px-custom w-full flex flex-col items-start py-6 gap-8 md:py-6 md:gap-12 mb-10 md:mb-6">
+			<main className="px-custom w-full flex flex-col items-start gap-6 md:gap-10 mb-10 md:mb-6">
 				<LocaleInitializer />
 
 				<section
 					id="home-heading"
-					className="w-full md:py-16 lg:py-2 flex flex-col md:flex-row justify-center gap-8 lg:gap-16"
+					className="w-full pt-4 md:pt-10 flex flex-col justify-center gap-8"
 				>
 					<div
 						id="home-hero-heading"
-						className="flex flex-col items-start justify-center gap-6 text-start lg:max-w-132"
+						className="w-full md:max-w-148 place-self-center flex flex-col items-center justify-center gap-6 text-start md:text-center"
 					>
-						<Heading.H1 className="font-medium! text-4xl md:text-5xl">
+						<Heading.H1 className="md:text-5xl">
 							{`${t('heading.title').split('\n')[0]} `}
 							<span
 								className={`${ibmPlexSerif.className} font-semibold italic bg-gradient-to-r from-chart-2 to-chart-5 bg-clip-text text-transparent`}
@@ -36,15 +35,15 @@ export default async function Home() {
 							</span>
 						</Heading.H1>
 
-						<p className="text-base md:text-lg text-secondary-foreground">
+						<p className="text-base text-secondary-foreground">
 							{t('heading.description')}
 						</p>
 
 						<Link
 							title={t('buttons.about')}
 							className={`${buttonVariants({
-								variant: 'link',
-							})} text-base md:text-lg`}
+								variant: 'inline-link',
+							})} text-base`}
 							href="/about"
 						>
 							{t('buttons.about')}
@@ -55,16 +54,14 @@ export default async function Home() {
 						id="home-hero"
 						className="w-full order-first md:order-last"
 					>
-						<VerticalMarquee />
+						<HomeMarquee />
 					</div>
 				</section>
-
-				<ChevronDown className="text-muted-foreground size-8 lg:size-10 place-self-center animate-bounce" />
 
 				<RevealOnScroll>
 					<section
 						id="home-bento-cards"
-						className="w-full grid grid-cols-1 md:grid-cols-2 gap-8"
+						className="mt-20 w-full grid grid-cols-1 md:grid-cols-2 gap-8"
 					>
 						<HomeBentoGrid t={t} />
 					</section>
