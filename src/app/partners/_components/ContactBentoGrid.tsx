@@ -24,6 +24,7 @@ export function ContactBentoGrid({ t }: ContactBentoGridProps) {
 						href={'mailto:nupreds@ifce.edu.br'}
 						className={`${buttonVariants({
 							variant: 'inline-link',
+							className: '!text-base',
 						})} `}
 					>
 						{'nupreds@ifce.edu.br'}

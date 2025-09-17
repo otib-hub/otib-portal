@@ -31,8 +31,10 @@ export function BentoCard({
 
 				{/* Conteúdo textual */}
 				<div className="bento-cards-heading flex flex-col gap-3">
-					<span className="text-xl font-semibold">{title}</span>
-					<p className="text-muted-foreground">{description}</p>
+					<span className="text-lg font-semibold">{title}</span>
+					<p className="text-muted-foreground !text-base md:!text-base">
+						{description}
+					</p>
 				</div>
 
 				{cta}
