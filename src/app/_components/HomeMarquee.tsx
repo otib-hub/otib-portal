@@ -1,3 +1,4 @@
+import { CityImage } from '@/@types/city-image';
 import { Marquee } from '@/components/fragments/Marquee';
 import { citiesBackgrounds } from '@/utils/get-city-background';
 import Image from 'next/image';
@@ -5,7 +6,7 @@ import Image from 'next/image';
 const IMAGE_HEIGHT = 240;
 const IMAGE_WIDTH = 300;
 
-const images = [
+const images: CityImage[] = [
 	{
 		src: citiesBackgrounds.gba.square,
 		title: citiesBackgrounds.gba.description,
