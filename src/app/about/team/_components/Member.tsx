@@ -17,8 +17,15 @@ export function Member({
 }: MemberProps) {
 	return (
 		<div className={'flex flex-col gap-3 ' + className}>
-			<Avatar className="rounded-xl size-18 md:size-24 place-self-center">
-				<AvatarImage loading="lazy" src={profilePhoto} alt={name} />
+			<Avatar className="rounded-full size-18 md:size-24 place-self-center">
+				<AvatarImage
+					draggable={false}
+					loading="lazy"
+					src={profilePhoto}
+					width={72}
+					height={72}
+					alt={`${name} photo`}
+				/>
 				<AvatarFallback className="rounded-xl"></AvatarFallback>
 			</Avatar>
 
