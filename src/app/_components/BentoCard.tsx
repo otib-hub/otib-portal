@@ -1,11 +1,9 @@
 import { ReactNode } from 'react';
-import Link from 'next/link';
-import { buttonVariants } from '@/components/ui/button';
 import clsx from 'clsx';
 
 type BentoCardProps = {
 	title: string;
-	description: string;
+	description?: string;
 	cta?: ReactNode;
 	className?: string;
 	children?: ReactNode;
@@ -33,10 +31,8 @@ export function BentoCard({
 
 				{/* Conteúdo textual */}
 				<div className="bento-cards-heading flex flex-col gap-3">
-					<span className="text-2xl font-semibold">{title}</span>
-					<p className="text-base md:text-lg text-muted-foreground">
-						{description}
-					</p>
+					<span className="text-xl font-semibold">{title}</span>
+					<p className="text-muted-foreground">{description}</p>
 				</div>
 
 				{cta}
