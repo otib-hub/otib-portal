@@ -26,14 +26,13 @@ export default async function AboutTeam() {
 		{ title: t('meta.about/team.title') },
 	];
 
-	// TODO: GenericHtml component para conteúdo informativo estático
 	return (
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
 			<ScrollProgress />
 
 			<article
 				id="team-content"
-				className="flex flex-col mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8"
+				className="flex flex-col mb-10 md:mb-6 text-base md:text-lg space-y-8"
 			>
 				<section id="team-heading" className="flex flex-col gap-8">
 					<Heading.H1>{t('app.about/team.h1')}</Heading.H1>
@@ -171,7 +170,7 @@ export default async function AboutTeam() {
 									className={buttonVariants({
 										variant: 'secondary',
 									})}
-									href={'https://instagram.com/notfound'} // TODO: atualizar
+									href={'https://instagram.com/notfound'} // TODO: atualizar redes sociais dos membros do time
 									target="_blank"
 									rel="noopener"
 								>

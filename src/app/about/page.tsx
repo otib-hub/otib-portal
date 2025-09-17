@@ -56,7 +56,7 @@ export default async function About() {
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
 			<ScrollProgress />
 			<article id="about-content" className="flex flex-col space-y-8">
-				<section id="about-heading" className="flex flex-col gap-8">
+				<section id="about-heading" className="flex flex-col gap-6">
 					<Heading.H1>
 						{t('app.about.content.section.heading.h1')}
 					</Heading.H1>
@@ -87,7 +87,7 @@ export default async function About() {
 
 				<section
 					id="about-objectives"
-					className="flex flex-col gap-8 md:gap-6"
+					className="flex flex-col gap-6"
 				>
 					<h2
 						className={`${ibmPlexSans.className} font-semibold text-2xl md:text-3xl`}
