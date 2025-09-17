@@ -1,7 +1,6 @@
 import { LinkType } from '@/@types/link';
 import { InformativePageWrapper } from '@/components/layout/InformativePageWrapper';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
-import { Badge } from '@/components/ui/badge';
 import { buttonVariants } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heading } from '@/components/ui/heading';
@@ -20,6 +19,32 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function About() {
 	const t = await getTranslations('');
+	const objectives = [
+		{
+			id: 1,
+			text: t('app.about.content.section.objectives.ul.li-1'),
+		},
+		{
+			id: 2,
+			text: t('app.about.content.section.objectives.ul.li-2'),
+		},
+		{
+			id: 3,
+			text: t('app.about.content.section.objectives.ul.li-3'),
+		},
+		{
+			id: 4,
+			text: t('app.about.content.section.objectives.ul.li-4'),
+		},
+		{
+			id: 5,
+			text: t('app.about.content.section.objectives.ul.li-5'),
+		},
+		{
+			id: 6,
+			text: t('app.about.content.section.objectives.ul.li-6'),
+		},
+	];
 
 	const breadcrumbs: LinkType[] = [
 		{ title: t('meta.home.title'), url: '/otib' },
@@ -30,10 +55,7 @@ export default async function About() {
 	return (
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
 			<ScrollProgress />
-			<article
-				id="about-content"
-				className="flex flex-col mb-10 md:mb-6 text-base space-y-6 lg:space-y-8"
-			>
+			<article id="about-content" className="flex flex-col space-y-8">
 				<section id="about-heading" className="flex flex-col gap-8">
 					<Heading.H1>
 						{t('app.about.content.section.heading.h1')}
@@ -73,92 +95,18 @@ export default async function About() {
 						{t('app.about.content.section.objectives.h2')}
 					</h2>
 
-					<ul className="flex flex-col gap-8 md:gap-6">
-						<li className="flex gap-4 items-start md:items-center justify-start">
-							<Badge
-								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
-							>
-								1
-							</Badge>
-							<p>
-								{t(
-									'app.about.content.section.objectives.ul.li-1',
-								)}
-							</p>
-						</li>
-
-						<li className="flex gap-4 items-start md:items-center justify-start">
-							<Badge
-								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
-							>
-								2
-							</Badge>
-							<p>
-								{t(
-									'app.about.content.section.objectives.ul.li-2',
-								)}
-							</p>
-						</li>
-
-						<li className="flex gap-4 items-start md:items-center justify-start">
-							<Badge
-								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
-							>
-								3
-							</Badge>
-							<p>
-								{t(
-									'app.about.content.section.objectives.ul.li-3',
-								)}
-							</p>
-						</li>
-
-						<li className="flex gap-4 items-start md:items-center justify-start">
-							<Badge
-								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
-							>
-								4
-							</Badge>
-							<p>
-								{t(
-									'app.about.content.section.objectives.ul.li-4',
-								)}
-							</p>
-						</li>
-
-						<li className="flex gap-4 items-start md:items-center justify-start">
-							<Badge
-								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
-							>
-								5
-							</Badge>
-							<p>
-								{t(
-									'app.about.content.section.objectives.ul.li-5',
-								)}
-							</p>
-						</li>
-
-						<li className="flex gap-4 items-start md:items-center justify-start">
-							<Badge
-								className={`font-bold text-md ${ibmPlexSans.className} bg-accent text-accent-foreground rounded-full`}
-							>
-								6
-							</Badge>
-							<p>
-								{t(
-									'app.about.content.section.objectives.ul.li-6',
-								)}
-							</p>
-						</li>
-					</ul>
-
+					<ol className="list-inside space-y-4 list-decimal marker:text-primary marker:text-lg marker:font-bold">
+						{objectives.map((objective) => (
+							<li key={objective.id}>
+								<p className="inline">{objective.text}</p>
+							</li>
+						))}
+					</ol>
 					<p>{t('app.about.content.section.objectives.p')}</p>
 				</section>
 
 				<Card id="about-actions">
 					<CardContent className="space-y-5">
-						{' '}
 						<h3 className={`font-semibold text-md`}>
 							{t('app.about.content.actions.h3')}
 						</h3>
