@@ -36,7 +36,7 @@ export function BentoCard({
 
 				{/* Conteúdo textual */}
 				<div className="bento-cards-heading flex flex-col gap-3">
-					<h2 className="text-2xl font-semibold mb-2">{title}</h2>
+					<span className="text-2xl font-semibold mb-2">{title}</span>
 
 					<p className="text-base md:text-lg text-muted-foreground">
 						{description}
@@ -46,7 +46,8 @@ export function BentoCard({
 						href={cta.href}
 						className={`${buttonVariants({
 							variant: 'default',
-						})} w-full md:w-fit mt-3`}
+							className: 'w-fit mt-3',
+						})} `}
 					>
 						{cta.label}
 					</Link>
