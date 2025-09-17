@@ -16,14 +16,14 @@ export async function POST(req: NextRequest) {
 		}
 
 		const res = await fetch(
-			`${process.env.NEXT_PUBLIC_API_BASE_URL}/pesquisa-completa/`, // TODO: avisar para seguir padrão "/researches/tourist-individual
+			`${process.env.NEXT_PUBLIC_API_BASE_URL}/pesquisa-completa/`,
 			{
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify(data),
-			}
+			},
 		);
 
 		let json;
@@ -41,7 +41,8 @@ export async function POST(req: NextRequest) {
 				success: false,
 				status: res.status,
 				message:
-					json?.detail || 'Unexpected error while processing the request.',
+					json?.detail ||
+					'Unexpected error while processing the request.',
 				data: json,
 			});
 		}
@@ -55,7 +56,8 @@ export async function POST(req: NextRequest) {
 		return NextResponse.json({
 			success: false,
 			status: 500,
-			message: err instanceof Error ? err.message : 'Internal server error.',
+			message:
+				err instanceof Error ? err.message : 'Internal server error.',
 		});
 	}
 }
