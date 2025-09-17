@@ -19,10 +19,7 @@ function createHeading(tag: keyof JSX.IntrinsicElements, defaultClass: string) {
 }
 
 export const Heading = {
-	H1: createHeading(
-		'h1',
-		`${ibmPlexSans.className} font-semibold text-3xl`,
-	),
+	H1: createHeading('h1', `${ibmPlexSans.className} font-semibold text-3xl`),
 	H2: createHeading('h2', 'text-2xl font-semibold'),
 	H3: createHeading('h3', 'text-xl font-semibold'),
 };
