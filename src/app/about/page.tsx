@@ -51,7 +51,6 @@ export default async function About() {
 		{ title: t('meta.about.title') },
 	];
 
-	// TODO: GenericHtml component para conteúdo informativo estático
 	return (
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
 			<ScrollProgress />
