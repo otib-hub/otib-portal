@@ -1,3 +1,4 @@
+import type { CityImage } from '@/@types/city-image';
 import croata_full from '#/images/cities/full/croata_full.png';
 import carnaubal_full from '#/images/cities/full/carnaubal_full.png';
 import guaraciaba_full from '#/images/cities/full/guaraciaba_full.png';
@@ -18,7 +19,17 @@ import vicosa_square from '#/images/cities/square/vicosa_square.png';
 import tiangua_square from '#/images/cities/square/tiangua_square.png';
 import ibiapina_square from '#/images/cities/square/ibiapina_square.png';
 
-import { convertToSlug } from '@/utils/convert-to-slug';
+export enum CitiesENUM {
+	CROATA = 'croata',
+	CARNAUBAL = 'carnaubal',
+	GBA = 'gba',
+	IPU = 'ipu',
+	SB = 'sb',
+	UBAJARA = 'ubajara',
+	VICOSA = 'vicosa',
+	TIANGUA = 'tiangua',
+	IBIAPINA = 'ibiapina',
+}
 
 export const citiesBackgrounds = {
 	croata: {
@@ -77,22 +88,21 @@ export const citiesBackgrounds = {
 	},
 } as const;
 
-export function getCityBackground(
+export function getCityImage(
 	isMobile: boolean,
-	selectedCity: string | undefined,
-) {
-	const backgroundType = isMobile ? 'square' : 'full';
-
-	if (!selectedCity) {
-		return undefined;
-	}
-
-	const slug = convertToSlug(selectedCity);
-	if (slug in citiesBackgrounds) {
-		return citiesBackgrounds[slug as keyof typeof citiesBackgrounds][
-			backgroundType
-		];
-	}
-
-	return undefined;
+	cityName: CitiesENUM,
+	options?: Partial<CityImage>,
+): CityImage {
+	const city = citiesBackgrounds[cityName as keyof typeof citiesBackgrounds];
+	const image = isMobile ? city.square : city.full;
+	return {
+		src: image,
+		alt: city.description,
+		title: city.description,
+		slug: city.slug,
+		blurDataURL: image.blurDataURL,
+		width: image.width,
+		height: image.height,
+		...options,
+	};
 }
