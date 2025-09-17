@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
+import { Heading } from '@/components/ui/heading';
+
+import { InformativePageWrapper } from '@/components/layout/InformativePageWrapper';
+import { LinkType } from '@/@types/link';
+import { InteractiveMap } from './_components/InteractiveMap';
 import { getTranslations } from 'next-intl/server';
-import TourismMap from './client-page';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const t = await getTranslations('meta.tourism-map');
@@ -10,5 +14,22 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function TourismMapPage() {
-	return <TourismMap />;
+	const t = await getTranslations();
+
+	const breadcrumbs: LinkType[] = [
+		{ title: t('meta.home.title'), url: '/otib' },
+		{ title: t('meta.tourism-map.title') },
+	];
+
+	return (
+		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
+			<div className="bg-background relative rounded-2xl w-full flex flex-col items-start justify-start gap-10">
+				<Heading.H1>{t('app.tourism-map.title')}</Heading.H1>
+
+				<div className="h-full w-full flex flex-col md:flex-row gap-8">
+					<InteractiveMap />
+				</div>
+			</div>
+		</InformativePageWrapper>
+	);
 }
