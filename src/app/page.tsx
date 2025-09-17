@@ -61,7 +61,7 @@ export default async function Home() {
 				<RevealOnScroll>
 					<section
 						id="home-bento-cards"
-						className="mt-20 flex flex-col gap-6 md:flex-row"
+						className="mt-20 flex flex-col flex-wrap gap-6 md:flex-row"
 					>
 						<HomeBentoGrid t={t} />
 					</section>
