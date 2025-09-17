@@ -24,11 +24,11 @@ export function OtibLogo({ variant, className }: OtibLogoProps) {
 	return (
 		isMounted && (
 			<Image
+				draggable={false}
 				src={currentLogo.src[themeKey]}
 				alt={`OTIB ${variant} logo`}
 				width={currentLogo.width}
 				height={currentLogo.height}
-				placeholder='empty'
 				className={`${className} w-auto`}
 			/>
 		)
