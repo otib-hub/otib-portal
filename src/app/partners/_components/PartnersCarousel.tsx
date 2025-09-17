@@ -106,10 +106,11 @@ export function PartnersCarousel() {
 						key={partner.id}
 						className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
 					>
-						<PartnerCard partner={partner} />
+						<PartnerCard partner={partner} t={t} />
 					</CarouselItem>
 				))}
 			</CarouselContent>
+
 			<CarouselPrevious />
 			<CarouselNext />
 		</Carousel>
