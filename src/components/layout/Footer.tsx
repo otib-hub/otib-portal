@@ -9,13 +9,17 @@ const footerLinkStyle = buttonVariants({
 		'!text-sm text-secondary-foreground/70 no-underline! hover:underline!',
 });
 
-export async function Footer() {
+type FooterProps = {
+	className?: string;
+};
+
+export async function Footer({ className }: FooterProps) {
 	const t = await getTranslations();
 
 	return (
 		<footer
 			id="footer-content"
-			className="mt-20 bg-card text-base p-10 flex flex-col gap-6"
+			className={`bg-card text-base p-10 flex flex-col gap-6 rounded-t-2xl + ${className}`}
 		>
 			<div
 				id="footer-first-row"

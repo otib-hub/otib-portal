@@ -41,7 +41,7 @@ export function TouristIndividualResearchForm() {
 							...acc,
 							[key]: undefined,
 						}),
-						{}
+						{},
 					),
 			  },
 	});
@@ -68,7 +68,9 @@ export function TouristIndividualResearchForm() {
 		validateAndNextStep();
 	}
 
-	async function handleFormSubmit(formData: TouristIndividualResearchFormType) {
+	async function handleFormSubmit(
+		formData: TouristIndividualResearchFormType,
+	) {
 		setIsSubmitting(true);
 
 		try {
@@ -78,20 +80,24 @@ export function TouristIndividualResearchForm() {
 			let countdown = 3;
 			setIsWaitingRedirect(true);
 
-			toast.success(t('common.toast_submit_success') + ` (${countdown}s)`, {
-				id: 'form-submit',
-			});
+			toast.success(
+				t('common.toast_submit_success') + ` (${countdown}s)`,
+				{
+					id: 'form-submit',
+				},
+			);
 
 			const interval = setInterval(() => {
 				countdown--;
 
 				if (countdown > 0) {
 					toast.success(
-						<div className='flex gap-2 items-center'>
-							{t('common.toast_submit_success') + ` (${countdown}s)`}
-							<Spinner size='small' color='text-primary' />
+						<div className="flex gap-2 items-center">
+							{t('common.toast_submit_success') +
+								` (${countdown}s)`}
+							<Spinner size="small" color="text-primary" />
 						</div>,
-						{ id: 'form-submit' }
+						{ id: 'form-submit' },
 					);
 				} else {
 					clearInterval(interval);
@@ -121,7 +127,7 @@ export function TouristIndividualResearchForm() {
 			.map((step, index) => {
 				const stepFields = Object.keys(step.schema.shape);
 				const hasError = stepFields.some((field) =>
-					fieldsWithErrors.includes(field)
+					fieldsWithErrors.includes(field),
 				);
 
 				return hasError ? steps[index] : null;
@@ -131,21 +137,23 @@ export function TouristIndividualResearchForm() {
 		// exibe uma mensagem de erro personalizada com os passos em que erros foram encontrados
 		if (invalidStepLabels.length > 0) {
 			toast.error(
-				<div className='w-full'>
-					<p className='mb-2 font-bold text-base'>{`${t(
-						'errors.fields_invalid_in_respective_steps'
+				<div className="w-full">
+					<p className="mb-2 font-bold text-base">{`${t(
+						'errors.fields_invalid_in_respective_steps',
 					)}:`}</p>
 
-					<div className='grid grid-cols-2 items-start justify-start'>
+					<div className="grid grid-cols-2 items-start justify-start">
 						{invalidStepLabels.map((step, idx) => {
 							return (
 								step && (
 									<Button
 										title={`${step.number}. ${step.title}`}
-										className='text-destructive text-start text-base place-self-start'
+										className="text-destructive text-start text-base place-self-start"
 										variant={'link'}
 										key={idx}
-										onClick={() => navigateToStep(step.number)}
+										onClick={() =>
+											navigateToStep(step.number)
+										}
 									>
 										{`${step.number}. ${step.title}`}
 									</Button>
@@ -157,7 +165,7 @@ export function TouristIndividualResearchForm() {
 				{
 					className: 'max-w-screen max-h-fit whitespace-pre-wrap',
 					id: 'form-invalid-steps',
-				}
+				},
 			);
 		} else {
 			toast.error(t('common.toast_content_invalid'), {
@@ -171,18 +179,21 @@ export function TouristIndividualResearchForm() {
 			<FormStepper steps={steps} activeStep={currentStepIndex + 1} />
 			<FormProvider {...methods}>
 				<form
-					onSubmit={methods.handleSubmit(handleFormSubmit, onInvalidFormSubmit)}
-					className='w-full space-y-12 md:space-y-8 mb-16 md:mb-0'
+					onSubmit={methods.handleSubmit(
+						handleFormSubmit,
+						onInvalidFormSubmit,
+					)}
+					className="w-full space-y-12 md:space-y-8"
 				>
 					{currentStep}
 
-					<div className='flex gap-4 flex-col-reverse md:flex-row md:justify-start'>
+					<div className="flex gap-4 flex-col-reverse md:flex-row md:justify-start">
 						{!isFirstStep && (
 							<Button
 								title={t('common.button_back')}
-								className='w-full md:w-fit'
-								variant='outline'
-								type='button'
+								className="w-full md:w-fit"
+								variant="outline"
+								type="button"
 								onClick={previousStep}
 								disabled={isSubmitting || isWaitingRedirect}
 							>
@@ -197,15 +208,15 @@ export function TouristIndividualResearchForm() {
 										? t('common.toast_submitting')
 										: t('common.button_submit')
 								}
-								className='w-full md:w-fit'
-								type='submit'
+								className="w-full md:w-fit"
+								type="submit"
 								disabled={isSubmitting || isWaitingRedirect}
 							>
 								{isSubmitting || isWaitingRedirect ? (
 									<Spinner
-										size='small'
-										color='text-background'
-										className='flex gap-2 items-center animate-pulse'
+										size="small"
+										color="text-background"
+										className="flex gap-2 items-center animate-pulse"
 									>
 										{t('common.toast_submitting')}
 									</Spinner>
@@ -216,8 +227,8 @@ export function TouristIndividualResearchForm() {
 						) : (
 							<Button
 								title={t('common.button_next')}
-								className='w-full md:w-fit'
-								type='button'
+								className="w-full md:w-fit"
+								type="button"
 								onClick={onNextStep}
 							>
 								{t('common.button_next')}

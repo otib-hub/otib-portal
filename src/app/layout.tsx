@@ -8,6 +8,7 @@ import { inter } from '@/styles/fonts';
 import '@/styles/globals.css';
 import QueryProvider from '@/providers/QueryProvider';
 import NextTopLoader from 'nextjs-toploader';
+import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
 	title: 'Observatório do Turismo da Ibiapaba - OTIB',
@@ -70,9 +71,10 @@ export default async function RootLayout({
 						disableTransitionOnChange
 					>
 						<QueryProvider>
-							<div className="min-h-screen max-w-screen">
+							<div className="grid grid-cols-1 mx-auto self-center min-h-screen max-w-480">
 								<Header />
 								{children}
+								<Footer className="mt-20" />
 							</div>
 
 							<Toaster richColors closeButton />

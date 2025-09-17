@@ -1,6 +1,5 @@
 import { LocaleInitializer } from '@/components/layout/LocaleInitializer';
 
-import { Footer } from '@/components/layout/Footer';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
 import { Heading } from '@/components/ui/heading';
@@ -20,7 +19,7 @@ export default async function Home() {
 
 				<section
 					id="home-heading"
-					className="w-full pt-4 md:pt-10 flex flex-col justify-center gap-8"
+					className="w-full md:pt-10 flex flex-col justify-center gap-8"
 				>
 					<div
 						id="home-hero-heading"
@@ -67,8 +66,6 @@ export default async function Home() {
 					</section>
 				</RevealOnScroll>
 			</main>
-
-			<Footer />
 		</>
 	);
 }

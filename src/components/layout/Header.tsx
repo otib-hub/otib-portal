@@ -11,7 +11,11 @@ import { useIsMobile } from '@/hooks/layout/use-mobile';
 import { usePathname } from 'next/navigation';
 import { buttonVariants } from '../ui/button';
 
-export default function Header() {
+type HeaderProps = {
+	className?: string;
+};
+
+export default function Header({ className }: HeaderProps) {
 	const isMobile = useIsMobile();
 	const t = useTranslations('components.Header');
 	const currentPage = usePathname();
@@ -26,7 +30,9 @@ export default function Header() {
 	links = links.filter((item) => item.url !== currentPage);
 
 	return (
-		<header className="bg-background/80 backdrop-blur-md z-25 sticky top-0 px-custom w-full py-3 h-16 flex flex-col gap-5">
+		<header
+			className={`bg-background/80 backdrop-blur-md z-25 sticky top-0 px-custom w-full py-3 h-16 flex flex-col gap-5 ${className}`}
+		>
 			<nav className="w-full flex justify-between items-center">
 				<div
 					id="left-content"

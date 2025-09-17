@@ -1,5 +1,4 @@
 import { LinkType } from '@/@types/link';
-import { Footer } from '@/components/layout/Footer';
 import { InformativePageWrapper } from '@/components/layout/InformativePageWrapper';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { Heading } from '@/components/ui/heading';
@@ -9,6 +8,7 @@ import { Member } from './_components/Member';
 import { buttonVariants } from '@/components/ui/button';
 import Link from 'next/link';
 import { GithubIcon, InstagramIcon, LinkedinIcon } from 'lucide-react';
+// import { TeamType } from '@/@types/team';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const t = await getTranslations('meta.about/team');
@@ -16,6 +16,59 @@ export async function generateMetadata(): Promise<Metadata> {
 		title: 'OTIB - ' + t('title'),
 	};
 }
+
+// TODO: terminar de generalizar informações do time
+// const team: TeamType = {
+// 	axles: [
+// 		{
+// 			name: 'Project Coordination',
+// 			members: [
+// 				{
+// 					name: 'Nécio Veras',
+// 					role: 'Coordination',
+// 					links: [{ title: '' }],
+// 				},
+// 			],
+// 		},
+// 		{
+// 			name: 'Developers',
+// 			members: [
+// 				{
+// 					name: 'Manuel Carlos',
+// 					role: 'Frontend Developer',
+// 					links: [{ title: '' }],
+// 				},
+// 				{
+// 					name: 'Murilo Rodrigues',
+// 					role: 'Backend Developer',
+// 					links: [{ title: '' }],
+// 				},
+// 			],
+// 		},
+// 		{
+// 			name: 'Design and Research',
+// 			members: [
+// 				{
+// 					name: 'Eduarda',
+// 					links: [{ title: '' }],
+// 				},
+// 				{
+// 					name: 'Dhyego',
+// 					links: [{ title: '' }],
+// 				},
+// 			],
+// 		},
+// 		{
+// 			name: 'Computer Vision',
+// 			members: [
+// 				{
+// 					name: 'Guilherme',
+// 					links: [{ title: '' }],
+// 				},
+// 			],
+// 		},
+// 	],
+// };
 
 export default async function AboutTeam() {
 	const t = await getTranslations('');
@@ -29,7 +82,6 @@ export default async function AboutTeam() {
 	return (
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
 			<ScrollProgress />
-
 			<article
 				id="team-content"
 				className="flex flex-col mb-10 md:mb-6 text-base md:text-lg space-y-8"
@@ -213,8 +265,6 @@ export default async function AboutTeam() {
 					</div>
 				</section>
 			</article>
-
-			<Footer />
 		</InformativePageWrapper>
 	);
 }
