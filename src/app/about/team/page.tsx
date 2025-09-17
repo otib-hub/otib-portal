@@ -4,11 +4,10 @@ import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { Heading } from '@/components/ui/heading';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { Member } from './_components/Member';
 import { buttonVariants } from '@/components/ui/button';
-import Link from 'next/link';
 import { GithubIcon, InstagramIcon, LinkedinIcon } from 'lucide-react';
-// import { TeamType } from '@/@types/team';
+import { TeamMember } from '@/@types/team-member';
+import { TeamMembers } from './_components/TeamMembers';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const t = await getTranslations('meta.about/team');
@@ -17,58 +16,95 @@ export async function generateMetadata(): Promise<Metadata> {
 	};
 }
 
-// TODO: terminar de generalizar informações do time
-// const team: TeamType = {
-// 	axles: [
-// 		{
-// 			name: 'Project Coordination',
-// 			members: [
-// 				{
-// 					name: 'Nécio Veras',
-// 					role: 'Coordination',
-// 					links: [{ title: '' }],
-// 				},
-// 			],
-// 		},
-// 		{
-// 			name: 'Developers',
-// 			members: [
-// 				{
-// 					name: 'Manuel Carlos',
-// 					role: 'Frontend Developer',
-// 					links: [{ title: '' }],
-// 				},
-// 				{
-// 					name: 'Murilo Rodrigues',
-// 					role: 'Backend Developer',
-// 					links: [{ title: '' }],
-// 				},
-// 			],
-// 		},
-// 		{
-// 			name: 'Design and Research',
-// 			members: [
-// 				{
-// 					name: 'Eduarda',
-// 					links: [{ title: '' }],
-// 				},
-// 				{
-// 					name: 'Dhyego',
-// 					links: [{ title: '' }],
-// 				},
-// 			],
-// 		},
-// 		{
-// 			name: 'Computer Vision',
-// 			members: [
-// 				{
-// 					name: 'Guilherme',
-// 					links: [{ title: '' }],
-// 				},
-// 			],
-// 		},
-// 	],
-// };
+const coordinationTeam: TeamMember[] = [
+	{
+		id: 0,
+		name: 'Nécio Veras',
+		role: 'Coordination',
+		profilePhotoSrc:
+			'https://media.licdn.com/dms/image/v2/D4D03AQFvs38Svmtu9g/profile-displayphoto-shrink_800_800/B4DZcyy71nGUAk-/0/1748903903308?e=1761177600&v=beta&t=-_x7Yyz-WlrKWMiTw9xhUgyV7IoPdj534EPdcobdl6w',
+		links: [
+			{
+				id: 0,
+				title: 'LinkedIn',
+				url: 'https://linkedin.com/in/necioveras',
+				icon: <LinkedinIcon className="size-4" />,
+			},
+		],
+	},
+];
+
+const developmentTeam: TeamMember[] = [
+	{
+		id: 0,
+		name: 'Manuel Carlos',
+		role: 'Frontend Developer',
+		profilePhotoSrc:
+			'https://avatars.githubusercontent.com/u/110443154?v=4',
+		links: [
+			{
+				id: 0,
+				title: 'LinkedIn',
+				url: 'https://linkedin.com/in/1manuelc',
+				icon: <LinkedinIcon className="size-4" />,
+			},
+			{
+				id: 1,
+				title: 'Github',
+				url: 'https://github.com/1manuelc',
+				icon: <GithubIcon className="size-4" />,
+			},
+			{
+				id: 2,
+				title: 'Instagram',
+				url: 'https://instagram.com/1manuelc.dev',
+				icon: <InstagramIcon className="size-4" />,
+			},
+		],
+	},
+	{
+		id: 1,
+		name: 'Murilo Rodrigues',
+		role: 'Backend Developer',
+		profilePhotoSrc:
+			'https://media.licdn.com/dms/image/v2/D4D03AQEca5C5XmsVyQ/profile-displayphoto-shrink_400_400/B4DZRlZiRXHEAg-/0/1736867980852?e=1760572800&v=beta&t=UaRm2z16gLAR9anMl4UBmcrlSKpqZctnPvqoYsw_cQs',
+		links: [
+			{
+				id: 0,
+				title: 'LinkedIn',
+				url: 'https://linkedin.com/in/murilo-rodrigues-dev',
+				icon: <LinkedinIcon className="size-4" />,
+			},
+			{
+				id: 1,
+				title: 'Github',
+				url: 'https://github.com/draminhon',
+				icon: <GithubIcon className="size-4" />,
+			},
+		],
+	},
+];
+
+const designTeam: TeamMember[] = [
+	{
+		id: 0,
+		name: 'Eduarda',
+		links: [],
+	},
+	{
+		id: 1,
+		name: 'Dhyego',
+		links: [],
+	},
+];
+
+const computerVisionTeam: TeamMember[] = [
+	{
+		id: 0,
+		name: 'Guilherme',
+		links: [],
+	},
+];
 
 export default async function AboutTeam() {
 	const t = await getTranslations('');
@@ -113,46 +149,8 @@ export default async function AboutTeam() {
 						id="team-coordination"
 						className="shadow-xl flex-1 md:w-fit rounded-xl p-6 bg-card flex flex-col gap-8"
 					>
-						<Heading.H2>Project Coordination</Heading.H2>
-						<div className="flex items-start justify-center gap-6">
-							<Member
-								name="Nécio Veras"
-								profilePhoto="https://avatars.githubusercontent.com/u/129892?v=4"
-							>
-								<Link
-									className={buttonVariants({
-										variant: 'secondary',
-									})}
-									href={'https://linkedin.com/in/necioveras'}
-									target="_blank"
-									rel="noopener"
-								>
-									<LinkedinIcon className="size-4" />
-								</Link>
-
-								<Link
-									className={buttonVariants({
-										variant: 'secondary',
-									})}
-									href={'https://instagram.com/necioveras'}
-									target="_blank"
-									rel="noopener"
-								>
-									<InstagramIcon className="size-4" />
-								</Link>
-
-								<Link
-									className={buttonVariants({
-										variant: 'secondary',
-									})}
-									href={'https://github.com/necioveras'}
-									target="_blank"
-									rel="noopener"
-								>
-									<GithubIcon className="size-4" />
-								</Link>
-							</Member>
-						</div>
+						<Heading.H2>{'Coordination Team'}</Heading.H2>
+						<TeamMembers teamMembers={coordinationTeam} />
 					</div>
 
 					<div
@@ -160,87 +158,10 @@ export default async function AboutTeam() {
 						className="w-full md:w-fit rounded-xl p-6 bg-card flex flex-col gap-8"
 					>
 						<Heading.H2>Devs</Heading.H2>
-						<div className="flex flex-row flex-wrap items-center justify-center gap-6">
-							<Member
-								name="Manuel Carlos"
-								description="Front-end"
-								profilePhoto="https://avatars.githubusercontent.com/u/110443154?v=4"
-							>
-								<Link
-									className={buttonVariants({
-										variant: 'secondary',
-									})}
-									href={'https://linkedin.com/in/1manuelc'}
-									target="_blank"
-									rel="noopener"
-								>
-									<LinkedinIcon className="size-4" />
-								</Link>
-
-								<Link
-									className={buttonVariants({
-										variant: 'secondary',
-									})}
-									href={'https://instagram.com/1manuelc'}
-									target="_blank"
-									rel="noopener"
-								>
-									<InstagramIcon className="size-4" />
-								</Link>
-
-								<Link
-									className={buttonVariants({
-										variant: 'secondary',
-									})}
-									href={'https://github.com/1manuelc'}
-									target="_blank"
-									rel="noopener"
-								>
-									<GithubIcon className="size-4" />
-								</Link>
-							</Member>
-
-							<Member
-								name="Murilo Rodrigues"
-								description="Back-end"
-								profilePhoto="https://media.licdn.com/dms/image/v2/D4D03AQEca5C5XmsVyQ/profile-displayphoto-shrink_400_400/B4DZRlZiRXHEAg-/0/1736867980852?e=1760572800&v=beta&t=UaRm2z16gLAR9anMl4UBmcrlSKpqZctnPvqoYsw_cQs"
-							>
-								<Link
-									className={buttonVariants({
-										variant: 'secondary',
-									})}
-									href={
-										'https://www.linkedin.com/in/murilo-rodrigues-dev/'
-									}
-									target="_blank"
-									rel="noopener"
-								>
-									<LinkedinIcon className="size-4" />
-								</Link>
-
-								<Link
-									className={buttonVariants({
-										variant: 'secondary',
-									})}
-									href={'https://instagram.com/notfound'} // TODO: atualizar redes sociais dos membros do time
-									target="_blank"
-									rel="noopener"
-								>
-									<InstagramIcon className="size-4" />
-								</Link>
-
-								<Link
-									className={buttonVariants({
-										variant: 'secondary',
-									})}
-									href={'https://github.com/draminhon'}
-									target="_blank"
-									rel="noopener"
-								>
-									<GithubIcon className="size-4" />
-								</Link>
-							</Member>
-						</div>
+						<TeamMembers
+							className="flex-row flex-wrap items-center!"
+							teamMembers={developmentTeam}
+						/>
 					</div>
 
 					<div
@@ -248,10 +169,7 @@ export default async function AboutTeam() {
 						className="flex-1 rounded-xl p-6 bg-card flex flex-col gap-8"
 					>
 						<Heading.H2>Design & Research</Heading.H2>
-						<div className="flex items-start justify-center gap-6">
-							<Member name="Eduarda"></Member>
-							<Member name="Dhyego"></Member>
-						</div>
+						<TeamMembers teamMembers={designTeam} />
 					</div>
 
 					<div
@@ -259,9 +177,7 @@ export default async function AboutTeam() {
 						className="flex-1 rounded-xl p-6 bg-card flex flex-col gap-8"
 					>
 						<Heading.H2>Computer Vision</Heading.H2>
-						<div className="flex items-start justify-center gap-6">
-							<Member name="Guilherme Carneiro"></Member>
-						</div>
+						<TeamMembers teamMembers={computerVisionTeam} />
 					</div>
 				</section>
 			</article>
