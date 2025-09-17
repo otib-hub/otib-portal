@@ -151,6 +151,75 @@
 				}
 			}
 		},
+		"partners": {
+			"section#partners-heading": {
+				"h1": "Socios",
+				"p": {
+					"0": "El Observatorio de Turismo de Ibiapaba (OTIB) es una iniciativa colaborativa fortalecida mediante el apoyo y la asociación de diversas instituciones y entidades. Creemos que unir fuerzas es esencial para transformar los datos en conocimiento y promover el desarrollo sostenible del turismo en la región de Ibiapaba.",
+					"1": "Nuestros socios son pilares esenciales para alcanzar los objetivos del OTIB, aportando experiencia, recursos y compromiso. Juntos trabajamos para:"
+				},
+				"ul": {
+					"li": {
+						"0": {
+							"strong": "Apoyar la planificación estratégica:",
+							"text": "Proporcionando información y análisis que respalden la toma de decisiones de gestores públicos y privados."
+						},
+						"1": {
+							"strong": "Promover el turismo sostenible:",
+							"text": "Desarrollando acciones que equilibren el crecimiento turístico con la preservación ambiental y cultural."
+						},
+						"2": {
+							"strong": "Estimular la innovación:",
+							"text": "Fomentando la creación de soluciones tecnológicas y creativas para el sector."
+						},
+						"3": {
+							"strong": "Fortalecer la comunidad local:",
+							"text": "Involucrando a la sociedad civil y a los emprendedores en la construcción de un turismo más inclusivo y participativo."
+						}
+					}
+				}
+			},
+			"section#partners-carousel": {
+				"h2": "Socios Institucionales",
+				"partner-since": "Socio desde:",
+				"partners": {
+					"0": {
+						"id": 0,
+						"full_name": "Instituto Federal de Ceará - Campus Tianguá",
+						"description": "Como coordinador del proyecto, el IFCE es la base académica y de investigación del OTIB, proporcionando la experiencia técnica y científica necesaria para la recopilación, análisis y difusión de datos.",
+						"since": "inicio del proyecto"
+					},
+					"1": {
+						"full_name": "NUPREDS (Centro de Prácticas en Ingeniería y Desarrollo de Software) - Campus Tianguá",
+						"description": "Responsable del desarrollo tecnológico del portal y de las herramientas interactivas, asegurando la innovación y funcionalidad de la plataforma.",
+						"since": "inicio del proyecto"
+					},
+					"2": {
+						"full_name": "SEBRAE (Servicio Brasileño de Apoyo a Micro y Pequeñas Empresas)",
+						"description": "Socio estratégico en el apoyo a emprendedores locales, ofreciendo capacitación, consultoría y promoción para el desarrollo de negocios turísticos en Ibiapaba.",
+						"since": "inicio del proyecto"
+					},
+					"3": {
+						"full_name": "FORTIB (Foro de Turismo de Ibiapaba)",
+						"description": "Representa al sector turístico de la región, actuando como un enlace clave entre el observatorio, los emprendedores y diversos actores locales del turismo.",
+						"since": "inicio del proyecto"
+					}
+				}
+			},
+			"section#join-us": {
+				"h2": "Únase a nosotros",
+				"p": {
+					"0": "Juntos podemos construir un futuro más próspero y sostenible para nuestra región, y el proyecto OTIB siempre está abierto a nuevas colaboraciones.",
+					"1": "Si su institución, empresa u organización comparte nuestra visión y desea contribuir al desarrollo del turismo en Ibiapaba, póngase en contacto con nosotros a través de los canales que se indican a continuación."
+				},
+				"ContactBentoCards": {
+					"0": {
+						"title": "Correo electrónico de NUPREDS",
+						"description": "Envíe un correo electrónico con el asunto comenzando por \"OTIB\""
+					}
+				}
+			}
+		},
 		"soon": {
 			"title": "OTIB - Característica en Desarrollo",
 			"h1": "¡Ya casi lo tenemos!",
@@ -173,6 +242,9 @@
 					"tourism-map": "Mapa Turístico"
 				}
 			}
+		},
+		"Footer": {
+			"end-text": "Hecho con 💚 en el IFCE Campus Tianguá"
 		},
 		"ThemeSwitcher": {
 			"title": "Cambiar tema",
