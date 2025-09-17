@@ -6,10 +6,7 @@ import clsx from 'clsx';
 type BentoCardProps = {
 	title: string;
 	description: string;
-	cta: {
-		label: string;
-		href: string;
-	};
+	cta?: ReactNode;
 	className?: string;
 	children?: ReactNode;
 };
@@ -24,34 +21,25 @@ export function BentoCard({
 	return (
 		<div
 			className={clsx(
-				'bg-card outline-2 outline-muted rounded-xl shadow-lg p-6 flex flex-row justify-start',
+				'bg-card outline-2 outline-muted rounded-xl shadow-lg p-6 flex justify-start',
 				className,
 			)}
 		>
-			<div className="bento-cards-content grid grid-cols-1 gap-6 items-start">
+			<div className="bento-cards-content flex flex-col gap-4 items-start justify-between">
 				{/* Background / children (imagem ou qualquer conteúdo extra) */}
-				<div className="rounded-xl w-full h-full overflow-hidden">
+				<div className="rounded-xl border-1 border-muted w-fit h-fit p-3">
 					{children}
 				</div>
 
 				{/* Conteúdo textual */}
 				<div className="bento-cards-heading flex flex-col gap-3">
-					<span className="text-2xl font-semibold mb-2">{title}</span>
-
+					<span className="text-2xl font-semibold">{title}</span>
 					<p className="text-base md:text-lg text-muted-foreground">
 						{description}
 					</p>
-
-					<Link
-						href={cta.href}
-						className={`${buttonVariants({
-							variant: 'default',
-							className: 'w-fit mt-3',
-						})} `}
-					>
-						{cta.label}
-					</Link>
 				</div>
+
+				{cta}
 			</div>
 		</div>
 	);
