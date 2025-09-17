@@ -39,9 +39,9 @@ export function TutorialDialog() {
 
 	return (
 		<Dialog open={isOpen} modal onOpenChange={setIsOpen}>
-			<DialogContent className='sm:max-w-[425px]'>
-				<DialogHeader className='text-start'>
-					<DialogTitle className='font-bold'>
+			<DialogContent className="sm:max-w-[425px] max-h-[80%] overflow-y-auto">
+				<DialogHeader className="text-start">
+					<DialogTitle className="font-bold">
 						{steps[currentStepIndex].title}
 					</DialogTitle>
 					<DialogDescription>
@@ -51,11 +51,11 @@ export function TutorialDialog() {
 
 				{currentStep}
 
-				<DialogFooter className='flex-col md:flex-row'>
+				<DialogFooter className="flex-col md:flex-row">
 					{!isFirstStep && (
 						<Button
 							title={t('common.button_back')}
-							variant='outline'
+							variant="outline"
 							onClick={backStep}
 						>
 							{t('common.button_back')}
@@ -70,7 +70,10 @@ export function TutorialDialog() {
 							{t('common.button_close')}
 						</Button>
 					) : (
-						<Button title={t('common.button_next')} onClick={nextStep}>
+						<Button
+							title={t('common.button_next')}
+							onClick={nextStep}
+						>
 							{t('common.button_next')}
 						</Button>
 					)}
