@@ -2,6 +2,16 @@ import { LinkType } from '@/@types/link';
 import { InformativePageWrapper } from '@/components/layout/InformativePageWrapper';
 import { Heading } from '@/components/ui/heading';
 import { getTranslations } from 'next-intl/server';
+import { PartnersCarousel } from './_components/PartnersCarousel';
+import { Metadata } from 'next/types';
+import { ContactBentoGrid } from './_components/ContactBentoGrid';
+
+export async function generateMetadata(): Promise<Metadata> {
+	const t = await getTranslations('meta.partners');
+	return {
+		title: 'OTIB - ' + t('title'),
+	};
+}
 
 export default async function PartnersPage() {
 	const t = await getTranslations('');
@@ -9,49 +19,83 @@ export default async function PartnersPage() {
 		{ title: t('meta.home.title'), url: '/otib' },
 		{ title: t('meta.partners.title') },
 	];
+	const partnersObjectives = [
+		{
+			id: 0,
+			strong: t('app.partners.section#partners-heading.ul.li.0.strong'),
+			text: t('app.partners.section#partners-heading.ul.li.0.text'),
+		},
+		{
+			id: 1,
+			strong: t('app.partners.section#partners-heading.ul.li.1.strong'),
+			text: t('app.partners.section#partners-heading.ul.li.1.text'),
+		},
+		{
+			id: 2,
+			strong: t('app.partners.section#partners-heading.ul.li.2.strong'),
+			text: t('app.partners.section#partners-heading.ul.li.2.text'),
+		},
+		{
+			id: 3,
+			strong: t('app.partners.section#partners-heading.ul.li.3.strong'),
+			text: t('app.partners.section#partners-heading.ul.li.3.text'),
+		},
+	];
 
 	return (
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
-			<main className="px-custom flex flex-col py-8 md:py-8 mb-10 md:mb-6 text-base md:text-lg space-y-6 lg:space-y-8">
-				<Heading.H1>{t('meta.partners.title')}</Heading.H1>
-				<p>
-					Acreditamos que grandes resultados são alcançados quando
-					trabalhamos juntos. Por isso, construímos uma rede de
-					parceiros que compartilham dos mesmos valores: inovação,
-					qualidade e compromisso com as pessoas.
-				</p>
-				<p>
-					Com o apoio dos nossos parceiros, conseguimos ampliar nossa
-					atuação, oferecer soluções mais completas e desenvolver
-					ferramentas cada vez melhores dentro do portal.
-				</p>
+			<article id="partners-content" className="flex flex-col space-y-8">
+				<section
+					id="partners-heading"
+					className="flex flex-col space-y-6"
+				>
+					<Heading.H1>
+						{t('app.partners.section#partners-heading.h1')}
+					</Heading.H1>
+					<p>{t('app.partners.section#partners-heading.p.0')}</p>
+					<p>{t('app.partners.section#partners-heading.p.1')}</p>
 
-				<Heading.H2>Por que ser nosso parceiro?</Heading.H2>
-				<ul>
-					<li>
-						Colaboração estratégica: desenvolvemos projetos em
-						conjunto para potencializar oportunidades.
-					</li>
-					
-					<li>
-						Crescimento mútuo: valorizamos parcerias que geram
-						benefícios reais para todos os envolvidos.
-					</li>
+					<ul className="list-disc list-inside marker:text-primary marker:text-2xl marker:font-bold">
+						{partnersObjectives.map((objective) => (
+							<li key={objective.id}>
+								<p className="inline">
+									<strong>{objective.strong}</strong>{' '}
+									{objective.text}
+								</p>
+							</li>
+						))}
+					</ul>
+				</section>
 
-					<li>
-						Confiança e transparência: cada parceria é baseada em
-						relações sólidas e duradouras.
-					</li>
-				</ul>
+				<section
+					id="partners-carousel"
+					className="flex flex-col space-y-6"
+				>
+					<Heading.H2>
+						{t('app.partners.section#partners-carousel.h2')}
+					</Heading.H2>
+					<div className="mx-10">
+						<PartnersCarousel />
+					</div>
+				</section>
 
-				<Heading.H2>Junte-se a nós</Heading.H2>
-				<p>
-					Se você acredita no poder da colaboração e deseja construir
-					novas oportunidades de negócio, entre em contato com a nossa
-					equipe. Estamos sempre abertos a novas conexões que possam
-					transformar ideias em resultados.
-				</p>
-			</main>
+				<section
+					id="partners-join-us"
+					className="flex flex-col space-y-6"
+				>
+					<Heading.H2>
+						{t('app.partners.section#join-us.h2')}
+					</Heading.H2>
+					<p>
+						{t('app.partners.section#join-us.p.0')}{' '}
+						{t('app.partners.section#join-us.p.1')}
+					</p>
+
+					<div className="flex flex-col gap-6 md:flex-row flex-wrap">
+						<ContactBentoGrid t={t} />
+					</div>
+				</section>
+			</article>
 		</InformativePageWrapper>
 	);
 }
