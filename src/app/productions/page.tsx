@@ -17,8 +17,9 @@ import {
 } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import { LatestProductionsCarousel } from './_components/LatestProductionsCarousel';
+import Link from 'next/link';
 
-export default async function ResourcesPage() {
+export default async function ProductionsPage() {
 	const t = await getTranslations('');
 	const breadcrumbs: LinkType[] = [
 		{ title: t('meta.home.title'), url: '/otib' },
@@ -80,7 +81,10 @@ export default async function ResourcesPage() {
 					<Heading.H2>
 						{t('app.productions.section#last-published.h2')}
 					</Heading.H2>
-					<LatestProductionsCarousel />
+
+					<div className="mx-10">
+						<LatestProductionsCarousel />
+					</div>
 				</section>
 
 				<section
@@ -93,18 +97,21 @@ export default async function ResourcesPage() {
 
 					<div className="w-full flex flex-wrap gap-6">
 						{categories.map((category) => (
-							<Card
+							<Link
+								href="/soon"
 								key={category.id}
-								className="flex-1 min-w-40 hover:opacity-50 transition-opacity cursor-pointer"
+								className="flex-1 hover:opacity-50 transition-opacity cursor-pointer"
 							>
-								<CardContent>{category.icon}</CardContent>
-								<CardHeader>
-									<CardTitle>{category.title}</CardTitle>
-									<CardDescription>
-										{category.description}
-									</CardDescription>
-								</CardHeader>
-							</Card>
+								<Card className="min-w-40 h-full">
+									<CardContent>{category.icon}</CardContent>
+									<CardHeader>
+										<CardTitle>{category.title}</CardTitle>
+										<CardDescription>
+											{category.description}
+										</CardDescription>
+									</CardHeader>
+								</Card>
+							</Link>
 						))}
 					</div>
 				</section>
