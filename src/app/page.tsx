@@ -24,7 +24,7 @@ export default async function Home() {
 				>
 					<div
 						id="home-hero-heading"
-						className="w-full md:max-w-148 place-self-center flex flex-col items-center justify-center gap-6 text-start md:text-center"
+						className="w-full md:max-w-148 place-self-center flex flex-col items-center justify-center gap-6 text-center"
 					>
 						<Heading.H1 className="md:text-5xl">
 							{`${t('heading.title').split('\n')[0]} `}
