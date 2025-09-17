@@ -18,7 +18,6 @@ import vicosa_square from '#/images/cities/square/vicosa_square.png';
 import tiangua_square from '#/images/cities/square/tiangua_square.png';
 import ibiapina_square from '#/images/cities/square/ibiapina_square.png';
 
-import default_full_img from '#/images/highlights_5.webp';
 import { convertToSlug } from '@/utils/convert-to-slug';
 
 export const citiesBackgrounds = {
