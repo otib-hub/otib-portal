@@ -11,6 +11,8 @@ import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
 } from '@/components/ui/carousel';
 import {
 	BadgeQuestionMarkIcon,
@@ -67,7 +69,7 @@ export function LatestProductionsCarousel() {
 				{productions.map((item) => (
 					<CarouselItem
 						key={item.id}
-						className="w-full basis-1/2 md:basis-1/3 lg:basis-1/4"
+						className="w-full basis-full md:basis-1/2 lg:basis-1/3"
 					>
 						<Link href={item.url} target="_blank" rel="noopener">
 							<Card
@@ -101,6 +103,8 @@ export function LatestProductionsCarousel() {
 					</CarouselItem>
 				))}
 			</CarouselContent>
+			<CarouselNext />
+			<CarouselPrevious />
 		</Carousel>
 	);
 }
