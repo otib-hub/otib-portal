@@ -1,84 +1,21 @@
 import { CityImage } from '@/@types/city-image';
 import { Marquee } from '@/components/fragments/Marquee';
-import { citiesBackgrounds } from '@/utils/get-city-background';
+import { CitiesENUM, getCityImage } from '@/utils/get-city-image';
 import Image from 'next/image';
 
 const IMAGE_HEIGHT = 240;
 const IMAGE_WIDTH = 300;
 
 const images: CityImage[] = [
-	{
-		src: citiesBackgrounds.gba.square,
-		title: citiesBackgrounds.gba.description,
-		alt: citiesBackgrounds.gba.description,
-		blurDataURL: citiesBackgrounds.gba.square.blurDataURL,
-		loading: 'lazy',
-		slug: citiesBackgrounds.gba.slug,
-	},
-	{
-		src: citiesBackgrounds.carnaubal.square,
-		title: citiesBackgrounds.carnaubal.description,
-		alt: citiesBackgrounds.carnaubal.description,
-		blurDataURL: citiesBackgrounds.carnaubal.square.blurDataURL,
-		priority: true,
-		slug: citiesBackgrounds.carnaubal.slug,
-	},
-	{
-		src: citiesBackgrounds.ubajara.square,
-		title: citiesBackgrounds.ubajara.description,
-		alt: citiesBackgrounds.ubajara.description,
-		blurDataURL: citiesBackgrounds.ubajara.square.blurDataURL,
-		loading: 'lazy',
-		slug: citiesBackgrounds.ubajara.slug,
-	},
-	{
-		src: citiesBackgrounds.tiangua.square,
-		title: citiesBackgrounds.tiangua.description,
-		alt: citiesBackgrounds.tiangua.description,
-		blurDataURL: citiesBackgrounds.tiangua.square.blurDataURL,
-		loading: 'lazy',
-		slug: citiesBackgrounds.tiangua.slug,
-	},
-	{
-		src: citiesBackgrounds.vicosa.square,
-		title: citiesBackgrounds.vicosa.description,
-		alt: citiesBackgrounds.vicosa.description,
-		blurDataURL: citiesBackgrounds.vicosa.square.blurDataURL,
-		loading: 'lazy',
-		slug: citiesBackgrounds.vicosa.slug,
-	},
-	{
-		src: citiesBackgrounds.croata.square,
-		title: citiesBackgrounds.croata.description,
-		alt: citiesBackgrounds.croata.description,
-		blurDataURL: citiesBackgrounds.croata.square.blurDataURL,
-		loading: 'lazy',
-		slug: citiesBackgrounds.croata.slug,
-	},
-	{
-		src: citiesBackgrounds.ipu.square,
-		title: citiesBackgrounds.ipu.description,
-		alt: citiesBackgrounds.ipu.description,
-		blurDataURL: citiesBackgrounds.ipu.square.blurDataURL,
-		loading: 'lazy',
-		slug: citiesBackgrounds.ipu.slug,
-	},
-	{
-		src: citiesBackgrounds.sb.square,
-		title: citiesBackgrounds.sb.description,
-		alt: citiesBackgrounds.sb.description,
-		blurDataURL: citiesBackgrounds.sb.square.blurDataURL,
-		priority: true,
-		slug: citiesBackgrounds.sb.slug,
-	},
-	{
-		src: citiesBackgrounds.ibiapina.square,
-		title: citiesBackgrounds.ibiapina.description,
-		alt: citiesBackgrounds.ibiapina.description,
-		blurDataURL: citiesBackgrounds.ibiapina.square.blurDataURL,
-		priority: true,
-		slug: citiesBackgrounds.ibiapina.slug,
-	},
+	{ ...getCityImage(true, CitiesENUM.CARNAUBAL, { priority: true }) },
+	{ ...getCityImage(true, CitiesENUM.UBAJARA, { priority: true }) },
+	{ ...getCityImage(true, CitiesENUM.TIANGUA, { priority: true }) },
+	{ ...getCityImage(true, CitiesENUM.VICOSA, { priority: true }) },
+	{ ...getCityImage(true, CitiesENUM.GBA, { loading: 'lazy' }) },
+	{ ...getCityImage(true, CitiesENUM.CROATA, { loading: 'lazy' }) },
+	{ ...getCityImage(true, CitiesENUM.IPU, { loading: 'lazy' }) },
+	{ ...getCityImage(true, CitiesENUM.SB, { loading: 'lazy' }) },
+	{ ...getCityImage(true, CitiesENUM.IBIAPINA, { loading: 'lazy' }) },
 ];
 
 export function HomeMarquee() {
