@@ -5,6 +5,7 @@ import { getTranslations } from 'next-intl/server';
 import { PartnersCarousel } from './_components/PartnersCarousel';
 import { Metadata } from 'next/types';
 import { ContactBentoGrid } from './_components/ContactBentoGrid';
+import { ScrollProgress } from '@/components/layout/ScrollProgress';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const t = await getTranslations('meta.partners');
@@ -44,6 +45,7 @@ export default async function PartnersPage() {
 
 	return (
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
+			<ScrollProgress />
 			<article id="partners-content" className="flex flex-col space-y-8">
 				<section
 					id="partners-heading"
