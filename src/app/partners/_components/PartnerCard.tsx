@@ -8,16 +8,18 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
-import { BadgeQuestionMarkIcon } from 'lucide-react';
+import { BadgeQuestionMarkIcon, CalendarCheckIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Fragment } from 'react';
 import Image from 'next/image';
+import { TFunction } from '@/@types/next-intl';
 
 type PartnerCardProps = {
 	partner: Partner;
+	t: TFunction<'app.partners.section#partners-carousel'>;
 };
 
-export function PartnerCard({ partner }: PartnerCardProps) {
+export function PartnerCard({ partner, t }: PartnerCardProps) {
 	return (
 		<Card className="h-full justify-between gap-6">
 			<CardContent className="h-fit">
@@ -52,6 +54,17 @@ export function PartnerCard({ partner }: PartnerCardProps) {
 				<CardDescription className="text-base">
 					{partner.description}
 				</CardDescription>
+
+				<span className="text-base flex gap-2 items-center mt-3">
+					<CalendarCheckIcon className="size-4" />
+					{`${t('partner-since')} ${
+						typeof partner.since === 'string'
+							? partner.since
+							: new Date(partner.since).toLocaleString('pt-BR', {
+									dateStyle: 'short',
+							  })
+					}`}
+				</span>
 			</CardHeader>
 
 			<CardFooter className="flex flex-col gap-2 items-start justify-start">
@@ -76,14 +89,6 @@ export function PartnerCard({ partner }: PartnerCardProps) {
 						);
 					})}
 				</div>
-
-				<span className="text-base">
-					{typeof partner.since === 'string'
-						? partner.since
-						: new Date(partner.since).toLocaleString('pt-BR', {
-								dateStyle: 'short',
-						  })}
-				</span>
 			</CardFooter>
 		</Card>
 	);
