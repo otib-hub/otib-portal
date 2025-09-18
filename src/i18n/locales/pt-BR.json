@@ -226,7 +226,27 @@
 			"button_home": "Voltar à página inicial"
 		},
 		"tourism-map": {
-			"title": "Mapa do Turismo"
+			"title": "Mapa do Turismo",
+			"MapHelpDialog": {
+				"title": "Como usar o Mapa do Turismo",
+				"description": {
+					"0": "Toque ou clique em uma cidade no mapa para ver informações e destaques específicos dela.",
+					"1": "Se nenhuma cidade estiver selecionada, o mapa mostra dados gerais de toda a região da Ibiapaba."
+				},
+				"footerCloseButton": "Entendi"
+			},
+			"cities-description": {
+				"default": "A Serra da Ibiapaba, também conhecida como Serra Grande, é uma região montanhosa na divisa entre o Ceará e o Piauí. Com uma altitude média de 1.000 metros, a serra se diferencia por seu clima ameno e por suas paisagens exuberantes, que incluem cachoeiras, grutas e neblina matinal no inverno. O destino é um polo de ecoturismo e aventura, oferecendo ricas experiências em cultura e história.",
+				"vicosa-do-ceara": "Viçosa do Ceará encanta com sua rica arquitetura colonial que remonta ao século XIX, sendo um destino que convida à imersão cultural, com casarões antigos e igrejas centenárias, além de belezas naturais como a Cachoeira da Pirapora e o Roteiro dos Engenhos, que revela a tradição da cachaça artesanal.",
+				"tiangua": "Considerada a capital da Ibiapaba, Tianguá alia a beleza de sua natureza a uma infraestrutura diversificada. Com um clima agradável, a cidade oferece trilhas ecológicas, voo livre, cachoeiras e mirantes deslumbrantes, além de um vibrante cenário gastronômico e noturno.",
+				"ubajara": "A cidade de Ubajara destaca-se pela rica geologia com grutas calcárias, formações rochosas e cavernas do Parque Nacional de Ubajara. O relevo serrano, aliado às paisagens únicas, torna o destino referência em ecoturismo e geoturismo no Nordeste.",
+				"ibiapina": "Com um clima fresco e belezas naturais abundantes, Ibiapina se destaca pela Rota das Cachoeiras e pelo turismo histórico. Além de trilhas e mirantes que levam a quedas d’água impressionantes, a cidade preserva uma arquitetura antiga e celebra sua cultura.",
+				"sao-benedito": "Conhecida como a 'Capital das Rosas', São Benedito é um destino que une a natureza com a fé e um inovador agronegócio. Nela, o visitante pode explorar uma das maiores fazendas de rosas da América Latina, o Santuário de Fátima, e se aventurar em trilhas e tirolesas nos parques.",
+				"carnaubal": "Um refúgio de tranquilidade na Serra da Ibiapaba, Carnaubal se destaca por paisagens de tirar o fôlego, com vastas áreas verdes ideais para o ecoturismo. O município oferece belezas como o Balneário de Carnaubal e o Mirante Santo Antônio, celebrando uma cultura ligada à agricultura e a festas populares.",
+				"guaraciaba-do-norte": "Guaraciaba do Norte encanta por seu clima montanhoso e rica vegetação, sendo um destino promissor para o turismo. A cidade convida a explorar belezas naturais como o Urubu Ecoparque e a Cachoeira Bica do Urubu, além de formações rochosas impressionantes como a Cidade das Pedras.",
+				"croata": "Com suas paisagens rochosas únicas, Croatá é um destino que mescla paisagens com o turismo de fé e história. A cidade se destaca por suas impressionantes formações rochosas, como a 'Taça', cachoeiras e mirantes, e preserva a memória local na 'Casa de Pedras', um testemunho do século XIX.",
+				"ipu": "Ipu, a lendária 'Terra de Iracema', é um ícone da Serra da Ibiapaba, com sua principal atração, a Bica do Ipu, uma cachoeira de 130 metros que é um símbolo municipal. A cidade, cujo nome em tupi significa 'queda d'água', une ecoturismo com turismo rural e um rico patrimônio cultural."
+			}
 		}
 	},
 	"components": {

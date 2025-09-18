@@ -137,7 +137,7 @@
 					},
 					"1": {
 						"title": "Reports",
-						"description": "Detailed compilations of Ibiapaba’s strategic information"
+						"description": "Detailed compilations of Ibiapaba's strategic information"
 					},
 					"2": {
 						"title": "Datasets",
@@ -226,7 +226,27 @@
 			"button_home": "Go back to homepage"
 		},
 		"tourism-map": {
-			"title": "Tourism Map"
+			"title": "Tourism Map",
+			"MapHelpDialog": {
+				"title": "How to Use the Tourism Map",
+				"description": {
+					"0": "Tap or click on a city on the map to see specific information and highlights about it.",
+					"1": "If no city is selected, the map shows general data about the entire Ibiapaba region."
+				},
+				"footerCloseButton": "Got it"
+			},
+			"cities-description": {
+				"default": "The Serra da Ibiapaba, also known as Serra Grande, is a mountainous region on the border between Ceará and Piauí. With an average altitude of 1,000 meters, the mountain range is distinguished by its mild climate and lush landscapes, which include waterfalls, caves, and morning fog in winter. The destination is a hub for ecotourism and adventure, offering rich experiences in culture and history.",
+				"vicosa-do-ceara": "Viçosa do Ceará enchants visitors with its rich colonial architecture dating back to the 19th century. It is a destination that invites cultural immersion, with old mansions and centuries-old churches, as well as natural beauty spots such as the Pirapora Waterfall and the Roteiro dos Engenhos (Mill Route), which reveals the tradition of artisanal cachaça.",
+				"tiangua": "Considered the capital of Ibiapaba, Tianguá combines the beauty of its nature with a diverse infrastructure. With a pleasant climate, the city offers nature trails, hang gliding, waterfalls, and breathtaking viewpoints, as well as a vibrant gastronomic and nightlife scene.",
+				"ubajara": "The city of Ubajara stands out for its rich geology, with limestone caves, rock formations, and caverns in Ubajara National Park. The mountainous terrain, combined with unique landscapes, makes it a benchmark destination for ecotourism and geotourism in the Northeast.",
+				"ibiapina": "With a cool climate and abundant natural beauty, Ibiapina stands out for its Waterfall Route and historical tourism. In addition to trails and viewpoints that lead to impressive waterfalls, the city preserves its ancient architecture and celebrates its culture.",
+				"sao-benedito": "Known as the 'Capital of Roses', São Benedito is a destination that combines nature with faith and innovative agribusiness. Here, visitors can explore one of the largest rose farms in Latin America, the Sanctuary of Fátima, and venture out on trails and zip lines in the parks.",
+				"carnaubal": "A tranquil refuge in the Ibiapaba Mountains, Carnaubal stands out for its breathtaking landscapes, with vast green areas ideal for ecotourism. The municipality offers attractions such as the Carnaubal Spa and the Santo Antônio Lookout, celebrating a culture linked to agriculture and popular festivals.",
+				"guaraciaba-do-norte": "Guaraciaba do Norte enchants visitors with its mountainous climate and rich vegetation, making it a promising destination for tourism. The city invites visitors to explore natural beauties such as the Urubu Ecopark and the Bica do Urubu Waterfall, as well as impressive rock formations such as the City of Stones.",
+				"croata": "With its unique rocky landscapes, Croatá is a destination that combines scenery with faith and history tourism. The city stands out for its impressive rock formations, such as the 'Taça', waterfalls, and viewpoints, and preserves local memory in the 'Casa de Pedras', a testament to the 19th century.",
+				"ipu": "Ipu, the legendary 'Land of Iracema', is an icon of the Ibiapaba Mountains, with its main attraction, the Bica do Ipu, a 130-meter waterfall that is a municipal symbol. The city, whose name in Tupi means 'waterfall', combines ecotourism with rural tourism and a rich cultural heritage."
+			}
 		}
 	},
 	"components": {
