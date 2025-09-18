@@ -5,7 +5,9 @@ import { Spinner } from '@/components/ui/spinner';
 import dynamic from 'next/dynamic';
 import { useCallback, useState } from 'react';
 
-import { convertToSlug } from '@/utils/convert-to-slug';
+import { CityHighlightsCarousel } from './CityHighlightsCarousel';
+import { CityTouristicData } from '@/@types/city-touristic-data';
+import { getCityTouristicData } from './touristic-data';
 
 const LazyIbiapabaMap = dynamic(
 	() => import('@/components/layout/IbiapabaMap'),
@@ -23,28 +25,25 @@ export function InteractiveMap() {
 	const [selectedCity, setSelectedCity] = useState<string | undefined>(
 		undefined,
 	);
+	const [selectedCityTouristicData, setSelectedCityTouristicData] =
+		useState<CityTouristicData>(getCityTouristicData(undefined));
 
-	const handleCityChange = useCallback(
-		(city: string | undefined) => {
-			if (city) {
-				const formatted = convertToSlug(city.toLowerCase());
-				setSelectedCity(formatted);
-			} else {
-				setSelectedCity(undefined);
-			}
-		},
-		[setSelectedCity],
-	);
+	const handleCityChange = useCallback((city: string | undefined) => {
+		setSelectedCity(city);
+		setSelectedCityTouristicData(getCityTouristicData(city));
+	}, []);
 
 	return (
-		<>
+		<div className="w-full mx-0 flex flex-col md:flex-row md:justify-between gap-8">
 			<LazyIbiapabaMap
 				selected={selectedCity}
 				onChangeSelected={handleCityChange}
 			/>
-			<div className="flex-1 rounded-2xl bg-card flex items-center justify-center text-muted-foreground">
-				{selectedCity ?? 'Selecione uma cidade'}
-			</div>
-		</>
+			<CityHighlightsCarousel
+				selectedCity={selectedCity}
+				data={selectedCityTouristicData}
+			/>
+			{/* TODO: implementar informações dinâmicas por cidade */}
+		</div>
 	);
 }
