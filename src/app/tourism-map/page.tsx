@@ -5,6 +5,7 @@ import { InformativePageWrapper } from '@/components/layout/InformativePageWrapp
 import { LinkType } from '@/@types/link';
 import { InteractiveMap } from './_components/InteractiveMap';
 import { getTranslations } from 'next-intl/server';
+import { MapHelpDialog } from './_components/MapHelpDialog';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const t = await getTranslations('meta.tourism-map');
@@ -24,11 +25,11 @@ export default async function TourismMapPage() {
 	return (
 		<InformativePageWrapper breadcrumbLinks={breadcrumbs}>
 			<div className="bg-background relative rounded-2xl w-full flex flex-col items-start justify-start gap-10">
-				<Heading.H1>{t('app.tourism-map.title')}</Heading.H1>
-
-				<div className="h-full w-full flex flex-col md:flex-row gap-8">
-					<InteractiveMap />
-				</div>
+				<span className="inline-flex justify-center items-center gap-4">
+					<Heading.H1>{t('app.tourism-map.title')}</Heading.H1>
+					<MapHelpDialog />
+				</span>
+				<InteractiveMap />
 			</div>
 		</InformativePageWrapper>
 	);
