@@ -12,25 +12,27 @@ import { MapChart } from 'echarts/charts';
 import { TooltipComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import type { ECharts } from 'echarts/core';
+import { CitiesENUM } from '@/utils/get-city-image';
+import { convertToSlug } from '@/utils/convert-to-slug';
 
 // Registra componentes uma única vez
 echarts.use([MapChart, TooltipComponent, CanvasRenderer]);
 
 export interface IbiapabaMapProps extends ComponentProps<'div'> {
 	selected?: string;
-	onChangeSelected?: (city: string | undefined) => void;
+	onChangeSelected: (city: string | undefined) => void;
 }
 
 export const IBIAPABA_CITIES = [
-	'Ibiapina',
-	'Carnaubal',
-	'Croatá',
-	'Tianguá',
-	'Ubajara',
-	'Ipu',
-	'Guaraciaba do Norte',
-	'São Benedito',
-	'Viçosa do Ceará',
+	CitiesENUM.IBIAPINA,
+	CitiesENUM.CARNAUBAL,
+	CitiesENUM.CROATA,
+	CitiesENUM.TIANGUA,
+	CitiesENUM.UBAJARA,
+	CitiesENUM.IPU,
+	CitiesENUM.GBA,
+	CitiesENUM.SB,
+	CitiesENUM.VICOSA,
 ] as const;
 
 // Cache para armazenar dados carregados
@@ -117,10 +119,18 @@ export default function IbiapabaMap({
 	const handleClick = useCallback(
 		(params: any) => {
 			if (params.componentType === 'series' && params.name) {
-				const clickedCity = params.name;
-				const newSelected =
-					selected === clickedCity ? undefined : clickedCity;
-				onChangeSelected?.(newSelected);
+				const clickedCity = convertToSlug(params.name);
+				if (selected === clickedCity) {
+					// Limpa seleção no gráfico
+					chartInstance.current?.dispatchAction({
+						type: 'unselect',
+						seriesIndex: 0,
+						name: clickedCity,
+					});
+					onChangeSelected(undefined);
+				} else {
+					onChangeSelected(clickedCity);
+				}
 			}
 		},
 		[selected, onChangeSelected],

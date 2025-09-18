@@ -22,11 +22,11 @@ import ibiapina_square from '#/images/cities/square/ibiapina_square.png';
 export enum CitiesENUM {
 	CROATA = 'croata',
 	CARNAUBAL = 'carnaubal',
-	GBA = 'gba',
+	GBA = 'guaraciaba-do-norte',
 	IPU = 'ipu',
-	SB = 'sb',
+	SB = 'sao-benedito',
 	UBAJARA = 'ubajara',
-	VICOSA = 'vicosa',
+	VICOSA = 'vicosa-do-ceara',
 	TIANGUA = 'tiangua',
 	IBIAPINA = 'ibiapina',
 }
@@ -44,7 +44,7 @@ export const citiesBackgrounds = {
 		square: carnaubal_square,
 		description: 'Chácara O Firmeza - Carnaubal',
 	},
-	gba: {
+	['guaraciaba-do-norte']: {
 		slug: 'guaraciaba',
 		full: guaraciaba_full,
 		square: guaraciaba_square,
@@ -56,7 +56,7 @@ export const citiesBackgrounds = {
 		square: ipu_square,
 		description: 'Bica do Ipu - Ipu',
 	},
-	sb: {
+	['sao-benedito']: {
 		slug: 'sao-benedito',
 		full: sao_benedito_full,
 		square: sao_benedito_square,
@@ -68,7 +68,7 @@ export const citiesBackgrounds = {
 		square: ubajara_square,
 		description: 'Parque Nacional de Ubajara - Ubajara',
 	},
-	vicosa: {
+	['vicosa-do-ceara']: {
 		slug: 'vicosa-do-ceara',
 		full: vicosa_full,
 		square: vicosa_square,
