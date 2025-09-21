@@ -17,6 +17,18 @@ type CityHighlightsCarouselProps = {
 	selectedCity?: string;
 };
 
+export const cityNameMap = {
+	'vicosa-do-ceara': 'Viçosa do Ceará',
+	tiangua: 'Tianguá',
+	ubajara: 'Ubajara',
+	ibiapina: 'Ibiapina',
+	'sao-benedito': 'São Benedito',
+	carnaubal: 'Carnaubal',
+	'guaraciaba-do-norte': 'Guaraciaba do Norte',
+	croata: 'Croatá',
+	ipu: 'Ipu',
+} as const;
+
 export function CityHighlightsCarousel({
 	data,
 	selectedCity,
@@ -66,6 +78,13 @@ export function CityHighlightsCarousel({
 
 				<CarouselPrevious variant="secondary" className="left-4 z-10" />
 				<CarouselNext variant="secondary" className="right-4 z-10" />
+
+				<span className="absolute top-4 left-4 p-2 flex items-center justify-center gap-2 bg-background/70 backdrop-blur-sm rounded-2xl shadow-xl text-base md:text-xl font-bold text-foreground/70 hover:opacity-50 transition-opacity select-none">
+					{selectedCity
+						? cityNameMap[selectedCity as keyof typeof cityNameMap]
+						: 'Serra da Ibiapaba'}
+				</span>
+
 				<CarouselSlidesIndicator
 					currentSlide={currentSlide}
 					totalSlides={data.images.length}
