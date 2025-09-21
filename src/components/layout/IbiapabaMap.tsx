@@ -7,7 +7,7 @@ import React, {
 	useCallback,
 	useMemo,
 } from 'react';
-import * as echarts from 'echarts/core';
+import { use as echartsUse, init, registerMap } from 'echarts/core';
 import { MapChart } from 'echarts/charts';
 import { TooltipComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
@@ -16,7 +16,7 @@ import { CitiesENUM } from '@/utils/get-city-image';
 import { convertToSlug } from '@/utils/convert-to-slug';
 
 // Registra componentes uma única vez
-echarts.use([MapChart, TooltipComponent, CanvasRenderer]);
+echartsUse([MapChart, TooltipComponent, CanvasRenderer]);
 
 export interface IbiapabaMapProps extends ComponentProps<'div'> {
 	selected?: string;
@@ -173,12 +173,12 @@ export default function IbiapabaMap({
 				// Registra o mapa apenas uma vez
 				if (!isMapRegistered) {
 					const geojson = mapDataCache.get('ibiapaba-geojson');
-					echarts.registerMap('ibiapaba', geojson as any);
+					registerMap('ibiapaba', geojson as any);
 					isMapRegistered = true;
 				}
 
 				// Inicializa o chart
-				const chart = echarts.init(chartRef.current, undefined, {
+				const chart = init(chartRef.current, undefined, {
 					renderer: 'canvas',
 				});
 
