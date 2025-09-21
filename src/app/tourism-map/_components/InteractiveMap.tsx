@@ -8,6 +8,7 @@ import { useCallback, useState } from 'react';
 import { CityHighlightsCarousel } from './CityHighlightsCarousel';
 import { CityTouristicData } from '@/@types/city-touristic-data';
 import { getCityTouristicData } from './touristic-data';
+import { CityDataTabs } from './CityDataTabs';
 
 const LazyIbiapabaMap = dynamic(
 	() => import('@/components/layout/IbiapabaMap'),
@@ -34,16 +35,25 @@ export function InteractiveMap() {
 	}, []);
 
 	return (
-		<div className="w-full mx-0 flex flex-col md:flex-row md:justify-between gap-8">
-			<LazyIbiapabaMap
-				selected={selectedCity}
-				onChangeSelected={handleCityChange}
+		<div id="map-container" className="w-full flex flex-col gap-8">
+			<div
+				id="map-principal-row"
+				className="w-full mx-0 flex flex-col md:flex-row md:justify-between gap-8"
+			>
+				<LazyIbiapabaMap
+					selected={selectedCity}
+					onChangeSelected={handleCityChange}
+				/>
+				<CityHighlightsCarousel
+					selectedCity={selectedCity}
+					data={selectedCityTouristicData}
+				/>
+			</div>
+
+			<CityDataTabs
+				city={selectedCity}
+				cityTouristicData={selectedCityTouristicData}
 			/>
-			<CityHighlightsCarousel
-				selectedCity={selectedCity}
-				data={selectedCityTouristicData}
-			/>
-			{/* TODO: implementar informações dinâmicas por cidade */}
 		</div>
 	);
 }
