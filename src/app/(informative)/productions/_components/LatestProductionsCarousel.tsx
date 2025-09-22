@@ -22,7 +22,7 @@ import {
 	UniversityIcon,
 } from 'lucide-react';
 import Link from 'next/link';
-import { latestProductions } from '#/json/latest-productions.json';
+import productionsData from '#/json/latest-productions.json';
 import { useLocale } from 'next-intl';
 
 type Production = {
@@ -53,15 +53,17 @@ const getIconByResourceType = (type: string) => {
 
 export function LatestProductionsCarousel() {
 	const locale: 'pt-BR' | 'en' | 'es' = useLocale();
-	const productions: Production[] = latestProductions.map((production) => {
-		return {
-			...production,
-			data: {
-				title: production.data[locale].title,
-				description: production.data[locale].description,
-			},
-		};
-	});
+	const productions: Production[] = productionsData.latestProductions.map(
+		(production) => {
+			return {
+				...production,
+				data: {
+					title: production.data[locale].title,
+					description: production.data[locale].description,
+				},
+			};
+		},
+	);
 
 	return (
 		<Carousel opts={{ align: 'start' }} className="w-full">
