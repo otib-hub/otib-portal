@@ -3,19 +3,19 @@ import { Marquee } from '@/components/fragments/Marquee';
 import { CitiesENUM, getCityImage } from '@/utils/get-city-image';
 import Image from 'next/image';
 
-const IMAGE_HEIGHT = 240;
+const IMAGE_HEIGHT = 300;
 const IMAGE_WIDTH = 300;
 
 const images: CityImage[] = [
-	{ ...getCityImage(true, CitiesENUM.CARNAUBAL, { priority: true }) },
-	{ ...getCityImage(true, CitiesENUM.UBAJARA, { priority: true }) },
-	{ ...getCityImage(true, CitiesENUM.TIANGUA, { priority: true }) },
-	{ ...getCityImage(true, CitiesENUM.VICOSA, { priority: true }) },
-	{ ...getCityImage(true, CitiesENUM.GBA, { loading: 'lazy' }) },
-	{ ...getCityImage(true, CitiesENUM.CROATA, { loading: 'lazy' }) },
-	{ ...getCityImage(true, CitiesENUM.IPU, { loading: 'lazy' }) },
-	{ ...getCityImage(true, CitiesENUM.SB, { loading: 'lazy' }) },
-	{ ...getCityImage(true, CitiesENUM.IBIAPINA, { loading: 'lazy' }) },
+	{ ...getCityImage(CitiesENUM.CARNAUBAL, 0, { priority: true }) },
+	{ ...getCityImage(CitiesENUM.UBAJARA, 0, { priority: true }) },
+	{ ...getCityImage(CitiesENUM.TIANGUA, 0, { priority: true }) },
+	{ ...getCityImage(CitiesENUM.VICOSA, 0, { priority: true }) },
+	{ ...getCityImage(CitiesENUM.GBA, 0, { loading: 'lazy' }) },
+	{ ...getCityImage(CitiesENUM.CROATA, 0, { loading: 'lazy' }) },
+	{ ...getCityImage(CitiesENUM.IPU, 0, { loading: 'lazy' }) },
+	{ ...getCityImage(CitiesENUM.SB, 0, { loading: 'lazy' }) },
+	{ ...getCityImage(CitiesENUM.IBIAPINA, 0, { loading: 'lazy' }) },
 ];
 
 export function HomeMarquee() {
