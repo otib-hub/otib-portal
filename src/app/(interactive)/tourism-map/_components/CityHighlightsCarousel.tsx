@@ -10,7 +10,7 @@ import { ImageIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
-import { CarouselSlidesIndicator } from '../../../components/fragments/CarouselSlidesIndicator';
+import { CarouselSlidesIndicator } from '../../../../components/fragments/CarouselSlidesIndicator';
 
 type CityHighlightsCarouselProps = {
 	data: CityTouristicData;

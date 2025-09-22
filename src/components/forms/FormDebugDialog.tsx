@@ -1,4 +1,4 @@
-import { TouristIndividualResearchFormType } from '@/app/researches/tourist-individual/_form/TouristIndividualResearch/schemas/form-schema';
+import { TouristIndividualResearchFormType } from '@/app/(interactive)/researches/tourist-individual/_form/TouristIndividualResearch/schemas/form-schema';
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -21,20 +21,20 @@ interface FormDebugDialogProps {
 function formatDataToBeautifulPre(data: TouristIndividualResearchFormType) {
 	return Object.entries(data).map(([key, value]) => (
 		<span key={key} className={`${ibmPlexMono.className}`}>
-			<span className='text-foreground'>&#9;&#9;{key}</span>
+			<span className="text-foreground">&#9;&#9;{key}</span>
 			{': '}
 			<span>
 				{typeof value === 'string' && (
-					<span className='text-primary'>{`"${value}"`}</span>
+					<span className="text-primary">{`"${value}"`}</span>
 				)}
 				{Array.isArray(value) && (
-					<span className='text-chart-4'>
+					<span className="text-chart-4">
 						[
 						{value.map((item, idx) => (
-							<span key={idx} className='text-primary'>
+							<span key={idx} className="text-primary">
 								&quot;{item}&quot;
 								{idx < value.length - 1 ? (
-									<span className='text-foreground'>, </span>
+									<span className="text-foreground">, </span>
 								) : (
 									''
 								)}
@@ -44,13 +44,13 @@ function formatDataToBeautifulPre(data: TouristIndividualResearchFormType) {
 					</span>
 				)}
 				{typeof value === 'undefined' && (
-					<span className='text-muted-foreground/50'>undefined</span>
+					<span className="text-muted-foreground/50">undefined</span>
 				)}
 				{typeof value === 'number' && (
-					<span className='text-chart-3'>{`${value}`}</span>
+					<span className="text-chart-3">{`${value}`}</span>
 				)}
 				{typeof value === 'boolean' && (
-					<span className='text-chart-1'>{`${value}`}</span>
+					<span className="text-chart-1">{`${value}`}</span>
 				)}
 			</span>
 			<br />
@@ -88,24 +88,24 @@ export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 					variant: 'link',
 				})} w-full transition-colors ${ibmPlexMono.className}`}
 			>
-				<Bug className='size-5' />
+				<Bug className="size-5" />
 				{t('trigger_text')}
 			</AlertDialogTrigger>
-			<AlertDialogContent className='max-h-[calc(100dvh-32)]'>
+			<AlertDialogContent className="max-h-[calc(100dvh-32)]">
 				<AlertDialogHeader>
-					<AlertDialogTitle className='inline-flex text-start justify-between items-center font-extrabold'>
+					<AlertDialogTitle className="inline-flex text-start justify-between items-center font-extrabold">
 						{t('dialog_title')}
 						<AlertDialogAction
 							className={`${buttonVariants({
 								variant: 'secondary',
 							})} bg-transparent shadow-none`}
 						>
-							<X className='size-5 text-muted-foreground' />
+							<X className="size-5 text-muted-foreground" />
 						</AlertDialogAction>
 					</AlertDialogTitle>
 
-					<div className='h-full code mb-2 max-h-[calc(100dvh-384px)] overflow-y-auto rounded-md'>
-						<pre className='text-wrap bg-card dark:bg-black/50 p-4 text-sm text-start'>
+					<div className="h-full code mb-2 max-h-[calc(100dvh-384px)] overflow-y-auto rounded-md">
+						<pre className="text-wrap bg-card dark:bg-black/50 p-4 text-sm text-start">
 							&#123;
 							<br />
 							{formatDataToBeautifulPre(data)}
@@ -113,7 +113,7 @@ export default function FormDebugDialog({ data }: FormDebugDialogProps) {
 						</pre>
 					</div>
 
-					<AlertDialogDescription className='text-primary text-start'>
+					<AlertDialogDescription className="text-primary text-start">
 						{t('dialog_description')}
 					</AlertDialogDescription>
 				</AlertDialogHeader>

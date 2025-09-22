@@ -7,7 +7,7 @@ import { ibmPlexSerif } from '@/styles/fonts';
 import { getTranslations } from 'next-intl/server';
 import { HomeBentoGrid } from './_components/HomeBentoGrid';
 import { HomeMarquee } from './_components/HomeMarquee';
-import { RevealOnScroll } from '../components/layout/RevealOnScroll';
+import { RevealOnScroll } from '../../components/layout/RevealOnScroll';
 
 export default async function Home() {
 	const t = await getTranslations('app.home');

@@ -7,7 +7,6 @@ import {
 	BreadcrumbSeparator,
 } from '../ui/breadcrumb';
 import { LinkType } from '@/@types/link';
-import { Footer } from './Footer';
 
 type InformativePageWrapperProps = PropsWithChildren & {
 	breadcrumbLinks: LinkType[];

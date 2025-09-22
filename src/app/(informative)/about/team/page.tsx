@@ -106,6 +106,7 @@ const computerVisionTeam: TeamMember[] = [
 	},
 ];
 
+// TODO: adicionar traduções para áreas do time e adicionar informações dos membros do time (foto e redes)
 export default async function AboutTeam() {
 	const t = await getTranslations('');
 

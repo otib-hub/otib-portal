@@ -9,6 +9,7 @@ import { CityHighlightsCarousel } from './CityHighlightsCarousel';
 import { CityTouristicData } from '@/@types/city-touristic-data';
 import { getCityTouristicData } from './touristic-data';
 import { CityDataTabs } from './CityDataTabs';
+import { RevealOnScroll } from '@/components/layout/RevealOnScroll';
 
 const LazyIbiapabaMap = dynamic(
 	() => import('@/components/layout/IbiapabaMap'),
@@ -50,10 +51,14 @@ export function InteractiveMap() {
 				/>
 			</div>
 
-			<CityDataTabs
-				city={selectedCity}
-				cityTouristicData={selectedCityTouristicData}
-			/>
+			{/* TODO: investigar excesso de renderizações ao trocar cidade selecionada */}
+
+			<RevealOnScroll>
+				<CityDataTabs
+					city={selectedCity}
+					cityTouristicData={selectedCityTouristicData}
+				/>
+			</RevealOnScroll>
 		</div>
 	);
 }

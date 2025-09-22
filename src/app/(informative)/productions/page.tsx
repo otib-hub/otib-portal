@@ -96,6 +96,7 @@ export default async function ProductionsPage() {
 					</Heading.H2>
 
 					<div className="w-full flex flex-wrap gap-6">
+						{/* TODO: implementar paginas individuais das categorias de produções */}
 						{categories.map((category) => (
 							<Link
 								href="/soon"
