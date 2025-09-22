@@ -23,10 +23,7 @@ export function MapHelpDialog() {
 			<DialogContent>
 				<DialogTitle>{t('title')}</DialogTitle>
 				<DialogDescription className="text-muted-foreground">
-					{t('description.0')}
-					<br />
-					<br />
-					{t('description.1')}
+					{t('description.0')} {t('description.1')}
 				</DialogDescription>
 				<DialogFooter>
 					<DialogClose className={buttonVariants()}>
