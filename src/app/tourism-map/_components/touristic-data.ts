@@ -1,7 +1,6 @@
 import { CityTouristicData } from '@/@types/city-touristic-data';
 import { CitiesENUM, getCityImage } from '@/utils/get-city-image';
 
-// TODO: implementar a recuperação de mais de uma foto via getCityImage()
 const defaultData: CityTouristicData = {
 	id: -1,
 	name: 'default',
