@@ -6,7 +6,7 @@ import {
 	CarouselPrevious,
 } from '@/components/ui/carousel';
 import { EarthIcon, InstagramIcon } from 'lucide-react';
-import { Partner } from '../../../@types/partner';
+import { Partner } from '../.././../../@types/partner';
 import { getPartnerLogo, PartnersEnum } from '@/utils/get-partner-logo';
 import { useTranslations } from 'next-intl';
 import { PartnerCard } from './PartnerCard';
