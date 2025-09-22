@@ -53,14 +53,13 @@ export function CityHighlightsCarousel({
 				<CarouselContent>
 					{data.images.map((image) => {
 						return (
-							<CarouselItem key={image.title}>
+							<CarouselItem key={image.slug}>
 								<Image
 									className="max-h-128 lg:max-h-100 object-cover rounded-xl"
 									src={image.src}
 									height={image.height}
 									width={image.width}
-									placeholder="blur"
-									blurDataURL={image.blurDataURL}
+									placeholder="empty"
 									priority={image.priority}
 									loading={
 										image.loading as
