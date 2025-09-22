@@ -121,6 +121,12 @@
 				"1": "Nuestra organización en GitHub",
 				"2": " centraliza todos los proyectos, herramientas y recursos desarrollados por el equipo, lo que pone de manifiesto nuestro compromiso con la transparencia, la colaboración y la innovación.",
 				"3": "Estamos comprometidos con la promoción del turismo regional a través de la innovación y la colaboración. ¡La cultura del proyecto se basa en la colaboración abierta! Lea las instrucciones en el README de la organización para obtener más información."
+			},
+			"teams": {
+				"coordination-title": "Coordinación del proyecto",
+				"devs-title": "Desarrolladores",
+				"design-title": "Diseño e investigación",
+				"computer-vision-title": "Visión artificial"
 			}
 		},
 		"productions": {

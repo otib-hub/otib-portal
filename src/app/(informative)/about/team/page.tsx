@@ -150,7 +150,9 @@ export default async function AboutTeam() {
 						id="team-coordination"
 						className="shadow-xl flex-1 md:w-fit rounded-xl p-6 bg-card flex flex-col gap-8"
 					>
-						<Heading.H2>{'Coordination Team'}</Heading.H2>
+						<Heading.H2>
+							{t('app.about/team.teams.coordination-title')}
+						</Heading.H2>
 						<TeamMembers teamMembers={coordinationTeam} />
 					</div>
 
@@ -158,7 +160,9 @@ export default async function AboutTeam() {
 						id="team-devs"
 						className="w-full md:w-fit rounded-xl p-6 bg-card flex flex-col gap-8"
 					>
-						<Heading.H2>Devs</Heading.H2>
+						<Heading.H2>
+							{t('app.about/team.teams.devs-title')}
+						</Heading.H2>
 						<TeamMembers
 							className="flex-row flex-wrap items-center!"
 							teamMembers={developmentTeam}
@@ -169,7 +173,9 @@ export default async function AboutTeam() {
 						id="team-design-and-research"
 						className="flex-1 rounded-xl p-6 bg-card flex flex-col gap-8"
 					>
-						<Heading.H2>Design & Research</Heading.H2>
+						<Heading.H2>
+							{t('app.about/team.teams.design-title')}
+						</Heading.H2>
 						<TeamMembers teamMembers={designTeam} />
 					</div>
 
@@ -177,7 +183,9 @@ export default async function AboutTeam() {
 						id="design-and-research"
 						className="flex-1 rounded-xl p-6 bg-card flex flex-col gap-8"
 					>
-						<Heading.H2>Computer Vision</Heading.H2>
+						<Heading.H2>
+							{t('app.about/team.teams.computer-vision-title')}
+						</Heading.H2>
 						<TeamMembers teamMembers={computerVisionTeam} />
 					</div>
 				</section>
