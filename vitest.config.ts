@@ -7,7 +7,6 @@ import path from 'path';
 
 export default defineConfig({
 	test: {
-		// Configurações existentes mantidas
 		environment: 'jsdom',
 		globals: true,
 		fileParallelism: true,
@@ -18,40 +17,27 @@ export default defineConfig({
 
 		// Configuração de relatórios para SonarQube
 		reporters: [
-			'default', // Reporter padrão do Vitest
+			'default',
 			'verbose', // Reporter detalhado
 			[
 				'vitest-sonar-reporter',
-				{
-					outputFile: './coverage/sonar-report.xml',
-				},
+				{ outputFile: './coverage/sonar-report.xml' },
 			],
 		],
 
-		// Configuração de cobertura adaptada e expandida
 		coverage: {
-			// Mantém o provider V8 existente
 			provider: 'v8',
-
-			// Formatos de relatório expandidos para incluir SonarQube
 			reporter: [
-				'html', // Mantém o HTML existente
-				'text', // Para visualização no terminal
-				'text-summary', // Resumo no terminal
+				'html',
+				'text',
+				'text-summary',
 				'lcov', // Para SonarQube (LCOV format)
-				'clover', // Formato alternativo
-				'json', // Para outras integrações
+				'clover',
+				'json',
 			],
-
-			// Mantém o diretório existente
 			reportsDirectory: './coverage',
-
-			// Mantém os includes existentes
 			include: ['src/**/*.{ts,tsx}'],
-
-			// Mantém e expande as exclusões existentes
 			exclude: [
-				// Exclusões existentes mantidas
 				'**/*.test.{ts,tsx}',
 				'**/*.spec.{ts,tsx}',
 				'**/@types/**',
@@ -76,7 +62,6 @@ export default defineConfig({
 				'**/stories/**',
 				'**/__stories__/**',
 
-				// Exclusões adicionais para melhor integração
 				'node_modules/',
 				'dist/',
 				'build/',
@@ -86,14 +71,10 @@ export default defineConfig({
 				'**/examples/**',
 				'**/docs/**',
 			],
-
-			// Configurações adicionais para melhor análise
-			all: true, // Inclui arquivos não testados
-			skipFull: false, // Não pula arquivos com 100% cobertura
-			clean: true, // Limpa o diretório antes de gerar
-			cleanOnRerun: true, // Limpa a cada execução
-
-			// Limites de cobertura (opcional - ajuste conforme necessário)
+			all: true,
+			skipFull: false,
+			clean: true,
+			cleanOnRerun: true,
 			thresholds: {
 				global: {
 					branches: 70,
@@ -104,11 +85,7 @@ export default defineConfig({
 			},
 		},
 	},
-
-	// Mantém os plugins existentes
 	plugins: [react()],
-
-	// Mantém as configurações de resolve existentes
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, 'src'),

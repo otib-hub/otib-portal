@@ -7,6 +7,20 @@ html {
 	scroll-behavior: smooth;
 }
 
+body {
+	letter-spacing: var(--tracking-normal);
+}
+
+p {
+	font-size: 16px;
+}
+
+@media screen and (width >=768px) {
+	p {
+		font-size: 18px;
+	}
+}
+
 :root {
 	--background: oklch(0.98 0 0);
 	--foreground: oklch(0 0 0);
@@ -53,6 +67,21 @@ html {
 	--shadow-xl: 0 0 3px 0 hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
 	--shadow-2xl: 0 0 3px 0 hsl(0 0% 0% / 0.35);
 	--tracking-normal: 0;
+
+	::selection {
+		background-color: var(--chart-5);
+		color: var(--color-sidebar-accent-foreground);
+	}
+
+	::-webkit-selection {
+		background-color: var(--chart-5);
+		color: var(--color-sidebar-accent-foreground);
+	}
+
+	::-moz-selection {
+		background-color: var(--chart-5);
+		color: var(--color-sidebar-accent-foreground);
+	}
 }
 
 .dark {
@@ -160,50 +189,75 @@ html {
 	--tracking-wide: calc(var(--tracking-normal) + 0.025em);
 	--tracking-wider: calc(var(--tracking-normal) + 0.05em);
 	--tracking-widest: calc(var(--tracking-normal) + 0.1em);
-}
 
-body {
-	letter-spacing: var(--tracking-normal);
+	--animate-marquee: marquee var(--duration) infinite linear;
+	--animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+	@keyframes marquee {
+		from {
+			transform: translateX(0);
+		}
+
+		to {
+			transform: translateX(calc(-100% - var(--gap)));
+		}
+	}
+
+	@keyframes marquee-vertical {
+		from {
+			transform: translateY(0);
+		}
+
+		to {
+			transform: translateY(calc(-100% - var(--gap)));
+		}
+	}
+
+	@keyframes flash {
+		0% {
+			opacity: 1;
+		}
+
+		50% {
+			opacity: 0.6;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes compass-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		30% {
+			transform: rotate(20deg);
+		}
+
+		60% {
+			transform: rotate(-15deg);
+		}
+
+		100% {
+			transform: rotate(0deg);
+		}
+	}
 }
 
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
 	}
+
 	body {
 		@apply bg-background text-foreground;
 	}
 }
 
-@keyframes flash {
-	0% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0.6;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
 .animate-flash {
 	animation: flash 0.5s ease-in-out;
-}
-
-@keyframes compass-spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	30% {
-		transform: rotate(20deg);
-	}
-	60% {
-		transform: rotate(-15deg);
-	}
-	100% {
-		transform: rotate(0deg);
-	}
 }
 
 .animate-compass-spin {

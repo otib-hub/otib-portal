@@ -1,71 +1,68 @@
-import { cn } from '@/lib/utils';
 import { buttonVariants } from '../ui/button';
 import Link from 'next/link';
 import { OtibLogo } from './OtibLogo';
+import { getTranslations } from 'next-intl/server';
 
-export function Footer() {
+const footerLinkStyle = buttonVariants({
+	variant: 'inline-link',
+	className:
+		'!text-sm text-secondary-foreground/70 no-underline! hover:underline!',
+});
+
+type FooterProps = {
+	className?: string;
+};
+
+export async function Footer({ className }: FooterProps) {
+	const t = await getTranslations();
+
 	return (
-		<footer className='mt-20 bg-card text-base p-10 flex flex-col justify-center items-center gap-8'>
-			<div className='flex flex-col justify-center items-center gap-6 md:max-w-164'>
-				<OtibLogo variant='horizontal' className='h-10' />
+		<footer
+			id="footer-content"
+			className={`bg-card text-base p-10 flex flex-col gap-6 rounded-t-2xl + ${className}`}
+		>
+			<div
+				id="footer-first-row"
+				className="h-fit flex flex-col lg:flex-row gap-6 justify-center md:justify-between"
+			>
+				<OtibLogo variant="horizontal" className="h-8" />
 
-				<span>
-					Observatório de Turismo da Ibiapaba (OTIB): um projeto do IFCE Campus
-					Tianguá com apoio de parcerias regionais para auxiliar no
-					desenvolvimento da Serra da Ibiapaba.
-				</span>
-			</div>
+				<div
+					id="footer-first-row-links"
+					className="flex gap-x-6 justify-center gap-y-2 flex-wrap"
+				>
+					<Link href="/" className={footerLinkStyle}>
+						{t('meta.home.title')}
+					</Link>
 
-			<div className='flex flex-col justify-center items-center gap-4 self-stretch'>
-				<span className='font-semibold text-base'>Explore nosso portal</span>
+					<Link href="/about" className={footerLinkStyle}>
+						{t('meta.about.title')}
+					</Link>
 
-				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-wrap justify-center items-center'>
-					<Link
-						href='/'
-						className={cn(
-							buttonVariants({ variant: 'link' }),
-							'text-secondary-foreground/70'
-						)}
-					>
-						Página Inicial
+					<Link href="/productions" className={footerLinkStyle}>
+						{t('meta.productions.title')}
 					</Link>
-					<Link
-						href='/about'
-						className={cn(
-							buttonVariants({ variant: 'link' }),
-							'text-secondary-foreground/70'
-						)}
-					>
-						Sobre o OTIB
+
+					<Link href="/tourism-map" className={footerLinkStyle}>
+						{t('meta.tourism-map.title')}
 					</Link>
-					<Link
-						href='/soon' // TODO: página de boletins
-						className={cn(
-							buttonVariants({ variant: 'link' }),
-							'text-secondary-foreground/70'
-						)}
-					>
-						Boletins
-					</Link>
-					<Link
-						href='/soon' // TODO: página de mapa do turismo
-						className={cn(
-							buttonVariants({ variant: 'link' }),
-							'text-secondary-foreground/70'
-						)}
-					>
-						Mapa do Turismo da Ibiapaba
-					</Link>
-					<Link
-						href='/soon' // TODO: página de parceiros
-						className={cn(
-							buttonVariants({ variant: 'link' }),
-							'text-secondary-foreground/70'
-						)}
-					>
-						Parceiros
+
+					<Link href="/partners" className={footerLinkStyle}>
+						{t('meta.partners.title')}
 					</Link>
 				</div>
+			</div>
+
+			<div
+				id="footer-second-row"
+				className="flex flex-col md:flex-row justify-between gap-2 text-center md:text-start"
+			>
+				<span className="text-sm">
+					&copy; 2025 Observatório de Turismo da Ibiapaba
+				</span>{' '}
+				<span className="text-sm">
+					{t('components.Footer.end-text')}
+				</span>
 			</div>
 		</footer>
 	);

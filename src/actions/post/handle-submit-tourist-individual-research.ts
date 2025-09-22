@@ -1,4 +1,4 @@
-import { TouristIndividualResearchFormType } from '@/app/researches/tourist-individual/_form/TouristIndividualResearch/schemas/form-schema';
+import { TouristIndividualResearchFormType } from '@/app/(interactive)/researches/tourist-individual/_form/TouristIndividualResearch/schemas/form-schema';
 import { formatErrors } from '@/utils/format-errors';
 
 type Payload = Partial<TouristIndividualResearchFormType>;

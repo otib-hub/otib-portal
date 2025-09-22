@@ -17,11 +17,13 @@ import { languages } from '@/i18n/config';
 interface LocaleSwitcherProps {
 	showText?: boolean;
 	className?: string;
+	dropdownAlign?: 'start' | 'end' | 'center' | undefined;
 }
 
 export function LocaleSwitcher({
 	showText = false,
 	className,
+	dropdownAlign = 'end',
 }: LocaleSwitcherProps) {
 	const t = useTranslations();
 	const [locale, setLocale] = useState<string>();
@@ -39,16 +41,16 @@ export function LocaleSwitcher({
 			<DropdownMenuTrigger asChild>
 				<Button
 					title={t('components.LocaleSwitcher.title')}
-					variant='ghost'
-					size='icon'
+					variant="ghost"
+					size="icon"
 					className={className}
 				>
-					<Globe className='size-5' />
+					<Globe className="size-5" />
 					{showText && t('components.LocaleSwitcher.title')}
 				</Button>
 			</DropdownMenuTrigger>
 
-			<DropdownMenuContent align='end'>
+			<DropdownMenuContent align={dropdownAlign}>
 				{languages.map((lang) => (
 					<DropdownMenuItem
 						key={lang.locale}
@@ -58,7 +60,7 @@ export function LocaleSwitcher({
 					>
 						{lang.title}
 						{locale === lang.locale && (
-							<Check className='size-4 text-foreground' />
+							<Check className="size-4 text-foreground" />
 						)}
 					</DropdownMenuItem>
 				))}
