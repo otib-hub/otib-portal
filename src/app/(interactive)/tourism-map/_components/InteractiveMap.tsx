@@ -27,12 +27,12 @@ export function InteractiveMap() {
 	const [selectedCity, setSelectedCity] = useState<string | undefined>(
 		undefined,
 	);
-	const [selectedCityTouristicData, setSelectedCityTouristicData] =
-		useState<CityTouristicData>(getCityTouristicData(undefined));
+
+	const selectedCityTouristicData: CityTouristicData =
+		getCityTouristicData(selectedCity);
 
 	const handleCityChange = useCallback((city: string | undefined) => {
 		setSelectedCity(city);
-		setSelectedCityTouristicData(getCityTouristicData(city));
 	}, []);
 
 	return (
