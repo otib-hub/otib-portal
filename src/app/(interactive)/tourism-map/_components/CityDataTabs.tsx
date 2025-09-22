@@ -42,7 +42,7 @@ export function CityDataTabs({ city, cityTouristicData }: CityDataTabsProps) {
 			.reduce((acc, item) => acc + item.value, 0),
 		registeredInCadastur: cityTouristicData.companiesData[1].value,
 	};
-
+	// TODO: adicionar tradução para tab triggers e conteúdo
 	const tabs = [
 		{
 			name: (
@@ -127,7 +127,7 @@ export function CityDataTabs({ city, cityTouristicData }: CityDataTabsProps) {
 											? cityNameMap[
 													city as keyof typeof cityNameMap
 											  ]
-											: `toda a Serra da Ibiapaba (${chartAuxData.totalEnterprisesInCity})`
+											: `toda a Serra da Ibiapaba`
 									}`}
 							sourceUrl="https://nupreds.ifce.edu.br/otib-boletins/boletim01-2025.pdf"
 							chartData={[
@@ -146,7 +146,7 @@ export function CityDataTabs({ city, cityTouristicData }: CityDataTabsProps) {
 											? cityNameMap[
 													city as keyof typeof cityNameMap
 											  ]
-											: `toda a Serra da Ibiapaba (${chartAuxData.totalEnterprisesInCity})`
+											: `toda a Serra da Ibiapaba`
 									}`}
 							chartData={{
 								name: 'Registradas no Cadastur',
