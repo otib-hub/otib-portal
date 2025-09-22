@@ -1,23 +1,54 @@
 import type { CityImage } from '@/@types/city-image';
-import croata_full from '#/images/cities/full/croata_full.png';
-import carnaubal_full from '#/images/cities/full/carnaubal_full.png';
-import guaraciaba_full from '#/images/cities/full/guaraciaba_full.png';
-import ipu_full from '#/images/cities/full/ipu_full.png';
-import sao_benedito_full from '#/images/cities/full/sao-benedito_full.png';
-import ubajara_full from '#/images/cities/full/ubajara_full.png';
-import vicosa_full from '#/images/cities/full/vicosa_full.png';
-import tiangua_full from '#/images/cities/full/tiangua_full.png';
-import ibiapina_full from '#/images/cities/full/ibiapina_full.png';
 
-import croata_square from '#/images/cities/square/croata_square.png';
-import carnaubal_square from '#/images/cities/square/carnaubal_square.png';
-import guaraciaba_square from '#/images/cities/square/guaraciaba_square.png';
-import ipu_square from '#/images/cities/square/ipu_square.png';
-import sao_benedito_square from '#/images/cities/square/sao-benedito_square.png';
-import ubajara_square from '#/images/cities/square/ubajara_square.png';
-import vicosa_square from '#/images/cities/square/vicosa_square.png';
-import tiangua_square from '#/images/cities/square/tiangua_square.png';
-import ibiapina_square from '#/images/cities/square/ibiapina_square.png';
+import default_0 from '#/images/cities/default/0.png';
+import default_1 from '#/images/cities/default/1.png';
+import default_2 from '#/images/cities/default/2.png';
+
+import tiangua_0 from '#/images/cities/tiangua/0.png';
+import tiangua_1 from '#/images/cities/tiangua/1.png';
+import tiangua_2 from '#/images/cities/tiangua/2.png';
+import tiangua_3 from '#/images/cities/tiangua/3.png';
+
+import croata_0 from '#/images/cities/croata/0.png';
+import croata_1 from '#/images/cities/croata/1.png';
+import croata_2 from '#/images/cities/croata/2.png';
+import croata_3 from '#/images/cities/croata/3.png';
+
+import ubajara_0 from '#/images/cities/ubajara/0.png';
+import ubajara_1 from '#/images/cities/ubajara/1.png';
+import ubajara_2 from '#/images/cities/ubajara/2.png';
+import ubajara_3 from '#/images/cities/ubajara/3.png';
+
+import carnaubal_0 from '#/images/cities/carnaubal/0.png';
+import carnaubal_1 from '#/images/cities/carnaubal/1.png';
+import carnaubal_2 from '#/images/cities/carnaubal/2.png';
+import carnaubal_3 from '#/images/cities/carnaubal/3.png';
+
+import guaraciaba_0 from '#/images/cities/guaraciaba-do-norte/0.png';
+import guaraciaba_1 from '#/images/cities/guaraciaba-do-norte/1.png';
+import guaraciaba_2 from '#/images/cities/guaraciaba-do-norte/2.png';
+import guaraciaba_3 from '#/images/cities/guaraciaba-do-norte/3.png';
+
+import ipu_0 from '#/images/cities/ipu/0.png';
+import ipu_1 from '#/images/cities/ipu/1.png';
+import ipu_2 from '#/images/cities/ipu/2.png';
+import ipu_3 from '#/images/cities/ipu/3.png';
+
+import sb_0 from '#/images/cities/sao-benedito/0.png';
+import sb_1 from '#/images/cities/sao-benedito/1.png';
+import sb_2 from '#/images/cities/sao-benedito/2.png';
+import sb_3 from '#/images/cities/sao-benedito/3.png';
+
+import vicosa_0 from '#/images/cities/vicosa-do-ceara/0.png';
+import vicosa_1 from '#/images/cities/vicosa-do-ceara/1.png';
+import vicosa_2 from '#/images/cities/vicosa-do-ceara/2.png';
+import vicosa_3 from '#/images/cities/vicosa-do-ceara/3.png';
+
+import ibiapina_0 from '#/images/cities/ibiapina/0.png';
+import ibiapina_1 from '#/images/cities/ibiapina/1.png';
+import ibiapina_2 from '#/images/cities/ibiapina/2.png';
+import ibiapina_3 from '#/images/cities/ibiapina/3.png';
+import { StaticImageData } from 'next/image';
 
 export enum CitiesENUM {
 	CROATA = 'croata',
@@ -31,78 +62,74 @@ export enum CitiesENUM {
 	IBIAPINA = 'ibiapina',
 }
 
+function makeImageSet(city: string, imgs: StaticImageData[]) {
+	return imgs.map((img, i) => ({
+		id: i,
+		slug: `${city}_${i}`,
+		img,
+		description: `city (${i})`,
+	}));
+}
+
 export const citiesBackgrounds = {
-	croata: {
-		slug: 'croata',
-		full: croata_full,
-		square: croata_square,
-		description: 'Igreja Matriz - Croatá',
-	},
-	carnaubal: {
-		slug: 'carnaubal',
-		full: carnaubal_full,
-		square: carnaubal_square,
-		description: 'Chácara O Firmeza - Carnaubal',
-	},
-	['guaraciaba-do-norte']: {
-		slug: 'guaraciaba',
-		full: guaraciaba_full,
-		square: guaraciaba_square,
-		description: 'Fazenda Gospel - Guaraciaba do Norte',
-	},
-	ipu: {
-		slug: 'ipu',
-		full: ipu_full,
-		square: ipu_square,
-		description: 'Bica do Ipu - Ipu',
-	},
-	['sao-benedito']: {
-		slug: 'sao-benedito',
-		full: sao_benedito_full,
-		square: sao_benedito_square,
-		description: 'Reijers - São Benedito',
-	},
-	ubajara: {
-		slug: 'ubajara',
-		full: ubajara_full,
-		square: ubajara_square,
-		description: 'Parque Nacional de Ubajara - Ubajara',
-	},
-	['vicosa-do-ceara']: {
-		slug: 'vicosa-do-ceara',
-		full: vicosa_full,
-		square: vicosa_square,
-		description: 'Igreja do Céu - Viçosa do Ceará',
-	},
-	tiangua: {
-		slug: 'tiangua',
-		full: tiangua_full,
-		square: tiangua_square,
-		description: 'Sítio do Bosco - Tianguá',
-	},
-	ibiapina: {
-		slug: 'ibiapina',
-		full: ibiapina_full,
-		square: ibiapina_square,
-		description: 'Centro - Ibiapina',
-	},
+	default: makeImageSet('default', [default_0, default_1, default_2]),
+	croata: makeImageSet('croata', [croata_0, croata_1, croata_2, croata_3]),
+	carnaubal: makeImageSet('carnaubal', [
+		carnaubal_0,
+		carnaubal_1,
+		carnaubal_2,
+		carnaubal_3,
+	]),
+	['guaraciaba-do-norte']: makeImageSet('guaraciaba-do-norte', [
+		guaraciaba_0,
+		guaraciaba_1,
+		guaraciaba_2,
+		guaraciaba_3,
+	]),
+	ipu: makeImageSet('ipu', [ipu_0, ipu_1, ipu_2, ipu_3]),
+	['sao-benedito']: makeImageSet('sao-benedito', [sb_0, sb_1, sb_2, sb_3]),
+	ubajara: makeImageSet('ubajara', [
+		ubajara_0,
+		ubajara_1,
+		ubajara_2,
+		ubajara_3,
+	]),
+	['vicosa-do-ceara']: makeImageSet('vicosa-do-ceara', [
+		vicosa_0,
+		vicosa_1,
+		vicosa_2,
+		vicosa_3,
+	]),
+	tiangua: makeImageSet('tiangua', [
+		tiangua_0,
+		tiangua_1,
+		tiangua_2,
+		tiangua_3,
+	]),
+	ibiapina: makeImageSet('ibiapina', [
+		ibiapina_0,
+		ibiapina_1,
+		ibiapina_2,
+		ibiapina_3,
+	]),
 } as const;
 
 export function getCityImage(
-	isMobile: boolean,
-	cityName: CitiesENUM,
+	cityName: CitiesENUM | 'default',
+	imageId: number,
 	options?: Partial<CityImage>,
 ): CityImage {
-	const city = citiesBackgrounds[cityName as keyof typeof citiesBackgrounds];
-	const image = isMobile ? city.square : city.full;
+	const cityKey = cityName ?? 'default';
+	const image =
+		citiesBackgrounds[cityKey as keyof typeof citiesBackgrounds][imageId];
 	return {
-		src: image,
-		alt: city.description,
-		title: city.description,
-		slug: city.slug,
-		blurDataURL: image.blurDataURL,
-		width: image.width,
-		height: image.height,
+		src: image.img,
+		alt: image.description,
+		title: image.description,
+		slug: image.slug,
+		blurDataURL: image.img.blurDataURL,
+		width: image.img.width,
+		height: image.img.height,
 		...options,
 	};
 }
