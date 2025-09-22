@@ -33,6 +33,11 @@
 						"title": "Acesse nossas produções",
 						"description": "Dados significativos sobre a Ibiapaba: coletados, compilados e analisados.",
 						"button_action": "Descubra"
+					},
+					"tourism-map-card": {
+						"title": "Conheça mais sobre a Ibiapaba",
+						"description": "Explore nosso Mapa Interativo e descubra dados e fatos de cada cidade.",
+						"button_action": "Explorar"
 					}
 				}
 			}

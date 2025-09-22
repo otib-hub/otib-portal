@@ -1,6 +1,6 @@
 import { TFunction } from '@/@types/next-intl';
 import { BentoCard } from './BentoCard';
-import { BoxIcon, ClipboardPenLineIcon } from 'lucide-react';
+import { BoxIcon, ClipboardPenLineIcon, MapIcon } from 'lucide-react';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
 
@@ -32,7 +32,7 @@ export async function HomeBentoGrid({ t }: BentoGridProps) {
 			</BentoCard>
 
 			<BentoCard
-				className="flex-1 basis-1/2"
+				className="flex-1 basis-1/3"
 				title={t('sections.bento-cards.productions-card.title')}
 				description={t(
 					'sections.bento-cards.productions-card.description',
@@ -51,6 +51,28 @@ export async function HomeBentoGrid({ t }: BentoGridProps) {
 				}
 			>
 				<BoxIcon className="size-6" />
+			</BentoCard>
+
+			<BentoCard
+				className="flex-1 basis-1/3"
+				title={t('sections.bento-cards.tourism-map-card.title')}
+				description={t(
+					'sections.bento-cards.tourism-map-card.description',
+				)}
+				cta={
+					<Link
+						href={'/tourism-map'}
+						className={`${buttonVariants({
+							className: 'w-fit mt-3',
+						})} `}
+					>
+						{t(
+							'sections.bento-cards.tourism-map-card.button_action',
+						)}
+					</Link>
+				}
+			>
+				<MapIcon className="size-6" />
 			</BentoCard>
 		</>
 	);
