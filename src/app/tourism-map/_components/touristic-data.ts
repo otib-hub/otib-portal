@@ -5,7 +5,11 @@ import { CitiesENUM, getCityImage } from '@/utils/get-city-image';
 const defaultData: CityTouristicData = {
 	id: -1,
 	name: 'default',
-	images: [{ ...getCityImage(false, CitiesENUM.UBAJARA) }],
+	images: [
+		{ ...getCityImage('default', 0) },
+		{ ...getCityImage('default', 1) },
+		{ ...getCityImage('default', 2) },
+	],
 	companiesData: [
 		{ id: 0, name: 'Total de Empresas de Turismo', value: 2775 },
 		{ id: 1, name: 'Empresas Registradas no Cadastur', value: 188 },
@@ -24,7 +28,12 @@ const touristicData: CityTouristicData[] = [
 	{
 		id: 1,
 		name: CitiesENUM.VICOSA,
-		images: [{ ...getCityImage(false, CitiesENUM.VICOSA) }],
+		images: [
+			{ ...getCityImage(CitiesENUM.VICOSA, 0) },
+			{ ...getCityImage(CitiesENUM.VICOSA, 1) },
+			{ ...getCityImage(CitiesENUM.VICOSA, 2) },
+			{ ...getCityImage(CitiesENUM.VICOSA, 3) },
+		],
 		companiesData: [
 			{ id: 0, name: 'Total de Empresas de Turismo', value: 327 },
 			{ id: 1, name: 'Empresas Registradas no Cadastur', value: 25 },
@@ -41,7 +50,12 @@ const touristicData: CityTouristicData[] = [
 	{
 		id: 2,
 		name: CitiesENUM.TIANGUA,
-		images: [{ ...getCityImage(false, CitiesENUM.TIANGUA) }],
+		images: [
+			{ ...getCityImage(CitiesENUM.TIANGUA, 0) },
+			{ ...getCityImage(CitiesENUM.TIANGUA, 1) },
+			{ ...getCityImage(CitiesENUM.TIANGUA, 2) },
+			{ ...getCityImage(CitiesENUM.TIANGUA, 3) },
+		],
 		companiesData: [
 			{ id: 0, name: 'Total de Empresas de Turismo', value: 819 },
 			{ id: 1, name: 'Empresas Registradas no Cadastur', value: 22 },
@@ -58,7 +72,12 @@ const touristicData: CityTouristicData[] = [
 	{
 		id: 3,
 		name: CitiesENUM.UBAJARA,
-		images: [{ ...getCityImage(false, CitiesENUM.UBAJARA) }],
+		images: [
+			{ ...getCityImage(CitiesENUM.UBAJARA, 0) },
+			{ ...getCityImage(CitiesENUM.UBAJARA, 1) },
+			{ ...getCityImage(CitiesENUM.UBAJARA, 2) },
+			{ ...getCityImage(CitiesENUM.UBAJARA, 3) },
+		],
 		companiesData: [
 			{ id: 0, name: 'Total de Empresas de Turismo', value: 310 },
 			{ id: 1, name: 'Empresas Registradas no Cadastur', value: 71 },
@@ -75,7 +94,12 @@ const touristicData: CityTouristicData[] = [
 	{
 		id: 4,
 		name: CitiesENUM.IBIAPINA,
-		images: [{ ...getCityImage(false, CitiesENUM.IBIAPINA) }],
+		images: [
+			{ ...getCityImage(CitiesENUM.IBIAPINA, 0) },
+			{ ...getCityImage(CitiesENUM.IBIAPINA, 1) },
+			{ ...getCityImage(CitiesENUM.IBIAPINA, 2) },
+			{ ...getCityImage(CitiesENUM.IBIAPINA, 3) },
+		],
 		companiesData: [
 			{ id: 0, name: 'Total de Empresas de Turismo', value: 194 },
 			{ id: 1, name: 'Empresas Registradas no Cadastur', value: 5 },
@@ -92,7 +116,12 @@ const touristicData: CityTouristicData[] = [
 	{
 		id: 5,
 		name: CitiesENUM.SB,
-		images: [{ ...getCityImage(false, CitiesENUM.SB) }],
+		images: [
+			{ ...getCityImage(CitiesENUM.SB, 0) },
+			{ ...getCityImage(CitiesENUM.SB, 1) },
+			{ ...getCityImage(CitiesENUM.SB, 2) },
+			{ ...getCityImage(CitiesENUM.SB, 3) },
+		],
 		companiesData: [
 			{ id: 0, name: 'Total de Empresas de Turismo', value: 339 },
 			{ id: 1, name: 'Empresas Registradas no Cadastur', value: 12 },
@@ -109,7 +138,12 @@ const touristicData: CityTouristicData[] = [
 	{
 		id: 6,
 		name: CitiesENUM.CARNAUBAL,
-		images: [{ ...getCityImage(false, CitiesENUM.CARNAUBAL) }],
+		images: [
+			{ ...getCityImage(CitiesENUM.CARNAUBAL, 0) },
+			{ ...getCityImage(CitiesENUM.CARNAUBAL, 1) },
+			{ ...getCityImage(CitiesENUM.CARNAUBAL, 2) },
+			{ ...getCityImage(CitiesENUM.CARNAUBAL, 3) },
+		],
 		companiesData: [
 			{ id: 0, name: 'Total de Empresas de Turismo', value: 85 },
 			{ id: 1, name: 'Empresas Registradas no Cadastur', value: 12 },
@@ -126,7 +160,12 @@ const touristicData: CityTouristicData[] = [
 	{
 		id: 7,
 		name: CitiesENUM.GBA,
-		images: [{ ...getCityImage(false, CitiesENUM.GBA) }],
+		images: [
+			{ ...getCityImage(CitiesENUM.GBA, 0) },
+			{ ...getCityImage(CitiesENUM.GBA, 1) },
+			{ ...getCityImage(CitiesENUM.GBA, 2) },
+			{ ...getCityImage(CitiesENUM.GBA, 3) },
+		],
 		companiesData: [
 			{ id: 0, name: 'Total de Empresas de Turismo', value: 303 },
 			{ id: 1, name: 'Empresas Registradas no Cadastur', value: 12 },
@@ -143,7 +182,12 @@ const touristicData: CityTouristicData[] = [
 	{
 		id: 8,
 		name: CitiesENUM.CROATA,
-		images: [{ ...getCityImage(false, CitiesENUM.CROATA) }],
+		images: [
+			{ ...getCityImage(CitiesENUM.CROATA, 0) },
+			{ ...getCityImage(CitiesENUM.CROATA, 1) },
+			{ ...getCityImage(CitiesENUM.CROATA, 2) },
+			{ ...getCityImage(CitiesENUM.CROATA, 3) },
+		],
 		companiesData: [
 			{ id: 0, name: 'Total de Empresas de Turismo', value: 104 },
 			{ id: 1, name: 'Empresas Registradas no Cadastur', value: 17 },
@@ -161,8 +205,10 @@ const touristicData: CityTouristicData[] = [
 		id: 9,
 		name: CitiesENUM.IPU,
 		images: [
-			{ ...getCityImage(false, CitiesENUM.IPU) },
-			{ ...getCityImage(false, CitiesENUM.GBA) },
+			{ ...getCityImage(CitiesENUM.IPU, 0) },
+			{ ...getCityImage(CitiesENUM.IPU, 1) },
+			{ ...getCityImage(CitiesENUM.IPU, 2) },
+			{ ...getCityImage(CitiesENUM.IPU, 3) },
 		],
 		companiesData: [
 			{ id: 0, name: 'Total de Empresas de Turismo', value: 294 },
