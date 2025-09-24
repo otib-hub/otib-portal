@@ -69,8 +69,6 @@ export function InteractiveMap() {
 				</Suspense>
 			</div>
 
-			{/* TODO: investigar excesso de renderizações ao trocar cidade selecionada */}
-
 			<RevealOnScroll>
 				<CityDataTabs
 					city={selectedCity}
