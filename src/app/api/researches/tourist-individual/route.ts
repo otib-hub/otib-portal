@@ -1,8 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
+	if (!process.env.INTERNAL_API_KEY) {
+		throw new Error("Invalid INTERNAL_API_KEY env variable");
+	}
+
 	try {
 		let data;
 		try {
@@ -11,19 +15,20 @@ export async function POST(req: NextRequest) {
 			return NextResponse.json({
 				success: false,
 				status: 400,
-				message: 'Invalid JSON data in request body',
+				message: "Invalid JSON data in request body",
 			});
 		}
 
 		const res = await fetch(
 			`${process.env.NEXT_PUBLIC_API_BASE_URL}/pesquisa-completa/`,
 			{
-				method: 'POST',
+				method: "POST",
 				headers: {
-					'Content-Type': 'application/json',
+					"Content-Type": "application/json",
+					Authorization: `Api-Key ${process.env.INTERNAL_API_KEY}`,
 				},
 				body: JSON.stringify(data),
-			},
+			}
 		);
 
 		let json;
@@ -32,7 +37,7 @@ export async function POST(req: NextRequest) {
 			json = await res.json();
 		} catch {
 			json = {
-				detail: 'Unexpected error while interpreting backend response.',
+				detail: "Unexpected error while interpreting backend response.",
 			};
 		}
 
@@ -42,7 +47,7 @@ export async function POST(req: NextRequest) {
 				status: res.status,
 				message:
 					json?.detail ||
-					'Unexpected error while processing the request.',
+					"Unexpected error while processing the request.",
 				data: json,
 			});
 		}
@@ -57,7 +62,7 @@ export async function POST(req: NextRequest) {
 			success: false,
 			status: 500,
 			message:
-				err instanceof Error ? err.message : 'Internal server error.',
+				err instanceof Error ? err.message : "Internal server error.",
 		});
 	}
 }

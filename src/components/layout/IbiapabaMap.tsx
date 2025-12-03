@@ -6,6 +6,7 @@ import React, {
 	useRef,
 	useCallback,
 	useMemo,
+	memo,
 } from 'react';
 import { use as echartsUse, init, registerMap } from 'echarts/core';
 import { MapChart } from 'echarts/charts';
@@ -95,7 +96,7 @@ const createBaseOptions = () => ({
 	],
 });
 
-export default function IbiapabaMap({
+const IbiapabaMap = memo(function IbiapabaMap({
 	selected,
 	onChangeSelected,
 }: IbiapabaMapProps) {
@@ -234,6 +235,7 @@ export default function IbiapabaMap({
 		chartInstance.current.setOption(
 			{ series: [{ data: mapData }] },
 			{ silent: true },
+
 		);
 	}, [mapData]);
 
@@ -256,4 +258,6 @@ export default function IbiapabaMap({
 			className="w-full md:w-[30%] min-h-[400px] md:min-h-[436px] lg:min-h-[512px]"
 		/>
 	);
-}
+});
+
+export default IbiapabaMap;

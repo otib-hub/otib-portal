@@ -9,7 +9,7 @@ import {
 import { ImageIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { CarouselSlidesIndicator } from '../../../../components/fragments/CarouselSlidesIndicator';
 
 type CityHighlightsCarouselProps = {
@@ -29,7 +29,7 @@ export const cityNameMap = {
 	ipu: 'Ipu',
 } as const;
 
-export function CityHighlightsCarousel({
+const CityHighlightsCarousel = memo(function CityHighlightsCarousel({
 	data,
 	selectedCity,
 }: CityHighlightsCarouselProps) {
@@ -94,4 +94,6 @@ export function CityHighlightsCarousel({
 			<p>{t(`${selectedCity ?? 'default'}`)}</p>
 		</div>
 	);
-}
+});
+
+export default CityHighlightsCarousel;

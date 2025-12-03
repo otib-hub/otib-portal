@@ -19,6 +19,7 @@ export function Member({
 		<div className={'flex flex-col gap-3 ' + className}>
 			<Avatar className="rounded-full size-18 md:size-24 place-self-center">
 				<AvatarImage
+					className="object-cover object-top"
 					draggable={false}
 					loading="lazy"
 					src={profilePhoto}
@@ -37,7 +38,10 @@ export function Member({
 					</span>
 				)}
 				{children && (
-					<div id="member-links" className="flex gap-2">
+					<div
+						id="member-links"
+						className="flex gap-2 justify-center"
+					>
 						{children}
 					</div>
 				)}
