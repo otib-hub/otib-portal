@@ -50,7 +50,9 @@ pnpm install
 bun install
 ```
 
-### 3. Execute o servidor de desenvolvimento
+### 3. Crie um arquivo `.env` na raiz do projeto com as variáveis de ambiente necessárias descritas em [`.env.example`](https://github.com/otib-hub/otib-portal/blob/main/.env.example)
+
+### 4. Execute o servidor de desenvolvimento
 ```bash
 npm run dev
 # ou
